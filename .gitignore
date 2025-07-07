@@ -93,3 +93,5 @@
 
     # Specific to this project (add any custom ones here)
     # .aiexclude (if you are using AI Assistant and want to exclude specific files from its context)
+/.idea/
+/app/release/

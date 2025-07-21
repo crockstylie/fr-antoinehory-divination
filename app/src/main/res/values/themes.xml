@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Thème de base pour l'application, hérite de Material 3 sans ActionBar -->
+    <style name="Theme.DivinationAppBase" parent="Theme.Material3.DayNight.NoActionBar">
+        <!--
+            Tu peux personnaliser ici des attributs de base pour la fenêtre de l'activité
+            si nécessaire, mais pour l'instant, l'héritage suffit.
+            Par exemple, couleurs de la barre d'état ou de navigation avant que Compose ne les gère.
+        -->
+        <!-- Exemple : Définir la couleur de la barre d'état pour les API < 23 si nécessaire -->
+        <!-- <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item> -->
+    </style>
+</resources>
+    

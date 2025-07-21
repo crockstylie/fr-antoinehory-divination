@@ -14,13 +14,18 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,6 +37,9 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
@@ -51,11 +59,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
 
         setContent {
             DivinationAppTheme {
+                HideSystemBars()
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -121,6 +132,27 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+private fun HideSystemBars() {
+    val windowInsetsController = rememberWindowInsetsController()
+
+    // Cacher les barres système au lancement et les afficher en sortant
+    // Ou utiliser DisposableEffect si vous voulez un contrôle plus fin sur le cycle de vie
+    LaunchedEffect(Unit) {
+        windowInsetsController?.let {
+            it.hide(WindowInsetsCompat.Type.systemBars())
+            it.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+    }
+}
+
+// Fonction utilitaire pour obtenir le contrôleur (peut être mise ailleurs)
+@Composable
+fun rememberWindowInsetsController(): WindowInsetsControllerCompat? {
+    val window = (LocalLifecycleOwner.current as? ComponentActivity)?.window
+    return window?.let { WindowCompat.getInsetsController(it, it.decorView) }
+}
+
+@Composable
 fun MagicBallScreen(responseText: String, isShuffling: Boolean) {
     // Animation de l'alpha (transparence)
     val textAlpha by animateFloatAsState(
@@ -141,6 +173,7 @@ fun MagicBallScreen(responseText: String, isShuffling: Boolean) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .windowInsetsPadding(WindowInsets.safeDrawing)
             .padding(32.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally

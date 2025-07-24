@@ -1,4 +1,4 @@
-package fr.antoinehory.divination.ui.theme // Assurez-vous que ce package est correct
+package fr.antoinehory.divination.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
@@ -18,6 +18,6 @@ val Typography = Typography(
     labelMedium = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp, // Vous pouvez ajuster cela aussi si le message d'erreur est trop petit/grand
+        fontSize = 16.sp,
     )
 )

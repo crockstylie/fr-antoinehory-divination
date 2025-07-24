@@ -3,7 +3,8 @@ package fr.antoinehory.divination.ui.screens
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.* // Garde cet import pour Box, Column, etc.
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,15 +19,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.viewmodel.compose.viewModel // Pour la preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.MagicBallViewModel
-import fr.antoinehory.divination.ui.common.AppScreen // Importe ton nouveau composable
-import fr.antoinehory.divination.ui.theme.DivinationAppTheme // ou OrakniumAppTheme
+import fr.antoinehory.divination.ui.common.AppScaffold
+import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 
 @Composable
 fun MagicBallScreen(
     viewModel: MagicBallViewModel,
-    onNavigateBack: () -> Unit // Ajoute le callback de navigation retour
+    onNavigateBack: () -> Unit
 ) {
     val responseText by viewModel.currentResponse
     val isShuffling by viewModel.isShuffling
@@ -60,17 +61,17 @@ fun MagicBallScreen(
         label = "textColor"
     )
 
-    AppScreen(
+    AppScaffold( // AppScreen gère maintenant les insets système globaux via son Scaffold
         title = "Boule Magique",
         canNavigateBack = true,
         onNavigateBack = onNavigateBack
-    ) { paddingValues ->
+    ) { paddingValues -> // paddingValues est pour le contenu par rapport à la TopAppBar
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues) // Important
-                .windowInsetsPadding(WindowInsets.safeDrawing) // Garde-le si tu veux un contrôle fin
-                .padding(horizontal = 32.dp, vertical = 16.dp), // Ajuste le padding si besoin
+                .padding(paddingValues) // Applique le padding de la TopAppBar
+                // .windowInsetsPadding(WindowInsets.safeDrawing) // N'EST PLUS NÉCESSAIRE ICI si AppScreen le gère
+                .padding(horizontal = 32.dp, vertical = 16.dp), // Ton padding de contenu spécifique
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -84,7 +85,7 @@ fun MagicBallScreen(
             } else {
                 Text(
                     text = responseText,
-                    style = MaterialTheme.typography.headlineSmall, // Peut-être un style plus grand
+                    style = MaterialTheme.typography.headlineSmall,
                     textAlign = TextAlign.Center,
                     color = textColor,
                     modifier = Modifier.alpha(textAlpha)
@@ -98,10 +99,9 @@ fun MagicBallScreen(
 @Composable
 fun MagicBallScreenPreviewIdle() {
     DivinationAppTheme {
-        // Pour la preview, tu peux créer un ViewModel factice ou ne pas en passer
-        // et simuler l'état.
-        val fakeViewModel: MagicBallViewModel = viewModel() // Juste pour la compilation de la preview
+        val fakeViewModel: MagicBallViewModel = viewModel()
         MagicBallScreen(viewModel = fakeViewModel, onNavigateBack = {})
     }
 }
+
 

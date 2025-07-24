@@ -11,12 +11,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import fr.antoinehory.divination.ui.common.AppScreen // Importe ton nouveau composable
+import fr.antoinehory.divination.ui.common.AppScaffold // Importe ton nouveau composable
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme // ou OrakniumAppTheme
 
 @Composable
 fun DiceRollScreen(onNavigateBack: () -> Unit) {
-    AppScreen(
+    AppScaffold(
         title = "Lancer de dés",
         canNavigateBack = true,
         onNavigateBack = onNavigateBack

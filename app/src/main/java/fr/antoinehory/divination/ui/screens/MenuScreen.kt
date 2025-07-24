@@ -10,13 +10,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color // Importer Color pour Transparent
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import fr.antoinehory.divination.ui.theme.DivinationAppTheme // ou OrakniumAppTheme si tu l'as renommé
-import fr.antoinehory.divination.ui.theme.OrakniumGold // Importer ta couleur
+import fr.antoinehory.divination.ui.theme.DivinationAppTheme
+import fr.antoinehory.divination.ui.theme.OrakniumGold
 
 @Composable
 fun MenuScreen(
@@ -29,19 +29,20 @@ fun MenuScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background) // Assure-toi que le fond est appliqué
+            .background(MaterialTheme.colorScheme.background) // S'assurer que le fond est défini
+            .windowInsetsPadding(WindowInsets.safeDrawing) // APPLIQUER LES INSETS ICI
     ) {
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
+                .fillMaxSize() // La Column prend toute la taille DANS les limites des insets du Box
+                .padding(16.dp), // Ton padding de contenu
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = "Oraknium",
                 style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.onBackground, // Devrait être OrakniumGold grâce au thème
+                color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier.padding(bottom = 50.dp)
             )
 
@@ -58,43 +59,40 @@ fun MenuScreen(
             onClick = onNavigateToInfo,
             modifier = Modifier
                 .align(Alignment.BottomEnd)
-                .padding(16.dp)
-                .size(48.dp) // Augmenter un peu la taille de la zone cliquable
+                .padding(16.dp) // Ce padding est relatif au Box parent (qui a déjà les insets)
+                .size(48.dp)
         ) {
             Icon(
                 imageVector = Icons.Filled.Info,
                 contentDescription = "Informations",
-                modifier = Modifier.size(36.dp), // Augmenter la taille de l'icône elle-même
-                tint = OrakniumGold // Appliquer la couleur OrakniumGold à l'icône
+                modifier = Modifier.size(36.dp),
+                tint = OrakniumGold
             )
         }
     }
 }
 
-// Nouveau Composable pour les boutons stylisés
 @Composable
 fun OrakniumMenuButton(text: String, onClick: () -> Unit) {
-    OutlinedButton( // Utiliser OutlinedButton pour un fond transparent et une bordure
+    OutlinedButton(
         onClick = onClick,
         modifier = Modifier
             .fillMaxWidth(0.8f)
             .height(60.dp),
-        shape = RoundedCornerShape(50), // Coins arrondis au maximum (pourcentage de la hauteur/2)
-        border = BorderStroke(2.dp, OrakniumGold), // Bordure avec la couleur OrakniumGold
+        shape = RoundedCornerShape(50),
+        border = BorderStroke(2.dp, OrakniumGold),
         colors = ButtonDefaults.outlinedButtonColors(
-            contentColor = OrakniumGold, // Couleur du texte
-            containerColor = Color.Transparent // Fond transparent
+            contentColor = OrakniumGold,
+            containerColor = Color.Transparent
         )
     ) {
         Text(text = text, fontSize = 18.sp, textAlign = TextAlign.Center)
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun MenuScreenPreview() {
-    // Si tu as renommé DivinationAppTheme en OrakniumAppTheme, utilise le nouveau nom ici
     DivinationAppTheme {
         MenuScreen({}, {}, {}, {}, {})
     }

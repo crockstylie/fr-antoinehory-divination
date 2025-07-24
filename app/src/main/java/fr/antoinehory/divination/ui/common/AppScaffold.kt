@@ -1,8 +1,10 @@
 package fr.antoinehory.divination.ui.common
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
@@ -12,13 +14,16 @@ import fr.antoinehory.divination.ui.theme.OrakniumGold
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppScreen(
+fun AppScaffold(
     title: String,
     canNavigateBack: Boolean,
     onNavigateBack: () -> Unit,
     content: @Composable (PaddingValues) -> Unit
 ) {
     Scaffold(
+        modifier = Modifier
+            .fillMaxSize()
+            .windowInsetsPadding(WindowInsets.safeDrawing),
         topBar = {
             TopAppBar(
                 title = { Text(text = title, color = MaterialTheme.colorScheme.onBackground) },
@@ -34,16 +39,14 @@ fun AppScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background, // Fond de la TopAppBar
-                    titleContentColor = MaterialTheme.colorScheme.onBackground, // Couleur du titre
-                    navigationIconContentColor = OrakniumGold // Couleur de l'icône de navigation
+                    containerColor = MaterialTheme.colorScheme.background,
+                    titleContentColor = MaterialTheme.colorScheme.onBackground,
+                    navigationIconContentColor = OrakniumGold
                 )
             )
         },
-        containerColor = MaterialTheme.colorScheme.background // Fond du Scaffold lui-même
-    ) { innerPadding ->
-        // Passe le padding interne au contenu pour qu'il ne soit pas sous la TopAppBar
-        content(innerPadding)
+        containerColor = MaterialTheme.colorScheme.background
+    ) { innerPadding -> // innerPadding contient les insets de la TopAppBar
+        content(innerPadding) // Le contenu utilise ce padding pour ne pas être sous la TopAppBar
     }
 }
-

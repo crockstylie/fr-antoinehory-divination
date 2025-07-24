@@ -79,7 +79,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\hory\AndroidStudioProjects\Divination\app\src\main\res\drawable\ic_launcher_magic_8.svg" />
+                                                <entry key="imagePath" value="G:\Mon Drive\05-IMAGES\PERSO\DEV_ANDROID\FR_ANTOINEHORY_DIVINATION\ChatGPT Image Jul 24, 2025, 05_26_45 PM.png" />
+                                                <entry key="scalingPercent" value="70" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -107,6 +108,13 @@
                                           </PersistentState>
                                         </value>
                                       </entry>
+                                    </map>
+                                  </option>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="150a13" />
+                                      <entry key="previewDensity" value="hdpi" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -270,6 +278,11 @@
                                           </PersistentState>
                                         </value>
                                       </entry>
+                                    </map>
+                                  </option>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="previewDensity" value="hdpi" />
                                     </map>
                                   </option>
                                 </PersistentState>

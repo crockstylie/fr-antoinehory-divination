@@ -1,15 +1,21 @@
-package fr.antoinehory.divination.ui.theme // Assurez-vous que ce package est correct
+package fr.antoinehory.divination.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Couleurs pour le mode Clair (Light Mode)
-val LightBackground = Color(0xFFFFFFFF) // Fond blanc
-val LightOnBackground = Color(0xFF1C1B1F) // Texte noir/foncé sur fond clair
-val LightPrimary = Color(0xFF6200EE)      // Une couleur primaire (ex: pour accents, si besoin)
-val LightError = Color(0xFFB00020)        // Une couleur d'erreur (si besoin)
+// Anciennes couleurs (tu peux les commenter ou les supprimer si elles ne sont plus utilisées)
+// val Purple80 = Color(0xFFD0BCFF)
+// val PurpleGrey80 = Color(0xFFCCC2DC)
+// val Pink80 = Color(0xFFEFB8C8)
 
-// Couleurs pour le mode Sombre (Dark Mode)
-val DarkBackground = Color(0xFF121212)   // Fond gris très foncé (standard pour mode sombre)
-val DarkOnBackground = Color(0xFFE0E0E0)   // Texte gris clair sur fond sombre
-val DarkPrimary = Color(0xFFBB86FC)       // Une couleur primaire pour le mode sombre
-val DarkError = Color(0xFFFFB4AB)         // Une couleur d'erreur (si besoin)
+// val Purple40 = Color(0xFF6650a4)
+// val PurpleGrey40 = Color(0xFF625b71)
+// val Pink40 = Color(0xFF7D5260)
+
+// --- NOUVELLES COULEURS ORAKNIUM ---
+val OrakniumGold = Color(0xFFFFBF2A) // Ta couleur de texte et d'accentuation
+val OrakniumBackground = Color(0xFF2B0757) // REMPLACE par la couleur de fond que tu as choisie (exemple : un gris très foncé)
+// Si tu as le code hexadécimal exact de l'arrière-plan de ton icône, utilise-le ici.
+// Par exemple, si c'était un noir pur : Color(0xFF000000)
+
+// Tu peux définir d'autres nuances si nécessaire, par exemple pour les surfaces
+val OrakniumSurface = Color(0xFF2A292E) // Exemple : un gris un peu plus clair que le fond

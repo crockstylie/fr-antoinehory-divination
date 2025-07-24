@@ -54,9 +54,10 @@ fun MagicBallScreen(
         label = "textAlpha"
     )
 
+    // Dans MagicBallScreen.kt
     val textColor by animateColorAsState(
-        targetValue = if (isShuffling) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
-        else MaterialTheme.colorScheme.onBackground,
+        targetValue = if (isShuffling) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f) // Sera OrakniumGold.copy(...)
+        else MaterialTheme.colorScheme.onBackground, // Sera OrakniumGold
         animationSpec = tween(durationMillis = 300),
         label = "textColor"
     )

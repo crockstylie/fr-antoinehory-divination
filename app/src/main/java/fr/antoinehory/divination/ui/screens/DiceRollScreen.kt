@@ -1,41 +1,87 @@
 package fr.antoinehory.divination.ui.screens
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import fr.antoinehory.divination.ui.common.AppScaffold // Importe ton nouveau composable
-import fr.antoinehory.divination.ui.theme.DivinationAppTheme // ou OrakniumAppTheme
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.viewmodel.compose.viewModel
+import fr.antoinehory.divination.ui.common.AppScaffold
+import fr.antoinehory.divination.ui.theme.DivinationAppTheme
+import fr.antoinehory.divination.viewmodels.DiceRollViewModel
 
 @Composable
-fun DiceRollScreen(onNavigateBack: () -> Unit) {
+fun DiceRollScreen(
+    onNavigateBack: () -> Unit,
+    viewModel: DiceRollViewModel = viewModel()
+) {
+    val displayText by viewModel.displayText.collectAsState()
+    val isProcessingShake by viewModel.isProcessingShake.collectAsState()
+    val isAccelerometerAvailable by viewModel.isAccelerometerAvailable.collectAsState()
+
+    val lifecycleOwner = LocalLifecycleOwner.current
+
+    DisposableEffect(lifecycleOwner, viewModel) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                viewModel.registerSensorListener()
+            } else if (event == Lifecycle.Event.ON_PAUSE) {
+                viewModel.unregisterSensorListener()
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
+    }
+
+    val textAlpha by animateFloatAsState(
+        targetValue = if (isProcessingShake) 0.6f else 1.0f,
+        animationSpec = tween(durationMillis = 300),
+        label = "textAlphaDiceRoll"
+    )
+
     AppScaffold(
-        title = "Lancer de dés",
+        title = "Lancer de Dé (D6)",
         canNavigateBack = true,
         onNavigateBack = onNavigateBack
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues) // Important
-                .padding(16.dp), // Ton padding de contenu original
+                .padding(paddingValues)
+                .padding(16.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            if (!isAccelerometerAvailable && displayText.contains("Secouez", ignoreCase = true)) {
+                Text(
+                    text = "Accéléromètre non disponible pour lancer le dé.",
+                    style = MaterialTheme.typography.labelMedium,
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.error,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+            }
+            Spacer(modifier = Modifier.height(32.dp)) // Espace pour future image
             Text(
-                text = "Lancer de dés - À venir",
+                text = displayText,
                 style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.onBackground
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onBackground,
+                modifier = Modifier.alpha(textAlpha)
             )
-            // Tu ajouteras la logique du jeu ici
-            // Plus besoin du bouton "Retour au menu" ici, la TopAppBar s'en charge.
         }
     }
 }
@@ -44,6 +90,6 @@ fun DiceRollScreen(onNavigateBack: () -> Unit) {
 @Composable
 fun DiceRollScreenPreview() {
     DivinationAppTheme {
-        DiceRollScreen {}
+        DiceRollScreen(onNavigateBack = {})
     }
 }

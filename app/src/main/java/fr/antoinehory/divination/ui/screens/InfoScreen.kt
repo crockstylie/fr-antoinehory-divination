@@ -1,5 +1,7 @@
 package fr.antoinehory.divination.ui.screens
 
+// At the top of InfoScreen.kt
+import fr.antoinehory.divination.ui.theme.OrakniumGold
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -17,12 +19,21 @@ fun InfoScreen(onNavigateBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Informations") },
+                title = { Text("Informations") }, // Le texte sera OrakniumGold
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Retour")
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Retour",
+                            tint = OrakniumGold // Assure-toi que l'icône de retour est aussi dorée
+                        )
                     }
-                }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.surface, // Ou OrakniumBackground si tu veux qu'elle se fonde
+                    titleContentColor = MaterialTheme.colorScheme.onSurface, // Devrait être OrakniumGold
+                    navigationIconContentColor = MaterialTheme.colorScheme.onSurface // Devrait être OrakniumGold
+                )
             )
         }
     ) { paddingValues ->

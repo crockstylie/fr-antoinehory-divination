@@ -18,19 +18,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
-import fr.antoinehory.divination.MagicBallViewModel // Assure-toi que l'import est correct
-import fr.antoinehory.divination.ui.theme.DivinationAppTheme
+import androidx.lifecycle.viewmodel.compose.viewModel // Pour la preview
+import fr.antoinehory.divination.MagicBallViewModel
+import fr.antoinehory.divination.ui.common.AppScreen // Importe ton nouveau composable
+import fr.antoinehory.divination.ui.theme.DivinationAppTheme // ou OrakniumAppTheme
 
 @Composable
 fun MagicBallScreen(
-    viewModel: MagicBallViewModel // On passe directement le ViewModel
+    viewModel: MagicBallViewModel,
+    onNavigateBack: () -> Unit // Ajoute le callback de navigation retour
 ) {
     val responseText by viewModel.currentResponse
     val isShuffling by viewModel.isShuffling
     val lifecycleOwner = LocalLifecycleOwner.current
 
-    // Gérer l'enregistrement et le désenregistrement du capteur via le ViewModel
-    // en fonction du cycle de vie de cet écran.
     DisposableEffect(lifecycleOwner, viewModel) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_RESUME) {
@@ -40,10 +41,8 @@ fun MagicBallScreen(
             }
         }
         lifecycleOwner.lifecycle.addObserver(observer)
-
         onDispose {
             lifecycleOwner.lifecycle.removeObserver(observer)
-            // Assure-toi aussi de désenregistrer si l'écran est détruit et pas seulement mis en pause
             viewModel.unregisterSensorListener()
         }
     }
@@ -54,37 +53,43 @@ fun MagicBallScreen(
         label = "textAlpha"
     )
 
-    // Dans MagicBallScreen.kt
     val textColor by animateColorAsState(
-        targetValue = if (isShuffling) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f) // Sera OrakniumGold.copy(...)
-        else MaterialTheme.colorScheme.onBackground, // Sera OrakniumGold
+        targetValue = if (isShuffling) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+        else MaterialTheme.colorScheme.onBackground,
         animationSpec = tween(durationMillis = 300),
         label = "textColor"
     )
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .windowInsetsPadding(WindowInsets.safeDrawing) // S'assurer que le contenu est dans la zone sûre
-            .padding(32.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        if (viewModel.isAccelerometerAvailable.value == false && responseText.contains("Secouez")) {
-            Text(
-                text = "Accéléromètre non disponible sur cet appareil.",
-                style = MaterialTheme.typography.labelMedium,
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.error
-            )
-        } else {
-            Text(
-                text = responseText,
-                style = MaterialTheme.typography.bodyLarge, // Ou headlineMedium pour plus d'impact
-                textAlign = TextAlign.Center,
-                color = textColor,
-                modifier = Modifier.alpha(textAlpha)
-            )
+    AppScreen(
+        title = "Boule Magique",
+        canNavigateBack = true,
+        onNavigateBack = onNavigateBack
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues) // Important
+                .windowInsetsPadding(WindowInsets.safeDrawing) // Garde-le si tu veux un contrôle fin
+                .padding(horizontal = 32.dp, vertical = 16.dp), // Ajuste le padding si besoin
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            if (viewModel.isAccelerometerAvailable.value == false && responseText.contains("Secouez")) {
+                Text(
+                    text = "Accéléromètre non disponible.",
+                    style = MaterialTheme.typography.labelMedium,
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.error
+                )
+            } else {
+                Text(
+                    text = responseText,
+                    style = MaterialTheme.typography.headlineSmall, // Peut-être un style plus grand
+                    textAlign = TextAlign.Center,
+                    color = textColor,
+                    modifier = Modifier.alpha(textAlpha)
+                )
+            }
         }
     }
 }
@@ -93,42 +98,10 @@ fun MagicBallScreen(
 @Composable
 fun MagicBallScreenPreviewIdle() {
     DivinationAppTheme {
-        // Pour la preview, on ne peut pas facilement instancier un ViewModel réel avec des dépendances.
-        // On pourrait créer un faux ViewModel ou passer des valeurs en dur.
-        // Ici, un exemple simple sans ViewModel pour la preview visuelle.
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(32.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                "C'est certain.",
-                style = MaterialTheme.typography.bodyLarge,
-                textAlign = TextAlign.Center
-            )
-        }
+        // Pour la preview, tu peux créer un ViewModel factice ou ne pas en passer
+        // et simuler l'état.
+        val fakeViewModel: MagicBallViewModel = viewModel() // Juste pour la compilation de la preview
+        MagicBallScreen(viewModel = fakeViewModel, onNavigateBack = {})
     }
 }
 
-@Preview(showBackground = true, name = "MagicBallScreen - Shuffling")
-@Composable
-fun MagicBallScreenPreviewShuffling() {
-    DivinationAppTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(32.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                "Réponse brumeuse...",
-                style = MaterialTheme.typography.bodyLarge,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.alpha(0.6f)
-            )
-        }
-    }
-}

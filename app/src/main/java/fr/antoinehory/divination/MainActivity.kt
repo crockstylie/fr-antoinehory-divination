@@ -15,21 +15,19 @@ import androidx.navigation.compose.rememberNavController
 import fr.antoinehory.divination.navigation.AppDestinations
 import fr.antoinehory.divination.ui.screens.* // Importe tes nouveaux écrans
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
+import fr.antoinehory.divination.ui.common.AppScreen
 
 class MainActivity : ComponentActivity() {
 
-    // Le ViewModel est toujours nécessaire ici pour être passé à MagicBallScreen
     private val magicBallViewModel: MagicBallViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
-            DivinationAppTheme {
-                HideSystemBars() // Ton composable pour le plein écran
-
+            DivinationAppTheme { // ou OrakniumAppTheme
+                HideSystemBars()
                 val navController = rememberNavController()
 
                 NavHost(
@@ -37,7 +35,7 @@ class MainActivity : ComponentActivity() {
                     startDestination = AppDestinations.MENU_ROUTE
                 ) {
                     composable(AppDestinations.MENU_ROUTE) {
-                        MenuScreen(
+                        MenuScreen( // MenuScreen n'a pas de TopAppBar via AppScreen, il est spécial
                             onNavigateToMagicBall = { navController.navigate(AppDestinations.MAGIC_BALL_ROUTE) },
                             onNavigateToCoinFlip = { navController.navigate(AppDestinations.COIN_FLIP_ROUTE) },
                             onNavigateToRockPaperScissors = { navController.navigate(AppDestinations.ROCK_PAPER_SCISSORS_ROUTE) },
@@ -46,8 +44,10 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     composable(AppDestinations.MAGIC_BALL_ROUTE) {
-                        // Passe le ViewModel à l'écran de la boule magique
-                        MagicBallScreen(viewModel = magicBallViewModel)
+                        MagicBallScreen(
+                            viewModel = magicBallViewModel,
+                            onNavigateBack = { navController.popBackStack() } // Passer la fonction retour
+                        )
                     }
                     composable(AppDestinations.COIN_FLIP_ROUTE) {
                         CoinFlipScreen(onNavigateBack = { navController.popBackStack() })

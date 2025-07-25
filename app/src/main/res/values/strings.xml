@@ -1,4 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header">Oraknium</string>
+    <string name="menu_button_magic_ball">Boule Magique N°8</string>
+    <string name="menu_button_coin_flip">Pile ou Face</string>
+    <string name="menu_button_rps">Shifoumi</string>
+    <string name="menu_button_dice_roll">Lancer de Dés</string>
+    <string name="menu_settings_description">Paramètres</string>
+    <string name="menu_info_description">Informations</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Secouez l\'appareil pour obtenir une réponse.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Secouez l\'appareil (accéléromètre non détecté).</string>
+    <string name="magic_ball_shuffling_message">…</string> <!-- Le "..." est généralement universel, mais on le met en ressource par cohérence -->
+
+    <!-- Magic Ball Answers -->
+    <!-- Utiliser un string-array est plus propre pour de longues listes. -->
+    <string-array name="magic_ball_possible_answers">
+        <item>C\'est certain.</item>
+        <item>Sans aucun doute.</item>
+        <item>Oui, absolument.</item>
+        <item>Tu peux compter dessus.</item>
+        <item>Selon toute vraisemblance.</item>
+        <item>Très probable.</item>
+        <item>Les perspectives sont bonnes.</item>
+        <item>Oui.</item>
+        <item>Les signes pointent vers oui.</item>
+        <item>Réponse brumeuse, essaie encore.</item>
+        <item>Demande à nouveau plus tard.</item>
+        <item>Mieux vaut ne pas te le dire maintenant.</item>
+        <item>Impossible de prédire maintenant.</item>
+        <item>Concentre-toi et demande à nouveau.</item>
+        <item>Ne compte pas dessus.</item>
+        <item>Ma réponse est non.</item>
+        <item>Mes sources disent non.</item>
+        <item>Les perspectives ne sont pas si bonnes.</item>
+        <item>Très peu probable.</item>
+    </string-array>
+
+    <!-- Tu auras aussi besoin de strings pour MagicBallScreen.kt lui-même, comme le titre de l'écran -->
+    <string name="magic_ball_screen_title">Boule Magique</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Accéléromètre non disponible sur cet appareil.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Pile ou Face</string>
+    <string name="coin_flip_initial_prompt_shake">Secouez pour lancer la pièce !</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Secouez (accéléromètre non détecté).</string>
+    <string name="coin_flip_flipping_message">Lancement…</string>
+    <string name="coin_flip_result_heads">Pile !</string>
+    <string name="coin_flip_result_tails">Face !</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Accéléromètre non disponible pour lancer la pièce.</string>
+
 </resources>

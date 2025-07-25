@@ -40,7 +40,6 @@
         <item>Très peu probable.</item>
     </string-array>
 
-    <!-- Tu auras aussi besoin de strings pour MagicBallScreen.kt lui-même, comme le titre de l'écran -->
     <string name="magic_ball_screen_title">Boule Magique</string>
     <string name="magic_ball_accelerometer_not_available_ui_message">Accéléromètre non disponible sur cet appareil.</string>
 
@@ -52,5 +51,24 @@
     <string name="coin_flip_result_heads">Pile !</string>
     <string name="coin_flip_result_tails">Face !</string>
     <string name="coin_flip_accelerometer_not_available_ui_message">Accéléromètre non disponible pour lancer la pièce.</string>
+    <!-- Content descriptions for Coin Flip (si tu utilises des images avec content description) -->
+    <string name="coin_flip_heads_icon_description">Image de Pile</string>
+    <string name="coin_flip_tails_icon_description">Image de Face</string>
 
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Shifoumi</string>
+    <string name="rps_initial_prompt_shake">Secouez pour jouer !</string>
+    <string name="rps_initial_prompt_no_accelerometer">Secouez (accéléromètre non détecté).</string>
+    <string name="rps_processing_message">Pierre, Feuille, Ciseaux…</string> <!-- Message pendant le "jeu" -->
+    <string name="rps_result_rock">Pierre !</string>
+    <string name="rps_result_paper">Feuille !</string>
+    <string name="rps_result_scissors">Ciseaux !</string>
+    <!-- Il n'y a pas de "Égalité" dans la logique simple, mais on pourrait l'ajouter -->
+    <string name="rps_accelerometer_not_available_ui_message">Accéléromètre non disponible pour jouer.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Icône Pierre</string>
+    <string name="rps_icon_description_paper">Icône Feuille</string>
+    <string name="rps_icon_description_scissors">Icône Ciseaux</string>
+    <string name="general_content_description_empty">Image de résultat</string> <!-- Fallback si besoin -->
 </resources>

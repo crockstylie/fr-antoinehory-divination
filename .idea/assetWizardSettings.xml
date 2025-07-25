@@ -309,8 +309,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="pile" />
-                            <entry key="sourceFile" value="C:\Users\hory\Downloads\SVG\pile.svg" />
+                            <entry key="outputName" value="ic_rps_scissors" />
+                            <entry key="sourceFile" value="C:\Users\hory\Downloads\SVG\cisors.svg" />
                           </map>
                         </option>
                       </PersistentState>

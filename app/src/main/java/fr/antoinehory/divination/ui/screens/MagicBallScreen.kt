@@ -11,24 +11,25 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.viewmodel.compose.viewModel // IMPORTANT: Nouvel import
-import fr.antoinehory.divination.ui.common.AppScaffold // ou AppScreen si tu l'as renommé
+import androidx.lifecycle.viewmodel.compose.viewModel
+import fr.antoinehory.divination.R
+import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.viewmodels.MagicBallViewModel // Garder l'import du type ViewModel
+import fr.antoinehory.divination.viewmodels.MagicBallViewModel
 
 @Composable
 fun MagicBallScreen(
     onNavigateBack: () -> Unit,
-    // Le ViewModel est obtenu ici, avec une valeur par défaut pour les previews/tests si nécessaire
     viewModel: MagicBallViewModel = viewModel()
 ) {
     val responseText by viewModel.currentResponse.collectAsState()
-    val isProcessingShake by viewModel.isProcessingShake.collectAsState() // Assure-toi que c'est le bon nom (hérité)
+    val isProcessingInteraction by viewModel.isProcessingShake.collectAsState()
     val isAccelerometerAvailable by viewModel.isAccelerometerAvailable.collectAsState()
 
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -36,9 +37,9 @@ fun MagicBallScreen(
     DisposableEffect(lifecycleOwner, viewModel) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_RESUME) {
-                viewModel.registerSensorListener()
+                viewModel.registerSensorListener() // Méthode de ShakeDetectViewModel
             } else if (event == Lifecycle.Event.ON_PAUSE) {
-                viewModel.unregisterSensorListener()
+                viewModel.unregisterSensorListener() // Méthode de ShakeDetectViewModel
             }
         }
         lifecycleOwner.lifecycle.addObserver(observer)
@@ -48,20 +49,20 @@ fun MagicBallScreen(
     }
 
     val textAlpha by animateFloatAsState(
-        targetValue = if (isProcessingShake) 0.6f else 1.0f,
+        targetValue = if (isProcessingInteraction) 0.6f else 1.0f, // Utilise isProcessingInteraction
         animationSpec = tween(durationMillis = 300),
         label = "textAlphaMagicBall"
     )
 
     val textColor by animateColorAsState(
-        targetValue = if (isProcessingShake) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+        targetValue = if (isProcessingInteraction) MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f) // Utilise isProcessingInteraction
         else MaterialTheme.colorScheme.onBackground,
         animationSpec = tween(durationMillis = 300),
         label = "textColorMagicBall"
     )
 
-    AppScaffold( // ou AppScreen
-        title = "Boule Magique",
+    AppScaffold(
+        title = stringResource(id = R.string.magic_ball_screen_title),
         canNavigateBack = true,
         onNavigateBack = onNavigateBack
     ) { paddingValues ->
@@ -73,9 +74,17 @@ fun MagicBallScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            if (!isAccelerometerAvailable && responseText.contains("Secouez", ignoreCase = true)) {
+            // La logique pour afficher le message d'erreur de l'accéléromètre est affinée.
+            // Le ViewModel définit déjà un message spécifique si l'accéléromètre n'est pas là au démarrage.
+            // On peut afficher un message d'erreur plus générique de l'UI si l'accéléromètre
+            // n'est pas disponible et que le message actuel est celui invitant à secouer.
+            val initialNoAccelerometerText = stringResource(id = R.string.magic_ball_initial_prompt_no_accelerometer)
+            if (!isAccelerometerAvailable && responseText == initialNoAccelerometerText) {
                 Text(
-                    text = "Accéléromètre non disponible.",
+                    // Utilise la chaîne de ressource plus générique pour l'UI si besoin,
+                    // ou tu peux aussi te fier uniquement au message du ViewModel.
+                    // Ici, on utilise la string spécifique de l'UI.
+                    text = stringResource(id = R.string.magic_ball_accelerometer_not_available_ui_message), // << MODIFIÉ
                     style = MaterialTheme.typography.labelMedium,
                     textAlign = TextAlign.Center,
                     color = MaterialTheme.colorScheme.error,
@@ -84,7 +93,7 @@ fun MagicBallScreen(
             }
 
             Text(
-                text = responseText,
+                text = responseText, // Provient du ViewModel, qui utilise déjà des ressources.
                 style = MaterialTheme.typography.headlineSmall,
                 textAlign = TextAlign.Center,
                 color = textColor,
@@ -98,9 +107,7 @@ fun MagicBallScreen(
 @Composable
 fun MagicBallScreenPreviewIdle() {
     DivinationAppTheme {
-        // viewModel() sera utilisé ici. Pour les previews plus complexes,
-        // on peut injecter un ViewModel factice en modifiant la signature du composable.
+        // Pour la preview, le ViewModel utilisera les ressources par défaut (français ici).
         MagicBallScreen(onNavigateBack = {})
     }
 }
-

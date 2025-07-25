@@ -1,24 +1,30 @@
 package fr.antoinehory.divination.ui.screens
 
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.*
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.res.stringResource // << AJOUTER CET IMPORT
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.viewmodel.compose.viewModel
+import fr.antoinehory.divination.R // << AJOUTER CET IMPORT (peut déjà y être)
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
+import fr.antoinehory.divination.viewmodels.CoinFace
 import fr.antoinehory.divination.viewmodels.CoinFlipViewModel
 
 @Composable
@@ -26,12 +32,12 @@ fun CoinFlipScreen(
     onNavigateBack: () -> Unit,
     viewModel: CoinFlipViewModel = viewModel()
 ) {
-    val displayText by viewModel.displayText.collectAsState()
+    val currentMessage by viewModel.currentMessage.collectAsState()
+    val coinFace by viewModel.coinFace.collectAsState()
     val isProcessingShake by viewModel.isProcessingShake.collectAsState()
     val isAccelerometerAvailable by viewModel.isAccelerometerAvailable.collectAsState()
 
     val lifecycleOwner = LocalLifecycleOwner.current
-
     DisposableEffect(lifecycleOwner, viewModel) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_RESUME) {
@@ -46,14 +52,27 @@ fun CoinFlipScreen(
         }
     }
 
+    val context = LocalContext.current
+    val headsBitmap = remember {
+        ContextCompat.getDrawable(context, R.drawable.ic_heads)?.toBitmap()?.asImageBitmap()
+    }
+    val tailsBitmap = remember {
+        ContextCompat.getDrawable(context, R.drawable.ic_tails)?.toBitmap()?.asImageBitmap()
+    }
+
+    val imageAlpha by animateFloatAsState(
+        targetValue = if (isProcessingShake || coinFace == null) 0f else 1f,
+        animationSpec = tween(durationMillis = 300, delayMillis = if (isProcessingShake) 0 else 100),
+        label = "coinImageAlpha" // Ajout du label pour les tests/inspections
+    )
     val textAlpha by animateFloatAsState(
-        targetValue = if (isProcessingShake) 0.6f else 1.0f,
+        targetValue = if (isProcessingShake && coinFace == null) 0.6f else 1f,
         animationSpec = tween(durationMillis = 300),
-        label = "textAlphaCoinFlip"
+        label = "coinTextAlpha" // Ajout du label
     )
 
     AppScaffold(
-        title = "Pile ou Face",
+        title = stringResource(id = R.string.coin_flip_screen_title), // << MODIFIÉ
         canNavigateBack = true,
         onNavigateBack = onNavigateBack
     ) { paddingValues ->
@@ -62,12 +81,14 @@ fun CoinFlipScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
                 .padding(16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
-            if (!isAccelerometerAvailable && displayText.contains("Secouez", ignoreCase = true)) {
+            // Le message d'erreur si l'accéléromètre n'est pas disponible et que l'invite est de secouer
+            val initialNoAccelerometerText = stringResource(id = R.string.coin_flip_initial_prompt_no_accelerometer)
+            if (!isAccelerometerAvailable && currentMessage == initialNoAccelerometerText) {
                 Text(
-                    text = "Accéléromètre non disponible pour lancer la pièce.",
+                    text = stringResource(id = R.string.coin_flip_accelerometer_not_available_ui_message), // << MODIFIÉ
                     style = MaterialTheme.typography.labelMedium,
                     textAlign = TextAlign.Center,
                     color = MaterialTheme.colorScheme.error,
@@ -75,13 +96,33 @@ fun CoinFlipScreen(
                 )
             }
 
-            Spacer(modifier = Modifier.height(32.dp)) // Espace pour future image
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Box(modifier = Modifier.size(150.dp)) {
+                if (coinFace != null && !isProcessingShake) {
+                    val bitmapToShow = if (coinFace == CoinFace.HEADS) headsBitmap else tailsBitmap
+                    bitmapToShow?.let {
+                        Image(
+                            bitmap = it,
+                            contentDescription = if (coinFace == CoinFace.HEADS) {
+                                stringResource(R.string.coin_flip_result_heads) // << MODIFIÉ (peut aussi être une string dédiée "Image de Pile")
+                            } else {
+                                stringResource(R.string.coin_flip_result_tails) // << MODIFIÉ (peut aussi être une string dédiée "Image de Face")
+                            },
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .alpha(imageAlpha)
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = displayText,
-                style = MaterialTheme.typography.headlineMedium,
+                text = currentMessage, // Provient du ViewModel, déjà internationalisé
+                style = MaterialTheme.typography.headlineSmall,
                 textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier.alpha(textAlpha)
             )
         }

@@ -4,17 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-// import androidx.lifecycle.viewmodel.compose.viewModel // Supprimé car plus utilisé ici
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import fr.antoinehory.divination.navigation.AppDestinations
-import fr.antoinehory.divination.ui.screens.* // Garde cet import global pour les écrans
+import fr.antoinehory.divination.ui.screens.*
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-// Supprimer les imports spécifiques des ViewModels s'ils étaient là
-// import fr.antoinehory.divination.viewmodels.MagicBallViewModel
-// import fr.antoinehory.divination.viewmodels.CoinFlipViewModel
-// etc.
 
 class MainActivity : ComponentActivity() {
 
@@ -36,7 +31,8 @@ class MainActivity : ComponentActivity() {
                             onNavigateToCoinFlip = { navController.navigate(AppDestinations.COIN_FLIP_ROUTE) },
                             onNavigateToRockPaperScissors = { navController.navigate(AppDestinations.ROCK_PAPER_SCISSORS_ROUTE) },
                             onNavigateToDiceRoll = { navController.navigate(AppDestinations.DICE_ROLL_ROUTE) },
-                            onNavigateToInfo = { navController.navigate(AppDestinations.INFO_ROUTE) }
+                            onNavigateToInfo = { navController.navigate(AppDestinations.INFO_ROUTE) },
+                            onNavigateToSettings = { navController.navigate(AppDestinations.SETTINGS_ROUTE) }
                         )
                     }
                     composable(AppDestinations.MAGIC_BALL_ROUTE) {

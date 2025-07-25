@@ -1,44 +1,54 @@
 package fr.antoinehory.divination.viewmodels
 
 import android.app.Application
+import fr.antoinehory.divination.R // << AJOUTER CET IMPORT
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlin.random.Random
 
 class CoinFlipViewModel(application: Application) : ShakeDetectViewModel(application) {
 
-    private enum class CoinSide(val textResult: String) {
-        PILE("Pile !"),
-        FACE("Face !")
-    }
+    private val app: Application = application // Instance pour accéder aux ressources
 
-    private val _displayText = MutableStateFlow("")
-    val displayText: StateFlow<String> = _displayText
+    private val _coinFace = MutableStateFlow<CoinFace?>(null)
+    val coinFace: StateFlow<CoinFace?> = _coinFace
+
+    private val _currentMessage = MutableStateFlow("")
+    val currentMessage: StateFlow<String> = _currentMessage
 
     companion object {
-        private const val FLIP_ANIMATION_DELAY_MS = 700L
-        private const val INITIAL_MESSAGE_NO_ACCELEROMETER = "Secouez (accéléromètre non détecté)."
-        private const val INITIAL_MESSAGE_SHAKE = "Secouez pour lancer la pièce !"
-        private const val FLIPPING_MESSAGE = "Lancement..."
+        private const val FLIP_ANIMATION_DELAY_MS = 1000L
+        // Les constantes de messages en dur sont supprimées
     }
 
     init {
         if (!isAccelerometerAvailable.value) {
-            _displayText.value = INITIAL_MESSAGE_NO_ACCELEROMETER
+            _currentMessage.value = app.getString(R.string.coin_flip_initial_prompt_no_accelerometer)
         } else {
-            _displayText.value = INITIAL_MESSAGE_SHAKE
+            _currentMessage.value = app.getString(R.string.coin_flip_initial_prompt_shake)
         }
     }
 
-    private fun flipCoinAndSetText() {
-        val result = if (Math.random() < 0.5) CoinSide.PILE else CoinSide.FACE
-        _displayText.value = result.textResult
+    private fun flipCoin() {
+        val isHeads = Random.nextBoolean()
+        _coinFace.value = if (isHeads) CoinFace.HEADS else CoinFace.TAILS
+        _currentMessage.value = if (isHeads) {
+            app.getString(R.string.coin_flip_result_heads)
+        } else {
+            app.getString(R.string.coin_flip_result_tails)
+        }
     }
 
     override suspend fun onShakeDetected() {
-        _displayText.value = FLIPPING_MESSAGE
+        _currentMessage.value = app.getString(R.string.coin_flip_flipping_message)
+        _coinFace.value = null // Cache la pièce pendant l'animation/le délai
         delay(FLIP_ANIMATION_DELAY_MS)
-        flipCoinAndSetText()
+        flipCoin()
         completeShakeProcessing()
     }
+}
+
+enum class CoinFace { // Cet enum reste tel quel
+    HEADS, TAILS
 }

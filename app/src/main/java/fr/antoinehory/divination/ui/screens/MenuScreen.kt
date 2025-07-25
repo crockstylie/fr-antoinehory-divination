@@ -6,15 +6,19 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import fr.antoinehory.divination.R
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 import fr.antoinehory.divination.ui.theme.OrakniumGold
 
@@ -24,7 +28,8 @@ fun MenuScreen(
     onNavigateToCoinFlip: () -> Unit,
     onNavigateToRockPaperScissors: () -> Unit,
     onNavigateToDiceRoll: () -> Unit,
-    onNavigateToInfo: () -> Unit
+    onNavigateToInfo: () -> Unit,
+    onNavigateToSettings: () -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -40,33 +45,38 @@ fun MenuScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Oraknium",
+                text = stringResource(id = R.string.menu_title_header),
                 style = MaterialTheme.typography.headlineLarge,
                 color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier.padding(bottom = 50.dp)
             )
 
-            OrakniumMenuButton(text = "Boule Magique N°8", onClick = onNavigateToMagicBall)
+            OrakniumMenuButton(text = stringResource(id = R.string.menu_button_magic_ball), onClick = onNavigateToMagicBall)
             Spacer(modifier = Modifier.height(16.dp))
-            OrakniumMenuButton(text = "Pile ou Face", onClick = onNavigateToCoinFlip)
+            OrakniumMenuButton(text = stringResource(id = R.string.menu_button_coin_flip), onClick = onNavigateToCoinFlip)
             Spacer(modifier = Modifier.height(16.dp))
-            OrakniumMenuButton(text = "Shifoumi", onClick = onNavigateToRockPaperScissors)
+            OrakniumMenuButton(text = stringResource(id = R.string.menu_button_rps), onClick = onNavigateToRockPaperScissors)
             Spacer(modifier = Modifier.height(16.dp))
-            OrakniumMenuButton(text = "Lancer de Dés", onClick = onNavigateToDiceRoll)
+            OrakniumMenuButton(text = stringResource(id = R.string.menu_button_dice_roll), onClick = onNavigateToDiceRoll)
         }
 
-        IconButton(
-            onClick = onNavigateToInfo,
+        Row(
             modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(16.dp) // Ce padding est relatif au Box parent (qui a déjà les insets)
-                .size(48.dp)
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 8.dp), // Ajusté pour être plus près du code de ton repo
+            horizontalArrangement = Arrangement.SpaceBetween, // Pour que Settings soit à gauche et Info à droite
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(
-                imageVector = Icons.Filled.Info,
-                contentDescription = "Informations",
-                modifier = Modifier.size(36.dp),
-                tint = OrakniumGold
+            MenuIconButton(
+                onClick = onNavigateToSettings, // Sera utilisé plus tard
+                icon = Icons.Filled.Settings,
+                contentDescription = stringResource(id = R.string.menu_settings_description) // << MODIFIÉ
+            )
+            MenuIconButton(
+                onClick = onNavigateToInfo,
+                icon = Icons.Filled.Info,
+                contentDescription = stringResource(id = R.string.menu_info_description) // << MODIFIÉ
             )
         }
     }
@@ -90,10 +100,26 @@ fun OrakniumMenuButton(text: String, onClick: () -> Unit) {
     }
 }
 
+@Composable
+private fun MenuIconButton(
+    onClick: () -> Unit,
+    icon: ImageVector,
+    contentDescription: String // contentDescription est déjà une String résolue
+) {
+    IconButton(onClick = onClick) {
+        Icon(
+            imageVector = icon,
+            contentDescription = contentDescription,
+            modifier = Modifier.size(36.dp),
+            tint = OrakniumGold
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun MenuScreenPreview() {
     DivinationAppTheme {
-        MenuScreen({}, {}, {}, {}, {})
+        MenuScreen({}, {}, {}, {}, {}, {})
     }
 }

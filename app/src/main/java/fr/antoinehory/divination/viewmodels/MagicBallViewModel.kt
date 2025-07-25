@@ -1,52 +1,68 @@
 package fr.antoinehory.divination.viewmodels
 
 import android.app.Application
+import fr.antoinehory.divination.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 class MagicBallViewModel(application: Application) : ShakeDetectViewModel(application) {
 
-    private val possibleAnswers = listOf(
-        "C'est certain.", "Sans aucun doute.", "Oui, absolument.", "Tu peux compter dessus.",
-        "Selon toute vraisemblance.", "Très probable.", "Les perspectives sont bonnes.", "Oui.",
-        "Les signes pointent vers oui.", "Réponse brumeuse, essaie encore.", "Demande à nouveau plus tard.",
-        "Mieux vaut ne pas te le dire maintenant.", "Impossible de prédire maintenant.",
-        "Concentre-toi et demande à nouveau.", "Ne compte pas dessus.", "Ma réponse est non.",
-        "Mes sources disent non.", "Les perspectives ne sont pas si bonnes.", "Très peu probable."
-    )
+    // Récupérer une instance de l'Application pour accéder aux ressources
+    private val app: Application = application
+
+    // Charger les réponses depuis le string-array dans strings.xml
+    private val possibleAnswers: List<String> by lazy {
+        app.resources.getStringArray(R.array.magic_ball_possible_answers).toList()
+    }
 
     private val _currentResponse = MutableStateFlow("")
     val currentResponse: StateFlow<String> = _currentResponse
 
     companion object {
         private const val SHUFFLE_ANIMATION_DELAY_MS = 1000L
-        private const val INITIAL_MESSAGE_NO_ACCELEROMETER = "Secouez l'appareil (accéléromètre non détecté)."
-        private const val INITIAL_MESSAGE_SHAKE = "Secouez l'appareil pour obtenir une réponse."
-        private const val SHUFFLING_MESSAGE = "..."
     }
 
     init {
+        // Déterminer le message initial en fonction de la disponibilité de l'accéléromètre
+        // et charger la chaîne correspondante depuis strings.xml.
+        // `isAccelerometerAvailable` provient de ShakeDetectViewModel.
         if (!isAccelerometerAvailable.value) {
-            _currentResponse.value = INITIAL_MESSAGE_NO_ACCELEROMETER
+            _currentResponse.value = app.getString(R.string.magic_ball_initial_prompt_no_accelerometer)
         } else {
-            _currentResponse.value = INITIAL_MESSAGE_SHAKE
+            _currentResponse.value = app.getString(R.string.magic_ball_initial_prompt_shake)
         }
     }
 
     private fun pickNewResponse() {
-        val availableResponses = if (possibleAnswers.size > 1 && _currentResponse.value != SHUFFLING_MESSAGE && _currentResponse.value != INITIAL_MESSAGE_SHAKE && _currentResponse.value != INITIAL_MESSAGE_NO_ACCELEROMETER) {
+        // Récupérer les messages "non-réponse" pour les exclure de la sélection aléatoire
+        // si la réponse actuelle est l'un d'eux.
+        val shufflingMessage = app.getString(R.string.magic_ball_shuffling_message)
+        val initialShakeMessage = app.getString(R.string.magic_ball_initial_prompt_shake)
+        val initialNoAccelerometerMessage = app.getString(R.string.magic_ball_initial_prompt_no_accelerometer)
+
+        val availableResponses = if (possibleAnswers.size > 1 &&
+            _currentResponse.value != shufflingMessage &&
+            _currentResponse.value != initialShakeMessage &&
+            _currentResponse.value != initialNoAccelerometerMessage) {
+            // S'assurer que la réponse actuelle n'est pas un message de service
+            // ET qu'elle n'est pas la réponse précédente pour éviter les répétitions immédiates.
             possibleAnswers.filterNot { it == _currentResponse.value }
         } else {
             possibleAnswers
         }
-        _currentResponse.value = availableResponses.randomOrNull() ?: possibleAnswers.firstOrNull() ?: INITIAL_MESSAGE_SHAKE
+
+        _currentResponse.value = availableResponses.randomOrNull()
+            ?: possibleAnswers.firstOrNull() // Fallback si la liste filtrée est vide
+                    ?: initialShakeMessage // Fallback ultime au message d'invite par défaut
     }
 
+    // `onShakeDetected` et `completeShakeProcessing` sont hérités de ShakeDetectViewModel
+    // et leur logique interne reste la même, mais les messages qu'ils utilisent sont maintenant des ressources.
     override suspend fun onShakeDetected() {
-        _currentResponse.value = SHUFFLING_MESSAGE
+        _currentResponse.value = app.getString(R.string.magic_ball_shuffling_message) // Utiliser la ressource
         delay(SHUFFLE_ANIMATION_DELAY_MS)
         pickNewResponse()
-        completeShakeProcessing()
+        completeShakeProcessing() // Méthode de la classe parente ShakeDetectViewModel
     }
 }

@@ -7,4 +7,5 @@ object AppDestinations {
     const val ROCK_PAPER_SCISSORS_ROUTE = "rock_paper_scissors"
     const val DICE_ROLL_ROUTE = "dice_roll"
     const val INFO_ROUTE = "info"
+    const val SETTINGS_ROUTE = "settings"
 }

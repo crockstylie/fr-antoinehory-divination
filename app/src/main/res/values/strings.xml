@@ -71,4 +71,22 @@
     <string name="rps_icon_description_paper">Icône Feuille</string>
     <string name="rps_icon_description_scissors">Icône Ciseaux</string>
     <string name="general_content_description_empty">Image de résultat</string> <!-- Fallback si besoin -->
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Jet de Dé</string>
+    <string name="dice_initial_prompt_shake">Secouez pour lancer le dé !</string>
+    <string name="dice_initial_prompt_no_accelerometer">Utilisez le bouton ci-dessous pour lancer le dé (accéléromètre non disponible).</string> <!-- Optionnel, si tu ajoutes un bouton pour les appareils sans accéléromètre -->
+    <string name="dice_rolling_message">Lancement du dé…</string>
+    <string name="dice_result_format">Résultat : %1$d</string> <!-- %1$d sera remplacé par le numéro du dé -->
+    <string name="dice_accelerometer_not_available_ui_message">L\'accéléromètre n\'est pas disponible sur cet appareil. La secousse ne fonctionnera pas.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Face du dé montrant un</string>
+    <string name="dice_icon_description_2">Face du dé montrant deux</string>
+    <string name="dice_icon_description_3">Face du dé montrant trois</string>
+    <string name="dice_icon_description_4">Face du dé montrant quatre</string>
+    <string name="dice_icon_description_5">Face du dé montrant cinq</string>
+    <string name="dice_icon_description_6">Face du dé montrant six</string>
+    <string name="dice_icon_description_empty">Aucun résultat de dé affiché</string>
+
 </resources>

@@ -10,7 +10,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -23,7 +22,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold
 import fr.antoinehory.divination.viewmodels.RPSOutcome
 import fr.antoinehory.divination.viewmodels.RockPaperScissorsViewModel
 
@@ -115,8 +113,7 @@ fun RockPaperScissorsScreen(
                             contentDescription = stringResource(id = contentDescId),
                             modifier = Modifier
                                 .fillMaxSize()
-                                .alpha(imageAlpha), // imageAlpha est la valeur animée
-                            colorFilter = ColorFilter.tint(OrakniumGold)
+                                .alpha(imageAlpha)
                         )
                     }
                 }

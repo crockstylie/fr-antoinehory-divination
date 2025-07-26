@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tu peux y mettre tes couleurs d'application -->
-    <color name="oraknium_gold">#FFB8860B</color> <!-- Assure-toi que le code hexadécimal est correct pour ton OrakniumGold -->
-    <!-- Autres couleurs comme le noir et le blanc si tu les utilises souvent -->
+    <color name="oraknium_gold">#FFB8860B</color>
+    <color name="oraknium_silver">#FFC2C2C2</color>
+    <color name="oraknium_bronze">#FF8D6E63</color>
+    <color name="oraknium_dark_gold">#FF926C10</color>
+    <color name="oraknium_light_gold">#FFffdd6a</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

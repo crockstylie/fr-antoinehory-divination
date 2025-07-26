@@ -5,212 +5,212 @@
     android:viewportHeight="965.55">
   <path
       android:pathData="M483.9,482.78m-480,0a480,480 0,1 1,960 0a480,480 0,1 1,-960 0"
-      android:fillColor="#ffdd6a"/>
+      android:fillColor="@color/oraknium_light_gold"/>
   <path
       android:pathData="M766.94,89.48c151.63,109.02 228.37,297.34 191.85,483.67s-170.9,327.82 -349.3,375.7c-210.14,56.41 -429.13,-33.53 -540.18,-218.47C-58.15,518.1 -5.42,244.94 191.36,97.72c168.29,-125.9 403.79,-131.75 575.58,-8.24ZM771.86,106.58C593.67,-32.96 332.81,-15.35 167.26,131.62 -56.9,330.63 -34.03,691.26 205.04,864.1c86.45,62.5 194.05,93.69 300.78,90.08 29.93,-1.01 59.37,-6.64 87.22,-12.96 117.25,-26.63 213.85,-96.92 280.8,-193.03 76.47,-109.77 102.62,-259.18 67.15,-389.26 -17.83,-65.37 -50.33,-130.05 -94.75,-180.24 -22.45,-25.37 -47.93,-51.39 -74.38,-72.1Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M709.07,88.44c221.37,133.11 298.91,408.29 157.62,634.61 -25.97,41.6 -53.27,69.31 -89.12,102.38 -1.13,1.05 -1.77,4.03 -2.55,4.48 -12.56,7.29 -24.65,18.1 -37.38,27.08 -33.29,23.48 -80.04,45.21 -119.6,57.4 -140.53,43.32 -270.58,18.47 -391.62,-60.91C38.9,730.53 -25.47,465.64 84.06,266.39c21.61,-39.32 51.62,-80.06 86.18,-111.82 66.03,-60.67 139.84,-99.38 229.32,-117.66 96.99,-19.81 224.8,0.59 309.52,51.53ZM724.91,110.52C532.95,-13.99 279.12,33.15 136.28,206.64c-2.22,2.7 -8.27,10.41 -9.93,13.18 -0.89,1.47 -0.06,3.1 -0.19,3.19 -6.54,4.8 -10.46,10.91 -15.29,18.21C1.12,406.91 24.61,637.19 156.66,780.76c103.64,112.68 258.57,164.28 410.32,135.77 95.36,-17.92 180.27,-66.34 245.34,-137.87 99.93,-109.87 139.36,-271.25 98.45,-414.52 -30.06,-105.27 -94.21,-194.17 -185.86,-253.62Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M76,539.84c-8.21,6.81 -18.17,-12.54 -5.5,-16.07 9.47,-2.63 11.56,11.04 5.5,16.07Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M337.05,858.38c1.02,1.04 0.5,3.64 3.09,4.19 0.67,9.71 -10.94,15.02 -15.74,5.94s7.61,-15.23 12.64,-10.13Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M95.98,617.85c-7.25,8.94 -20.02,-9.09 -9.97,-13.68 10.77,-4.92 14.7,7.85 9.97,13.68Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M74.85,579.58c-7.31,-6.98 1.7,-17.88 10.4,-11.91 2.54,2.18 2.95,9.43 1.11,12.04 -4.67,3.54 -7.48,3.71 -11.51,-0.13Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M399.05,70.32c8.69,-1.09 13.19,10.25 4.6,14.69 -11.64,6.02 -16.53,-13.2 -4.6,-14.69Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M849.98,287.35c15.47,-4.62 13.05,21.81 -0.98,14.58 -5.08,-2.62 -4.68,-12.89 0.98,-14.58Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M210.58,158.45c8.43,-6.17 18.27,9.35 7.68,14.17 -8.99,4.09 -14.95,-8.84 -7.68,-14.17Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M301.02,847.39c1.34,1.38 1.9,7.97 1,9.52 -0.15,0.26 -4.13,3.99 -4.41,4.09 -3.62,1.3 -8.8,-1.34 -9.71,-5.02 -2.3,-9.32 6.92,-14.94 13.12,-8.59Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M832.01,250.31c10.96,-2.27 13.04,15.4 1.66,15.79 -9.02,0.31 -10.54,-13.95 -1.66,-15.79Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M61.5,444.35c0.16,-0.27 4.61,-3.1 5.32,-3.23 11.62,-2.05 12.76,16.17 1.93,15.9 -6,-0.15 -10,-7.92 -7.25,-12.67Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M173.48,756.28c-0.58,0.37 -0.69,2.39 -1.71,2.85l-1.44,-0.05 -0.63,-1.97 -2.33,0.96c-0.31,-2.14 -2.51,-3.71 -2.92,-5.67 -2.62,-12.31 16.63,-14.7 14.64,-1.03 -1.05,7.2 -4.77,4.38 -5.6,4.91Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M643,94.33c11.34,-2.51 11.77,12.77 5.57,14.59 -12.02,3.53 -15.68,-12.35 -5.57,-14.59Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M906.72,487.74c0.29,0.39 1.45,0.41 1.57,0.94v1.89c-3.14,0.97 -2.16,5.7 -5.01,7.06 -10.94,5.22 -15.06,-10.65 -7.75,-13.74 5.89,-2.48 8.01,-0.5 11.19,3.84Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M99.93,322.43c10.27,-0.56 10.53,16.93 -2.06,15.69 -8.83,-0.87 -6.6,-15.21 2.06,-15.69Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M123.93,677.43c10,-0.55 10.97,15.84 -0.17,15.74 -10.29,-0.09 -9,-15.23 0.17,-15.74Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M111.57,298.86c-7.83,-9.57 11.91,-19.83 13.69,-6.13 1.13,8.72 -8.74,12.18 -13.69,6.13Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M875.53,374.9c-7.87,-14.51 14.76,-19.11 13.81,-5.28 -0.53,7.75 -8.08,7.44 -13.81,5.28Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M82.99,360.32c10.94,-1.71 11.52,18.41 -0.99,15.62 -8.67,-1.94 -6.35,-14.47 0.99,-15.62Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M797.99,742.32c9.98,-1.57 11.3,14.4 2.74,15.84 -11.29,1.9 -12.03,-14.38 -2.74,-15.84Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M689.19,123.04c-7.18,3.71 -19.38,-0.47 -15.39,-9.88 4.59,-10.84 17.62,1.61 15.39,9.88Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M817.94,711.3c15.24,-5.25 14.73,18.7 1.29,14.39 -6.67,-2.14 -5.65,-12.88 -1.29,-14.39Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M227,798.34c9.09,-2.01 12.64,9.73 6.25,14.26 -9.53,6.77 -17.26,-11.83 -6.25,-14.26Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M875.97,336.82c-7.12,6.68 -18.27,-4.49 -10.21,-11.7s17.29,5.06 10.21,11.7Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M371.02,870.31c12.06,-2.47 13.37,19.34 -1.8,14.38 -6.32,-2.07 -4.8,-13.03 1.8,-14.38Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M519.01,886.31c9.57,-1.99 12.61,11.98 5.33,14.38 -12.73,4.2 -14.88,-12.39 -5.33,-14.38Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M65.97,483.34c14.2,-4.33 14.55,17.31 0.85,14.79 -6.66,-1.23 -5.66,-13.33 -0.85,-14.79Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M135.99,250.33c10.18,-3.06 14.2,12 5.58,14.6 -11.74,3.55 -13.52,-12.22 -5.58,-14.6Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M633.99,857.36c13.91,-4.11 14.2,17.22 0.83,14.77 -6.44,-1.18 -6.49,-13.1 -0.83,-14.77Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M479.95,887.29c6.48,-2.25 12.34,5.19 9.19,11.22 -4.87,9.32 -16.17,3.32 -13.43,-5.41 0.36,-1.14 3.17,-5.44 4.23,-5.81Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M743.98,801.45c4.53,3.33 3.65,12.65 -2.25,13.69 -5.17,0.92 -9.98,-0.71 -10.41,-6.55s8.04,-10.53 12.66,-7.14Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M264.96,832.83c-3.56,3.89 -11.14,3.09 -12.46,-2.4 -4.4,-18.34 23.15,-9.27 12.46,2.4Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M98.54,654.88c-5.69,-6.06 3.37,-20.06 11.3,-10.81 6.89,8.04 -5.17,17.33 -11.3,10.81Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M752.02,158.29c10.06,-1.85 10.86,14.51 2.71,15.86 -10.78,1.78 -11.36,-14.26 -2.71,-15.86Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M481.02,62.35c11.49,-1.1 11.85,18.59 -1.79,14.34 -7.79,-2.43 -6.01,-13.59 1.79,-14.34Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M204.71,776.73c0.21,0.38 1.37,0.45 1.53,1.13 1.29,5.47 -4.57,11.53 -10,9.87 -7.85,-2.41 -6.18,-14.94 1.72,-15.33 3.79,-0.19 5.25,1.68 6.75,4.33Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M75.99,401.32c8.11,-1.28 12.07,10.85 4.65,14.69 -11.73,6.07 -14.46,-13.14 -4.65,-14.69Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M602.97,80.34c11.17,-3.4 14.83,10.65 7.06,14.05 -10.66,4.66 -14.2,-11.87 -7.06,-14.05Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M849.93,690.86c-0.26,0.27 -1.48,0.28 -2.21,0.69 -1.06,0.6 0.07,2.02 -3.83,1.54 -7.61,-0.94 -9.07,-11.97 -1.32,-15.22 7.46,-3.12 13.02,6.97 7.36,12.98Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M766.01,772.34c11.69,-2.55 11.9,12.92 3.54,14.63 -10.08,2.06 -12.73,-12.63 -3.54,-14.63Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M157.99,217.33c9.86,-2.93 14.19,11.54 5.34,14.36 -12.09,3.84 -12.52,-12.22 -5.34,-14.36Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M893,524.34c10.16,-2.24 12.38,12.25 4.57,14.59 -10.87,3.25 -13.62,-12.59 -4.57,-14.59Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M555.02,881.32c10.37,-2.14 12.93,13.84 3.31,15.4s-11.05,-13.81 -3.31,-15.4Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M674.68,854.55c-1.7,1.45 -2.24,3.19 -5.71,2.65 -0.84,-2.69 -4.33,-2.74 -5.03,-4.26 -4.18,-9.03 10.64,-17.01 13.89,-6.85 1.71,5.33 0.14,5.67 -3.15,8.47Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M144.04,711.34c9.49,-1.33 12.89,12.7 3.5,14.62 -9.82,2.01 -13.46,-13.23 -3.5,-14.62Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M451,896.86c-6.53,6.53 -17.68,-3.12 -11.19,-10.69 6.4,-7.46 18.39,3.49 11.19,10.69Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M571.02,71.4c4.17,3.91 2.67,14.66 -5.02,13.55 -10.56,-1.52 -9.64,-14.62 -0.24,-14.91 1.47,-0.04 4.19,0.36 5.26,1.36Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M701.51,833.9c-7.11,-7.12 5.03,-20.72 11.17,-10.68 5.46,8.92 -6.45,15.41 -11.17,10.68Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M255.93,146.86c-0.16,0.18 -3.88,2.36 -4.12,2.38 -5.94,0.55 -9,-2.64 -8.59,-8.58 0.94,-13.39 21.13,-3.44 12.7,6.2Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M328.02,107.88c-5.98,5.63 -18.16,-2.6 -11.21,-10.71 6.41,-7.47 18.72,3.63 11.21,10.71Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M896.01,442.34c13.29,-2.93 12.45,16.66 1.01,14.64 -7.03,-1.24 -7.77,-13.15 -1.01,-14.64Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M882.55,576.87c-4.22,-5.19 1.52,-18.84 10.26,-11.76s-4.22,19.21 -10.26,11.76Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M189.04,188.41c0.31,0.13 4.04,4.38 4.36,5.2 1.32,3.42 -0.83,8.82 -4.66,9.52 -14.93,2.73 -9.98,-19.04 0.3,-14.72Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M888.98,402.32c10.22,-2.87 15.46,10.39 7.04,14.06 -11.5,5.02 -12.19,-12.62 -7.04,-14.06Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M530.02,75.88c-7.26,7.73 -17.88,-5.38 -10.83,-11.33 7.76,-6.54 16.39,5.41 10.83,11.33Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M359,82.34c13.41,-3.95 12.46,19.68 -0.47,14.05 -6.15,-2.68 -4.66,-12.54 0.47,-14.05Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M440.03,63.28c7.55,-1.43 13.23,11.76 5.31,14.42 -11.83,3.97 -14.55,-12.67 -5.31,-14.42Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M722.17,145.04l-3.84,0.19 -0.06,2.9c-10.24,-0.47 -12.57,-16.88 -0.51,-16.06 8.51,0.58 6.24,7.3 4.41,12.96Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M872.59,605.45c3.22,-4.45 12.24,-2.99 12.74,4.21 1.1,15.74 -20.58,6.64 -12.74,-4.21Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M802.97,217.34c13.9,-4.23 13.9,17.83 0,13.6 -4.89,-1.49 -4.93,-12.1 0,-13.6Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M782.94,189.57c0.25,0.13 0.26,0.97 0.53,1.33l1.79,-0.77c2.64,6.9 -1.62,16.02 -9.97,12.48 -6.66,-2.82 -2.72,-18.63 7.64,-13.04Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M289.14,125c-0.28,0.44 -7.23,1.97 -8.25,1.85 -8.04,-0.94 -7.09,-14.18 0.96,-14.7 5.77,-0.38 9.62,9.21 7.3,12.85Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M861.02,641.3c8.01,-1.45 11.19,10.75 6.24,13.32 -12.22,6.33 -16.23,-11.51 -6.24,-13.32Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M588.55,878.41c2.26,-0.44 1.19,-2.83 2.92,-3.61 3.48,-1.57 10.32,-1.26 11.59,3.05 3.57,12.1 -15.53,13.52 -14.51,0.56Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M410.7,892.59c-0.36,0.25 -0.38,1.39 -1.12,1.55 -7.55,1.58 -12.86,-10.93 -6.07,-13.31 10.54,-3.69 16.08,5.51 7.19,11.75Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M444.28,502.14c-54.37,-10.13 -121.17,-33.97 -142.03,-90.47 -15.81,-42.83 -13.24,-93.54 9.85,-133.2 26.98,-46.32 81.49,-67.04 132.04,-75.46l0.19,-48.3c0.71,-4.56 3.29,-5.24 7.39,-5.61 15.72,-1.42 47.38,-1.42 63.09,0 5.15,0.47 7.85,2.18 8.47,7.53 1.72,14.65 -1.32,32.52 -0.03,47.53 55.72,3.59 111.31,37.13 134.86,88.64 7.1,15.52 13.76,38.79 13.2,55.85 -0.14,4.28 -0.71,7.23 -5.01,9.06l-93.82,-0.22c-4.21,-1.75 -5.66,-17.66 -7.22,-22.85 -5.98,-19.88 -23.51,-31.98 -42.02,-39.48v122c54.99,14.54 131.13,38.74 153.77,96.73 20.35,52.16 13.63,111.97 -21.79,155.74 -32.09,39.65 -82.18,58.15 -131.84,63.67l-0.2,54.3c-0.54,3.73 -3.64,6.48 -7.42,6.58 -20.63,-1.48 -43.75,1.89 -64.07,0.02 -13.21,-1.21 -7.55,-18.61 -7.41,-27.5 0.18,-11.47 -0.12,-22.98 -0.15,-34.44 -48.4,-4.84 -93.88,-20.73 -126.4,-58.09 -22.4,-25.73 -41.35,-71.12 -38.52,-105.55 0.56,-6.83 1.64,-7.94 8.5,-8.5 23.47,-1.93 50.42,0.32 74,1.08 9.35,0.3 20.43,-4.55 23.1,7.9 3.32,15.46 3.45,23.24 12.63,37.37 10.05,15.46 28.91,30.54 46.81,34.69v-139ZM660.28,347.14c-3.73,-73.53 -59.53,-119.86 -128.79,-131.71 -6.33,-1.08 -14.37,-0.1 -19.21,-3.79v-51l-1.5,-1.5h-55.5v54c-48.29,4.66 -101.33,23.33 -129.81,64.69 -26.53,38.52 -29.63,91.27 -11.36,133.99 23.56,55.09 88.48,69.82 141.17,82.33v161c-41.84,-6.14 -78.42,-40.61 -81,-84h-85c1.95,53.62 30.81,103.83 78.33,129.17 26.18,13.96 57.16,20.31 86.68,21.82v62.01s57,0 57,0l0.99,-62.01c75.46,-2.01 146.88,-41.53 162.54,-119.96 6.77,-33.91 0.22,-82.44 -22.56,-109.5 -31.97,-37.98 -93.4,-55.26 -139.97,-66.53v-145c14.82,2.4 38.38,12.72 49.03,23.47 9.86,9.95 15.84,28.88 16.97,42.53h82Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M512.28,654.14v-145c41.36,10.86 83.9,22.61 81.05,74.55 -0.67,12.29 -6.17,30.49 -13.61,40.39 -12.69,16.88 -47.15,27.04 -67.43,30.07ZM568.93,544.49c-11.96,-11.69 -30.2,-16.17 -45.64,-21.35l-1.01,118c21.5,-4.26 45.94,-14.18 54.85,-35.64 8.35,-20.11 8.14,-45.03 -8.21,-61.01Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
   <path
       android:pathData="M455.28,411.13c-2.09,0.02 -4.19,0.21 -6.27,-0.22 -18.18,-3.83 -47.13,-17.86 -56.29,-34.71 -11.35,-20.89 -5.67,-53.05 9.03,-71.08 9.74,-11.96 38.39,-22.22 53.52,-24.97v130.99ZM444.28,294.14c-16.86,5.14 -32.55,12.16 -40.71,28.79 -17.39,35.43 3.83,67.96 40.71,74.21v-103Z"
-      android:fillColor="#926c10"/>
+      android:fillColor="@color/oraknium_dark_gold"/>
 </vector>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menu_button_magic_ball">Boule Magique N°8</string>
+    <string name="menu_button_coin_flip">Pile ou Face</string>
+    <string name="menu_button_rps">Shifoumi</string>
+    <string name="menu_button_dice_roll">Lancer de Dés</string>
+    <string name="menu_settings_description">Paramètres</string>
+    <string name="menu_info_description">Informations</string>
+    <string name="magic_ball_initial_prompt_shake">Secouez l\'appareil pour obtenir une réponse.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Secouez l\'appareil (accéléromètre non détecté).</string>
+    <string name="magic_ball_screen_title">Boule Magique</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Accéléromètre non disponible sur cet appareil.</string>
+    <string-array name="magic_ball_possible_answers">
+        <item>Essaye plus tard</item>
+        <item>Essaye encore</item>
+        <item>Pas d\'avis</item>
+        <item>C\'est ton destin</item>
+        <item>Le sort en est jeté</item>
+        <item>Une chance sur deux</item>
+        <item>Repose ta question</item>
+        <item>D\'après moi oui</item>
+        <item>C\'est certain</item>
+        <item>Oui absolument</item>
+        <item>Tu peux compter dessus</item>
+        <item>Sans aucun doute</item>
+        <item>Très probable</item>
+        <item>Oui</item>
+        <item>C\'est bien parti</item>
+        <item>C\'est non</item>
+        <item>Peu probable</item>
+        <item>Faut pas rêver</item>
+        <item>N\'y compte pas</item>
+        <item>Impossible</item>
+    </string-array>
+    <string name="coin_flip_screen_title">Pile ou Face</string>
+    <string name="coin_flip_initial_prompt_shake">Secouez pour lancer la pièce !</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Secouez (accéléromètre non détecté).</string>
+    <string name="coin_flip_flipping_message">Lancement…</string>
+    <string name="coin_flip_result_heads">Pile !</string>
+    <string name="coin_flip_result_tails">Face !</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Accéléromètre non disponible pour lancer la pièce.</string>
+    <string name="coin_flip_heads_icon_description">Image de Pile</string>
+    <string name="coin_flip_tails_icon_description">Image de Face</string>
+    <string name="rps_screen_title">Shifoumi</string>
+    <string name="rps_initial_prompt_shake">Secouez pour jouer !</string>
+    <string name="rps_initial_prompt_no_accelerometer">Secouez (accéléromètre non détecté).</string>
+    <string name="rps_processing_message">Pierre, Feuille, Ciseaux…</string>
+    <string name="rps_result_rock">Pierre !</string>
+    <string name="rps_result_paper">Feuille !</string>
+    <string name="rps_result_scissors">Ciseaux !</string>
+    <string name="rps_accelerometer_not_available_ui_message">Accéléromètre non disponible pour jouer.</string>
+    <string name="rps_icon_description_rock">Icône Pierre</string>
+    <string name="rps_icon_description_paper">Icône Feuille</string>
+    <string name="rps_icon_description_scissors">Icône Ciseaux</string>
+    <string name="general_content_description_empty">Image de résultat</string>
+    <string name="dice_roll_screen_title">Jet de Dé</string>
+    <string name="dice_initial_prompt_shake">Secouez pour lancer le dé !</string>
+    <string name="dice_initial_prompt_no_accelerometer">Utilisez le bouton ci-dessous pour lancer le dé (accéléromètre non disponible).</string>
+    <string name="dice_rolling_message">Lancement du dé…</string>
+    <string name="dice_result_format">Résultat : %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">L\'accéléromètre n\'est pas disponible sur cet appareil. La secousse ne fonctionnera pas.</string>
+    <string name="dice_icon_description_1">Face du dé montrant un</string>
+    <string name="dice_icon_description_2">Face du dé montrant deux</string>
+    <string name="dice_icon_description_3">Face du dé montrant trois</string>
+    <string name="dice_icon_description_4">Face du dé montrant quatre</string>
+    <string name="dice_icon_description_5">Face du dé montrant cinq</string>
+    <string name="dice_icon_description_6">Face du dé montrant six</string>
+    <string name="dice_icon_description_empty">Aucun résultat de dé affiché</string>
+    <string name="app_name">Oraknium</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Paramètres</string>
+    <string name="settings_screen_soon_message">Bientôt…</string>
+</resources>

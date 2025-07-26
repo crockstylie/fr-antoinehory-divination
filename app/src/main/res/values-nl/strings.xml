@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <!-- <string name="menu_title_header" translatable="false">Oraknium</string> --> <!-- Aangenomen dat dit niet vertaald wordt volgens het origineel -->
+    <string name="menu_button_magic_ball">Magic 8 Ball</string>
+    <string name="menu_button_coin_flip">Munt opgooien</string> <!-- Of "Kop of Munt" -->
+    <string name="menu_button_rps">Steen, Papier, Schaar</string>
+    <string name="menu_button_dice_roll">Dobbelsteen gooien</string>
+    <string name="menu_settings_description">Instellingen</string>
+    <string name="menu_info_description">Informatie</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Schud het apparaat voor een antwoord.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Schud het apparaat (versnellingsmeter niet gedetecteerd).</string>
+    <!-- <string name="magic_ball_shuffling_message" translatable="false">…</string> --> <!-- Aangenomen dat dit niet vertaald wordt volgens het origineel -->
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Het is zeker.</item>
+        <item>Absoluut.</item>
+        <item>Zonder twijfel.</item>
+        <item>Ja, zeker.</item>
+        <item>Daar kun je op rekenen.</item>
+        <item>Zoals ik het zie, ja.</item>
+        <item>Zeer waarschijnlijk.</item>
+        <item>Vooruitzichten zijn goed.</item>
+        <item>Ja.</item>
+        <item>Tekenen wijzen op ja.</item>
+        <item>Antwoord wazig, probeer opnieuw.</item>
+        <item>Vraag later opnieuw.</item>
+        <item>Beter dat ik het je nu niet vertel.</item>
+        <item>Kan het nu niet voorspellen.</item>
+        <item>Concentreer je en vraag opnieuw.</item>
+        <item>Reken er niet op.</item>
+        <item>Mijn antwoord is nee.</item>
+        <item>Mijn bronnen zeggen nee.</item>
+        <item>Vooruitzichten niet zo goed.</item>
+        <item>Zeer twijfelachtig.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Magic Ball</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Versnellingsmeter niet beschikbaar op dit apparaat.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Munt opgooien</string> <!-- Of "Kop of Munt" -->
+    <string name="coin_flip_initial_prompt_shake">Schud om de munt op te gooien!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Schud (versnellingsmeter niet gedetecteerd).</string>
+    <string name="coin_flip_flipping_message">Gooien…</string>
+    <string name="coin_flip_result_heads">Kop!</string>
+    <string name="coin_flip_result_tails">Munt!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Versnellingsmeter niet beschikbaar om de munt op te gooien.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Afbeelding van Kop</string>
+    <string name="coin_flip_tails_icon_description">Afbeelding van Munt</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Steen, Papier, Schaar</string>
+    <string name="rps_initial_prompt_shake">Schud om te spelen!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Schud (versnellingsmeter niet gedetecteerd).</string>
+    <string name="rps_processing_message">Steen, Papier, Schaar…</string>
+    <string name="rps_result_rock">Steen!</string>
+    <string name="rps_result_paper">Papier!</string>
+    <string name="rps_result_scissors">Schaar!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Versnellingsmeter niet beschikbaar om te spelen.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Steen icoon</string>
+    <string name="rps_icon_description_paper">Papier icoon</string>
+    <string name="rps_icon_description_scissors">Schaar icoon</string>
+    <string name="general_content_description_empty">Afbeelding resultaat</string> <!-- Fallback indien nodig -->
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Dobbelsteen gooien</string>
+    <string name="dice_initial_prompt_shake">Schud om de dobbelsteen te gooien!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Gebruik de knop hieronder om de dobbelsteen te gooien (versnellingsmeter niet beschikbaar).</string>
+    <string name="dice_rolling_message">Dobbelsteen gooien…</string>
+    <string name="dice_result_format">Resultaat: %1$d</string> <!-- %1$d wordt vervangen door het dobbelsteennummer -->
+    <string name="dice_accelerometer_not_available_ui_message">Versnellingsmeter is niet beschikbaar op dit apparaat. Schudden werkt niet.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Dobbelsteenzijde met één</string>
+    <string name="dice_icon_description_2">Dobbelsteenzijde met twee</string>
+    <string name="dice_icon_description_3">Dobbelsteenzijde met drie</string>
+    <string name="dice_icon_description_4">Dobbelsteenzijde met vier</string>
+    <string name="dice_icon_description_5">Dobbelsteenzijde met vijf</string>
+    <string name="dice_icon_description_6">Dobbelsteenzijde met zes</string>
+    <string name="dice_icon_description_empty">Geen dobbelsteenresultaat weergegeven</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Instellingen</string>
+    <string name="settings_screen_soon_message">Binnenkort…</string>
+
+</resources>
+

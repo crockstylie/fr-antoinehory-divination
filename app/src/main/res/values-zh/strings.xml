@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <string name="menu_button_magic_ball">魔力8号球</string>
+    <string name="menu_button_coin_flip">抛硬币</string>
+    <string name="menu_button_rps">石头剪刀布</string>
+    <string name="menu_button_dice_roll">掷骰子</string>
+    <string name="menu_settings_description">设置</string>
+    <string name="menu_info_description">信息</string>
+
+    <string name="magic_ball_initial_prompt_shake">摇动设备以获得答案。</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">摇动设备（未检测到加速计）。</string>
+    <string-array name="magic_ball_possible_answers">
+        <item>这是肯定的。</item>
+        <item>绝对如此。</item>
+        <item>毫无疑问。</item>
+        <item>是的，当然。</item>
+        <item>你可以依靠它。</item>
+        <item>在我看来，是的。</item>
+        <item>很有可能。</item>
+        <item>前景看好。</item>
+        <item>是的。</item>
+        <item>迹象表明是的。</item>
+        <item>回复模糊，请再试一次。</item>
+        <item>稍后再问。</item>
+        <item>现在最好不告诉你。</item>
+        <item>现在无法预测。</item>
+        <item>集中精神再问一次。</item>
+        <item>别指望它。</item>
+        <item>我的回复是不。</item>
+        <item>我的消息来源说不。</item>
+        <item>前景不太好。</item>
+        <item>非常可疑。</item>
+    </string-array>
+    <string name="magic_ball_screen_title">魔力球</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">此设备上加速计不可用。</string>
+
+    <string name="coin_flip_screen_title">抛硬币</string>
+    <string name="coin_flip_initial_prompt_shake">摇动以抛硬币！</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">摇动（未检测到加速计）。</string>
+    <string name="coin_flip_flipping_message">正在抛…</string>
+    <string name="coin_flip_result_heads">正面！</string>
+    <string name="coin_flip_result_tails">反面！</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">加速计无法用于抛硬币。</string>
+    <string name="coin_flip_heads_icon_description">正面图像</string>
+    <string name="coin_flip_tails_icon_description">反面图像</string>
+
+    <string name="rps_screen_title">石头剪刀布</string>
+    <string name="rps_initial_prompt_shake">摇动来玩！</string>
+    <string name="rps_initial_prompt_no_accelerometer">摇动（未检测到加速计）。</string>
+    <string name="rps_processing_message">石头，剪刀，布…</string>
+    <string name="rps_result_rock">石头！</string>
+    <string name="rps_result_paper">布！</string>
+    <string name="rps_result_scissors">剪刀！</string>
+    <string name="rps_accelerometer_not_available_ui_message">加速计无法用于游戏。</string>
+    <string name="rps_icon_description_rock">石头图标</string>
+    <string name="rps_icon_description_paper">布图标</string>
+    <string name="rps_icon_description_scissors">剪刀图标</string>
+
+    <string name="general_content_description_empty">结果图像</string>
+
+    <string name="dice_roll_screen_title">掷骰子</string>
+    <string name="dice_initial_prompt_shake">摇动以掷骰子！</string>
+    <string name="dice_initial_prompt_no_accelerometer">使用下面的按钮掷骰子（加速计不可用）。</string>
+    <string name="dice_rolling_message">正在掷骰子…</string>
+    <string name="dice_result_format">结果: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">此设备上加速计不可用。摇动将不起作用。</string>
+
+    <string name="dice_icon_description_1">骰子面显示一点</string>
+    <string name="dice_icon_description_2">骰子面显示二点</string>
+    <string name="dice_icon_description_3">骰子面显示三点</string>
+    <string name="dice_icon_description_4">骰子面显示四点</string>
+    <string name="dice_icon_description_5">骰子面显示五点</string>
+    <string name="dice_icon_description_6">骰子面显示六点</string>
+    <string name="dice_icon_description_empty">未显示骰子结果</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">设置</string>
+    <string name="settings_screen_soon_message">敬请期待…</string>
+</resources>

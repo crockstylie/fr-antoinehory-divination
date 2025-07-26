@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <!-- <string name="menu_title_header" translatable="false">Oraknium</string> --> <!-- Si assume che non venga tradotto come nell'originale -->
+    <string name="menu_button_magic_ball">Palla Magica 8</string>
+    <string name="menu_button_coin_flip">Lancio Moneta</string> <!-- O "Testa o Croce" -->
+    <string name="menu_button_rps">Sasso, Carta, Forbice</string>
+    <string name="menu_button_dice_roll">Lancio Dadi</string>
+    <string name="menu_settings_description">Impostazioni</string>
+    <string name="menu_info_description">Informazioni</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Scuoti il dispositivo per una risposta.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Scuoti il dispositivo (accelerometro non rilevato).</string>
+    <!-- <string name="magic_ball_shuffling_message" translatable="false">…</string> --> <!-- Si assume che non venga tradotto come nell'originale -->
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>È certo.</item>
+        <item>Decisamente sì.</item>
+        <item>Senza dubbio.</item>
+        <item>Sì, assolutamente.</item>
+        <item>Puoi contarci.</item>
+        <item>Per come la vedo io, sì.</item>
+        <item>Molto probabile.</item>
+        <item>Le prospettive sono buone.</item>
+        <item>Sì.</item>
+        <item>I segni indicano di sì.</item>
+        <item>Risposta vaga, riprova.</item>
+        <item>Chiedi di nuovo più tardi.</item>
+        <item>Meglio non dirtelo adesso.</item>
+        <item>Impossibile prevederlo ora.</item>
+        <item>Concentrati e chiedi di nuovo.</item>
+        <item>Non contarci.</item>
+        <item>La mia risposta è no.</item>
+        <item>Le mie fonti dicono di no.</item>
+        <item>Le prospettive non sono buone.</item>
+        <item>Molto incerto.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Palla Magica</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Accelerometro non disponibile su questo dispositivo.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Lancio Moneta</string> <!-- O "Testa o Croce" -->
+    <string name="coin_flip_initial_prompt_shake">Scuoti per lanciare la moneta!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Scuoti (accelerometro non rilevato).</string>
+    <string name="coin_flip_flipping_message">Lancio in corso…</string>
+    <string name="coin_flip_result_heads">Testa!</string>
+    <string name="coin_flip_result_tails">Croce!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Accelerometro non disponibile per lanciare la moneta.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Immagine di Testa</string>
+    <string name="coin_flip_tails_icon_description">Immagine di Croce</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Sasso, Carta, Forbice</string>
+    <string name="rps_initial_prompt_shake">Scuoti per giocare!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Scuoti (accelerometro non rilevato).</string>
+    <string name="rps_processing_message">Sasso, Carta, Forbice…</string>
+    <string name="rps_result_rock">Sasso!</string>
+    <string name="rps_result_paper">Carta!</string>
+    <string name="rps_result_scissors">Forbice!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Accelerometro non disponibile per giocare.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Icona Sasso</string>
+    <string name="rps_icon_description_paper">Icona Carta</string>
+    <string name="rps_icon_description_scissors">Icona Forbice</string>
+    <string name="general_content_description_empty">Immagine risultato</string> <!-- Fallback se necessario -->
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Lancio Dadi</string>
+    <string name="dice_initial_prompt_shake">Scuoti per lanciare i dadi!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Usa il pulsante qui sotto per lanciare i dadi (accelerometro non disponibile).</string>
+    <string name="dice_rolling_message">Lancio dei dadi…</string>
+    <string name="dice_result_format">Risultato: %1$d</string> <!-- %1$d sarà sostituito dal numero del dado -->
+    <string name="dice_accelerometer_not_available_ui_message">L\'accelerometro non è disponibile su questo dispositivo. Scuotere non funzionerà.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Faccia del dado che mostra uno</string>
+    <string name="dice_icon_description_2">Faccia del dado che mostra due</string>
+    <string name="dice_icon_description_3">Faccia del dado che mostra tre</string>
+    <string name="dice_icon_description_4">Faccia del dado che mostra quattro</string>
+    <string name="dice_icon_description_5">Faccia del dado che mostra cinque</string>
+    <string name="dice_icon_description_6">Faccia del dado che mostra sei</string>
+    <string name="dice_icon_description_empty">Nessun risultato del dado visualizzato</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Impostazioni</string>
+    <string name="settings_screen_soon_message">Presto…</string>
+
+</resources>

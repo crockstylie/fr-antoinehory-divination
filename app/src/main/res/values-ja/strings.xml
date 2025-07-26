@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <!-- <string name="menu_title_header" translatable="false">Oraknium</string> --> <!-- オリジナルに従い、翻訳しないと仮定 -->
+    <string name="menu_button_magic_ball">マジック8ボール</string>
+    <string name="menu_button_coin_flip">コイントス</string>
+    <string name="menu_button_rps">じゃんけん</string>
+    <string name="menu_button_dice_roll">サイコロ</string>
+    <string name="menu_settings_description">設定</string>
+    <string name="menu_info_description">情報</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">デバイスを振って答えを得てください。</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">デバイスを振ってください（加速度センサーが検出されません）。</string>
+    <!-- <string name="magic_ball_shuffling_message" translatable="false">…</string> --> <!-- オリジナルに従い、翻訳しないと仮定 -->
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>確実です。</item>
+        <item>間違いなくそうです。</item>
+        <item>疑いようがありません。</item>
+        <item>はい、絶対に。</item>
+        <item>頼っても大丈夫です。</item>
+        <item>私が見る限り、はい。</item>
+        <item>おそらく。</item>
+        <item>見通しは良いです。</item>
+        <item>はい。</item>
+        <item>兆候は「はい」を示しています。</item>
+        <item>返事は曖昧です、もう一度試してください。</item>
+        <item>後でもう一度尋ねてください。</item>
+        <item>今は言わない方が良いでしょう。</item>
+        <item>今は予測できません。</item>
+        <item>集中してもう一度尋ねてください。</item>
+        <item>期待しないでください。</item>
+        <item>私の答えは「いいえ」です。</item>
+        <item>私の情報源によると「いいえ」です。</item>
+        <item>見通しはあまり良くありません。</item>
+        <item>非常に疑わしいです。</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">マジックボール</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">このデバイスでは加速度センサーは利用できません。</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">コイントス</string>
+    <string name="coin_flip_initial_prompt_shake">振ってコインをトス！</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">振ってください（加速度センサーが検出されません）。</string>
+    <string name="coin_flip_flipping_message">トス中…</string>
+    <string name="coin_flip_result_heads">表！</string>
+    <string name="coin_flip_result_tails">裏！</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">コイントスのための加速度センサーは利用できません。</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">表の画像</string>
+    <string name="coin_flip_tails_icon_description">裏の画像</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">じゃんけん</string>
+    <string name="rps_initial_prompt_shake">振ってプレイ！</string>
+    <string name="rps_initial_prompt_no_accelerometer">振ってください（加速度センサーが検出されません）。</string>
+    <string name="rps_processing_message">じゃんけんぽん…</string> <!-- または 「最初はグー…」なども考えられます -->
+    <string name="rps_result_rock">グー！</string>
+    <string name="rps_result_paper">パー！</string>
+    <string name="rps_result_scissors">チョキ！</string>
+    <string name="rps_accelerometer_not_available_ui_message">じゃんけんのための加速度センサーは利用できません。</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">グーのアイコン</string>
+    <string name="rps_icon_description_paper">パーのアイコン</string>
+    <string name="rps_icon_description_scissors">チョキのアイコン</string>
+    <string name="general_content_description_empty">結果の画像</string> <!-- 必要に応じたフォールバック -->
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">サイコロ</string>
+    <string name="dice_initial_prompt_shake">振ってサイコロを振る！</string>
+    <string name="dice_initial_prompt_no_accelerometer">下のボタンを使ってサイコロを振ってください（加速度センサーは利用できません）。</string>
+    <string name="dice_rolling_message">サイコロを振っています…</string>
+    <string name="dice_result_format">結果: %1$d</string> <!-- %1$d はサイコロの目に置き換えられます -->
+    <string name="dice_accelerometer_not_available_ui_message">このデバイスでは加速度センサーは利用できません。振っても動作しません。</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">サイコロの目1</string>
+    <string name="dice_icon_description_2">サイコロの目2</string>
+    <string name="dice_icon_description_3">サイコロの目3</string>
+    <string name="dice_icon_description_4">サイコロの目4</string>
+    <string name="dice_icon_description_5">サイコロの目5</string>
+    <string name="dice_icon_description_6">サイコロの目6</string>
+    <string name="dice_icon_description_empty">サイコロの結果は表示されていません</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">設定</string>
+    <string name="settings_screen_soon_message">近日公開…</string>
+
+</resources>

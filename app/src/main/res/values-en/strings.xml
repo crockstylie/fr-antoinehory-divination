@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Oraknium</string>
-
-    <!-- MenuScreen.kt -->
-    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">Magic 8 Ball</string>
     <string name="menu_button_coin_flip">Coin Flip</string>
     <string name="menu_button_rps">Rock Paper Scissors</string>
     <string name="menu_button_dice_roll">Dice Roll</string>
     <string name="menu_settings_description">Settings</string>
     <string name="menu_info_description">Information</string>
-
-    <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">Shake the device to get an answer.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">Shake the device (accelerometer not detected).</string>
-    <string name="magic_ball_shuffling_message" translatable="false">…</string> <!-- "..." is generally universal, but kept as a resource for consistency -->
-
-    <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
         <item>It is certain.</item>
         <item>It is decidedly so.</item>
@@ -39,11 +31,8 @@
         <item>Outlook not so good.</item>
         <item>Very doubtful.</item>
     </string-array>
-
     <string name="magic_ball_screen_title">Magic Ball</string>
     <string name="magic_ball_accelerometer_not_available_ui_message">Accelerometer not available on this device.</string>
-
-    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
     <string name="coin_flip_screen_title">Coin Flip</string>
     <string name="coin_flip_initial_prompt_shake">Shake to flip the coin!</string>
     <string name="coin_flip_initial_prompt_no_accelerometer">Shake (accelerometer not detected).</string>
@@ -51,11 +40,8 @@
     <string name="coin_flip_result_heads">Heads!</string>
     <string name="coin_flip_result_tails">Tails!</string>
     <string name="coin_flip_accelerometer_not_available_ui_message">Accelerometer not available to flip the coin.</string>
-    <!-- Content descriptions for Coin Flip -->
     <string name="coin_flip_heads_icon_description">Heads image</string>
     <string name="coin_flip_tails_icon_description">Tails image</string>
-
-    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
     <string name="rps_screen_title">Rock Paper Scissors</string>
     <string name="rps_initial_prompt_shake">Shake to play!</string>
     <string name="rps_initial_prompt_no_accelerometer">Shake (accelerometer not detected).</string>
@@ -64,22 +50,16 @@
     <string name="rps_result_paper">Paper!</string>
     <string name="rps_result_scissors">Scissors!</string>
     <string name="rps_accelerometer_not_available_ui_message">Accelerometer not available to play.</string>
-
-    <!-- Content descriptions for RPS icons -->
     <string name="rps_icon_description_rock">Rock icon</string>
     <string name="rps_icon_description_paper">Paper icon</string>
     <string name="rps_icon_description_scissors">Scissors icon</string>
-    <string name="general_content_description_empty">Result image</string> <!-- Fallback if needed -->
-
-    <!-- Dice Roll Screen -->
+    <string name="general_content_description_empty">Result image</string>
     <string name="dice_roll_screen_title">Dice Roll</string>
     <string name="dice_initial_prompt_shake">Shake to roll the dice!</string>
     <string name="dice_initial_prompt_no_accelerometer">Use the button below to roll the dice (accelerometer not available).</string>
     <string name="dice_rolling_message">Rolling the dice…</string>
     <string name="dice_result_format">Result: %1$d</string> <!-- %1$d will be replaced by the dice number -->
     <string name="dice_accelerometer_not_available_ui_message">Accelerometer is not available on this device. Shaking will not work.</string>
-
-    <!-- Content Descriptions for Dice Images -->
     <string name="dice_icon_description_1">Dice face showing one</string>
     <string name="dice_icon_description_2">Dice face showing two</string>
     <string name="dice_icon_description_3">Dice face showing three</string>
@@ -91,5 +71,4 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">Settings</string>
     <string name="settings_screen_soon_message">Soon…</string>
-
 </resources>

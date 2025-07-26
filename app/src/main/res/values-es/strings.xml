@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <!-- <string name="menu_title_header" translatable="false">Oraknium</string> --> <!-- Assuming this is not translated as per original -->
+    <string name="menu_button_magic_ball">Bola Mágica Nº 8</string>
+    <string name="menu_button_coin_flip">Lanzar Moneda</string> <!-- Or "Cara o Cruz" if preferred -->
+    <string name="menu_button_rps">Piedra, Papel, Tijera</string>
+    <string name="menu_button_dice_roll">Lanzar Dados</string>
+    <string name="menu_settings_description">Ajustes</string>
+    <string name="menu_info_description">Información</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Agita el dispositivo para obtener una respuesta.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Agita el dispositivo (acelerómetro no detectado).</string>
+    <!-- <string name="magic_ball_shuffling_message" translatable="false">…</string> --> <!-- Assuming this is not translated as per original -->
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Es cierto.</item>
+        <item>Decididamente sí.</item>
+        <item>Sin duda.</item>
+        <item>Sí, definitivamente.</item>
+        <item>Puedes confiar en ello.</item>
+        <item>Según lo veo, sí.</item>
+        <item>Muy probable.</item>
+        <item>Perspectiva buena.</item>
+        <item>Sí.</item>
+        <item>Las señales apuntan a que sí.</item>
+        <item>Respuesta confusa, intenta de nuevo.</item>
+        <item>Pregunta de nuevo más tarde.</item>
+        <item>Mejor no decírtelo ahora.</item>
+        <item>No se puede predecir ahora.</item>
+        <item>Concéntrate y pregunta de nuevo.</item>
+        <item>No cuentes con ello.</item>
+        <item>Mi respuesta es no.</item>
+        <item>Mis fuentes dicen que no.</item>
+        <item>Perspectiva no tan buena.</item>
+        <item>Muy dudoso.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Bola Mágica</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Acelerómetro no disponible en este dispositivo.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Lanzar Moneda</string> <!-- Or "Cara o Cruz" -->
+    <string name="coin_flip_initial_prompt_shake">¡Agita para lanzar la moneda!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Agita (acelerómetro no detectado).</string>
+    <string name="coin_flip_flipping_message">Lanzando…</string>
+    <string name="coin_flip_result_heads">¡Cara!</string>
+    <string name="coin_flip_result_tails">¡Cruz!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Acelerómetro no disponible para lanzar la moneda.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Imagen de Cara</string>
+    <string name="coin_flip_tails_icon_description">Imagen de Cruz</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Piedra, Papel, Tijera</string>
+    <string name="rps_initial_prompt_shake">¡Agita para jugar!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Agita (acelerómetro no detectado).</string>
+    <string name="rps_processing_message">Piedra, Papel, Tijeras…</string>
+    <string name="rps_result_rock">¡Piedra!</string>
+    <string name="rps_result_paper">¡Papel!</string>
+    <string name="rps_result_scissors">¡Tijeras!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Acelerómetro no disponible para jugar.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Icono de Piedra</string>
+    <string name="rps_icon_description_paper">Icono de Papel</string>
+    <string name="rps_icon_description_scissors">Icono de Tijeras</string>
+    <string name="general_content_description_empty">Imagen de resultado</string> <!-- Fallback if needed -->
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Lanzar Dados</string>
+    <string name="dice_initial_prompt_shake">¡Agita para lanzar los dados!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Usa el botón de abajo para lanzar los dados (acelerómetro no disponible).</string>
+    <string name="dice_rolling_message">Lanzando los dados…</string>
+    <string name="dice_result_format">Resultado: %1$d</string> <!-- %1$d will be replaced by the dice number -->
+    <string name="dice_accelerometer_not_available_ui_message">El acelerómetro no está disponible en este dispositivo. Agitar no funcionará.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Cara del dado mostrando uno</string>
+    <string name="dice_icon_description_2">Cara del dado mostrando dos</string>
+    <string name="dice_icon_description_3">Cara del dado mostrando tres</string>
+    <string name="dice_icon_description_4">Cara del dado mostrando cuatro</string>
+    <string name="dice_icon_description_5">Cara del dado mostrando cinco</string>
+    <string name="dice_icon_description_6">Cara del dado mostrando seis</string>
+    <string name="dice_icon_description_empty">No se muestra ningún resultado del dado</string>
+
+    <!-- Leer oder Platzhalter -->
+    <string name="settings_screen_title">Ajustes</string>
+    <string name="settings_screen_soon_message">Próximamente…</string>
+
+</resources>

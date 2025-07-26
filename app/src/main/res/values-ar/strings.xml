@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <!-- <string name="menu_title_header" translatable="false">Oraknium</string> --> <!-- نفترض أن هذا لا يُترجم حسب الأصل -->
+    <string name="menu_button_magic_ball">كرة السحر رقم 8</string>
+    <string name="menu_button_coin_flip">رمي العملة</string> <!-- أو "وجه أم نقش" -->
+    <string name="menu_button_rps">حجر، ورقة، مقص</string>
+    <string name="menu_button_dice_roll">رمي النرد</string>
+    <string name="menu_settings_description">الإعدادات</string>
+    <string name="menu_info_description">معلومات</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">هز الجهاز للحصول على إجابة.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">هز الجهاز (لم يتم اكتشاف مقياس التسارع).</string>
+    <!-- <string name="magic_ball_shuffling_message" translatable="false">…</string> --> <!-- نفترض أن هذا لا يُترجم حسب الأصل -->
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>إنه مؤكد.</item>
+        <item>إنه كذلك بالتأكيد.</item>
+        <item>بدون أدنى شك.</item>
+        <item>نعم، بالتأكيد.</item>
+        <item>يمكنك الاعتماد على ذلك.</item>
+        <item>كما أرى، نعم.</item>
+        <item>على الأرجح.</item>
+        <item>التوقعات جيدة.</item>
+        <item>نعم.</item>
+        <item>العلامات تشير إلى نعم.</item>
+        <item>الرد ضبابي، حاول مرة أخرى.</item>
+        <item>اسأل مرة أخرى لاحقًا.</item>
+        <item>من الأفضل ألا أخبرك الآن.</item>
+        <item>لا يمكن التنبؤ الآن.</item>
+        <item>ركز واسأل مرة أخرى.</item>
+        <item>لا تعول على ذلك.</item>
+        <item>ردي هو لا.</item>
+        <item>مصادر معلوماتي تقول لا.</item>
+        <item>التوقعات ليست جيدة.</item>
+        <item>مشكوك فيه جدًا.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">كرة السحر</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">مقياس التسارع غير متوفر على هذا الجهاز.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">رمي العملة</string> <!-- أو "وجه أم نقش" -->
+    <string name="coin_flip_initial_prompt_shake">هز لرمي العملة!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">هز (لم يتم اكتشاف مقياس التسارع).</string>
+    <string name="coin_flip_flipping_message">جارٍ الرمي…</string>
+    <string name="coin_flip_result_heads">وجه!</string>
+    <string name="coin_flip_result_tails">نقش!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">مقياس التسارع غير متوفر لرمي العملة.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">صورة الوجه</string>
+    <string name="coin_flip_tails_icon_description">صورة النقش</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">حجر، ورقة، مقص</string>
+    <string name="rps_initial_prompt_shake">هز للعب!</string>
+    <string name="rps_initial_prompt_no_accelerometer">هز (لم يتم اكتشاف مقياس التسارع).</string>
+    <string name="rps_processing_message">حجر، ورقة، مقص…</string>
+    <string name="rps_result_rock">حجر!</string>
+    <string name="rps_result_paper">ورقة!</string>
+    <string name="rps_result_scissors">مقص!</string>
+    <string name="rps_accelerometer_not_available_ui_message">مقياس التسارع غير متوفر للعب.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">أيقونة الحجر</string>
+    <string name="rps_icon_description_paper">أيقونة الورقة</string>
+    <string name="rps_icon_description_scissors">أيقونة المقص</string>
+    <string name="general_content_description_empty">صورة النتيجة</string> <!-- احتياطي إذا لزم الأمر -->
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">رمي النرد</string>
+    <string name="dice_initial_prompt_shake">هز لرمي النرد!</string>
+    <string name="dice_initial_prompt_no_accelerometer">استخدم الزر أدناه لرمي النرد (مقياس التسارع غير متوفر).</string>
+    <string name="dice_rolling_message">جارٍ رمي النرد…</string>
+    <string name="dice_result_format">النتيجة: %1$d</string> <!-- %1$d سيتم استبداله برقم النرد -->
+    <string name="dice_accelerometer_not_available_ui_message">مقياس التسارع غير متوفر على هذا الجهاز. الهز لن يعمل.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">وجه النرد يظهر واحد</string>
+    <string name="dice_icon_description_2">وجه النرد يظهر اثنان</string>
+    <string name="dice_icon_description_3">وجه النرد يظهر ثلاثة</string>
+    <string name="dice_icon_description_4">وجه النرد يظهر أربعة</string>
+    <string name="dice_icon_description_5">وجه النرد يظهر خمسة</string>
+    <string name="dice_icon_description_6">وجه النرد يظهر ستة</string>
+    <string name="dice_icon_description_empty">لم يتم عرض نتيجة النرد</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">الإعدادات</string>
+    <string name="settings_screen_soon_message">قريباً…</string>
+
+</resources>

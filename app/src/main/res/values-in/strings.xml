@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <string name="menu_button_magic_ball">Bola Ajaib No. 8</string>
+    <string name="menu_button_coin_flip">Lempar Koin</string>
+    <string name="menu_button_rps">Batu, Gunting, Kertas</string>
+    <string name="menu_button_dice_roll">Lempar Dadu</string>
+    <string name="menu_settings_description">Pengaturan</string>
+    <string name="menu_info_description">Informasi</string>
+
+    <string name="magic_ball_initial_prompt_shake">Goyangkan perangkat untuk mendapatkan jawaban.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Goyangkan perangkat (akselerometer tidak terdeteksi).</string>
+    <string-array name="magic_ball_possible_answers">
+        <item>Sudah pasti.</item>
+        <item>Sudah pasti begitu.</item>
+        <item>Tanpa ragu.</item>
+        <item>Ya, tentu saja.</item>
+        <item>Anda bisa mengandalkannya.</item>
+        <item>Menurut saya, ya.</item>
+        <item>Sangat mungkin.</item>
+        <item>Prospek bagus.</item>
+        <item>Ya.</item>
+        <item>Tanda-tanda menunjukkan ya.</item>
+        <item>Jawaban kabur, coba lagi.</item>
+        <item>Tanya lagi nanti.</item>
+        <item>Lebih baik jangan diberitahu sekarang.</item>
+        <item>Tidak bisa diprediksi sekarang.</item>
+        <item>Konsentrasi dan tanya lagi.</item>
+        <item>Jangan mengandalkannya.</item>
+        <item>Jawaban saya tidak.</item>
+        <item>Sumber saya mengatakan tidak.</item>
+        <item>Prospek kurang bagus.</item>
+        <item>Sangat meragukan.</item>
+    </string-array>
+    <string name="magic_ball_screen_title">Bola Ajaib</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Akselerometer tidak tersedia di perangkat ini.</string>
+
+    <string name="coin_flip_screen_title">Lempar Koin</string>
+    <string name="coin_flip_initial_prompt_shake">Goyangkan untuk melempar koin!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Goyangkan (akselerometer tidak terdeteksi).</string>
+    <string name="coin_flip_flipping_message">Melempar…</string>
+    <string name="coin_flip_result_heads">Gambar!</string>
+    <string name="coin_flip_result_tails">Angka!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Akselerometer tidak tersedia untuk melempar koin.</string>
+    <string name="coin_flip_heads_icon_description">Gambar koin sisi Gambar</string>
+    <string name="coin_flip_tails_icon_description">Gambar koin sisi Angka</string>
+
+    <string name="rps_screen_title">Batu, Gunting, Kertas</string>
+    <string name="rps_initial_prompt_shake">Goyangkan untuk bermain!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Goyangkan (akselerometer tidak terdeteksi).</string>
+    <string name="rps_processing_message">Batu, Gunting, Kertas…</string>
+    <string name="rps_result_rock">Batu!</string>
+    <string name="rps_result_paper">Kertas!</string>
+    <string name="rps_result_scissors">Gunting!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Akselerometer tidak tersedia untuk bermain.</string>
+    <string name="rps_icon_description_rock">Ikon Batu</string>
+    <string name="rps_icon_description_paper">Ikon Kertas</string>
+    <string name="rps_icon_description_scissors">Ikon Gunting</string>
+
+    <string name="general_content_description_empty">Gambar hasil</string>
+
+    <string name="dice_roll_screen_title">Lempar Dadu</string>
+    <string name="dice_initial_prompt_shake">Goyangkan untuk melempar dadu!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Gunakan tombol di bawah untuk melempar dadu (akselerometer tidak tersedia).</string>
+    <string name="dice_rolling_message">Melempar dadu…</string>
+    <string name="dice_result_format">Hasil: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Akselerometer tidak tersedia di perangkat ini. Menggoyangkan tidak akan berfungsi.</string>
+
+    <string name="dice_icon_description_1">Sisi dadu menunjukkan satu</string>
+    <string name="dice_icon_description_2">Sisi dadu menunjukkan dua</string>
+    <string name="dice_icon_description_3">Sisi dadu menunjukkan tiga</string>
+    <string name="dice_icon_description_4">Sisi dadu menunjukkan empat</string>
+    <string name="dice_icon_description_5">Sisi dadu menunjukkan lima</string>
+    <string name="dice_icon_description_6">Sisi dadu menunjukkan enam</string>
+    <string name="dice_icon_description_empty">Tidak ada hasil dadu yang ditampilkan</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Pengaturan</string>
+    <string name="settings_screen_soon_message">Segera…</string>
+</resources>

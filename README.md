@@ -27,12 +27,8 @@ Oraknium is a delightful Android application designed to bring a bit of fun and 
 
 ## Screenshots
 
-*(It's highly recommended to add a few screenshots of your app here. You can do this by creating a folder like `screenshots` in your repo and linking them, e.g., `![Screenshot 1](screenshots/screen1.png)`)*
-
-**Example:**
-
-`![Oraknium Main Menu](screenshots/main_menu.png)`
-`![Magic 8 Ball in Action](screenshots/magic_ball.png)`
+`![Oraknium Main Menu](screenshots/Capture d'écran 2025-07-25 143056.png)`
+`![Magic 8 Ball in Action](screenshots/Capture d'écran 2025-07-25 143352.png)`
 
 ## Technology Stack
 
@@ -91,7 +87,9 @@ Distributed under the MIT License. See `LICENSE.txt` (or `LICENSE`) for more inf
 
 Antoine Hory
 *   GitHub: [crockstylie](https://github.com/crockstylie)
-*   *(Optional: Add your email or other professional contact links here if you wish)*
+*   WebSite: [https://antoinehory.fr](https://antoinehory.fr)
+*   Email : [contact@antoinehory.fr](mailto:contact@antoinehory.fr)
+*   Donate: [https://www.paypal.com/paypalme/kuroku](https://www.paypal.com/paypalme/kuroku)
 
 Project Link: [https://github.com/crockstylie/fr-antoinehory-divination](https://github.com/crockstylie/fr-antoinehory-divination)
 

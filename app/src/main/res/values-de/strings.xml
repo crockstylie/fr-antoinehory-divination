@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <!-- <string name="menu_title_header" translatable="false">Oraknium</string> --> <!-- Annahme: Wird gemäß Original nicht übersetzt -->
+    <string name="menu_button_magic_ball">Magische Kugel Nr. 8</string>
+    <string name="menu_button_coin_flip">Münzwurf</string> <!-- Oder "Kopf oder Zahl" -->
+    <string name="menu_button_rps">Schere, Stein, Papier</string>
+    <string name="menu_button_dice_roll">Würfeln</string>
+    <string name="menu_settings_description">Einstellungen</string>
+    <string name="menu_info_description">Informationen</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Schüttle das Gerät für eine Antwort.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Schüttle das Gerät (Beschleunigungssensor nicht erkannt).</string>
+    <!-- <string name="magic_ball_shuffling_message" translatable="false">…</string> --> <!-- Annahme: Wird gemäß Original nicht übersetzt -->
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Es ist sicher.</item>
+        <item>Entschieden ja.</item>
+        <item>Ohne Zweifel.</item>
+        <item>Ja, definitiv.</item>
+        <item>Darauf kannst du dich verlassen.</item>
+        <item>So wie ich es sehe, ja.</item>
+        <item>Sehr wahrscheinlich.</item>
+        <item>Aussichten gut.</item>
+        <item>Ja.</item>
+        <item>Zeichen deuten auf Ja.</item>
+        <item>Antwort unklar, versuche es erneut.</item>
+        <item>Frag später noch einmal.</item>
+        <item>Besser, ich sage es dir jetzt nicht.</item>
+        <item>Kann jetzt nicht vorhergesagt werden.</item>
+        <item>Konzentriere dich und frage erneut.</item>
+        <item>Zähle nicht darauf.</item>
+        <item>Meine Antwort ist nein.</item>
+        <item>Meine Quellen sagen nein.</item>
+        <item>Aussichten nicht so gut.</item>
+        <item>Sehr zweifelhaft.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Magische Kugel</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Beschleunigungssensor auf diesem Gerät nicht verfügbar.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Münzwurf</string> <!-- Oder "Kopf oder Zahl" -->
+    <string name="coin_flip_initial_prompt_shake">Schüttle, um die Münze zu werfen!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Schüttle (Beschleunigungssensor nicht erkannt).</string>
+    <string name="coin_flip_flipping_message">Werfe…</string>
+    <string name="coin_flip_result_heads">Kopf!</string>
+    <string name="coin_flip_result_tails">Zahl!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Beschleunigungssensor zum Münzwerfen nicht verfügbar.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Bild von Kopf</string>
+    <string name="coin_flip_tails_icon_description">Bild von Zahl</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Schere, Stein, Papier</string>
+    <string name="rps_initial_prompt_shake">Schüttle, um zu spielen!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Schüttle (Beschleunigungssensor nicht erkannt).</string>
+    <string name="rps_processing_message">Schere, Stein, Papier…</string>
+    <string name="rps_result_rock">Stein!</string>
+    <string name="rps_result_paper">Papier!</string>
+    <string name="rps_result_scissors">Schere!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Beschleunigungssensor zum Spielen nicht verfügbar.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Stein-Symbol</string>
+    <string name="rps_icon_description_paper">Papier-Symbol</string>
+    <string name="rps_icon_description_scissors">Scheren-Symbol</string>
+    <string name="general_content_description_empty">Ergebnisbild</string> <!-- Fallback bei Bedarf -->
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Würfeln</string>
+    <string name="dice_initial_prompt_shake">Schüttle, um zu würfeln!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Benutze den Knopf unten zum Würfeln (Beschleunigungssensor nicht verfügbar).</string>
+    <string name="dice_rolling_message">Würfle…</string>
+    <string name="dice_result_format">Ergebnis: %1$d</string> <!-- %1$d wird durch die Würfelzahl ersetzt -->
+    <string name="dice_accelerometer_not_available_ui_message">Beschleunigungssensor ist auf diesem Gerät nicht verfügbar. Schütteln funktioniert nicht.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Würfelseite zeigt eine Eins</string>
+    <string name="dice_icon_description_2">Würfelseite zeigt eine Zwei</string>
+    <string name="dice_icon_description_3">Würfelseite zeigt eine Drei</string>
+    <string name="dice_icon_description_4">Würfelseite zeigt eine Vier</string>
+    <string name="dice_icon_description_5">Würfelseite zeigt eine Fünf</string>
+    <string name="dice_icon_description_6">Würfelseite zeigt eine Sechs</string>
+    <string name="dice_icon_description_empty">Kein Würfelergebnis angezeigt</string>
+
+    <!-- Leer oder Platzhalter -->
+    <string name="settings_screen_title">Einstellungen</string>
+    <string name="settings_screen_soon_message">Bald…</string>
+
+</resources>
+

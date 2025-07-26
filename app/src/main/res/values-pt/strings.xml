@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <string name="menu_button_magic_ball">Bola Mágica 8</string>
+    <string name="menu_button_coin_flip">Cara ou Coroa</string>
+    <string name="menu_button_rps">Pedra, Papel, Tesoura</string>
+    <string name="menu_button_dice_roll">Rolar Dados</string>
+    <string name="menu_settings_description">Configurações</string>
+    <string name="menu_info_description">Informações</string>
+
+    <string name="magic_ball_initial_prompt_shake">Agite o dispositivo para uma resposta.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Agite o dispositivo (acelerômetro não detectado).</string>
+    <string-array name="magic_ball_possible_answers">
+        <item>É certo.</item>
+        <item>Decididamente sim.</item>
+        <item>Sem dúvida.</item>
+        <item>Sim, definitivamente.</item>
+        <item>Pode contar com isso.</item>
+        <item>Do meu ponto de vista, sim.</item>
+        <item>Muito provável.</item>
+        <item>Perspectiva boa.</item>
+        <item>Sim.</item>
+        <item>Os sinais apontam que sim.</item>
+        <item>Resposta nebulosa, tente novamente.</item>
+        <item>Pergunte novamente mais tarde.</item>
+        <item>Melhor não te dizer agora.</item>
+        <item>Não é possível prever agora.</item>
+        <item>Concentre-se e pergunte novamente.</item>
+        <item>Não conte com isso.</item>
+        <item>Minha resposta é não.</item>
+        <item>Minhas fontes dizem não.</item>
+        <item>Perspectiva não tão boa.</item>
+        <item>Muito duvidoso.</item>
+    </string-array>
+    <string name="magic_ball_screen_title">Bola Mágica</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Acelerômetro não disponível neste dispositivo.</string>
+
+    <string name="coin_flip_screen_title">Cara ou Coroa</string>
+    <string name="coin_flip_initial_prompt_shake">Agite para lançar a moeda!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Agite (acelerômetro não detectado).</string>
+    <string name="coin_flip_flipping_message">Lançando…</string>
+    <string name="coin_flip_result_heads">Cara!</string>
+    <string name="coin_flip_result_tails">Coroa!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Acelerômetro não disponível para lançar a moeda.</string>
+    <string name="coin_flip_heads_icon_description">Imagem de Cara</string>
+    <string name="coin_flip_tails_icon_description">Imagem de Coroa</string>
+
+    <string name="rps_screen_title">Pedra, Papel, Tesoura</string>
+    <string name="rps_initial_prompt_shake">Agite para jogar!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Agite (acelerômetro não detectado).</string>
+    <string name="rps_processing_message">Pedra, Papel, Tesoura…</string>
+    <string name="rps_result_rock">Pedra!</string>
+    <string name="rps_result_paper">Papel!</string>
+    <string name="rps_result_scissors">Tesoura!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Acelerômetro não disponível para jogar.</string>
+    <string name="rps_icon_description_rock">Ícone de Pedra</string>
+    <string name="rps_icon_description_paper">Ícone de Papel</string>
+    <string name="rps_icon_description_scissors">Ícone de Tesoura</string>
+
+    <string name="general_content_description_empty">Imagem do resultado</string>
+
+    <string name="dice_roll_screen_title">Rolar Dados</string>
+    <string name="dice_initial_prompt_shake">Agite para rolar os dados!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Use o botão abaixo para rolar os dados (acelerômetro não disponível).</string>
+    <string name="dice_rolling_message">Rolando os dados…</string>
+    <string name="dice_result_format">Resultado: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">O acelerômetro não está disponível neste dispositivo. Agitar não funcionará.</string>
+
+    <string name="dice_icon_description_1">Face do dado mostrando um</string>
+    <string name="dice_icon_description_2">Face do dado mostrando dois</string>
+    <string name="dice_icon_description_3">Face do dado mostrando três</string>
+    <string name="dice_icon_description_4">Face do dado mostrando quatro</string>
+    <string name="dice_icon_description_5">Face do dado mostrando cinco</string>
+    <string name="dice_icon_description_6">Face do dado mostrando seis</string>
+    <string name="dice_icon_description_empty">Nenhum resultado do dado exibido</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Configurações</string>
+    <string name="settings_screen_soon_message">Em breve…</string>
+</resources>

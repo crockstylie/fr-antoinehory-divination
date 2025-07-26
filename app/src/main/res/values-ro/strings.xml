@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <string name="menu_button_magic_ball">Bila Magică 8</string>
+    <string name="menu_button_coin_flip">Aruncă Moneda</string> <!-- Sau "Pajură sau Ban" -->
+    <string name="menu_button_rps">Piatră, Hârtie, Foarfecă</string>
+    <string name="menu_button_dice_roll">Aruncă Zarurile</string>
+    <string name="menu_settings_description">Setări</string>
+    <string name="menu_info_description">Informații</string>
+
+    <string name="magic_ball_initial_prompt_shake">Scutură dispozitivul pentru un răspuns.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Scutură dispozitivul (accelerometrul nu este detectat).</string>
+    <string-array name="magic_ball_possible_answers">
+        <item>Este cert.</item>
+        <item>Este categoric așa.</item>
+        <item>Fără îndoială.</item>
+        <item>Da, cu siguranță.</item>
+        <item>Te poți baza pe asta.</item>
+        <item>Din punctul meu de vedere, da.</item>
+        <item>Cel mai probabil.</item>
+        <item>Perspective bune.</item>
+        <item>Da.</item>
+        <item>Semnele indică da.</item>
+        <item>Răspuns neclar, încearcă din nou.</item>
+        <item>Întreabă din nou mai târziu.</item>
+        <item>Mai bine să nu-ți spun acum.</item>
+        <item>Nu pot prezice acum.</item>
+        <item>Concentrează-te și întreabă din nou.</item>
+        <item>Nu conta pe asta.</item>
+        <item>Răspunsul meu este nu.</item>
+        <item>Sursele mele spun nu.</item>
+        <item>Perspective nu prea bune.</item>
+        <item>Foarte îndoielnic.</item>
+    </string-array>
+    <string name="magic_ball_screen_title">Bila Magică</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Accelerometrul nu este disponibil pe acest dispozitiv.</string>
+
+    <string name="coin_flip_screen_title">Aruncă Moneda</string>
+    <string name="coin_flip_initial_prompt_shake">Scutură pentru a arunca moneda!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Scutură (accelerometrul nu este detectat).</string>
+    <string name="coin_flip_flipping_message">Se aruncă…</string>
+    <string name="coin_flip_result_heads">Pajură!</string>
+    <string name="coin_flip_result_tails">Ban!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Accelerometrul nu este disponibil pentru a arunca moneda.</string>
+    <string name="coin_flip_heads_icon_description">Imagine Pajură</string>
+    <string name="coin_flip_tails_icon_description">Imagine Ban</string>
+
+    <string name="rps_screen_title">Piatră, Hârtie, Foarfecă</string>
+    <string name="rps_initial_prompt_shake">Scutură pentru a juca!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Scutură (accelerometrul nu este detectat).</string>
+    <string name="rps_processing_message">Piatră, Hârtie, Foarfecă…</string>
+    <string name="rps_result_rock">Piatră!</string>
+    <string name="rps_result_paper">Hârtie!</string>
+    <string name="rps_result_scissors">Foarfecă!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Accelerometrul nu este disponibil pentru a juca.</string>
+    <string name="rps_icon_description_rock">Pictogramă Piatră</string>
+    <string name="rps_icon_description_paper">Pictogramă Hârtie</string>
+    <string name="rps_icon_description_scissors">Pictogramă Foarfecă</string>
+
+    <string name="general_content_description_empty">Imagine rezultat</string>
+
+    <string name="dice_roll_screen_title">Aruncă Zarurile</string>
+    <string name="dice_initial_prompt_shake">Scutură pentru a arunca zarurile!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Folosește butonul de mai jos pentru a arunca zarurile (accelerometrul nu este disponibil).</string>
+    <string name="dice_rolling_message">Se aruncă zarurile…</string>
+    <string name="dice_result_format">Rezultat: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Accelerometrul nu este disponibil pe acest dispozitiv. Scuturarea nu va funcționa.</string>
+
+    <string name="dice_icon_description_1">Fața zarului arătând unu</string>
+    <string name="dice_icon_description_2">Fața zarului arătând doi</string>
+    <string name="dice_icon_description_3">Fața zarului arătând trei</string>
+    <string name="dice_icon_description_4">Fața zarului arătând patru</string>
+    <string name="dice_icon_description_5">Fața zarului arătând cinci</string>
+    <string name="dice_icon_description_6">Fața zarului arătând șase</string>
+    <string name="dice_icon_description_empty">Niciun rezultat al zarului afișat</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Setări</string>
+    <string name="settings_screen_soon_message">În curând…</string>
+</resources>
+

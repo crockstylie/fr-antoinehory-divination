@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <string name="menu_button_magic_ball">Магический шар 8</string>
+    <string name="menu_button_coin_flip">Подбросить монетку</string>
+    <string name="menu_button_rps">Камень, Ножницы, Бумага</string>
+    <string name="menu_button_dice_roll">Бросить кости</string>
+    <string name="menu_settings_description">Настройки</string>
+    <string name="menu_info_description">Информация</string>
+
+    <string name="magic_ball_initial_prompt_shake">Потрясите устройство, чтобы получить ответ.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Потрясите устройство (акселерометр не обнаружен).</string>
+    <string-array name="magic_ball_possible_answers">
+        <item>Бесспорно.</item>
+        <item>Предрешено.</item>
+        <item>Никаких сомнений.</item>
+        <item>Определённо да.</item>
+        <item>Можешь быть уверен в этом.</item>
+        <item>Мне кажется — «да».</item>
+        <item>Весьма вероятно.</item>
+        <item>Хорошие перспективы.</item>
+        <item>Да.</item>
+        <item>Знаки говорят — «да».</item>
+        <item>Пока не ясно, попробуй снова.</item>
+        <item>Спроси позже.</item>
+        <item>Лучше не говорить.</item>
+        <item>Сейчас нельзя предсказать.</item>
+        <item>Сконцентрируйся и спроси опять.</item>
+        <item>Даже не думай.</item>
+        <item>Мой ответ — «нет».</item>
+        <item>По моим данным — «нет».</item>
+        <item>Перспективы не очень.</item>
+        <item>Весьма сомнительно.</item>
+    </string-array>
+    <string name="magic_ball_screen_title">Магический шар</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Акселерометр недоступен на этом устройстве.</string>
+
+    <string name="coin_flip_screen_title">Подбросить монетку</string>
+    <string name="coin_flip_initial_prompt_shake">Потрясите, чтобы подбросить монетку!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Потрясите (акселерометр не обнаружен).</string>
+    <string name="coin_flip_flipping_message">Подбрасываю…</string>
+    <string name="coin_flip_result_heads">Орёл!</string>
+    <string name="coin_flip_result_tails">Решка!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Акселерометр недоступен для подбрасывания монетки.</string>
+    <string name="coin_flip_heads_icon_description">Изображение Орла</string>
+    <string name="coin_flip_tails_icon_description">Изображение Решки</string>
+
+    <string name="rps_screen_title">Камень, Ножницы, Бумага</string>
+    <string name="rps_initial_prompt_shake">Потрясите, чтобы сыграть!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Потрясите (акселерометр не обнаружен).</string>
+    <string name="rps_processing_message">Камень, Ножницы, Бумага…</string>
+    <string name="rps_result_rock">Камень!</string>
+    <string name="rps_result_paper">Бумага!</string>
+    <string name="rps_result_scissors">Ножницы!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Акселерометр недоступен для игры.</string>
+    <string name="rps_icon_description_rock">Иконка Камня</string>
+    <string name="rps_icon_description_paper">Иконка Бумаги</string>
+    <string name="rps_icon_description_scissors">Иконка Ножниц</string>
+
+    <string name="general_content_description_empty">Изображение результата</string>
+
+    <string name="dice_roll_screen_title">Бросить кости</string>
+    <string name="dice_initial_prompt_shake">Потрясите, чтобы бросить кости!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Используйте кнопку ниже, чтобы бросить кости (акселерометр недоступен).</string>
+    <string name="dice_rolling_message">Бросаю кости…</string>
+    <string name="dice_result_format">Результат: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Акселерометр недоступен на этом устройстве. Потрясывание не будет работать.</string>
+
+    <string name="dice_icon_description_1">Сторона кости с одним очком</string>
+    <string name="dice_icon_description_2">Сторона кости с двумя очками</string>
+    <string name="dice_icon_description_3">Сторона кости с тремя очками</string>
+    <string name="dice_icon_description_4">Сторона кости с четырьмя очками</string>
+    <string name="dice_icon_description_5">Сторона кости с пятью очками</string>
+    <string name="dice_icon_description_6">Сторона кости с шестью очками</string>
+    <string name="dice_icon_description_empty">Результат броска костей не отображается</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Настройки</string>
+    <string name="settings_screen_soon_message">Скоро…</string>
+</resources>

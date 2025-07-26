@@ -62,6 +62,9 @@ class MainActivity : ComponentActivity() {
                     composable(AppDestinations.INFO_ROUTE) {
                         InfoScreen(onNavigateBack = { navController.popBackStack() })
                     }
+                    composable(AppDestinations.SETTINGS_ROUTE) {
+                        SettingsScreen(onNavigateBack = { navController.popBackStack() })
+                    }
                 }
             }
         }

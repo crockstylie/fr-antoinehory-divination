@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ओरेकनियम</string>
+
+    <!-- MenuScreen.kt -->
+    <!-- <string name="menu_title_header" translatable="false">Oraknium</string> --> <!-- मूल के अनुसार इसका अनुवाद नहीं किया गया है -->
+    <string name="menu_button_magic_ball">मैजिक 8 बॉल</string>
+    <string name="menu_button_coin_flip">सिक्का उछालें</string> <!-- या "चित या पट" -->
+    <string name="menu_button_rps">पत्थर, कागज़, कैंची</string>
+    <string name="menu_button_dice_roll">पासा फेंकें</string>
+    <string name="menu_settings_description">सेटिंग्स</string>
+    <string name="menu_info_description">जानकारी</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">उत्तर पाने के लिए डिवाइस को हिलाएं।</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">डिवाइस को हिलाएं (एक्सेलेरोमीटर का पता नहीं चला)।</string>
+    <!-- <string name="magic_ball_shuffling_message" translatable="false">…</string> --> <!-- मूल के अनुसार इसका अनुवाद नहीं किया गया है -->
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>यह निश्चित है।</item>
+        <item>यह निश्चित रूप से ऐसा है।</item>
+        <item>बिना किसी शक के।</item>
+        <item>हाँ, बिल्कुल।</item>
+        <item>आप इस पर भरोसा कर सकते हैं।</item>
+        <item>जैसा मैं देख रहा हूँ, हाँ।</item>
+        <item>बहुत संभावना है।</item>
+        <item>दृष्टिकोण अच्छा है।</item>
+        <item>हाँ।</item>
+        <item>संकेत हाँ की ओर इशारा करते हैं।</item>
+        <item>जवाब अस्पष्ट है, फिर से कोशिश करें।</item>
+        <item>बाद में फिर से पूछें।</item>
+        <item>बेहतर है कि अब आपको न बताऊं।</item>
+        <item>अभी भविष्यवाणी नहीं कर सकता।</item>
+        <item>ध्यान केंद्रित करें और फिर से पूछें।</item>
+        <item>इस पर भरोसा मत करो।</item>
+        <item>मेरा जवाब नहीं है।</item>
+        <item>मेरे सूत्र कहते हैं नहीं।</item>
+        <item>दृष्टिकोण उतना अच्छा नहीं है।</item>
+        <item>बहुत संदिग्ध।</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">मैजिक बॉल</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">इस डिवाइस पर एक्सेलेरोमीटर उपलब्ध नहीं है।</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">सिक्का उछालें</string> <!-- या "चित या पट" -->
+    <string name="coin_flip_initial_prompt_shake">सिक्का उछालने के लिए हिलाएं!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">हिलाएं (एक्सेलेरोमीटर का पता नहीं चला)।</string>
+    <string name="coin_flip_flipping_message">उछल रहा है…</string>
+    <string name="coin_flip_result_heads">चित!</string>
+    <string name="coin_flip_result_tails">पट!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">सिक्का उछालने के लिए एक्सेलेरोमीटर उपलब्ध नहीं है।</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">चित की छवि</string>
+    <string name="coin_flip_tails_icon_description">पट की छवि</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">पत्थर, कागज़, कैंची</string>
+    <string name="rps_initial_prompt_shake">खेलने के लिए हिलाएं!</string>
+    <string name="rps_initial_prompt_no_accelerometer">हिलाएं (एक्सेलेरोमीटर का पता नहीं चला)।</string>
+    <string name="rps_processing_message">पत्थर, कागज़, कैंची…</string>
+    <string name="rps_result_rock">पत्थर!</string>
+    <string name="rps_result_paper">कागज़!</string>
+    <string name="rps_result_scissors">कैंची!</string>
+    <string name="rps_accelerometer_not_available_ui_message">खेलने के लिए एक्सेलेरोमीटर उपलब्ध नहीं है।</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">पत्थर का आइकन</string>
+    <string name="rps_icon_description_paper">कागज़ का आइकन</string>
+    <string name="rps_icon_description_scissors">कैंची का आइकन</string>
+    <string name="general_content_description_empty">परिणाम की छवि</string> <!-- यदि आवश्यक हो तो फ़ॉलबैक -->
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">पासा फेंकें</string>
+    <string name="dice_initial_prompt_shake">पासा फेंकने के लिए हिलाएं!</string>
+    <string name="dice_initial_prompt_no_accelerometer">पासा फेंकने के लिए नीचे दिए गए बटन का उपयोग करें (एक्सेलेरोमीटर उपलब्ध नहीं है)।</string>
+    <string name="dice_rolling_message">पासा फेंका जा रहा है…</string>
+    <string name="dice_result_format">परिणाम: %1$d</string> <!-- %1$d को पासे के नंबर से बदल दिया जाएगा -->
+    <string name="dice_accelerometer_not_available_ui_message">इस डिवाइस पर एक्सेलेरोमीटर उपलब्ध नहीं है। हिलाने से काम नहीं चलेगा।</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">पासे का फलक एक दिखा रहा है</string>
+    <string name="dice_icon_description_2">पासे का फलक दो दिखा रहा है</string>
+    <string name="dice_icon_description_3">पासे का फलक तीन दिखा रहा है</string>
+    <string name="dice_icon_description_4">पासे का फलक चार दिखा रहा है</string>
+    <string name="dice_icon_description_5">पासे का फलक पांच दिखा रहा है</string>
+    <string name="dice_icon_description_6">पासे का फलक छह दिखा रहा है</string>
+    <string name="dice_icon_description_empty">पासे का कोई परिणाम प्रदर्शित नहीं है</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">सेटिंग्स</string>
+    <string name="settings_screen_soon_message">जल्द ही…</string>
+
+</resources>

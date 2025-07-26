@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <!-- <string name="menu_title_header" translatable="false">Oraknium</string> --> <!-- 원본에 따라 번역하지 않는 것으로 가정 -->
+    <string name="menu_button_magic_ball">매직 8볼</string>
+    <string name="menu_button_coin_flip">동전 던지기</string>
+    <string name="menu_button_rps">가위바위보</string>
+    <string name="menu_button_dice_roll">주사위 굴리기</string>
+    <string name="menu_settings_description">설정</string>
+    <string name="menu_info_description">정보</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">답변을 얻으려면 기기를 흔드세요.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">기기를 흔드세요 (가속도계가 감지되지 않음).</string>
+    <!-- <string name="magic_ball_shuffling_message" translatable="false">…</string> --> <!-- 원본에 따라 번역하지 않는 것으로 가정 -->
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>확실합니다.</item>
+        <item>분명히 그렇습니다.</item>
+        <item>의심의 여지가 없습니다.</item>
+        <item>네, 물론입니다.</item>
+        <item>믿어도 좋습니다.</item>
+        <item>제가 보기엔, 네.</item>
+        <item>아마도요.</item>
+        <item>전망이 좋습니다.</item>
+        <item>네.</item>
+        <item>징조가 \'예\'를 가리킵니다.</item>
+        <item>답변이 애매합니다, 다시 시도하세요.</item>
+        <item>나중에 다시 물어보세요.</item>
+        <item>지금은 말하지 않는 것이 좋겠습니다.</item>
+        <item>지금은 예측할 수 없습니다.</item>
+        <item>집중해서 다시 물어보세요.</item>
+        <item>기대하지 마세요.</item>
+        <item>제 대답은 \'아니오\'입니다.</item>
+        <item>제 정보통에 따르면 \'아니오\'입니다.</item>
+        <item>전망이 좋지 않습니다.</item>
+        <item>매우 의심스럽습니다.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">매직볼</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">이 기기에서는 가속도계를 사용할 수 없습니다.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">동전 던지기</string>
+    <string name="coin_flip_initial_prompt_shake">흔들어서 동전을 던지세요!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">흔드세요 (가속도계가 감지되지 않음).</string>
+    <string name="coin_flip_flipping_message">던지는 중…</string>
+    <string name="coin_flip_result_heads">앞면!</string>
+    <string name="coin_flip_result_tails">뒷면!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">동전을 던지기 위한 가속도계를 사용할 수 없습니다.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">앞면 이미지</string>
+    <string name="coin_flip_tails_icon_description">뒷면 이미지</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">가위바위보</string>
+    <string name="rps_initial_prompt_shake">흔들어서 플레이하세요!</string>
+    <string name="rps_initial_prompt_no_accelerometer">흔드세요 (가속도계가 감지되지 않음).</string>
+    <string name="rps_processing_message">가위, 바위, 보…</string>
+    <string name="rps_result_rock">바위!</string>
+    <string name="rps_result_paper">보!</string>
+    <string name="rps_result_scissors">가위!</string>
+    <string name="rps_accelerometer_not_available_ui_message">플레이를 위한 가속도계를 사용할 수 없습니다.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">바위 아이콘</string>
+    <string name="rps_icon_description_paper">보 아이콘</string>
+    <string name="rps_icon_description_scissors">가위 아이콘</string>
+    <string name="general_content_description_empty">결과 이미지</string> <!-- 필요시 대체 문구 -->
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">주사위 굴리기</string>
+    <string name="dice_initial_prompt_shake">흔들어서 주사위를 굴리세요!</string>
+    <string name="dice_initial_prompt_no_accelerometer">아래 버튼을 사용하여 주사위를 굴리세요 (가속도계 사용 불가).</string>
+    <string name="dice_rolling_message">주사위 굴리는 중…</string>
+    <string name="dice_result_format">결과: %1$d</string> <!-- %1$d는 주사위 숫자로 대체됩니다 -->
+    <string name="dice_accelerometer_not_available_ui_message">이 기기에서는 가속도계를 사용할 수 없습니다. 흔들어도 작동하지 않습니다.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">주사위 면 1</string>
+    <string name="dice_icon_description_2">주사위 면 2</string>
+    <string name="dice_icon_description_3">주사위 면 3</string>
+    <string name="dice_icon_description_4">주사위 면 4</string>
+    <string name="dice_icon_description_5">주사위 면 5</string>
+    <string name="dice_icon_description_6">주사위 면 6</string>
+    <string name="dice_icon_description_empty">주사위 결과가 표시되지 않음</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">설정</string>
+    <string name="settings_screen_soon_message">곧…</string>
+
+</resources>

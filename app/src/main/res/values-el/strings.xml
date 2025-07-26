@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <string name="menu_button_magic_ball">Μαγική Μπάλα 8</string>
+    <string name="menu_button_coin_flip">Κορώνα ή Γράμματα</string>
+    <string name="menu_button_rps">Πέτρα, Ψαλίδι, Χαρτί</string>
+    <string name="menu_button_dice_roll">Ρίψη Ζαριών</string>
+    <string name="menu_settings_description">Ρυθμίσεις</string>
+    <string name="menu_info_description">Πληροφορίες</string>
+
+    <string name="magic_ball_initial_prompt_shake">Ανακινήστε τη συσκευή για μια απάντηση.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Ανακινήστε τη συσκευή (δεν εντοπίστηκε επιταχυνσιόμετρο).</string>
+    <string-array name="magic_ball_possible_answers">
+        <item>Είναι βέβαιο.</item>
+        <item>Είναι αποφασιστικά έτσι.</item>
+        <item>Χωρίς αμφιβολία.</item>
+        <item>Ναι, σίγουρα.</item>
+        <item>Μπορείς να βασιστείς σε αυτό.</item>
+        <item>Όπως το βλέπω, ναι.</item>
+        <item>Πιθανότατα.</item>
+        <item>Καλές προοπτικές.</item>
+        <item>Ναι.</item>
+        <item>Τα σημάδια δείχνουν ναι.</item>
+        <item>Θολή απάντηση, προσπάθησε ξανά.</item>
+        <item>Ρώτα ξανά αργότερα.</item>
+        <item>Καλύτερα να μη σου πω τώρα.</item>
+        <item>Δεν μπορώ να προβλέψω τώρα.</item>
+        <item>Συγκεντρώσου και ρώτα ξανά.</item>
+        <item>Μην υπολογίζεις σε αυτό.</item>
+        <item>Η απάντησή μου είναι όχι.</item>
+        <item>Οι πηγές μου λένε όχι.</item>
+        <item>Όχι τόσο καλές προοπτικές.</item>
+        <item>Πολύ αμφίβολο.</item>
+    </string-array>
+    <string name="magic_ball_screen_title">Μαγική Μπάλα</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Το επιταχυνσιόμετρο δεν είναι διαθέσιμο σε αυτήν τη συσκευή.</string>
+
+    <string name="coin_flip_screen_title">Κορώνα ή Γράμματα</string>
+    <string name="coin_flip_initial_prompt_shake">Ανακινήστε για να στρίψετε το νόμισμα!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Ανακινήστε (δεν εντοπίστηκε επιταχυνσιόμετρο).</string>
+    <string name="coin_flip_flipping_message">Στρίβει…</string>
+    <string name="coin_flip_result_heads">Κορώνα!</string>
+    <string name="coin_flip_result_tails">Γράμματα!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Το επιταχυνσιόμετρο δεν είναι διαθέσιμο για το στρίψιμο του νομίσματος.</string>
+    <string name="coin_flip_heads_icon_description">Εικόνα Κορώνας</string>
+    <string name="coin_flip_tails_icon_description">Εικόνα Γραμμάτων</string>
+
+    <string name="rps_screen_title">Πέτρα, Ψαλίδι, Χαρτί</string>
+    <string name="rps_initial_prompt_shake">Ανακινήστε για να παίξετε!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Ανακινήστε (δεν εντοπίστηκε επιταχυνσιόμετρο).</string>
+    <string name="rps_processing_message">Πέτρα, Ψαλίδι, Χαρτί…</string>
+    <string name="rps_result_rock">Πέτρα!</string>
+    <string name="rps_result_paper">Χαρτί!</string>
+    <string name="rps_result_scissors">Ψαλίδι!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Το επιταχυνσιόμετρο δεν είναι διαθέσιμο για το παιχνίδι.</string>
+    <string name="rps_icon_description_rock">Εικονίδιο Πέτρας</string>
+    <string name="rps_icon_description_paper">Εικονίδιο Χαρτιού</string>
+    <string name="rps_icon_description_scissors">Εικονίδιο Ψαλιδιού</string>
+
+    <string name="general_content_description_empty">Εικόνα αποτελέσματος</string>
+
+    <string name="dice_roll_screen_title">Ρίψη Ζαριών</string>
+    <string name="dice_initial_prompt_shake">Ανακινήστε για να ρίξετε τα ζάρια!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Χρησιμοποιήστε το παρακάτω κουμπί για να ρίξετε τα ζάρια (το επιταχυνσιόμετρο δεν είναι διαθέσιμο).</string>
+    <string name="dice_rolling_message">Ρίχνοντας τα ζάρια…</string>
+    <string name="dice_result_format">Αποτέλεσμα: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Το επιταχυνσιόμετρο δεν είναι διαθέσιμο σε αυτήν τη συσκευή. Η ανακίνηση δεν θα λειτουργήσει.</string>
+
+    <string name="dice_icon_description_1">Όψη ζαριού που δείχνει ένα</string>
+    <string name="dice_icon_description_2">Όψη ζαριού που δείχνει δύο</string>
+    <string name="dice_icon_description_3">Όψη ζαριού που δείχνει τρία</string>
+    <string name="dice_icon_description_4">Όψη ζαριού που δείχνει τέσσερα</string>
+    <string name="dice_icon_description_5">Όψη ζαριού που δείχνει πέντε</string>
+    <string name="dice_icon_description_6">Όψη ζαριού που δείχνει έξι</string>
+    <string name="dice_icon_description_empty">Δεν εμφανίζεται αποτέλεσμα ζαριών</string>
+
+    <!-- Leer oder Platzhalter -->
+    <string name="settings_screen_title">Ρυθμίσεις</string>
+    <string name="settings_screen_soon_message">Σύντομα…</string>
+</resources>

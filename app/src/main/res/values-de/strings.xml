@@ -91,6 +91,17 @@
     <!-- Leer oder Platzhalter -->
     <string name="settings_screen_title">Einstellungen</string>
     <string name="settings_screen_soon_message">Bald…</string>
+    <string name="magic_ball_initial_prompt_generic">Interagiere, um eine Antwort zu erhalten.</string>
+    <string name="magic_ball_no_interaction_method_active">Keine Interaktionsmethode aktiv. Überprüfe die Einstellungen.</string>
+    <string name="magic_ball_content_description">Bild der Magischen Kugel</string>
+    <string name="coin_flip_initial_prompt_generic">Interagiere, um die Münze zu werfen.</string>
+    <string name="coin_flip_no_interaction_method_active">Keine Interaktionsmethode aktiv. Überprüfe die Einstellungen.</string>
+    <string name="coin_flip_result_heads_image_description">Münzbild zeigt Kopf</string>
+    <string name="coin_flip_result_tails_image_description">Münzbild zeigt Zahl</string>
+    <string name="rps_initial_prompt_generic">Interagiere, um zu spielen!</string>
+    <string name="rps_no_interaction_method_active">Keine Interaktionsmethode aktiv. Überprüfe die Einstellungen.</string>
+    <string name="dice_initial_prompt_generic">Interagiere, um die Würfel zu werfen!</string>
+    <string name="dice_no_interaction_method_active">Keine Interaktionsmethode aktiv. Überprüfe die Einstellungen.</string>
 
 </resources>
 

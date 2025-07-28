@@ -101,5 +101,5 @@ Project Link: [https://github.com/crockstylie/fr-antoinehory-divination](https:/
 
 ---
 
-*This README was generated with the help of an AI assistant and tailored for the Oraknium project.*
+*This README was generated as well as the app with the help of an AI assistant and tailored for the Oraknium project.*
     

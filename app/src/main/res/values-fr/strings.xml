@@ -71,4 +71,15 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">Paramètres</string>
     <string name="settings_screen_soon_message">Bientôt…</string>
+    <string name="magic_ball_initial_prompt_generic">Interagissez pour obtenir une réponse.</string>
+    <string name="magic_ball_no_interaction_method_active">Aucune méthode d\'interaction n\'est active. Vérifiez les paramètres.</string>
+    <string name="magic_ball_content_description">Image de la Boule Magique</string>
+    <string name="coin_flip_initial_prompt_generic">Interagissez pour lancer la pièce.</string>
+    <string name="coin_flip_no_interaction_method_active">Aucune méthode d\'interaction n\'est active. Vérifiez les paramètres.</string>
+    <string name="coin_flip_result_heads_image_description">Image de la pièce côté Pile</string>
+    <string name="coin_flip_result_tails_image_description">Image de la pièce côté Face</string>
+    <string name="rps_initial_prompt_generic">Interagissez pour jouer !</string>
+    <string name="rps_no_interaction_method_active">Aucune méthode d\'interaction n\'est active. Vérifiez les paramètres.</string>
+    <string name="dice_initial_prompt_generic">Interagissez pour lancer les dés !</string>
+    <string name="dice_no_interaction_method_active">Aucune méthode d\'interaction n\'est active. Vérifiez les paramètres.</string>
 </resources>

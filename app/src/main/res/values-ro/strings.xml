@@ -78,5 +78,16 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">Setări</string>
     <string name="settings_screen_soon_message">În curând…</string>
+    <string name="magic_ball_initial_prompt_generic">Interacționează pentru a primi un răspuns.</string>
+    <string name="magic_ball_no_interaction_method_active">Nicio metodă de interacțiune nu este activă. Verifică setările.</string>
+    <string name="magic_ball_content_description">Imagine Glob Magic</string>
+    <string name="coin_flip_initial_prompt_generic">Interacționează pentru a arunca moneda.</string>
+    <string name="coin_flip_no_interaction_method_active">Nicio metodă de interacțiune nu este activă. Verifică setările.</string>
+    <string name="coin_flip_result_heads_image_description">Imaginea monedei arătând Cap</string>
+    <string name="coin_flip_result_tails_image_description">Imaginea monedei arătând Pajură</string>
+    <string name="rps_initial_prompt_generic">Interacționează pentru a juca!</string>
+    <string name="rps_no_interaction_method_active">Nicio metodă de interacțiune nu este activă. Verifică setările.</string>
+    <string name="dice_initial_prompt_generic">Interacționează pentru a arunca zarurile!</string>
+    <string name="dice_no_interaction_method_active">Nicio metodă de interacțiune nu este activă. Verifică setările.</string>
 </resources>
 

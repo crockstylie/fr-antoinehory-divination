@@ -78,4 +78,15 @@
     <!-- Leer oder Platzhalter -->
     <string name="settings_screen_title">Ρυθμίσεις</string>
     <string name="settings_screen_soon_message">Σύντομα…</string>
+    <string name="magic_ball_initial_prompt_generic">Αλληλεπιδράστε για μια απάντηση.</string>
+    <string name="magic_ball_no_interaction_method_active">Καμία μέθοδος αλληλεπίδρασης δεν είναι ενεργή. Ελέγξτε τις ρυθμίσεις.</string>
+    <string name="magic_ball_content_description">Εικόνα Μαγικής Μπάλας</string>
+    <string name="coin_flip_initial_prompt_generic">Αλληλεπιδράστε για να στρίψετε το νόμισμα.</string>
+    <string name="coin_flip_no_interaction_method_active">Καμία μέθοδος αλληλεπίδρασης δεν είναι ενεργή. Ελέγξτε τις ρυθμίσεις.</string>
+    <string name="coin_flip_result_heads_image_description">Εικόνα νομίσματος που δείχνει Κεφάλι</string>
+    <string name="coin_flip_result_tails_image_description">Εικόνα νομίσματος που δείχνει Γράμματα</string>
+    <string name="rps_initial_prompt_generic">Αλληλεπιδράστε για να παίξετε!</string>
+    <string name="rps_no_interaction_method_active">Καμία μέθοδος αλληλεπίδρασης δεν είναι ενεργή. Ελέγξτε τις ρυθμίσεις.</string>
+    <string name="dice_initial_prompt_generic">Αλληλεπιδράστε για να ρίξετε τα ζάρια!</string>
+    <string name="dice_no_interaction_method_active">Καμία μέθοδος αλληλεπίδρασης δεν είναι ενεργή. Ελέγξτε τις ρυθμίσεις.</string>
 </resources>

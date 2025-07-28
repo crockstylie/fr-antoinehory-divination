@@ -91,6 +91,17 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">Instellingen</string>
     <string name="settings_screen_soon_message">Binnenkort…</string>
+    <string name="magic_ball_initial_prompt_generic">Interacteer om een antwoord te krijgen.</string>
+    <string name="magic_ball_no_interaction_method_active">Geen interactiemethode actief. Controleer de instellingen.</string>
+    <string name="magic_ball_content_description">Afbeelding van Magische Bal</string>
+    <string name="coin_flip_initial_prompt_generic">Interacteer om de munt op te gooien.</string>
+    <string name="coin_flip_no_interaction_method_active">Geen interactiemethode actief. Controleer de instellingen.</string>
+    <string name="coin_flip_result_heads_image_description">Muntafbeelding met Kop</string>
+    <string name="coin_flip_result_tails_image_description">Muntafbeelding met Munt</string>
+    <string name="rps_initial_prompt_generic">Interacteer om te spelen!</string>
+    <string name="rps_no_interaction_method_active">Geen interactiemethode actief. Controleer de instellingen.</string>
+    <string name="dice_initial_prompt_generic">Interacteer om de dobbelstenen te gooien!</string>
+    <string name="dice_no_interaction_method_active">Geen interactiemethode actief. Controleer de instellingen.</string>
 
 </resources>
 

@@ -165,7 +165,7 @@ fun SocialMediaIcon(
             painter = painterResource(id = iconResId),
             contentDescription = contentDescription,
             tint = Color.Unspecified, // Ou MaterialTheme.colorScheme.primary si vous voulez les teinter
-            modifier = Modifier.size(36.dp) // Ajustez la taille selon vos besoins
+            modifier = Modifier.size(40.dp) // Ajustez la taille selon vos besoins
         )
     }
 }

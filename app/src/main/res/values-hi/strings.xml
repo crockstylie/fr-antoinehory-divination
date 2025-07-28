@@ -91,5 +91,16 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">सेटिंग्स</string>
     <string name="settings_screen_soon_message">जल्द ही…</string>
+    <string name="magic_ball_initial_prompt_generic">उत्तर पाने के लिए इंटरैक्ट करें।</string>
+    <string name="magic_ball_no_interaction_method_active">कोई इंटरैक्शन विधि सक्रिय नहीं है। सेटिंग्स जांचें।</string>
+    <string name="magic_ball_content_description">मैजिक बॉल छवि</string>
+    <string name="coin_flip_initial_prompt_generic">सिक्का उछालने के लिए इंटरैक्ट करें।</string>
+    <string name="coin_flip_no_interaction_method_active">कोई इंटरैक्शन विधि सक्रिय नहीं है। सेटिंग्स जांचें।</string>
+    <string name="coin_flip_result_heads_image_description">चित दर्शाती सिक्के की छवि</string>
+    <string name="coin_flip_result_tails_image_description">पट दर्शाती सिक्के की छवि</string>
+    <string name="rps_initial_prompt_generic">खेलने के लिए इंटरैक्ट करें!</string>
+    <string name="rps_no_interaction_method_active">कोई इंटरैक्शन विधि सक्रिय नहीं है। सेटिंग्स जांचें।</string>
+    <string name="dice_initial_prompt_generic">पासा पलटने के लिए इंटरैक्ट करें!</string>
+    <string name="dice_no_interaction_method_active">कोई इंटरैक्शन विधि सक्रिय नहीं है। सेटिंग्स जांचें।</string>
 
 </resources>

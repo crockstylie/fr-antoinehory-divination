@@ -78,4 +78,15 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">设置</string>
     <string name="settings_screen_soon_message">敬请期待…</string>
+    <string name="magic_ball_initial_prompt_generic">互动以获取答案。</string>
+    <string name="magic_ball_no_interaction_method_active">没有活动的互动方式。请检查设置。</string>
+    <string name="magic_ball_content_description">魔法球图片</string>
+    <string name="coin_flip_initial_prompt_generic">互动以掷硬币。</string>
+    <string name="coin_flip_no_interaction_method_active">没有活动的互动方式。请检查设置。</string>
+    <string name="coin_flip_result_heads_image_description">显示正面的硬币图片</string>
+    <string name="coin_flip_result_tails_image_description">显示反面的硬币图片</string>
+    <string name="rps_initial_prompt_generic">互动以开始游戏！</string>
+    <string name="rps_no_interaction_method_active">没有活动的互动方式。请检查设置。</string>
+    <string name="dice_initial_prompt_generic">互动以掷骰子！</string>
+    <string name="dice_no_interaction_method_active">没有活动的互动方式。请检查设置。</string>
 </resources>

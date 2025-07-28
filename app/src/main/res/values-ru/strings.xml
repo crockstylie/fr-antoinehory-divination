@@ -78,4 +78,15 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">Настройки</string>
     <string name="settings_screen_soon_message">Скоро…</string>
+    <string name="magic_ball_initial_prompt_generic">Взаимодействуйте, чтобы получить ответ.</string>
+    <string name="magic_ball_no_interaction_method_active">Метод взаимодействия не активен. Проверьте настройки.</string>
+    <string name="magic_ball_content_description">Изображение Магического Шара</string>
+    <string name="coin_flip_initial_prompt_generic">Взаимодействуйте, чтобы подбросить монету.</string>
+    <string name="coin_flip_no_interaction_method_active">Метод взаимодействия не активен. Проверьте настройки.</string>
+    <string name="coin_flip_result_heads_image_description">Изображение монеты: Орёл</string>
+    <string name="coin_flip_result_tails_image_description">Изображение монеты: Решка</string>
+    <string name="rps_initial_prompt_generic">Взаимодействуйте, чтобы играть!</string>
+    <string name="rps_no_interaction_method_active">Метод взаимодействия не активен. Проверьте настройки.</string>
+    <string name="dice_initial_prompt_generic">Взаимодействуйте, чтобы бросить кости!</string>
+    <string name="dice_no_interaction_method_active">Метод взаимодействия не активен. Проверьте настройки.</string>
 </resources>

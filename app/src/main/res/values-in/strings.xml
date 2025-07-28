@@ -78,4 +78,15 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">Pengaturan</string>
     <string name="settings_screen_soon_message">Segera…</string>
+    <string name="magic_ball_initial_prompt_generic">Berinteraksi untuk mendapatkan jawaban.</string>
+    <string name="magic_ball_no_interaction_method_active">Tidak ada metode interaksi yang aktif. Periksa pengaturan.</string>
+    <string name="magic_ball_content_description">Gambar Bola Ajaib</string>
+    <string name="coin_flip_initial_prompt_generic">Berinteraksi untuk melempar koin.</string>
+    <string name="coin_flip_no_interaction_method_active">Tidak ada metode interaksi yang aktif. Periksa pengaturan.</string>
+    <string name="coin_flip_result_heads_image_description">Gambar koin menunjukkan Kepala</string>
+    <string name="coin_flip_result_tails_image_description">Gambar koin menunjukkan Ekor</string>
+    <string name="rps_initial_prompt_generic">Berinteraksi untuk bermain!</string>
+    <string name="rps_no_interaction_method_active">Tidak ada metode interaksi yang aktif. Periksa pengaturan.</string>
+    <string name="dice_initial_prompt_generic">Berinteraksi untuk melempar dadu!</string>
+    <string name="dice_no_interaction_method_active">Tidak ada metode interaksi yang aktif. Periksa pengaturan.</string>
 </resources>

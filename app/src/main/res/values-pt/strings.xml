@@ -78,4 +78,15 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">Configurações</string>
     <string name="settings_screen_soon_message">Em breve…</string>
+    <string name="magic_ball_initial_prompt_generic">Interaja para obter uma resposta.</string>
+    <string name="magic_ball_no_interaction_method_active">Nenhum método de interação ativo. Verifique as configurações.</string>
+    <string name="magic_ball_content_description">Imagem da Bola Mágica</string>
+    <string name="coin_flip_initial_prompt_generic">Interaja para lançar a moeda.</string>
+    <string name="coin_flip_no_interaction_method_active">Nenhum método de interação ativo. Verifique as configurações.</string>
+    <string name="coin_flip_result_heads_image_description">Imagem da moeda mostrando Cara</string>
+    <string name="coin_flip_result_tails_image_description">Imagem da moeda mostrando Coroa</string>
+    <string name="rps_initial_prompt_generic">Interaja para jogar!</string>
+    <string name="rps_no_interaction_method_active">Nenhum método de interação ativo. Verifique as configurações.</string>
+    <string name="dice_initial_prompt_generic">Interaja para lançar os dados!</string>
+    <string name="dice_no_interaction_method_active">Nenhum método de interação ativo. Verifique as configurações.</string>
 </resources>

@@ -91,5 +91,16 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">الإعدادات</string>
     <string name="settings_screen_soon_message">قريباً…</string>
+    <string name="magic_ball_initial_prompt_generic">تفاعل للحصول على إجابة.</string>
+    <string name="magic_ball_no_interaction_method_active">لا توجد طريقة تفاعل نشطة. تحقق من الإعدادات.</string>
+    <string name="magic_ball_content_description">صورة الكرة السحرية</string>
+    <string name="coin_flip_initial_prompt_generic">تفاعل لقلب العملة.</string>
+    <string name="coin_flip_no_interaction_method_active">لا توجد طريقة تفاعل نشطة. تحقق من الإعدادات.</string>
+    <string name="coin_flip_result_heads_image_description">صورة العملة تظهر الوجه (ملك)</string>
+    <string name="coin_flip_result_tails_image_description">صورة العملة تظهر الظهر (كتابة)</string>
+    <string name="rps_initial_prompt_generic">تفاعل للعب!</string>
+    <string name="rps_no_interaction_method_active">لا توجد طريقة تفاعل نشطة. تحقق من الإعدادات.</string>
+    <string name="dice_initial_prompt_generic">تفاعل لرمي النرد!</string>
+    <string name="dice_no_interaction_method_active">لا توجد طريقة تفاعل نشطة. تحقق من الإعدادات.</string>
 
 </resources>

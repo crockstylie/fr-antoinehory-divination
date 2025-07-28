@@ -91,5 +91,16 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">설정</string>
     <string name="settings_screen_soon_message">곧…</string>
+    <string name="magic_ball_initial_prompt_generic">상호작용하여 답변을 받으세요.</string>
+    <string name="magic_ball_no_interaction_method_active">활성화된 상호작용 방법이 없습니다. 설정을 확인하세요.</string>
+    <string name="magic_ball_content_description">마법의 공 이미지</string>
+    <string name="coin_flip_initial_prompt_generic">상호작용하여 동전을 던지세요.</string>
+    <string name="coin_flip_no_interaction_method_active">활성화된 상호작용 방법이 없습니다. 설정을 확인하세요.</string>
+    <string name="coin_flip_result_heads_image_description">동전 앞면 이미지</string>
+    <string name="coin_flip_result_tails_image_description">동전 뒷면 이미지</string>
+    <string name="rps_initial_prompt_generic">상호작용하여 플레이하세요!</string>
+    <string name="rps_no_interaction_method_active">활성화된 상호작용 방법이 없습니다. 설정을 확인하세요.</string>
+    <string name="dice_initial_prompt_generic">상호작용하여 주사위를 굴리세요!</string>
+    <string name="dice_no_interaction_method_active">활성화된 상호작용 방법이 없습니다. 설정을 확인하세요.</string>
 
 </resources>

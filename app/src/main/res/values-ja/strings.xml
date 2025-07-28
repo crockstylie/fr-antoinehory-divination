@@ -91,5 +91,16 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">設定</string>
     <string name="settings_screen_soon_message">近日公開…</string>
+    <string name="magic_ball_initial_prompt_generic">操作して答えを得る</string>
+    <string name="magic_ball_no_interaction_method_active">有効な操作方法がありません。設定を確認してください。</string>
+    <string name="magic_ball_content_description">マジックボールの画像</string>
+    <string name="coin_flip_initial_prompt_generic">操作してコインを投げる</string>
+    <string name="coin_flip_no_interaction_method_active">有効な操作方法がありません。設定を確認してください。</string>
+    <string name="coin_flip_result_heads_image_description">コインの表の画像</string>
+    <string name="coin_flip_result_tails_image_description">コインの裏の画像</string>
+    <string name="rps_initial_prompt_generic">操作してプレイ！</string>
+    <string name="rps_no_interaction_method_active">有効な操作方法がありません。設定を確認してください。</string>
+    <string name="dice_initial_prompt_generic">操作してサイコロを振る！</string>
+    <string name="dice_no_interaction_method_active">有効な操作方法がありません。設定を確認してください。</string>
 
 </resources>

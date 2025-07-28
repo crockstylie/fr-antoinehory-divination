@@ -91,5 +91,17 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">Settings</string>
     <string name="settings_screen_soon_message">Soon…</string>
+    <string name="magic_ball_initial_prompt_generic">Interact to get an answer.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" /> <!-- No direct translation as it's empty, but if it were to have a default, e.g., "Ask a question first." -->
+    <string name="magic_ball_no_interaction_method_active">No interaction method is active. Check settings.</string>
+    <string name="magic_ball_content_description">Magic Ball image</string>
+    <string name="coin_flip_initial_prompt_generic">Interact to flip the coin.</string>
+    <string name="coin_flip_no_interaction_method_active">No interaction method is active. Check settings.</string>
+    <string name="coin_flip_result_heads_image_description">Coin image showing Heads</string>
+    <string name="coin_flip_result_tails_image_description">Coin image showing Tails</string>
+    <string name="rps_initial_prompt_generic">Interact to play!</string>
+    <string name="rps_no_interaction_method_active">No interaction method is active. Check settings.</string>
+    <string name="dice_initial_prompt_generic">Interact to roll the dice!</string>
+    <string name="dice_no_interaction_method_active">No interaction method is active. Check settings.</string>
 
 </resources>

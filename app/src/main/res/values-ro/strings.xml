@@ -89,5 +89,18 @@
     <string name="rps_no_interaction_method_active">Nicio metodă de interacțiune nu este activă. Verifică setările.</string>
     <string name="dice_initial_prompt_generic">Interacționează pentru a arunca zarurile!</string>
     <string name="dice_no_interaction_method_active">Nicio metodă de interacțiune nu este activă. Verifică setările.</string>
+    <string name="informations">Informații</string>
+    <string name="mes_informations_personnelles">Informațiile Mele Personale</string>
+    <string name="d_veloppeur">Dezvoltator</string>
+    <string name="site_web">Site Web</string>
+    <string name="email">Email</string>
+    <string name="donate">Donează</string>
+    <string name="retrouvez_moi_sur">Găsește-mă pe:</string>
+    <string name="linkedin_profile">Profil LinkedIn</string>
+    <string name="behance_profile">Profil Behance</string>
+    <string name="instagram_profile">Profil Instagram</string>
+    <string name="facebook_profile">Profil Facebook</string>
+    <string name="spotify_profile">Profil Spotify</string>
+    <string name="steam_profile">Profil Steam</string>
 </resources>
 

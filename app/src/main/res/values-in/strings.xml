@@ -89,4 +89,17 @@
     <string name="rps_no_interaction_method_active">Tidak ada metode interaksi yang aktif. Periksa pengaturan.</string>
     <string name="dice_initial_prompt_generic">Berinteraksi untuk melempar dadu!</string>
     <string name="dice_no_interaction_method_active">Tidak ada metode interaksi yang aktif. Periksa pengaturan.</string>
+    <string name="informations">Informasi</string>
+    <string name="mes_informations_personnelles">Informasi Pribadi Saya</string>
+    <string name="d_veloppeur">Pengembang</string>
+    <string name="site_web">Situs Web</string>
+    <string name="email">Email</string>
+    <string name="donate">Donasi</string>
+    <string name="retrouvez_moi_sur">Temukan saya di:</string>
+    <string name="linkedin_profile">Profil LinkedIn</string>
+    <string name="behance_profile">Profil Behance</string>
+    <string name="instagram_profile">Profil Instagram</string>
+    <string name="facebook_profile">Profil Facebook</string>
+    <string name="spotify_profile">Profil Spotify</string>
+    <string name="steam_profile">Profil Steam</string>
 </resources>

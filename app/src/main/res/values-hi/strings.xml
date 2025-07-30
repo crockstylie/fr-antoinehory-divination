@@ -102,5 +102,18 @@
     <string name="rps_no_interaction_method_active">कोई इंटरैक्शन विधि सक्रिय नहीं है। सेटिंग्स जांचें।</string>
     <string name="dice_initial_prompt_generic">पासा पलटने के लिए इंटरैक्ट करें!</string>
     <string name="dice_no_interaction_method_active">कोई इंटरैक्शन विधि सक्रिय नहीं है। सेटिंग्स जांचें।</string>
+    <string name="informations">जानकारी</string>
+    <string name="mes_informations_personnelles">मेरी व्यक्तिगत जानकारी</string>
+    <string name="d_veloppeur">डेवलपर</string>
+    <string name="site_web">वेबसाइट</string>
+    <string name="email">ईमेल</string>
+    <string name="donate">दान करें</string>
+    <string name="retrouvez_moi_sur">मुझे यहां खोजें:</string>
+    <string name="linkedin_profile">लिंक्डइन प्रोफ़ाइल</string>
+    <string name="behance_profile">Behance प्रोफ़ाइल</string>
+    <string name="instagram_profile">इंस्टाग्राम प्रोफ़ाइल</string>
+    <string name="facebook_profile">फेसबुक प्रोफ़ाइल</string>
+    <string name="spotify_profile">स्पॉटिफ़ाई प्रोफ़ाइल</string>
+    <string name="steam_profile">स्टीम प्रोफ़ाइल</string>
 
 </resources>

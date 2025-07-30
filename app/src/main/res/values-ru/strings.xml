@@ -89,4 +89,17 @@
     <string name="rps_no_interaction_method_active">Метод взаимодействия не активен. Проверьте настройки.</string>
     <string name="dice_initial_prompt_generic">Взаимодействуйте, чтобы бросить кости!</string>
     <string name="dice_no_interaction_method_active">Метод взаимодействия не активен. Проверьте настройки.</string>
+    <string name="informations">Информация</string>
+    <string name="mes_informations_personnelles">Моя личная информация</string>
+    <string name="d_veloppeur">Разработчик</string>
+    <string name="site_web">Веб-сайт</string>
+    <string name="email">Электронная почта</string>
+    <string name="donate">Пожертвовать</string>
+    <string name="retrouvez_moi_sur">Найдите меня на:</string>
+    <string name="linkedin_profile">Профиль LinkedIn</string>
+    <string name="behance_profile">Профиль Behance</string>
+    <string name="instagram_profile">Профиль Instagram</string>
+    <string name="facebook_profile">Профиль Facebook</string>
+    <string name="spotify_profile">Профиль Spotify</string>
+    <string name="steam_profile">Профиль Steam</string>
 </resources>

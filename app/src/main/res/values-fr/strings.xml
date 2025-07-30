@@ -82,4 +82,17 @@
     <string name="rps_no_interaction_method_active">Aucune méthode d\'interaction n\'est active. Vérifiez les paramètres.</string>
     <string name="dice_initial_prompt_generic">Interagissez pour lancer les dés !</string>
     <string name="dice_no_interaction_method_active">Aucune méthode d\'interaction n\'est active. Vérifiez les paramètres.</string>
+    <string name="informations">Informations</string>
+    <string name="mes_informations_personnelles">Mes Informations Personnelles</string>
+    <string name="d_veloppeur">Développeur</string>
+    <string name="site_web">Site Web</string>
+    <string name="email">Email</string>
+    <string name="donate">Faire un don</string>
+    <string name="retrouvez_moi_sur">Retrouvez-moi sur :</string>
+    <string name="linkedin_profile">Profil LinkedIn</string>
+    <string name="behance_profile">Profil Behance</string>
+    <string name="instagram_profile">Profil Instagram</string>
+    <string name="facebook_profile">Profil Facebook</string>
+    <string name="spotify_profile">Profil Spotify</string>
+    <string name="steam_profile">Profil Steam</string>
 </resources>

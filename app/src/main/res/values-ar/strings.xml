@@ -102,5 +102,18 @@
     <string name="rps_no_interaction_method_active">لا توجد طريقة تفاعل نشطة. تحقق من الإعدادات.</string>
     <string name="dice_initial_prompt_generic">تفاعل لرمي النرد!</string>
     <string name="dice_no_interaction_method_active">لا توجد طريقة تفاعل نشطة. تحقق من الإعدادات.</string>
+    <string name="informations">معلومات</string>
+    <string name="mes_informations_personnelles">معلوماتي الشخصية</string>
+    <string name="d_veloppeur">مطور</string>
+    <string name="site_web">موقع الكتروني</string>
+    <string name="email">بريد إلكتروني</string>
+    <string name="donate">تبرع</string>
+    <string name="retrouvez_moi_sur">تجدني على:</string>
+    <string name="linkedin_profile">ملف LinkedIn</string>
+    <string name="behance_profile">ملف Behance</string>
+    <string name="instagram_profile">ملف Instagram</string>
+    <string name="facebook_profile">ملف Facebook</string>
+    <string name="spotify_profile">ملف Spotify</string>
+    <string name="steam_profile">ملف Steam</string>
 
 </resources>

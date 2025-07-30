@@ -102,6 +102,19 @@
     <string name="rps_no_interaction_method_active">Keine Interaktionsmethode aktiv. Überprüfe die Einstellungen.</string>
     <string name="dice_initial_prompt_generic">Interagiere, um die Würfel zu werfen!</string>
     <string name="dice_no_interaction_method_active">Keine Interaktionsmethode aktiv. Überprüfe die Einstellungen.</string>
+    <string name="informations">Informationen</string>
+    <string name="mes_informations_personnelles">Meine Persönlichen Informationen</string>
+    <string name="d_veloppeur">Entwickler</string>
+    <string name="site_web">Webseite</string>
+    <string name="email">E-Mail</string>
+    <string name="donate">Spenden</string>
+    <string name="retrouvez_moi_sur">Finden Sie mich auf:</string>
+    <string name="linkedin_profile">LinkedIn Profil</string>
+    <string name="behance_profile">Behance Profil</string>
+    <string name="instagram_profile">Instagram Profil</string>
+    <string name="facebook_profile">Facebook Profil</string>
+    <string name="spotify_profile">Spotify Profil</string>
+    <string name="steam_profile">Steam Profil</string>
 
 </resources>
 

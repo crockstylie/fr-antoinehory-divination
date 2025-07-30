@@ -89,4 +89,17 @@
     <string name="rps_no_interaction_method_active">Καμία μέθοδος αλληλεπίδρασης δεν είναι ενεργή. Ελέγξτε τις ρυθμίσεις.</string>
     <string name="dice_initial_prompt_generic">Αλληλεπιδράστε για να ρίξετε τα ζάρια!</string>
     <string name="dice_no_interaction_method_active">Καμία μέθοδος αλληλεπίδρασης δεν είναι ενεργή. Ελέγξτε τις ρυθμίσεις.</string>
+    <string name="informations">Πληροφορίες</string>
+    <string name="mes_informations_personnelles">Οι Προσωπικές Μου Πληροφορίες</string>
+    <string name="d_veloppeur">Προγραμματιστής</string>
+    <string name="site_web">Ιστοσελίδα</string>
+    <string name="email">Email</string>
+    <string name="donate">Δωρεά</string>
+    <string name="retrouvez_moi_sur">Βρείτε με στο:</string>
+    <string name="linkedin_profile">Προφίλ LinkedIn</string>
+    <string name="behance_profile">Προφίλ Behance</string>
+    <string name="instagram_profile">Προφίλ Instagram</string>
+    <string name="facebook_profile">Προφίλ Facebook</string>
+    <string name="spotify_profile">Προφίλ Spotify</string>
+    <string name="steam_profile">Προφίλ Steam</string>
 </resources>

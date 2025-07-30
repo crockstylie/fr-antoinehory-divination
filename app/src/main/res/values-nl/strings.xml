@@ -102,6 +102,19 @@
     <string name="rps_no_interaction_method_active">Geen interactiemethode actief. Controleer de instellingen.</string>
     <string name="dice_initial_prompt_generic">Interacteer om de dobbelstenen te gooien!</string>
     <string name="dice_no_interaction_method_active">Geen interactiemethode actief. Controleer de instellingen.</string>
+    <string name="informations">Informatie</string>
+    <string name="mes_informations_personnelles">Mijn Persoonlijke Informatie</string>
+    <string name="d_veloppeur">Ontwikkelaar</string>
+    <string name="site_web">Website</string>
+    <string name="email">E-mail</string>
+    <string name="donate">Doneren</string>
+    <string name="retrouvez_moi_sur">Vind mij op:</string>
+    <string name="linkedin_profile">LinkedIn Profiel</string>
+    <string name="behance_profile">Behance Profiel</string>
+    <string name="instagram_profile">Instagram Profiel</string>
+    <string name="facebook_profile">Facebook Profiel</string>
+    <string name="spotify_profile">Spotify Profiel</string>
+    <string name="steam_profile">Steam Profiel</string>
 
 </resources>
 

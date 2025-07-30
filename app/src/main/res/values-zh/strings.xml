@@ -89,4 +89,17 @@
     <string name="rps_no_interaction_method_active">没有活动的互动方式。请检查设置。</string>
     <string name="dice_initial_prompt_generic">互动以掷骰子！</string>
     <string name="dice_no_interaction_method_active">没有活动的互动方式。请检查设置。</string>
+    <string name="informations">信息</string>
+    <string name="mes_informations_personnelles">我的个人信息</string>
+    <string name="d_veloppeur">开发者</string>
+    <string name="site_web">网站</string>
+    <string name="email">电子邮件</string>
+    <string name="donate">捐赠</string>
+    <string name="retrouvez_moi_sur">关注我：</string>
+    <string name="linkedin_profile">LinkedIn 个人资料</string>
+    <string name="behance_profile">Behance 个人资料</string>
+    <string name="instagram_profile">Instagram 个人资料</string>
+    <string name="facebook_profile">Facebook 个人资料</string>
+    <string name="spotify_profile">Spotify 个人资料</string>
+    <string name="steam_profile">Steam 个人资料</string>
 </resources>

@@ -102,5 +102,18 @@
     <string name="rps_no_interaction_method_active">有効な操作方法がありません。設定を確認してください。</string>
     <string name="dice_initial_prompt_generic">操作してサイコロを振る！</string>
     <string name="dice_no_interaction_method_active">有効な操作方法がありません。設定を確認してください。</string>
+    <string name="informations">情報</string>
+    <string name="mes_informations_personnelles">個人情報</string>
+    <string name="d_veloppeur">開発者</string>
+    <string name="site_web">ウェブサイト</string>
+    <string name="email">メールアドレス</string>
+    <string name="donate">寄付する</string>
+    <string name="retrouvez_moi_sur">私を見つける：</string>
+    <string name="linkedin_profile">LinkedIn プロフィール</string>
+    <string name="behance_profile">Behance プロフィール</string>
+    <string name="instagram_profile">Instagram プロフィール</string>
+    <string name="facebook_profile">Facebook プロフィール</string>
+    <string name="spotify_profile">Spotify プロフィール</string>
+    <string name="steam_profile">Steam プロフィール</string>
 
 </resources>

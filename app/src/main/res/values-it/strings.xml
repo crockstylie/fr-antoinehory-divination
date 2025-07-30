@@ -102,5 +102,18 @@
     <string name="rps_no_interaction_method_active">Nessun metodo di interazione attivo. Controlla le impostazioni.</string>
     <string name="dice_initial_prompt_generic">Interagisci per lanciare i dadi!</string>
     <string name="dice_no_interaction_method_active">Nessun metodo di interazione attivo. Controlla le impostazioni.</string>
+    <string name="informations">Informazioni</string>
+    <string name="mes_informations_personnelles">Le Mie Informazioni Personali</string>
+    <string name="d_veloppeur">Sviluppatore</string>
+    <string name="site_web">Sito Web</string>
+    <string name="email">Email</string>
+    <string name="donate">Dona</string>
+    <string name="retrouvez_moi_sur">Trovami su:</string>
+    <string name="linkedin_profile">Profilo LinkedIn</string>
+    <string name="behance_profile">Profilo Behance</string>
+    <string name="instagram_profile">Profilo Instagram</string>
+    <string name="facebook_profile">Profilo Facebook</string>
+    <string name="spotify_profile">Profilo Spotify</string>
+    <string name="steam_profile">Profilo Steam</string>
 
 </resources>

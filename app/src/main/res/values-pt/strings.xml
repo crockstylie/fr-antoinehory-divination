@@ -89,4 +89,17 @@
     <string name="rps_no_interaction_method_active">Nenhum método de interação ativo. Verifique as configurações.</string>
     <string name="dice_initial_prompt_generic">Interaja para lançar os dados!</string>
     <string name="dice_no_interaction_method_active">Nenhum método de interação ativo. Verifique as configurações.</string>
+    <string name="informations">Informações</string>
+    <string name="mes_informations_personnelles">Minhas Informações Pessoais</string>
+    <string name="d_veloppeur">Desenvolvedor</string>
+    <string name="site_web">Site</string>
+    <string name="email">Email</string>
+    <string name="donate">Doar</string>
+    <string name="retrouvez_moi_sur">Encontre-me em:</string>
+    <string name="linkedin_profile">Perfil do LinkedIn</string>
+    <string name="behance_profile">Perfil do Behance</string>
+    <string name="instagram_profile">Perfil do Instagram</string>
+    <string name="facebook_profile">Perfil do Facebook</string>
+    <string name="spotify_profile">Perfil do Spotify</string>
+    <string name="steam_profile">Perfil do Steam</string>
 </resources>

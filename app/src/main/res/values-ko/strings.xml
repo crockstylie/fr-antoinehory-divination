@@ -102,5 +102,18 @@
     <string name="rps_no_interaction_method_active">활성화된 상호작용 방법이 없습니다. 설정을 확인하세요.</string>
     <string name="dice_initial_prompt_generic">상호작용하여 주사위를 굴리세요!</string>
     <string name="dice_no_interaction_method_active">활성화된 상호작용 방법이 없습니다. 설정을 확인하세요.</string>
+    <string name="informations">정보</string>
+    <string name="mes_informations_personnelles">내 개인 정보</string>
+    <string name="d_veloppeur">개발자</string>
+    <string name="site_web">웹사이트</string>
+    <string name="email">이메일</string>
+    <string name="donate">기부하기</string>
+    <string name="retrouvez_moi_sur">소셜 미디어:</string>
+    <string name="linkedin_profile">LinkedIn 프로필</string>
+    <string name="behance_profile">Behance 프로필</string>
+    <string name="instagram_profile">Instagram 프로필</string>
+    <string name="facebook_profile">Facebook 프로필</string>
+    <string name="spotify_profile">Spotify 프로필</string>
+    <string name="steam_profile">Steam 프로필</string>
 
 </resources>

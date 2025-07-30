@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color // Si vous voulez utiliser Color.Unspecified
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,7 +23,7 @@ import fr.antoinehory.divination.ui.theme.OrakniumGold
 @Composable
 fun InfoScreen(onNavigateBack: () -> Unit) {
     AppScaffold(
-        title = "Informations",
+        title = stringResource(R.string.informations),
         canNavigateBack = true,
         onNavigateBack = onNavigateBack
     ) { paddingValues ->
@@ -35,7 +36,7 @@ fun InfoScreen(onNavigateBack: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                "Mes Informations Personnelles",
+                stringResource(R.string.mes_informations_personnelles),
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Center,
@@ -44,15 +45,15 @@ fun InfoScreen(onNavigateBack: () -> Unit) {
                     .padding(vertical = 24.dp)
             )
 
-            InfoItemColumn(label = "Développeur", value = "Antoine Crock HORY")
-            InfoItemColumn(label = "Site Web", value = "antoinehory.fr", isLink = true, linkUri = "https://antoinehory.fr")
-            InfoItemColumn(label = "Email", value = "contact@antoinehory.fr", isLink = true, linkUri = "mailto:contact@antoinehory.fr")
-            InfoItemColumn(label = "Donate", value = "paypal.me/kuroku", isLink = true, linkUri = "https://paypal.me/kuroku")
+            InfoItemColumn(label = stringResource(R.string.d_veloppeur), value = "Antoine Crock HORY")
+            InfoItemColumn(label = stringResource(R.string.site_web), value = "antoinehory.fr", isLink = true, linkUri = "https://antoinehory.fr")
+            InfoItemColumn(label = stringResource(R.string.email), value = "contact@antoinehory.fr", isLink = true, linkUri = "mailto:contact@antoinehory.fr")
+            InfoItemColumn(label = stringResource(R.string.donate), value = "paypal.me/kuroku", isLink = true, linkUri = "https://paypal.me/kuroku")
 
             Spacer(modifier = Modifier.height(24.dp)) // Espace avant les icônes sociales
 
             Text(
-                "Retrouvez-moi sur :", // Titre pour la section des réseaux sociaux
+                stringResource(R.string.retrouvez_moi_sur), // Titre pour la section des réseaux sociaux
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Center,
@@ -68,32 +69,32 @@ fun InfoScreen(onNavigateBack: () -> Unit) {
             ) {
                 SocialMediaIcon(
                     iconResId = R.drawable.ic_linkedin_logo,
-                    contentDescription = "LinkedIn Profile",
+                    contentDescription = stringResource(R.string.linkedin_profile),
                     url = "https://www.linkedin.com/in/antoinehory/"
                 )
                 SocialMediaIcon(
                     iconResId = R.drawable.ic_behance_logo,
-                    contentDescription = "Behance Profile",
+                    contentDescription = stringResource(R.string.behance_profile),
                     url = "https://www.behance.net/antoine-hory"
                 )
                 SocialMediaIcon(
                     iconResId = R.drawable.ic_instagram_logo,
-                    contentDescription = "Instagram Profile",
+                    contentDescription = stringResource(R.string.instagram_profile),
                     url = "https://www.instagram.com/antoine.hory.web/"
                 )
                 SocialMediaIcon(
                     iconResId = R.drawable.ic_facebook_logo, 
-                    contentDescription = "Facebook Profile",
+                    contentDescription = stringResource(R.string.facebook_profile),
                     url = "https://www.facebook.com/antoinehory/"
                 )
                 SocialMediaIcon(
                     iconResId = R.drawable.ic_spotify_logo,  
-                    contentDescription = "Spotify Profile",
+                    contentDescription = stringResource(R.string.spotify_profile),
                     url = "https://open.spotify.com/user/crockstylie"
                 )
                 SocialMediaIcon(
                     iconResId = R.drawable.ic_steam_logo, 
-                    contentDescription = "Steam Profile",
+                    contentDescription = stringResource(R.string.steam_profile),
                     url = "https://steamcommunity.com/id/crockstylie/"
                 )
             }

@@ -82,4 +82,17 @@
     <string name="rps_no_interaction_method_active">No interaction method is active. Check settings.</string>
     <string name="dice_initial_prompt_generic">Interact to roll the dice!</string>
     <string name="dice_no_interaction_method_active">No interaction method is active. Check settings.</string>
+    <string name="informations">Informations</string>
+    <string name="mes_informations_personnelles">My Personal Information</string>
+    <string name="d_veloppeur">Developer</string>
+    <string name="site_web">Web Site</string>
+    <string name="email">Email</string>
+    <string name="donate">Donate</string>
+    <string name="retrouvez_moi_sur">Find me on:</string>
+    <string name="linkedin_profile">LinkedIn Profile</string>
+    <string name="behance_profile">Behance Profile</string>
+    <string name="instagram_profile">Instagram Profile</string>
+    <string name="facebook_profile">Facebook Profile</string>
+    <string name="spotify_profile">Spotify Profile</string>
+    <string name="steam_profile">Steam Profile</string>
 </resources>

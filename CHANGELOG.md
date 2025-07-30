@@ -5,7 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.2] - 2025-XX-XX <!-- Mettez la date de release ici -->
+## [2.3] - 2025-XX-XX
+
+### Added
+- **Launches statistics:** 
+  - Added a new functionality which logs the launches of each minigames and displays stats.
+
+### Changed
+- **Localization:**
+  - extraction of hardcoded text from the info page for internationalization.
+
+### Fixed
+- **Gradle dependencies:**
+  - Changing many versions of libraries for using the stables ones instead of the last ones. It worked until I wanted to use ksp 
+
+## [2.2] - 2025-07-28
 
 ### Added
 - **Localization:** Added translations for key UI strings in multiple languages:
@@ -93,3 +107,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - `.gitignore` improvements. (489bcbd)
 - Git repository cleanup. (114aeb6)
+
+# Template
+
+## [X.X] - XXXX-XX-XX
+
+### Added
+- **title 1:**
+  - item 1.1
+- **title 2:**
+  - item 2.1
+
+### Changed
+- **title 1:**
+  - item 1.1
+- **title 2:**
+  - item 2.1
+
+### Fixed
+- **title 1:**
+  - item 1.1
+- **title 2:**
+  - item 2.1

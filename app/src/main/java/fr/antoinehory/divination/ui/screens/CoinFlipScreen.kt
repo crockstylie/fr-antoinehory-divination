@@ -145,7 +145,7 @@ fun CoinFlipScreen(
 
             Text(
                 text = currentMessage,
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.headlineMedium, // MODIFIÉ ICI
                 textAlign = TextAlign.Center,
                 modifier = Modifier.alpha(textAlpha)
             )

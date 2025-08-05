@@ -142,7 +142,7 @@ fun RockPaperScissorsScreen(
 
             Text(
                 text = currentMessage,
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.headlineMedium,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.alpha(textAlpha)
             )

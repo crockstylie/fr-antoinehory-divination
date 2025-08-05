@@ -8,4 +8,10 @@ object AppDestinations {
     const val DICE_ROLL_ROUTE = "dice_roll"
     const val INFO_ROUTE = "info"
     const val SETTINGS_ROUTE = "settings"
+
+    // Nouvelles routes pour les statistiques
+    const val STATS_BASE_ROUTE = "statistics" // Route de base
+    const val STATS_GAME_TYPE_ARG = "gameType" // Nom de l'argument
+    // Route complète avec argument optionnel. Ex: "statistics" ou "statistics?gameType=COIN_FLIP"
+    const val STATS_ROUTE_TEMPLATE = "$STATS_BASE_ROUTE?$STATS_GAME_TYPE_ARG={$STATS_GAME_TYPE_ARG}"
 }

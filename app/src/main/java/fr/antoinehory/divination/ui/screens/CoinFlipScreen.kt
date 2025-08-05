@@ -4,6 +4,11 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons // AJOUTÉ
+import androidx.compose.material.icons.filled.PieChart // AJOUTÉ
+import androidx.compose.material3.BottomAppBar // AJOUTÉ
+import androidx.compose.material3.Icon // AJOUTÉ
+import androidx.compose.material3.IconButton // AJOUTÉ
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -21,8 +26,10 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
+import fr.antoinehory.divination.data.model.GameType // AJOUTÉ
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
+import fr.antoinehory.divination.ui.theme.OrakniumGold // AJOUTÉ
 import fr.antoinehory.divination.viewmodels.CoinFace
 import fr.antoinehory.divination.viewmodels.CoinFlipViewModel
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
@@ -33,16 +40,13 @@ import fr.antoinehory.divination.viewmodels.CoinFlipViewModelFactory
 @Composable
 fun CoinFlipScreen(
     onNavigateBack: () -> Unit,
-    // La valeur par défaut pour coinFlipViewModel est retirée ici,
-    // car nous l'initialisons dans le corps avec la factory.
-    interactionViewModel: InteractionDetectViewModel = viewModel()
+    interactionViewModel: InteractionDetectViewModel = viewModel(),
+    onNavigateToStats: (GameType) -> Unit // AJOUTÉ
 ) {
-    // Récupération du LaunchLogRepository via la classe Application
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
     val launchLogRepository = application.launchLogRepository
 
-    // Initialisation du CoinFlipViewModel avec la factory
     val coinFlipViewModel: CoinFlipViewModel = viewModel(
         factory = CoinFlipViewModelFactory(application, launchLogRepository)
     )
@@ -51,7 +55,6 @@ fun CoinFlipScreen(
     val coinFace by coinFlipViewModel.coinFace.collectAsState()
     val isFlipping by coinFlipViewModel.isFlipping.collectAsState()
 
-    // Collecter les préférences d'interaction et la disponibilité du matériel
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
 
@@ -63,7 +66,7 @@ fun CoinFlipScreen(
         }
     }
 
-    val currentLocalContext = LocalContext.current // Renommé pour éviter la confusion avec le context précédent
+    val currentLocalContext = LocalContext.current
     val headsBitmap = remember(currentLocalContext) {
         ContextCompat.getDrawable(currentLocalContext, R.drawable.ic_heads)?.toBitmap()?.asImageBitmap()
     }
@@ -85,13 +88,34 @@ fun CoinFlipScreen(
     AppScaffold(
         title = stringResource(id = R.string.coin_flip_screen_title),
         canNavigateBack = true,
-        onNavigateBack = onNavigateBack
+        onNavigateBack = onNavigateBack,
+        bottomBar = { // AJOUTÉ
+            BottomAppBar(
+                containerColor = MaterialTheme.colorScheme.background,
+                contentColor = OrakniumGold
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    IconButton(onClick = { onNavigateToStats(GameType.COIN_FLIP) }) { // MODIFIÉ GameType
+                        Icon(
+                            imageVector = Icons.Filled.PieChart,
+                            contentDescription = stringResource(id = R.string.game_stats_icon_description),
+                            tint = OrakniumGold,
+                            modifier = Modifier.size(36.dp) // Taille harmonisée
+                        )
+                    }
+                }
+            }
+        }
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp)
+                .padding(paddingValues) // Appliquer le padding fourni par AppScaffold
+                .padding(16.dp) // Padding interne spécifique à cet écran
                 .clickable {
                     if (!isFlipping) {
                         if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
@@ -145,7 +169,7 @@ fun CoinFlipScreen(
 
             Text(
                 text = currentMessage,
-                style = MaterialTheme.typography.headlineMedium, // MODIFIÉ ICI
+                style = MaterialTheme.typography.headlineMedium,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.alpha(textAlpha)
             )
@@ -156,12 +180,10 @@ fun CoinFlipScreen(
 @Preview(showBackground = true)
 @Composable
 fun CoinFlipScreenPreview() {
-    // La preview ne fonctionnera plus directement comme ça car elle a besoin
-    // d'un LaunchLogRepository. Pour la preview, vous pourriez passer un repository mocké
-    // ou une instance basique si cela n'implique pas de contexte Android réel.
-    // Pour l'instant, nous pouvons la laisser ainsi ou la commenter.
     DivinationAppTheme {
-        // CoinFlipScreen(onNavigateBack = {}) // Commenté pour l'instant
-        Text("Preview for CoinFlipScreen needs adjustment for ViewModel with repository.")
+        CoinFlipScreen( // MODIFIÉ
+            onNavigateBack = {},
+            onNavigateToStats = {} // AJOUTÉ
+        )
     }
 }

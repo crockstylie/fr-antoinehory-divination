@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.PieChart // AJOUTÉ
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -29,18 +30,19 @@ fun MenuScreen(
     onNavigateToRockPaperScissors: () -> Unit,
     onNavigateToDiceRoll: () -> Unit,
     onNavigateToInfo: () -> Unit,
-    onNavigateToSettings: () -> Unit
+    onNavigateToSettings: () -> Unit,
+    onNavigateToStats: () -> Unit // AJOUTÉ
 ) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background) // S'assurer que le fond est défini
-            .windowInsetsPadding(WindowInsets.safeDrawing) // APPLIQUER LES INSETS ICI
+            .background(MaterialTheme.colorScheme.background)
+            .windowInsetsPadding(WindowInsets.safeDrawing)
     ) {
         Column(
             modifier = Modifier
-                .fillMaxSize() // La Column prend toute la taille DANS les limites des insets du Box
-                .padding(16.dp), // Ton padding de contenu
+                .fillMaxSize()
+                .padding(16.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -64,19 +66,25 @@ fun MenuScreen(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp), // Ajusté pour être plus près du code de ton repo
-            horizontalArrangement = Arrangement.SpaceBetween, // Pour que Settings soit à gauche et Info à droite
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            horizontalArrangement = Arrangement.SpaceBetween, // Avec 3 éléments, ils seront espacés équitablement
             verticalAlignment = Alignment.CenterVertically
         ) {
             MenuIconButton(
-                onClick = onNavigateToSettings, // Sera utilisé plus tard
+                onClick = onNavigateToSettings,
                 icon = Icons.Filled.Settings,
-                contentDescription = stringResource(id = R.string.menu_settings_description) // << MODIFIÉ
+                contentDescription = stringResource(id = R.string.menu_settings_description)
+            )
+            // NOUVELLE ICÔNE DE STATISTIQUES
+            MenuIconButton(
+                onClick = onNavigateToStats,
+                icon = Icons.Filled.PieChart,
+                contentDescription = stringResource(id = R.string.menu_stats_description) // Vous devrez ajouter cette chaîne
             )
             MenuIconButton(
                 onClick = onNavigateToInfo,
                 icon = Icons.Filled.Info,
-                contentDescription = stringResource(id = R.string.menu_info_description) // << MODIFIÉ
+                contentDescription = stringResource(id = R.string.menu_info_description)
             )
         }
     }
@@ -104,7 +112,7 @@ fun OrakniumMenuButton(text: String, onClick: () -> Unit) {
 private fun MenuIconButton(
     onClick: () -> Unit,
     icon: ImageVector,
-    contentDescription: String // contentDescription est déjà une String résolue
+    contentDescription: String
 ) {
     IconButton(onClick = onClick) {
         Icon(
@@ -120,6 +128,6 @@ private fun MenuIconButton(
 @Composable
 fun MenuScreenPreview() {
     DivinationAppTheme {
-        MenuScreen({}, {}, {}, {}, {}, {})
+        MenuScreen({}, {}, {}, {}, {}, {}, {}) // AJOUTÉ un callback vide pour onNavigateToStats
     }
 }

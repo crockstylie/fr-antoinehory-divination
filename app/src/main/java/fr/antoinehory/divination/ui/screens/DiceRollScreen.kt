@@ -5,13 +5,18 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons // AJOUTÉ
+import androidx.compose.material.icons.filled.PieChart // AJOUTÉ
+import androidx.compose.material3.BottomAppBar // AJOUTÉ
+import androidx.compose.material3.Icon // AJOUTÉ
+import androidx.compose.material3.IconButton // AJOUTÉ
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.platform.LocalContext // AJOUT: Pour LocalContext
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -20,8 +25,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
+import fr.antoinehory.divination.data.model.GameType // AJOUTÉ
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
+import fr.antoinehory.divination.ui.theme.OrakniumGold // AJOUTÉ
 import fr.antoinehory.divination.viewmodels.DiceRollViewModel
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
 // AJOUTS :
@@ -31,15 +38,13 @@ import fr.antoinehory.divination.viewmodels.DiceRollViewModelFactory
 @Composable
 fun DiceRollScreen(
     onNavigateBack: () -> Unit,
-    // diceRollViewModel: DiceRollViewModel = viewModel(), // Retiré pour initialisation avec factory
-    interactionViewModel: InteractionDetectViewModel = viewModel()
+    interactionViewModel: InteractionDetectViewModel = viewModel(),
+    onNavigateToStats: (GameType) -> Unit // AJOUTÉ
 ) {
-    // AJOUT: Récupération du LaunchLogRepository et Application
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
     val launchLogRepository = application.launchLogRepository
 
-    // AJOUT: Initialisation du DiceRollViewModel avec la factory
     val diceRollViewModel: DiceRollViewModel = viewModel(
         factory = DiceRollViewModelFactory(application, launchLogRepository)
     )
@@ -48,11 +53,9 @@ fun DiceRollScreen(
     val diceValue by diceRollViewModel.diceValue.collectAsState()
     val isRolling by diceRollViewModel.isRolling.collectAsState()
 
-    // États d'InteractionDetectViewModel pour l'affichage conditionnel de messages
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
 
-    // Observer les déclencheurs d'interaction
     LaunchedEffect(interactionViewModel, diceRollViewModel, isRolling) {
         interactionViewModel.interactionTriggered.collect { _event ->
             if (!isRolling) {
@@ -75,13 +78,34 @@ fun DiceRollScreen(
     AppScaffold(
         title = stringResource(id = R.string.dice_roll_screen_title),
         canNavigateBack = true,
-        onNavigateBack = onNavigateBack
+        onNavigateBack = onNavigateBack,
+        bottomBar = { // AJOUTÉ
+            BottomAppBar(
+                containerColor = MaterialTheme.colorScheme.background,
+                contentColor = OrakniumGold
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    IconButton(onClick = { onNavigateToStats(GameType.DICE_ROLL) }) { // MODIFIÉ GameType
+                        Icon(
+                            imageVector = Icons.Filled.PieChart,
+                            contentDescription = stringResource(id = R.string.game_stats_icon_description),
+                            tint = OrakniumGold,
+                            modifier = Modifier.size(36.dp) // Taille harmonisée
+                        )
+                    }
+                }
+            }
+        }
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp)
+                .padding(paddingValues) // Appliquer le padding fourni par AppScaffold
+                .padding(16.dp) // Padding interne spécifique à cet écran
                 .clickable {
                     if (!isRolling) {
                         if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
@@ -149,7 +173,7 @@ fun DiceRollScreen(
 
             Text(
                 text = currentMessage,
-                style = MaterialTheme.typography.headlineMedium,
+                style = MaterialTheme.typography.headlineMedium, // Retiré <caret> si présent
                 textAlign = TextAlign.Center,
                 modifier = Modifier.alpha(textAlpha)
             )
@@ -162,6 +186,12 @@ fun DiceRollScreen(
 fun DiceRollScreenPreview() {
     DivinationAppTheme {
         // DiceRollScreen(onNavigateBack = {}) // Commenté pour l'instant
-        Text("Preview for DiceRollScreen needs adjustment for ViewModel with repository.")
+        // Text("Preview for DiceRollScreen needs adjustment for ViewModel with repository.")
+        // MODIFIÉ pour inclure le nouveau paramètre et simplifier
+        DiceRollScreen(
+            onNavigateBack = {},
+            onNavigateToStats = {} // AJOUTÉ
+        )
     }
 }
+

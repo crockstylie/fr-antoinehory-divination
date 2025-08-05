@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.platform.LocalContext // AJOUT: Pour LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -18,18 +19,31 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
-import fr.antoinehory.divination.data.InteractionMode // <-- AJOUTÉ
+import fr.antoinehory.divination.data.InteractionMode
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 import fr.antoinehory.divination.viewmodels.DiceRollViewModel
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
+// AJOUTS :
+import fr.antoinehory.divination.DivinationApplication
+import fr.antoinehory.divination.viewmodels.DiceRollViewModelFactory
 
 @Composable
 fun DiceRollScreen(
     onNavigateBack: () -> Unit,
-    diceRollViewModel: DiceRollViewModel = viewModel(),
+    // diceRollViewModel: DiceRollViewModel = viewModel(), // Retiré pour initialisation avec factory
     interactionViewModel: InteractionDetectViewModel = viewModel()
 ) {
+    // AJOUT: Récupération du LaunchLogRepository et Application
+    val context = LocalContext.current
+    val application = context.applicationContext as DivinationApplication
+    val launchLogRepository = application.launchLogRepository
+
+    // AJOUT: Initialisation du DiceRollViewModel avec la factory
+    val diceRollViewModel: DiceRollViewModel = viewModel(
+        factory = DiceRollViewModelFactory(application, launchLogRepository)
+    )
+
     val currentMessage by diceRollViewModel.currentMessage.collectAsState()
     val diceValue by diceRollViewModel.diceValue.collectAsState()
     val isRolling by diceRollViewModel.isRolling.collectAsState()
@@ -37,10 +51,9 @@ fun DiceRollScreen(
     // États d'InteractionDetectViewModel pour l'affichage conditionnel de messages
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
-    // Les références à isTapAvailable, isMicrophoneAvailable, isRecordAudioPermissionGranted sont supprimées
 
     // Observer les déclencheurs d'interaction
-    LaunchedEffect(interactionViewModel, diceRollViewModel, isRolling) { // Ajout de isRolling aux clés
+    LaunchedEffect(interactionViewModel, diceRollViewModel, isRolling) {
         interactionViewModel.interactionTriggered.collect { _event ->
             if (!isRolling) {
                 diceRollViewModel.performRoll()
@@ -71,36 +84,20 @@ fun DiceRollScreen(
                 .padding(16.dp)
                 .clickable {
                     if (!isRolling) {
-                        // Si le mode TAP est actif, l'action de clic direct sur l'écran
-                        // devrait aussi déclencher le lancer via le système d'interaction.
                         if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
-                            interactionViewModel.userTappedScreen() // Informe le système de détection de tap
-                            // Le diceRollViewModel.performRoll() sera appelé par le LaunchedEffect.
-                        } else {
-                            // Si TAP n'est pas le mode actif, le clic ne fait rien d'automatique
-                            // via le système d'interaction. Comportement de fallback optionnel ici.
-                            // Si vous voulez que le clic fonctionne toujours :
-                            // diceRollViewModel.performRoll()
+                            interactionViewModel.userTappedScreen()
                         }
                     }
                 },
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            // Afficher un message si aucune interaction n'est possible ET que le message est l'invite générique
             val initialGenericMessage = stringResource(id = R.string.dice_initial_prompt_generic)
-
-            // Condition mise à jour : Le seul cas où "aucune interaction" est possible est si
-            // SHAKE est le mode actif mais non disponible. TAP est toujours disponible.
             val noShakeInteractionPossible = interactionPrefs.activeInteractionMode == InteractionMode.SHAKE && !isShakeAvailable
 
             if (noShakeInteractionPossible && currentMessage == initialGenericMessage) {
                 Text(
                     text = stringResource(id = R.string.dice_no_interaction_method_active),
-                    // Vous devrez AJOUTER cette nouvelle chaîne de ressource, par exemple :
-                    // <string name="dice_shake_unavailable_prompt">Le mode "Secouer" est actif mais non disponible sur cet appareil. Changez de mode dans les paramètres ou essayez de taper sur l'écran.</string>
-                    // Ou plus simplement :
-                    // <string name="dice_shake_unavailable_prompt">Mode "Secouer" actif mais non disponible. Vérifiez les paramètres.</string>
                     style = MaterialTheme.typography.labelMedium,
                     textAlign = TextAlign.Center,
                     color = MaterialTheme.colorScheme.error,
@@ -164,6 +161,7 @@ fun DiceRollScreen(
 @Composable
 fun DiceRollScreenPreview() {
     DivinationAppTheme {
-        DiceRollScreen(onNavigateBack = {})
+        // DiceRollScreen(onNavigateBack = {}) // Commenté pour l'instant
+        Text("Preview for DiceRollScreen needs adjustment for ViewModel with repository.")
     }
 }

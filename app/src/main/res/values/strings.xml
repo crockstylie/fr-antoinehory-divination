@@ -117,4 +117,15 @@
     <string name="spotify_profile">Spotify Profile</string>
     <string name="steam_profile">Steam Profile</string>
 
+    <!-- Pour GameStatsViewModel -->
+    <string name="stats_screen_title_global">Global Statistics</string>
+    <string name="stats_screen_title_specific">Statistics: %1$s</string>
+    <string name="stats_fallback_answer_display">Default Answer</string>
+    <string name="stats_no_data_available">No statistics available at the moment.</string>
+    <string name="stats_total_plays">Total plays: %d</string>
+    <string name="stats_count_format">Qty: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistics</string>
+    <string name="game_stats_icon_description">View game statistics</string>
+
 </resources>

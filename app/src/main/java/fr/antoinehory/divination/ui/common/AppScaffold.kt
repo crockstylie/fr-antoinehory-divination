@@ -1,6 +1,7 @@
 package fr.antoinehory.divination.ui.common
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.safeDrawing
@@ -11,6 +12,9 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import fr.antoinehory.divination.ui.theme.OrakniumGold
+// Importer R si vous décidez de remplacer "Retour" par une ressource string
+// import fr.antoinehory.divination.R
+// import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -18,6 +22,8 @@ fun AppScaffold(
     title: String,
     canNavigateBack: Boolean,
     onNavigateBack: () -> Unit,
+    actions: @Composable RowScope.() -> Unit = {},
+    bottomBar: @Composable () -> Unit = {}, // AJOUTÉ
     content: @Composable (PaddingValues) -> Unit
 ) {
     Scaffold(
@@ -32,12 +38,13 @@ fun AppScaffold(
                         IconButton(onClick = onNavigateBack) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "Retour",
+                                contentDescription = "Retour", // Pensez à stringResource(R.string.navigation_back_description)
                                 tint = OrakniumGold
                             )
                         }
                     }
                 },
+                actions = actions,
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.background,
                     titleContentColor = MaterialTheme.colorScheme.onBackground,
@@ -45,8 +52,9 @@ fun AppScaffold(
                 )
             )
         },
+        bottomBar = bottomBar, // AJOUTÉ
         containerColor = MaterialTheme.colorScheme.background
-    ) { innerPadding -> // innerPadding contient les insets de la TopAppBar
-        content(innerPadding) // Le contenu utilise ce padding pour ne pas être sous la TopAppBar
+    ) { innerPadding ->
+        content(innerPadding)
     }
 }

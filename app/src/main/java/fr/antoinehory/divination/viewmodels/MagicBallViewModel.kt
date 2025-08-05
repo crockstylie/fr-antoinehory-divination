@@ -1,67 +1,97 @@
 package fr.antoinehory.divination.viewmodels
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel // Changement de l'héritage
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import fr.antoinehory.divination.R
+import fr.antoinehory.divination.data.model.GameType
+import fr.antoinehory.divination.data.repository.LaunchLogRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class MagicBallViewModel(application: Application) : AndroidViewModel(application) { // Plus d'héritage de ShakeDetectViewModel
-
-    private val app: Application = application
+class MagicBallViewModel(
+    private val application: Application,
+    private val launchLogRepository: LaunchLogRepository
+) : AndroidViewModel(application) {
 
     private val possibleAnswers: List<String> by lazy {
-        app.resources.getStringArray(R.array.magic_ball_possible_answers).toList()
+        application.resources.getStringArray(R.array.magic_ball_possible_answers).toList()
     }
 
     private val _currentResponse = MutableStateFlow("")
     val currentResponse: StateFlow<String> = _currentResponse.asStateFlow()
 
-    // Nouvel état pour gérer l'animation de "prédiction en cours"
     private val _isPredicting = MutableStateFlow(false)
     val isPredicting: StateFlow<Boolean> = _isPredicting.asStateFlow()
 
     companion object {
-        private const val PREDICTION_DELAY_MS = 1000L // Délai pour simuler la réflexion
+        private const val PREDICTION_DELAY_MS = 1000L
+        private const val FALLBACK_LOG_IDENTIFIER = "FALLBACK" // Identifiant pour les réponses par défaut
     }
 
     init {
-        // Message initial simple. L'UI ou InteractionDetectViewModel gérera les invites plus spécifiques.
-        _currentResponse.value = app.getString(R.string.magic_ball_initial_prompt_generic)
+        _currentResponse.value = application.getString(R.string.magic_ball_initial_prompt_generic)
     }
 
-    private fun pickNewResponse() {
-        val shufflingMessage = app.getString(R.string.magic_ball_shuffling_message) // Peut toujours être utilisé si souhaité
-        val initialGenericMessage = app.getString(R.string.magic_ball_initial_prompt_generic)
+    private fun pickNewResponse(): String {
+        val shufflingMessage = application.getString(R.string.magic_ball_shuffling_message)
+        val initialGenericMessage = application.getString(R.string.magic_ball_initial_prompt_generic)
 
         val availableResponses = if (possibleAnswers.size > 1 &&
-            _currentResponse.value != shufflingMessage && // Si vous gardez le message de mélange
+            _currentResponse.value != shufflingMessage &&
             _currentResponse.value != initialGenericMessage) {
             possibleAnswers.filterNot { it == _currentResponse.value }
         } else {
             possibleAnswers
         }
-
-        _currentResponse.value = availableResponses.randomOrNull()
+        
+        return availableResponses.randomOrNull()
             ?: possibleAnswers.firstOrNull()
-                    ?: app.getString(R.string.magic_ball_default_answer_if_empty) // Un fallback si tout échoue
+            ?: application.getString(R.string.magic_ball_default_answer_if_empty)
     }
 
-    // Fonction publique que l'UI appellera lorsqu'une interaction est détectée
     fun getNewPrediction() {
-        if (_isPredicting.value) return // Empêcher les appels multiples pendant une prédiction
+        if (_isPredicting.value) return
 
         viewModelScope.launch {
             _isPredicting.value = true
-            _currentResponse.value = app.getString(R.string.magic_ball_shuffling_message) // Message d'attente
+            _currentResponse.value = application.getString(R.string.magic_ball_shuffling_message)
             delay(PREDICTION_DELAY_MS)
-            pickNewResponse()
+            
+            val newResponse = pickNewResponse()
+            _currentResponse.value = newResponse
+            
+            // MODIFIÉ: Enregistre l'index ou un identifiant de fallback pour le log
+            val answerIndex = possibleAnswers.indexOf(newResponse)
+            val loggableResult = if (answerIndex != -1) {
+                answerIndex.toString() // Log l'index sous forme de chaîne
+            } else {
+                // Ce cas se produirait si newResponse est la réponse par défaut
+                // qui n'est pas dans la liste `possibleAnswers`
+                FALLBACK_LOG_IDENTIFIER 
+            }
+            launchLogRepository.insertLog(GameType.MAGIC_EIGHT_BALL, loggableResult)
+            
             _isPredicting.value = false
         }
+    }
+}
+
+class MagicBallViewModelFactory(
+    private val application: Application,
+    private val launchLogRepository: LaunchLogRepository
+) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(MagicBallViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return MagicBallViewModel(application, launchLogRepository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
 

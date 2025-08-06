@@ -2,32 +2,68 @@ package fr.antoinehory.divination.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.material3.* // Maintenu pour les composants existants
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color // AJOUTÉ
+import androidx.compose.ui.platform.LocalContext // AJOUTÉ
+import androidx.compose.ui.res.stringResource // AJOUTÉ
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import fr.antoinehory.divination.data.InteractionMode // Importer l'enum
+import fr.antoinehory.divination.R // AJOUTÉ
+import fr.antoinehory.divination.data.InteractionMode
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
-// InteractionPreferences a changé, mais l'import reste
 import fr.antoinehory.divination.data.InteractionPreferences
+
+// AJOUTS pour le nouveau ViewModel et le dialogue :
+import fr.antoinehory.divination.DivinationApplication
+import fr.antoinehory.divination.viewmodels.SettingsViewModel
+import fr.antoinehory.divination.viewmodels.SettingsViewModelFactory
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
-    interactionViewModel: InteractionDetectViewModel = viewModel()
+    interactionViewModel: InteractionDetectViewModel = viewModel(),
+    // AJOUT: Initialisation du SettingsViewModel
+    settingsViewModel: SettingsViewModel = viewModel(
+        factory = SettingsViewModelFactory(
+            (LocalContext.current.applicationContext as DivinationApplication).launchLogRepository
+        )
+    )
 ) {
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
 
+    // AJOUT: État pour le dialogue de confirmation
+    val showClearStatsDialog by settingsViewModel.showClearStatsConfirmationDialog.collectAsState()
+
+    // AJOUT: Dialogue de confirmation
+    if (showClearStatsDialog) {
+        AlertDialog(
+            onDismissRequest = { settingsViewModel.onDismissClearStatsDialog() },
+            title = { Text(stringResource(id = R.string.settings_clear_stats_dialog_title)) },
+            text = { Text(stringResource(id = R.string.settings_clear_stats_dialog_message)) },
+            confirmButton = {
+                TextButton(onClick = { settingsViewModel.onConfirmClearStats() }) {
+                    Text(stringResource(id = R.string.settings_clear_stats_dialog_confirm))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { settingsViewModel.onDismissClearStatsDialog() }) {
+                    Text(stringResource(id = R.string.settings_clear_stats_dialog_cancel))
+                }
+            }
+        )
+    }
+
     AppScaffold(
-        title = "Mode d'Interaction", // Titre plus concis
+        title = stringResource(id = R.string.settings_screen_title), // MODIFIÉ: Titre générique
         canNavigateBack = true,
         onNavigateBack = onNavigateBack
     ) { paddingValues ->
@@ -38,26 +74,26 @@ fun SettingsScreen(
                 .padding(horizontal = 16.dp, vertical = 8.dp)
         ) {
             Text(
-                "Choisissez comment lancer une action :", // Texte d'instruction
-                style = MaterialTheme.typography.titleMedium, // Style de texte ajusté
+                stringResource(id = R.string.settings_interaction_mode_title),
+                style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(bottom = 16.dp)
             )
 
             val interactionOptions = listOf(
-                InteractionMode.TAP to "Taper pour lancer",
-                InteractionMode.SHAKE to "Secouer pour lancer"
+                InteractionMode.TAP to stringResource(R.string.settings_interaction_mode_tap),
+                InteractionMode.SHAKE to stringResource(R.string.settings_interaction_mode_shake)
             )
 
             interactionOptions.forEach { (mode, label) ->
                 val isEnabled = when (mode) {
                     InteractionMode.SHAKE -> isShakeAvailable
-                    InteractionMode.TAP -> true // Toujours disponible
+                    InteractionMode.TAP -> true
                 }
                 SettingRadioItem(
                     title = label,
                     selected = interactionPrefs.activeInteractionMode == mode,
                     onClick = {
-                        if (isEnabled) { // Ne change que si l'option est activable
+                        if (isEnabled) {
                             interactionViewModel.setActiveInteractionMode(mode)
                         }
                     },
@@ -65,20 +101,34 @@ fun SettingsScreen(
                 )
             }
 
-            // Afficher un message si l'option "Secouer" n'est pas disponible
-            // et que l'utilisateur pourrait essayer de la sélectionner (même si on la désactive)
             if (!isShakeAvailable) {
                 Text(
-                    "Le mode \"Secouer\" n'est pas disponible (pas d'accéléromètre).",
+                    stringResource(id = R.string.settings_interaction_mode_shake_unavailable),
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant, // Couleur moins agressive que error
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(start = 16.dp, top = 8.dp)
                 )
             }
+
+            // AJOUT: Section pour vider les statistiques
+            Divider(modifier = Modifier.padding(vertical = 16.dp)) // Séparateur visuel
+
+            Text(
+                stringResource(id = R.string.settings_data_management_title),
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+
+            SettingTextItem( // Remplacé par un TextItem simple pour l'action
+                title = stringResource(id = R.string.settings_clear_stats_button),
+                onClick = { settingsViewModel.onClearStatsClicked() },
+                textColor = MaterialTheme.colorScheme.error // Couleur pour indiquer une action potentiellement destructive
+            )
         }
     }
 }
 
+// MODIFIÉ: SettingRadioItem pour cohérence (pas de changement majeur ici, juste pour revue)
 @Composable
 fun SettingRadioItem(
     title: String,
@@ -95,39 +145,58 @@ fun SettingRadioItem(
                 onClick = onClick,
                 role = Role.RadioButton
             )
-            .padding(vertical = 12.dp), // Augmenter le padding vertical pour une meilleure zone cliquable
+            .padding(vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         RadioButton(
             selected = selected,
-            onClick = null, // L'action de clic est gérée par le Row
+            onClick = null,
             enabled = enabled,
-            modifier = Modifier.size(24.dp) // Taille du RadioButton
+            modifier = Modifier.size(24.dp)
         )
-        Spacer(Modifier.width(16.dp)) // Espace entre RadioButton et Text
+        Spacer(Modifier.width(16.dp))
         Text(
             text = title,
-            style = MaterialTheme.typography.bodyLarge, // Garder bodyLarge ou ajuster si nécessaire
+            style = MaterialTheme.typography.bodyLarge,
             color = if (enabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
-            modifier = Modifier.weight(1f) // Permet au texte de prendre l'espace restant
+            modifier = Modifier.weight(1f)
         )
     }
 }
+
+// AJOUT: Un composable simple pour les options cliquables qui ne sont pas des RadioButton
+@Composable
+fun SettingTextItem(
+    title: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    textColor: Color = Color.Unspecified // Permet de spécifier une couleur pour le texte
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick, role = Role.Button)
+            .padding(vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.bodyLarge,
+            color = if (textColor != Color.Unspecified) textColor else MaterialTheme.colorScheme.onSurface,
+            modifier = Modifier.weight(1f)
+        )
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
 fun SettingsScreenPreview() {
     DivinationAppTheme {
-        Column(modifier = Modifier.padding(16.dp)) {
-            SettingRadioItem(title = "Taper pour lancer", selected = true, onClick = {}, enabled = true)
-            SettingRadioItem(title = "Secouer pour lancer", selected = false, onClick = {}, enabled = true)
-            SettingRadioItem(title = "Secouer pour lancer (non dispo)", selected = false, onClick = {}, enabled = false)
-            Text(
-                "Le mode \"Secouer\" n'est pas disponible (pas d'accéléromètre).",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(start = 16.dp, top = 8.dp)
-            )
-        }
+        // Le preview ne pourra pas instancier le ViewModel sans une fausse implémentation
+        // ou des ajustements plus complexes.
+        // On peut prévisualiser la structure de base.
+        SettingsScreen(onNavigateBack = {})
     }
 }
+

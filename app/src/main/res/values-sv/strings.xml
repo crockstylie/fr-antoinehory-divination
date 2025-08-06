@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Magisk 8-boll</string>
+    <string name="menu_button_coin_flip">Kasta slant</string>
+    <string name="menu_button_rps">Sten, sax, påse</string>
+    <string name="menu_button_dice_roll">Kasta tärning</string>
+    <string name="menu_settings_description">Inställningar</string>
+    <string name="menu_info_description">Information</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Skaka enheten för att få ett svar.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Skaka enheten (accelerometer ej upptäckt).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Det är säkert.</item>
+        <item>Det är definitivt så.</item>
+        <item>Utan tvekan.</item>
+        <item>Ja, definitivt.</item>
+        <item>Du kan lita på det.</item>
+        <item>Som jag ser det, ja.</item>
+        <item>Mycket troligt.</item>
+        <item>Utsikterna är goda.</item>
+        <item>Ja.</item>
+        <item>Tecknen pekar på ja.</item>
+        <item>Suddigt svar, försök igen.</item>
+        <item>Fråga igen senare.</item>
+        <item>Bättre att inte berätta för dig nu.</item>
+        <item>Kan inte förutsäga nu.</item>
+        <item>Koncentrera dig och fråga igen.</item>
+        <item>Räkna inte med det.</item>
+        <item>Mitt svar är nej.</item>
+        <item>Mina källor säger nej.</item>
+        <item>Utsikterna är inte så goda.</item>
+        <item>Mycket tveksamt.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Magisk boll</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Accelerometer är inte tillgänglig på den här enheten.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Kasta slant</string>
+    <string name="coin_flip_initial_prompt_shake">Skaka för att kasta slanten!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Skaka (accelerometer ej upptäckt).</string>
+    <string name="coin_flip_flipping_message">Kastar…</string>
+    <string name="coin_flip_result_heads">Krona!</string>
+    <string name="coin_flip_result_tails">Klave!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Accelerometer är inte tillgänglig för att kasta slanten.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Bild på krona</string>
+    <string name="coin_flip_tails_icon_description">Bild på klave</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Sten, sax, påse</string>
+    <string name="rps_initial_prompt_shake">Skaka för att spela!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Skaka (accelerometer ej upptäckt).</string>
+    <string name="rps_processing_message">Sten, sax, påse…</string>
+    <string name="rps_result_rock">Sten!</string>
+    <string name="rps_result_paper">Påse!</string>
+    <string name="rps_result_scissors">Sax!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Accelerometer är inte tillgänglig för att spela.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Stenikon</string>
+    <string name="rps_icon_description_paper">Påseikon</string>
+    <string name="rps_icon_description_scissors">Saxikon</string>
+    <string name="general_content_description_empty">Resultatbild</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Kasta tärning</string>
+    <string name="dice_initial_prompt_shake">Skaka för att kasta tärningen!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Använd knappen nedan för att kasta tärningen (accelerometer ej tillgänglig).</string>
+    <string name="dice_rolling_message">Kastar tärning…</string>
+    <string name="dice_result_format">Resultat: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Accelerometer är inte tillgänglig på den här enheten. Skakning fungerar inte.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Tärningssida som visar ett</string>
+    <string name="dice_icon_description_2">Tärningssida som visar två</string>
+    <string name="dice_icon_description_3">Tärningssida som visar tre</string>
+    <string name="dice_icon_description_4">Tärningssida som visar fyra</string>
+    <string name="dice_icon_description_5">Tärningssida som visar fem</string>
+    <string name="dice_icon_description_6">Tärningssida som visar sex</string>
+    <string name="dice_icon_description_empty">Inget tärningsresultat visas</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Inställningar</string>
+    <string name="settings_screen_soon_message">Snart…</string>
+    <string name="settings_interaction_mode_title">Interaktionsläge</string>
+    <string name="settings_interaction_mode_tap">Tryck för att starta</string>
+    <string name="settings_interaction_mode_shake">Skaka för att starta</string>
+    <string name="settings_interaction_mode_shake_unavailable">Skakläge är inte tillgängligt (ingen accelerometer).</string>
+    <string name="settings_data_management_title">Datahantering</string>
+    <string name="settings_clear_stats_button">Rensa statistik</string>
+    <string name="settings_clear_stats_dialog_title">Rensa statistik?</string>
+    <string name="settings_clear_stats_dialog_message">All spelstatistikdata kommer att raderas permanent. Denna åtgärd kan inte ångras.</string>
+    <string name="settings_clear_stats_dialog_confirm">Bekräfta</string>
+    <string name="settings_clear_stats_dialog_cancel">Avbryt</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Interagera för att få ett svar.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Ingen interaktionsmetod är aktiv. Kontrollera inställningarna.</string>
+    <string name="magic_ball_content_description">Bild på magisk boll</string>
+    <string name="coin_flip_initial_prompt_generic">Interagera för att kasta slanten.</string>
+    <string name="coin_flip_no_interaction_method_active">Ingen interaktionsmetod är aktiv. Kontrollera inställningarna.</string>
+    <string name="coin_flip_result_heads_image_description">Bild på slant som visar krona</string>
+    <string name="coin_flip_result_tails_image_description">Bild på slant som visar klave</string>
+    <string name="rps_initial_prompt_generic">Interagera för att spela!</string>
+    <string name="rps_no_interaction_method_active">Ingen interaktionsmetod är aktiv. Kontrollera inställningarna.</string>
+    <string name="dice_initial_prompt_generic">Interagera för att kasta tärningen!</string>
+    <string name="dice_no_interaction_method_active">Ingen interaktionsmetod är aktiv. Kontrollera inställningarna.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Information</string>
+    <string name="mes_informations_personnelles">Min personliga information</string>
+    <string name="d_veloppeur">Utvecklare</string>
+    <string name="site_web">Webbplats</string>
+    <string name="email">E-post</string>
+    <string name="donate">Donera</string>
+    <string name="retrouvez_moi_sur">Hitta mig på:</string>
+    <string name="linkedin_profile">LinkedIn-profil</string>
+    <string name="behance_profile">Behance-profil</string>
+    <string name="instagram_profile">Instagram-profil</string>
+    <string name="facebook_profile">Facebook-profil</string>
+    <string name="spotify_profile">Spotify-profil</string>
+    <string name="steam_profile">Steam-profil</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Global statistik</string>
+    <string name="stats_screen_title_specific">Statistik: %1$s</string>
+    <string name="stats_fallback_answer_display">Standardsvar</string>
+    <string name="stats_no_data_available">Ingen statistik tillgänglig för tillfället.</string>
+    <string name="stats_total_plays">Totalt antal spel: %d</string>
+    <string name="stats_count_format">Antal: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistik</string>
+    <string name="game_stats_icon_description">Visa spelstatistik</string>
+</resources>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">โอราเนียม</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">ลูกบอลวิเศษ 8</string>
+    <string name="menu_button_coin_flip">โยนเหรียญ</string>
+    <string name="menu_button_rps">เป่ายิ้งฉุบ</string>
+    <string name="menu_button_dice_roll">ทอยลูกเต๋า</string>
+    <string name="menu_settings_description">การตั้งค่า</string>
+    <string name="menu_info_description">ข้อมูล</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">เขย่าอุปกรณ์เพื่อรับคำตอบ</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">เขย่าอุปกรณ์ (ไม่พบมาตรความเร่ง)</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>แน่นอน</item>
+        <item>ตัดสินใจแล้ว</item>
+        <item>ไม่ต้องสงสัย</item>
+        <item>ใช่ แน่นอน</item>
+        <item>คุณวางใจได้</item>
+        <item>เท่าที่ฉันเห็น ใช่</item>
+        <item>เป็นไปได้มากที่สุด</item>
+        <item>แนวโน้มดี</item>
+        <item>ใช่</item>
+        <item>สัญญาณบ่งบอกว่าใช่</item>
+        <item>คำตอบคลุมเครือ ลองอีกครั้ง</item>
+        <item>ถามอีกครั้งในภายหลัง</item>
+        <item>ตอนนี้อย่าเพิ่งบอกคุณเลยดีกว่า</item>
+        <item>ตอนนี้ไม่สามารถคาดเดาได้</item>
+        <item>ตั้งสมาธิแล้วถามอีกครั้ง</item>
+        <item>อย่าไปเชื่อ</item>
+        <item>คำตอบของฉันคือไม่</item>
+        <item>แหล่งข่าวของฉันบอกว่าไม่</item>
+        <item>แนวโน้มไม่ค่อยดี</item>
+        <item>น่าสงสัยมาก</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">ลูกบอลวิเศษ</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">ไม่มีมาตรความเร่งในอุปกรณ์นี้</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">โยนเหรียญ</string>
+    <string name="coin_flip_initial_prompt_shake">เขย่าเพื่อโยนเหรียญ!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">เขย่า (ไม่พบมาตรความเร่ง)</string>
+    <string name="coin_flip_flipping_message">กำลังโยน…</string>
+    <string name="coin_flip_result_heads">หัว!</string>
+    <string name="coin_flip_result_tails">ก้อย!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">ไม่มีมาตรความเร่งสำหรับโยนเหรียญ</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">รูปภาพหัวเหรียญ</string>
+    <string name="coin_flip_tails_icon_description">รูปภาพก้อยเหรียญ</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">เป่ายิ้งฉุบ</string>
+    <string name="rps_initial_prompt_shake">เขย่าเพื่อเล่น!</string>
+    <string name="rps_initial_prompt_no_accelerometer">เขย่า (ไม่พบมาตรความเร่ง)</string>
+    <string name="rps_processing_message">ค้อน, กระดาษ, กรรไกร…</string>
+    <string name="rps_result_rock">ค้อน!</string>
+    <string name="rps_result_paper">กระดาษ!</string>
+    <string name="rps_result_scissors">กรรไกร!</string>
+    <string name="rps_accelerometer_not_available_ui_message">ไม่มีมาตรความเร่งสำหรับเล่น</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">ไอคอนค้อน</string>
+    <string name="rps_icon_description_paper">ไอคอนกระดาษ</string>
+    <string name="rps_icon_description_scissors">ไอคอนกรรไกร</string>
+    <string name="general_content_description_empty">รูปภาพผลลัพธ์</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">ทอยลูกเต๋า</string>
+    <string name="dice_initial_prompt_shake">เขย่าเพื่อทอยลูกเต๋า!</string>
+    <string name="dice_initial_prompt_no_accelerometer">ใช้ปุ่มด้านล่างเพื่อทอยลูกเต๋า (ไม่มีมาตรความเร่ง)</string>
+    <string name="dice_rolling_message">กำลังทอยลูกเต๋า…</string>
+    <string name="dice_result_format">ผลลัพธ์: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">ไม่มีมาตรความเร่งในอุปกรณ์นี้ การเขย่าจะไม่ทำงาน</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">หน้าลูกเต๋าแสดงเลขหนึ่ง</string>
+    <string name="dice_icon_description_2">หน้าลูกเต๋าแสดงเลขสอง</string>
+    <string name="dice_icon_description_3">หน้าลูกเต๋าแสดงเลขสาม</string>
+    <string name="dice_icon_description_4">หน้าลูกเต๋าแสดงเลขสี่</string>
+    <string name="dice_icon_description_5">หน้าลูกเต๋าแสดงเลขห้า</string>
+    <string name="dice_icon_description_6">หน้าลูกเต๋าแสดงเลขหก</string>
+    <string name="dice_icon_description_empty">ไม่แสดงผลลูกเต๋า</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">การตั้งค่า</string>
+    <string name="settings_screen_soon_message">เร็วๆ นี้…</string>
+    <string name="settings_interaction_mode_title">โหมดการโต้ตอบ</string>
+    <string name="settings_interaction_mode_tap">แตะเพื่อเปิด</string>
+    <string name="settings_interaction_mode_shake">เขย่าเพื่อเปิด</string>
+    <string name="settings_interaction_mode_shake_unavailable">โหมดเขย่าไม่พร้อมใช้งาน (ไม่มีมาตรความเร่ง)</string>
+    <string name="settings_data_management_title">การจัดการข้อมูล</string>
+    <string name="settings_clear_stats_button">ล้างสถิติ</string>
+    <string name="settings_clear_stats_dialog_title">ล้างสถิติหรือไม่</string>
+    <string name="settings_clear_stats_dialog_message">ข้อมูลสถิติเกมทั้งหมดจะถูกลบอย่างถาวร การกระทำนี้ไม่สามารถย้อนกลับได้</string>
+    <string name="settings_clear_stats_dialog_confirm">ยืนยัน</string>
+    <string name="settings_clear_stats_dialog_cancel">ยกเลิก</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">โต้ตอบเพื่อรับคำตอบ</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">ไม่มีวิธีการโต้ตอบที่ใช้งานอยู่ ตรวจสอบการตั้งค่า</string>
+    <string name="magic_ball_content_description">รูปภาพลูกบอลวิเศษ</string>
+    <string name="coin_flip_initial_prompt_generic">โต้ตอบเพื่อโยนเหรียญ</string>
+    <string name="coin_flip_no_interaction_method_active">ไม่มีวิธีการโต้ตอบที่ใช้งานอยู่ ตรวจสอบการตั้งค่า</string>
+    <string name="coin_flip_result_heads_image_description">รูปภาพเหรียญแสดงหัว</string>
+    <string name="coin_flip_result_tails_image_description">รูปภาพเหรียญแสดงก้อย</string>
+    <string name="rps_initial_prompt_generic">โต้ตอบเพื่อเล่น!</string>
+    <string name="rps_no_interaction_method_active">ไม่มีวิธีการโต้ตอบที่ใช้งานอยู่ ตรวจสอบการตั้งค่า</string>
+    <string name="dice_initial_prompt_generic">โต้ตอบเพื่อทอยลูกเต๋า!</string>
+    <string name="dice_no_interaction_method_active">ไม่มีวิธีการโต้ตอบที่ใช้งานอยู่ ตรวจสอบการตั้งค่า</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">ข้อมูล</string>
+    <string name="mes_informations_personnelles">ข้อมูลส่วนตัวของฉัน</string>
+    <string name="d_veloppeur">นักพัฒนา</string>
+    <string name="site_web">เว็บไซต์</string>
+    <string name="email">อีเมล</string>
+    <string name="donate">บริจาค</string>
+    <string name="retrouvez_moi_sur">ค้นหาฉันได้ที่:</string>
+    <string name="linkedin_profile">โปรไฟล์ LinkedIn</string>
+    <string name="behance_profile">โปรไฟล์ Behance</string>
+    <string name="instagram_profile">โปรไฟล์ Instagram</string>
+    <string name="facebook_profile">โปรไฟล์ Facebook</string>
+    <string name="spotify_profile">โปรไฟล์ Spotify</string>
+    <string name="steam_profile">โปรไฟล์ Steam</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">สถิติทั่วโลก</string>
+    <string name="stats_screen_title_specific">สถิติ: %1$s</string>
+    <string name="stats_fallback_answer_display">คำตอบเริ่มต้น</string>
+    <string name="stats_no_data_available">ยังไม่มีสถิติในขณะนี้</string>
+    <string name="stats_total_plays">จำนวนการเล่นทั้งหมด: %d</string>
+    <string name="stats_count_format">จำนวน: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">สถิติ</string>
+    <string name="game_stats_icon_description">ดูสถิติเกม</string>
+</resources>

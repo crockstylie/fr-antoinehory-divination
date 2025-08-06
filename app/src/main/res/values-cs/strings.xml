@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Magická koule 8</string>
+    <string name="menu_button_coin_flip">Hod mincí</string>
+    <string name="menu_button_rps">Kámen, nůžky, papír</string>
+    <string name="menu_button_dice_roll">Hod kostkou</string>
+    <string name="menu_settings_description">Nastavení</string>
+    <string name="menu_info_description">Informace</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Zatřeste zařízením pro získání odpovědi.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Zatřeste zařízením (akcelerometr nebyl detekován).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Je to jisté.</item>
+        <item>Je to rozhodně tak.</item>
+        <item>Bezpochyby.</item>
+        <item>Ano, rozhodně.</item>
+        <item>Můžete se na to spolehnout.</item>
+        <item>Jak to vidím já, ano.</item>
+        <item>Velmi pravděpodobně.</item>
+        <item>Výhled dobrý.</item>
+        <item>Ano.</item>
+        <item>Znamení ukazují na ano.</item>
+        <item>Odpověď nejasná, zkuste to znovu.</item>
+        <item>Zeptejte se později.</item>
+        <item>Raději vám to teď neřeknu.</item>
+        <item>Nelze nyní předvídat.</item>
+        <item>Soustřeďte se a zeptejte se znovu.</item>
+        <item>Nepočítejte s tím.</item>
+        <item>Moje odpověď je ne.</item>
+        <item>Moje zdroje říkají ne.</item>
+        <item>Výhled není moc dobrý.</item>
+        <item>Velmi pochybné.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Magická koule</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Akcelerometr není na tomto zařízení k dispozici.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Hod mincí</string>
+    <string name="coin_flip_initial_prompt_shake">Zatřeste pro hod mincí!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Zatřeste (akcelerometr nebyl detekován).</string>
+    <string name="coin_flip_flipping_message">Házím…</string>
+    <string name="coin_flip_result_heads">Panna!</string>
+    <string name="coin_flip_result_tails">Orel!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Akcelerometr není k dispozici pro hod mincí.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Obrázek panny</string>
+    <string name="coin_flip_tails_icon_description">Obrázek orla</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Kámen, nůžky, papír</string>
+    <string name="rps_initial_prompt_shake">Zatřeste pro hru!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Zatřeste (akcelerometr nebyl detekován).</string>
+    <string name="rps_processing_message">Kámen, nůžky, papír…</string>
+    <string name="rps_result_rock">Kámen!</string>
+    <string name="rps_result_paper">Papír!</string>
+    <string name="rps_result_scissors">Nůžky!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Akcelerometr není k dispozici pro hru.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Ikona kamene</string>
+    <string name="rps_icon_description_paper">Ikona papíru</string>
+    <string name="rps_icon_description_scissors">Ikona nůžek</string>
+    <string name="general_content_description_empty">Obrázek výsledku</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Hod kostkou</string>
+    <string name="dice_initial_prompt_shake">Zatřeste pro hod kostkou!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Použijte tlačítko níže pro hod kostkou (akcelerometr není k dispozici).</string>
+    <string name="dice_rolling_message">Házím kostkou…</string>
+    <string name="dice_result_format">Výsledek: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Akcelerometr není na tomto zařízení k dispozici. Třesení nebude fungovat.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Strana kostky ukazující jedna</string>
+    <string name="dice_icon_description_2">Strana kostky ukazující dvě</string>
+    <string name="dice_icon_description_3">Strana kostky ukazující tři</string>
+    <string name="dice_icon_description_4">Strana kostky ukazující čtyři</string>
+    <string name="dice_icon_description_5">Strana kostky ukazující pět</string>
+    <string name="dice_icon_description_6">Strana kostky ukazující šest</string>
+    <string name="dice_icon_description_empty">Nezobrazen výsledek hodu kostkou</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Nastavení</string>
+    <string name="settings_screen_soon_message">Brzy…</string>
+    <string name="settings_interaction_mode_title">Režim interakce</string>
+    <string name="settings_interaction_mode_tap">Klepnutím spustíte</string>
+    <string name="settings_interaction_mode_shake">Zatřesením spustíte</string>
+    <string name="settings_interaction_mode_shake_unavailable">Režim třesení není k dispozici (žádný akcelerometr).</string>
+    <string name="settings_data_management_title">Správa dat</string>
+    <string name="settings_clear_stats_button">Vymazat statistiky</string>
+    <string name="settings_clear_stats_dialog_title">Vymazat statistiky?</string>
+    <string name="settings_clear_stats_dialog_message">Všechna data herních statistik budou trvale smazána. Tato akce je nevratná.</string>
+    <string name="settings_clear_stats_dialog_confirm">Potvrdit</string>
+    <string name="settings_clear_stats_dialog_cancel">Zrušit</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Interagujte pro získání odpovědi.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Není aktivní žádná metoda interakce. Zkontrolujte nastavení.</string>
+    <string name="magic_ball_content_description">Obrázek magické koule</string>
+    <string name="coin_flip_initial_prompt_generic">Interagujte pro hod mincí.</string>
+    <string name="coin_flip_no_interaction_method_active">Není aktivní žádná metoda interakce. Zkontrolujte nastavení.</string>
+    <string name="coin_flip_result_heads_image_description">Obrázek mince ukazující pannu</string>
+    <string name="coin_flip_result_tails_image_description">Obrázek mince ukazující orla</string>
+    <string name="rps_initial_prompt_generic">Interagujte pro hru!</string>
+    <string name="rps_no_interaction_method_active">Není aktivní žádná metoda interakce. Zkontrolujte nastavení.</string>
+    <string name="dice_initial_prompt_generic">Interagujte pro hod kostkou!</string>
+    <string name="dice_no_interaction_method_active">Není aktivní žádná metoda interakce. Zkontrolujte nastavení.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Informace</string>
+    <string name="mes_informations_personnelles">Moje osobní údaje</string>
+    <string name="d_veloppeur">Vývojář</string>
+    <string name="site_web">Webová stránka</string>
+    <string name="email">E-mail</string>
+    <string name="donate">Přispět</string>
+    <string name="retrouvez_moi_sur">Najdete mě na:</string>
+    <string name="linkedin_profile">Profil LinkedIn</string>
+    <string name="behance_profile">Profil Behance</string>
+    <string name="instagram_profile">Profil Instagram</string>
+    <string name="facebook_profile">Profil Facebook</string>
+    <string name="spotify_profile">Profil Spotify</string>
+    <string name="steam_profile">Profil Steam</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Globální statistiky</string>
+    <string name="stats_screen_title_specific">Statistiky: %1$s</string>
+    <string name="stats_fallback_answer_display">Výchozí odpověď</string>
+    <string name="stats_no_data_available">Momentálně nejsou k dispozici žádné statistiky.</string>
+    <string name="stats_total_plays">Celkový počet her: %d</string>
+    <string name="stats_count_format">Množství: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistiky</string>
+    <string name="game_stats_icon_description">Zobrazit herní statistiky</string>
+</resources>

@@ -88,9 +88,6 @@
     <string name="dice_icon_description_6">وجه النرد يظهر ستة</string>
     <string name="dice_icon_description_empty">لم يتم عرض نتيجة النرد</string>
 
-    <!-- Settings Screen -->
-    <string name="settings_screen_title">الإعدادات</string>
-    <string name="settings_screen_soon_message">قريباً…</string>
     <string name="magic_ball_initial_prompt_generic">تفاعل للحصول على إجابة.</string>
     <string name="magic_ball_no_interaction_method_active">لا توجد طريقة تفاعل نشطة. تحقق من الإعدادات.</string>
     <string name="magic_ball_content_description">صورة الكرة السحرية</string>
@@ -115,5 +112,30 @@
     <string name="facebook_profile">ملف Facebook</string>
     <string name="spotify_profile">ملف Spotify</string>
     <string name="steam_profile">ملف Steam</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">الإعدادات</string>
+    <string name="settings_screen_soon_message">قريباً…</string>
+    <string name="settings_interaction_mode_title">وضع التفاعل</string>
+    <string name="settings_interaction_mode_tap">انقر للبدء</string>
+    <string name="settings_interaction_mode_shake">هز للبدء</string>
+    <string name="settings_interaction_mode_shake_unavailable">وضع الهز غير متوفر (لا يوجد مقياس تسارع).</string>
+    <string name="settings_data_management_title">إدارة البيانات</string>
+    <string name="settings_clear_stats_button">مسح الإحصائيات</string>
+    <string name="settings_clear_stats_dialog_title">مسح الإحصائيات؟</string>
+    <string name="settings_clear_stats_dialog_message">سيتم حذف جميع بيانات إحصائيات اللعبة بشكل دائم. هذا الإجراء لا يمكن التراجع عنه.</string>
+    <string name="settings_clear_stats_dialog_confirm">تأكيد</string>
+    <string name="settings_clear_stats_dialog_cancel">إلغاء</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">الإحصائيات العالمية</string>
+    <string name="stats_screen_title_specific">الإحصائيات: %1$s</string>
+    <string name="stats_fallback_answer_display">الإجابة الافتراضية</string>
+    <string name="stats_no_data_available">لا توجد إحصائيات متاحة في الوقت الحالي.</string>
+    <string name="stats_total_plays">إجمالي مرات اللعب: %d</string>
+    <string name="stats_count_format">الكمية: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">الإحصائيات</string>
+    <string name="game_stats_icon_description">عرض إحصائيات اللعبة</string>
 
 </resources>

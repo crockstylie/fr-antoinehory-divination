@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Magična kugla 8</string>
+    <string name="menu_button_coin_flip">Bacanje novčića</string>
+    <string name="menu_button_rps">Kamen, škare, papir</string>
+    <string name="menu_button_dice_roll">Bacanje kockice</string>
+    <string name="menu_settings_description">Postavke</string>
+    <string name="menu_info_description">Informacije</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Protresite uređaj da biste dobili odgovor.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Protresite uređaj (akcelerometar nije otkriven).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Sigurno je.</item>
+        <item>Definitivno je tako.</item>
+        <item>Bez sumnje.</item>
+        <item>Da, definitivno.</item>
+        <item>Možete se osloniti na to.</item>
+        <item>Kako ja vidim, da.</item>
+        <item>Vrlo vjerojatno.</item>
+        <item>Izgledi su dobri.</item>
+        <item>Da.</item>
+        <item>Znakovi ukazuju na da.</item>
+        <item>Odgovor je nejasan, pokušajte ponovno.</item>
+        <item>Pitaj ponovno kasnije.</item>
+        <item>Bolje da ti sada не kažem.</item>
+        <item>Sada se ne može predvidjeti.</item>
+        <item>Koncentriraj se i pitaj ponovno.</item>
+        <item>Ne računaj na to.</item>
+        <item>Moj odgovor je ne.</item>
+        <item>Moji izvori kažu ne.</item>
+        <item>Izgledi nisu baš dobri.</item>
+        <item>Vrlo sumnjivo.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Magična kugla</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Akcelerometar nije dostupan na ovom uređaju.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Bacanje novčića</string>
+    <string name="coin_flip_initial_prompt_shake">Protresite da bacite novčić!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Protresite (akcelerometar nije otkriven).</string>
+    <string name="coin_flip_flipping_message">Bacanje…</string>
+    <string name="coin_flip_result_heads">Pismo!</string>
+    <string name="coin_flip_result_tails">Glava!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Akcelerometar nije dostupan za bacanje novčića.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Slika pisma</string>
+    <string name="coin_flip_tails_icon_description">Slika glave</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Kamen, škare, papir</string>
+    <string name="rps_initial_prompt_shake">Protresite da igrate!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Protresite (akcelerometar nije otkriven).</string>
+    <string name="rps_processing_message">Kamen, škare, papir…</string>
+    <string name="rps_result_rock">Kamen!</string>
+    <string name="rps_result_paper">Papir!</string>
+    <string name="rps_result_scissors">Škare!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Akcelerometar nije dostupan za igru.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Ikona kamena</string>
+    <string name="rps_icon_description_paper">Ikona papira</string>
+    <string name="rps_icon_description_scissors">Ikona škara</string>
+    <string name="general_content_description_empty">Slika rezultata</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Bacanje kockice</string>
+    <string name="dice_initial_prompt_shake">Protresite da bacite kockicu!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Koristite gumb ispod da bacite kockicu (akcelerometar nije dostupan).</string>
+    <string name="dice_rolling_message">Bacanje kockice…</string>
+    <string name="dice_result_format">Rezultat: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Akcelerometar nije dostupan na ovom uređaju. Protresanje neće raditi.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Strana kockice koja pokazuje jedan</string>
+    <string name="dice_icon_description_2">Strana kockice koja pokazuje dva</string>
+    <string name="dice_icon_description_3">Strana kockice koja pokazuje tri</string>
+    <string name="dice_icon_description_4">Strana kockice koja pokazuje četiri</string>
+    <string name="dice_icon_description_5">Strana kockice koja pokazuje pet</string>
+    <string name="dice_icon_description_6">Strana kockice koja pokazuje šest</string>
+    <string name="dice_icon_description_empty">Nije prikazan rezultat bacanja kockice</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Postavke</string>
+    <string name="settings_screen_soon_message">Uskoro…</string>
+    <string name="settings_interaction_mode_title">Način interakcije</string>
+    <string name="settings_interaction_mode_tap">Dodirnite za pokretanje</string>
+    <string name="settings_interaction_mode_shake">Protresite za pokretanje</string>
+    <string name="settings_interaction_mode_shake_unavailable">Način protresanja nije dostupan (nema akcelerometra).</string>
+    <string name="settings_data_management_title">Upravljanje podacima</string>
+    <string name="settings_clear_stats_button">Obriši statistiku</string>
+    <string name="settings_clear_stats_dialog_title">Obriši statistiku?</string>
+    <string name="settings_clear_stats_dialog_message">Svi podaci statistike igre bit će trajno izbrisani. Ova radnja je nepovratna.</string>
+    <string name="settings_clear_stats_dialog_confirm">Potvrdi</string>
+    <string name="settings_clear_stats_dialog_cancel">Odustani</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Interagirajte da biste dobili odgovor.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Nijedna metoda interakcije nije aktivna. Provjerite postavke.</string>
+    <string name="magic_ball_content_description">Slika magične kugle</string>
+    <string name="coin_flip_initial_prompt_generic">Interagirajte da bacite novčić.</string>
+    <string name="coin_flip_no_interaction_method_active">Nijedna metoda interakcije nije aktivna. Provjerite postavke.</string>
+    <string name="coin_flip_result_heads_image_description">Slika novčića koja prikazuje pismo</string>
+    <string name="coin_flip_result_tails_image_description">Slika novčića koja prikazuje glavu</string>
+    <string name="rps_initial_prompt_generic">Interagirajte da igrate!</string>
+    <string name="rps_no_interaction_method_active">Nijedna metoda interakcije nije aktivna. Provjerite postavke.</string>
+    <string name="dice_initial_prompt_generic">Interagirajte da bacite kockicu!</string>
+    <string name="dice_no_interaction_method_active">Nijedna metoda interakcije nije aktivna. Provjerite postavke.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Informacije</string>
+    <string name="mes_informations_personnelles">Moji osobni podaci</string>
+    <string name="d_veloppeur">Programer</string>
+    <string name="site_web">Web stranica</string>
+    <string name="email">E-pošta</string>
+    <string name="donate">Doniraj</string>
+    <string name="retrouvez_moi_sur">Pronađite me na:</string>
+    <string name="linkedin_profile">LinkedIn profil</string>
+    <string name="behance_profile">Behance profil</string>
+    <string name="instagram_profile">Instagram profil</string>
+    <string name="facebook_profile">Facebook profil</string>
+    <string name="spotify_profile">Spotify profil</string>
+    <string name="steam_profile">Steam profil</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Globalna statistika</string>
+    <string name="stats_screen_title_specific">Statistika: %1$s</string>
+    <string name="stats_fallback_answer_display">Zadani odgovor</string>
+    <string name="stats_no_data_available">Trenutno nema dostupne statistike.</string>
+    <string name="stats_total_plays">Ukupno odigranih igara: %d</string>
+    <string name="stats_count_format">Količina: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistika</string>
+    <string name="game_stats_icon_description">Prikaži statistiku igre</string>
+</resources>

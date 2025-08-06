@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">אורקניום</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">כדור 8 קסום</string>
+    <string name="menu_button_coin_flip">הטלת מטבע</string>
+    <string name="menu_button_rps">אבן נייר ומספריים</string>
+    <string name="menu_button_dice_roll">הטלת קובייה</string>
+    <string name="menu_settings_description">הגדרות</string>
+    <string name="menu_info_description">מידע</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">נער את המכשיר כדי לקבל תשובה.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">נער את המכשיר (מד תאוצה לא זוהה).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>זה בטוח.</item>
+        <item>זה בהחלט כך.</item>
+        <item>ללא ספק.</item>
+        <item>כן, בהחלט.</item>
+        <item>אתה יכול לסמוך על זה.</item>
+        <item>כפי שאני רואה את זה, כן.</item>
+        <item>סביר ביותר.</item>
+        <item>התחזית טובה.</item>
+        <item>כן.</item>
+        <item>הסימנים מצביעים על כן.</item>
+        <item>תשובה מעורפלת, נסה שוב.</item>
+        <item>שאל שוב מאוחר יותר.</item>
+        <item>עדיף לא לספר לך עכשיו.</item>
+        <item>לא ניתן לחזות כעת.</item>
+        <item>התרכז ושאל שוב.</item>
+        <item>אל תסמוך על זה.</item>
+        <item>התשובה שלי היא לא.</item>
+        <item>המקורות שלי אומרים לא.</item>
+        <item>התחזית לא כל כך טובה.</item>
+        <item>מאוד מסופק.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">כדור קסם</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">מד תאוצה אינו זמין במכשיר זה.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">הטלת מטבע</string>
+    <string name="coin_flip_initial_prompt_shake">נער כדי להטיל את המטבע!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">נער (מד תאוצה לא זוהה).</string>
+    <string name="coin_flip_flipping_message">מטיל…</string>
+    <string name="coin_flip_result_heads">עץ!</string>
+    <string name="coin_flip_result_tails">פלי!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">מד תאוצה אינו זמין להטלת המטבע.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">תמונת עץ</string>
+    <string name="coin_flip_tails_icon_description">תמונת פלי</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">אבן נייר ומספריים</string>
+    <string name="rps_initial_prompt_shake">נער כדי לשחק!</string>
+    <string name="rps_initial_prompt_no_accelerometer">נער (מד תאוצה לא זוהה).</string>
+    <string name="rps_processing_message">אבן, נייר, מספריים…</string>
+    <string name="rps_result_rock">אבן!</string>
+    <string name="rps_result_paper">נייר!</string>
+    <string name="rps_result_scissors">מספריים!</string>
+    <string name="rps_accelerometer_not_available_ui_message">מד תאוצה אינו זמין למשחק.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">סמל אבן</string>
+    <string name="rps_icon_description_paper">סמל נייר</string>
+    <string name="rps_icon_description_scissors">סמל מספריים</string>
+    <string name="general_content_description_empty">תמונת תוצאה</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">הטלת קובייה</string>
+    <string name="dice_initial_prompt_shake">נער כדי להטיל את הקובייה!</string>
+    <string name="dice_initial_prompt_no_accelerometer">השתמש בכפתור למטה כדי להטיל את הקובייה (מד תאוצה אינו זמין).</string>
+    <string name="dice_rolling_message">מטיל את הקובייה…</string>
+    <string name="dice_result_format">תוצאה: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">מד תאוצה אינו זמין במכשיר זה. ניעור לא יעבוד.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">פני קובייה המציגים אחת</string>
+    <string name="dice_icon_description_2">פני קובייה המציגים שתיים</string>
+    <string name="dice_icon_description_3">פני קובייה המציגים שלוש</string>
+    <string name="dice_icon_description_4">פני קובייה המציגים ארבע</string>
+    <string name="dice_icon_description_5">פני קובייה המציגים חמש</string>
+    <string name="dice_icon_description_6">פני קובייה המציגים שש</string>
+    <string name="dice_icon_description_empty">לא מוצגת תוצאת קובייה</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">הגדרות</string>
+    <string name="settings_screen_soon_message">בקרוב…</string>
+    <string name="settings_interaction_mode_title">מצב אינטראקציה</string>
+    <string name="settings_interaction_mode_tap">הקש להפעלה</string>
+    <string name="settings_interaction_mode_shake">נער להפעלה</string>
+    <string name="settings_interaction_mode_shake_unavailable">מצב ניעור אינו זמין (אין מד תאוצה).</string>
+    <string name="settings_data_management_title">ניהול נתונים</string>
+    <string name="settings_clear_stats_button">נקה סטטיסטיקה</string>
+    <string name="settings_clear_stats_dialog_title">לנקות סטטיסטיקה?</string>
+    <string name="settings_clear_stats_dialog_message">כל נתוני סטטיסטיקת המשחק יימחקו לצמיתות. פעולה זו אינה הפיכה.</string>
+    <string name="settings_clear_stats_dialog_confirm">אשר</string>
+    <string name="settings_clear_stats_dialog_cancel">בטל</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">קיים אינטראקציה כדי לקבל תשובה.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">אין שיטת אינטראקציה פעילה. בדוק הגדרות.</string>
+    <string name="magic_ball_content_description">תמונת כדור קסם</string>
+    <string name="coin_flip_initial_prompt_generic">קיים אינטראקציה כדי להטיל את המטבע.</string>
+    <string name="coin_flip_no_interaction_method_active">אין שיטת אינטראקציה פעילה. בדוק הגדרות.</string>
+    <string name="coin_flip_result_heads_image_description">תמונת מטבע המציגה עץ</string>
+    <string name="coin_flip_result_tails_image_description">תמונת מטבע המציגה פלי</string>
+    <string name="rps_initial_prompt_generic">קיים אינטראקציה כדי לשחק!</string>
+    <string name="rps_no_interaction_method_active">אין שיטת אינטראקציה פעילה. בדוק הגדרות.</string>
+    <string name="dice_initial_prompt_generic">קיים אינטראקציה כדי להטיל את הקובייה!</string>
+    <string name="dice_no_interaction_method_active">אין שיטת אינטראקציה פעילה. בדוק הגדרות.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">מידע</string>
+    <string name="mes_informations_personnelles">המידע האישי שלי</string>
+    <string name="d_veloppeur">מפתח</string>
+    <string name="site_web">אתר אינטרנט</string>
+    <string name="email">אימייל</string>
+    <string name="donate">תרום</string>
+    <string name="retrouvez_moi_sur">מצא אותי ב:</string>
+    <string name="linkedin_profile">פרופיל לינקדאין</string>
+    <string name="behance_profile">פרופיל Behance</string>
+    <string name="instagram_profile">פרופיל אינסטגרם</string>
+    <string name="facebook_profile">פרופיל פייסבוק</string>
+    <string name="spotify_profile">פרופיל ספוטיפיי</string>
+    <string name="steam_profile">פרופיל Steam</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">סטטיסטיקה גלובלית</string>
+    <string name="stats_screen_title_specific">סטטיסטיקה: %1$s</string>
+    <string name="stats_fallback_answer_display">תשובת ברירת מחדל</string>
+    <string name="stats_no_data_available">אין סטטיסטיקה זמינה כרגע.</string>
+    <string name="stats_total_plays">סך כל המשחקים: %d</string>
+    <string name="stats_count_format">כמות: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">סטטיסטיקה</string>
+    <string name="game_stats_icon_description">הצג סטטיסטיקת משחק</string>
+</resources>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Taikapallo 8</string>
+    <string name="menu_button_coin_flip">Kolikonheitto</string>
+    <string name="menu_button_rps">Kivi, paperi, sakset</string>
+    <string name="menu_button_dice_roll">Nopanheitto</string>
+    <string name="menu_settings_description">Asetukset</string>
+    <string name="menu_info_description">Tiedot</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Ravista laitetta saadaksesi vastauksen.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Ravista laitetta (kiihtyvyysanturia ei havaittu).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Se on varmaa.</item>
+        <item>Se on ehdottomasti niin.</item>
+        <item>Epäilemättä.</item>
+        <item>Kyllä, ehdottomasti.</item>
+        <item>Voit luottaa siihen.</item>
+        <item>Nähdäkseni kyllä.</item>
+        <item>Todennäköisimmin.</item>
+        <item>Näkymät hyvät.</item>
+        <item>Kyllä.</item>
+        <item>Merkit viittaavat kyllään.</item>
+        <item>Epäselvä vastaus, yritä uudelleen.</item>
+        <item>Kysy myöhemmin uudelleen.</item>
+        <item>Parempi olla kertomatta sinulle nyt.</item>
+        <item>Ei voi ennustaa nyt.</item>
+        <item>Keskity ja kysy uudelleen.</item>
+        <item>Älä laske sen varaan.</item>
+        <item>Vastaukseni on ei.</item>
+        <item>Lähteeni sanovat ei.</item>
+        <item>Näkymät eivät ole kovin hyvät.</item>
+        <item>Hyvin epäilyttävää.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Taikapallo</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Kiihtyvyysanturi ei ole saatavilla tässä laitteessa.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Kolikonheitto</string>
+    <string name="coin_flip_initial_prompt_shake">Ravista heittääksesi kolikkoa!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Ravista (kiihtyvyysanturia ei havaittu).</string>
+    <string name="coin_flip_flipping_message">Heitetään…</string>
+    <string name="coin_flip_result_heads">Kruuna!</string>
+    <string name="coin_flip_result_tails">Klaava!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Kiihtyvyysanturi ei ole saatavilla kolikon heittämiseen.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Kruunan kuva</string>
+    <string name="coin_flip_tails_icon_description">Klaavan kuva</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Kivi, paperi, sakset</string>
+    <string name="rps_initial_prompt_shake">Ravista pelataksesi!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Ravista (kiihtyvyysanturia ei havaittu).</string>
+    <string name="rps_processing_message">Kivi, paperi, sakset…</string>
+    <string name="rps_result_rock">Kivi!</string>
+    <string name="rps_result_paper">Paperi!</string>
+    <string name="rps_result_scissors">Sakset!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Kiihtyvyysanturi ei ole saatavilla pelaamiseen.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Kiven kuvake</string>
+    <string name="rps_icon_description_paper">Paperin kuvake</string>
+    <string name="rps_icon_description_scissors">Saksien kuvake</string>
+    <string name="general_content_description_empty">Tuloksen kuva</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Nopanheitto</string>
+    <string name="dice_initial_prompt_shake">Ravista heittääksesi noppaa!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Käytä alla olevaa painiketta heittääksesi noppaa (kiihtyvyysanturi ei ole saatavilla).</string>
+    <string name="dice_rolling_message">Heitetään noppaa…</string>
+    <string name="dice_result_format">Tulos: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Kiihtyvyysanturi ei ole saatavilla tässä laitteessa. Ravistaminen ei toimi.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Nopan sivu, joka näyttää yhden</string>
+    <string name="dice_icon_description_2">Nopan sivu, joka näyttää kaksi</string>
+    <string name="dice_icon_description_3">Nopan sivu, joka näyttää kolme</string>
+    <string name="dice_icon_description_4">Nopan sivu, joka näyttää neljä</string>
+    <string name="dice_icon_description_5">Nopan sivu, joka näyttää viisi</string>
+    <string name="dice_icon_description_6">Nopan sivu, joka näyttää kuusi</string>
+    <string name="dice_icon_description_empty">Nopanheiton tulosta ei näytetä</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Asetukset</string>
+    <string name="settings_screen_soon_message">Pian…</string>
+    <string name="settings_interaction_mode_title">Vuorovaikutustila</string>
+    <string name="settings_interaction_mode_tap">Napauta käynnistääksesi</string>
+    <string name="settings_interaction_mode_shake">Ravista käynnistääksesi</string>
+    <string name="settings_interaction_mode_shake_unavailable">Ravistustila ei ole käytettävissä (ei kiihtyvyysanturia).</string>
+    <string name="settings_data_management_title">Tietojen hallinta</string>
+    <string name="settings_clear_stats_button">Tyhjennä tilastot</string>
+    <string name="settings_clear_stats_dialog_title">Tyhjennä tilastot?</string>
+    <string name="settings_clear_stats_dialog_message">Kaikki pelitilastotiedot poistetaan pysyvästi. Tätä toimintoa ei voi kumota.</string>
+    <string name="settings_clear_stats_dialog_confirm">Vahvista</string>
+    <string name="settings_clear_stats_dialog_cancel">Peruuta</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Ole vuorovaikutuksessa saadaksesi vastauksen.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Mikään vuorovaikutusmenetelmä ei ole aktiivinen. Tarkista asetukset.</string>
+    <string name="magic_ball_content_description">Taikapallon kuva</string>
+    <string name="coin_flip_initial_prompt_generic">Ole vuorovaikutuksessa heittääksesi kolikkoa.</string>
+    <string name="coin_flip_no_interaction_method_active">Mikään vuorovaikutusmenetelmä ei ole aktiivinen. Tarkista asetukset.</string>
+    <string name="coin_flip_result_heads_image_description">Kolikon kuva, joka näyttää kruunan</string>
+    <string name="coin_flip_result_tails_image_description">Kolikon kuva, joka näyttää klaavan</string>
+    <string name="rps_initial_prompt_generic">Ole vuorovaikutuksessa pelataksesi!</string>
+    <string name="rps_no_interaction_method_active">Mikään vuorovaikutusmenetelmä ei ole aktiivinen. Tarkista asetukset.</string>
+    <string name="dice_initial_prompt_generic">Ole vuorovaikutuksessa heittääksesi noppaa!</string>
+    <string name="dice_no_interaction_method_active">Mikään vuorovaikutusmenetelmä ei ole aktiivinen. Tarkista asetukset.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Tiedot</string>
+    <string name="mes_informations_personnelles">Omat henkilötietoni</string>
+    <string name="d_veloppeur">Kehittäjä</string>
+    <string name="site_web">Verkkosivusto</string>
+    <string name="email">Sähköposti</string>
+    <string name="donate">Lahjoita</string>
+    <string name="retrouvez_moi_sur">Löydä minut:</string>
+    <string name="linkedin_profile">LinkedIn-profiili</string>
+    <string name="behance_profile">Behance-profiili</string>
+    <string name="instagram_profile">Instagram-profiili</string>
+    <string name="facebook_profile">Facebook-profiili</string>
+    <string name="spotify_profile">Spotify-profiili</string>
+    <string name="steam_profile">Steam-profiili</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Yleiset tilastot</string>
+    <string name="stats_screen_title_specific">Tilastot: %1$s</string>
+    <string name="stats_fallback_answer_display">Oletusvastaus</string>
+    <string name="stats_no_data_available">Tilastoja ei ole tällä hetkellä saatavilla.</string>
+    <string name="stats_total_plays">Pelatut pelit yhteensä: %d</string>
+    <string name="stats_count_format">Määrä: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Tilastot</string>
+    <string name="game_stats_icon_description">Näytä pelitilastot</string>
+</resources>

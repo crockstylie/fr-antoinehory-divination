@@ -14,7 +14,7 @@
     <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">Shake the device to get an answer.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">Shake the device (accelerometer not detected).</string>
-    <string name="magic_ball_shuffling_message" translatable="false">…</string> <!-- "..." is generally universal, but kept as a resource for consistency -->
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
 
     <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
@@ -69,14 +69,14 @@
     <string name="rps_icon_description_rock">Rock icon</string>
     <string name="rps_icon_description_paper">Paper icon</string>
     <string name="rps_icon_description_scissors">Scissors icon</string>
-    <string name="general_content_description_empty">Result image</string> <!-- Fallback if needed -->
+    <string name="general_content_description_empty">Result image</string>
 
     <!-- Dice Roll Screen -->
     <string name="dice_roll_screen_title">Dice Roll</string>
     <string name="dice_initial_prompt_shake">Shake to roll the dice!</string>
     <string name="dice_initial_prompt_no_accelerometer">Use the button below to roll the dice (accelerometer not available).</string>
     <string name="dice_rolling_message">Rolling the dice…</string>
-    <string name="dice_result_format">Result: %1$d</string> <!-- %1$d will be replaced by the dice number -->
+    <string name="dice_result_format">Result: %1$d</string>
     <string name="dice_accelerometer_not_available_ui_message">Accelerometer is not available on this device. Shaking will not work.</string>
 
     <!-- Content Descriptions for Dice Images -->
@@ -91,8 +91,20 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">Settings</string>
     <string name="settings_screen_soon_message">Soon…</string>
+    <string name="settings_interaction_mode_title">Interaction Mode</string>
+    <string name="settings_interaction_mode_tap">Tap to launch</string>
+    <string name="settings_interaction_mode_shake">Shake to launch</string>
+    <string name="settings_interaction_mode_shake_unavailable">Shake mode is unavailable (no accelerometer).</string>
+    <string name="settings_data_management_title">Data Management</string>
+    <string name="settings_clear_stats_button">Clear Statistics</string>
+    <string name="settings_clear_stats_dialog_title">Clear Statistics?</string>
+    <string name="settings_clear_stats_dialog_message">All game statistics data will be permanently deleted. This action is irreversible.</string>
+    <string name="settings_clear_stats_dialog_confirm">Confirm</string>
+    <string name="settings_clear_stats_dialog_cancel">Cancel</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interact to get an answer.</string>
-    <string name="magic_ball_default_answer_if_empty" translatable="false" /> <!-- No direct translation as it's empty, but if it were to have a default, e.g., "Ask a question first." -->
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
     <string name="magic_ball_no_interaction_method_active">No interaction method is active. Check settings.</string>
     <string name="magic_ball_content_description">Magic Ball image</string>
     <string name="coin_flip_initial_prompt_generic">Interact to flip the coin.</string>
@@ -103,10 +115,12 @@
     <string name="rps_no_interaction_method_active">No interaction method is active. Check settings.</string>
     <string name="dice_initial_prompt_generic">Interact to roll the dice!</string>
     <string name="dice_no_interaction_method_active">No interaction method is active. Check settings.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
     <string name="informations">Information</string>
     <string name="mes_informations_personnelles">My Personal Information</string>
     <string name="d_veloppeur">Developer</string>
-    <string name="site_web">Web Site</string>
+    <string name="site_web">Website</string>
     <string name="email">Email</string>
     <string name="donate">Donate</string>
     <string name="retrouvez_moi_sur">Find me on:</string>
@@ -117,7 +131,7 @@
     <string name="spotify_profile">Spotify Profile</string>
     <string name="steam_profile">Steam Profile</string>
 
-    <!-- Pour GameStatsViewModel -->
+    <!-- GameStatsViewModel -->
     <string name="stats_screen_title_global">Global Statistics</string>
     <string name="stats_screen_title_specific">Statistics: %1$s</string>
     <string name="stats_fallback_answer_display">Default Answer</string>

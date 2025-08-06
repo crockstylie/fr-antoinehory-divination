@@ -75,9 +75,6 @@
     <string name="dice_icon_description_6">Όψη ζαριού που δείχνει έξι</string>
     <string name="dice_icon_description_empty">Δεν εμφανίζεται αποτέλεσμα ζαριών</string>
 
-    <!-- Leer oder Platzhalter -->
-    <string name="settings_screen_title">Ρυθμίσεις</string>
-    <string name="settings_screen_soon_message">Σύντομα…</string>
     <string name="magic_ball_initial_prompt_generic">Αλληλεπιδράστε για μια απάντηση.</string>
     <string name="magic_ball_no_interaction_method_active">Καμία μέθοδος αλληλεπίδρασης δεν είναι ενεργή. Ελέγξτε τις ρυθμίσεις.</string>
     <string name="magic_ball_content_description">Εικόνα Μαγικής Μπάλας</string>
@@ -102,4 +99,30 @@
     <string name="facebook_profile">Προφίλ Facebook</string>
     <string name="spotify_profile">Προφίλ Spotify</string>
     <string name="steam_profile">Προφίλ Steam</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Ρυθμίσεις</string>
+    <string name="settings_screen_soon_message">Σύντομα…</string>
+    <string name="settings_interaction_mode_title">Λειτουργία αλληλεπίδρασης</string>
+    <string name="settings_interaction_mode_tap">Πατήστε για εκκίνηση</string>
+    <string name="settings_interaction_mode_shake">Ανακινήστε για εκκίνηση</string>
+    <string name="settings_interaction_mode_shake_unavailable">Η λειτουργία ανακίνησης δεν είναι διαθέσιμη (δεν υπάρχει επιταχυνσιόμετρο).</string>
+    <string name="settings_data_management_title">Διαχείριση δεδομένων</string>
+    <string name="settings_clear_stats_button">Εκκαθάριση στατιστικών</string>
+    <string name="settings_clear_stats_dialog_title">Εκκαθάριση στατιστικών;</string>
+    <string name="settings_clear_stats_dialog_message">Όλα τα δεδομένα στατιστικών του παιχνιδιού θα διαγραφούν οριστικά. Αυτή η ενέργεια είναι μη αναστρέψιμη.</string>
+    <string name="settings_clear_stats_dialog_confirm">Επιβεβαίωση</string>
+    <string name="settings_clear_stats_dialog_cancel">Άκυρο</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Καθολικά στατιστικά</string>
+    <string name="stats_screen_title_specific">Στατιστικά: %1$s</string>
+    <string name="stats_fallback_answer_display">Προεπιλεγμένη απάντηση</string>
+    <string name="stats_no_data_available">Δεν υπάρχουν διαθέσιμα στατιστικά αυτή τη στιγμή.</string>
+    <string name="stats_total_plays">Συνολικά παιχνίδια: %d</string>
+    <string name="stats_count_format">Ποσότητα: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Στατιστικά</string>
+    <string name="game_stats_icon_description">Προβολή στατιστικών παιχνιδιού</string>
+
 </resources>

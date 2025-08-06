@@ -88,9 +88,6 @@
     <string name="dice_icon_description_6">पासे का फलक छह दिखा रहा है</string>
     <string name="dice_icon_description_empty">पासे का कोई परिणाम प्रदर्शित नहीं है</string>
 
-    <!-- Settings Screen -->
-    <string name="settings_screen_title">सेटिंग्स</string>
-    <string name="settings_screen_soon_message">जल्द ही…</string>
     <string name="magic_ball_initial_prompt_generic">उत्तर पाने के लिए इंटरैक्ट करें।</string>
     <string name="magic_ball_no_interaction_method_active">कोई इंटरैक्शन विधि सक्रिय नहीं है। सेटिंग्स जांचें।</string>
     <string name="magic_ball_content_description">मैजिक बॉल छवि</string>
@@ -116,4 +113,28 @@
     <string name="spotify_profile">स्पॉटिफ़ाई प्रोफ़ाइल</string>
     <string name="steam_profile">स्टीम प्रोफ़ाइल</string>
 
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">सेटिंग्स</string>
+    <string name="settings_screen_soon_message">जल्द ही…</string>
+    <string name="settings_interaction_mode_title">इंटरेक्शन मोड</string>
+    <string name="settings_interaction_mode_tap">लॉन्च करने के लिए टैप करें</string>
+    <string name="settings_interaction_mode_shake">लॉन्च करने के लिए हिलाएं</string>
+    <string name="settings_interaction_mode_shake_unavailable">शेक मोड अनुपलब्ध है (कोई एक्सेलेरोमीटर नहीं)।</string>
+    <string name="settings_data_management_title">डेटा प्रबंधन</string>
+    <string name="settings_clear_stats_button">आँकड़े साफ़ करें</string>
+    <string name="settings_clear_stats_dialog_title">आँकड़े साफ़ करें?</string>
+    <string name="settings_clear_stats_dialog_message">सभी गेम आँकड़ों का डेटा स्थायी रूप से हटा दिया जाएगा। यह कार्रवाई अपरिवर्तनीय है।</string>
+    <string name="settings_clear_stats_dialog_confirm">पुष्टि करें</string>
+    <string name="settings_clear_stats_dialog_cancel">रद्द करें</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">वैश्विक आँकड़े</string>
+    <string name="stats_screen_title_specific">आँकड़े: %1$s</string>
+    <string name="stats_fallback_answer_display">डिफ़ॉल्ट उत्तर</string>
+    <string name="stats_no_data_available">फिलहाल कोई आँकड़े उपलब्ध नहीं हैं।</string>
+    <string name="stats_total_plays">कुल खेले गए खेल: %d</string>
+    <string name="stats_count_format">मात्रा: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">आँकड़े</string>
+    <string name="game_stats_icon_description">खेल के आँकड़े देखें</string>
 </resources>

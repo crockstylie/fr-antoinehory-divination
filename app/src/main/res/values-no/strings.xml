@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Magisk 8-ball</string>
+    <string name="menu_button_coin_flip">Myntkast</string>
+    <string name="menu_button_rps">Stein, saks, papir</string>
+    <string name="menu_button_dice_roll">Terningkast</string>
+    <string name="menu_settings_description">Innstillinger</string>
+    <string name="menu_info_description">Informasjon</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Rist enheten for å få et svar.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Rist enheten (akselerometer ikke oppdaget).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Det er sikkert.</item>
+        <item>Det er helt klart slik.</item>
+        <item>Uten tvil.</item>
+        <item>Ja, definitivt.</item>
+        <item>Du kan stole på det.</item>
+        <item>Slik jeg ser det, ja.</item>
+        <item>Mest sannsynlig.</item>
+        <item>Utsiktene er gode.</item>
+        <item>Ja.</item>
+        <item>Tegnene peker mot ja.</item>
+        <item>Uklart svar, prøv igjen.</item>
+        <item>Spør igjen senere.</item>
+        <item>Bedre å ikke fortelle deg det nå.</item>
+        <item>Kan ikke forutsi nå.</item>
+        <item>Konsentrer deg og spør igjen.</item>
+        <item>Ikke regn med det.</item>
+        <item>Mitt svar er nei.</item>
+        <item>Kildene mine sier nei.</item>
+        <item>Utsiktene er ikke så gode.</item>
+        <item>Veldig tvilsomt.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Magisk ball</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Akselerometer er ikke tilgjengelig på denne enheten.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Myntkast</string>
+    <string name="coin_flip_initial_prompt_shake">Rist for å kaste mynten!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Rist (akselerometer ikke oppdaget).</string>
+    <string name="coin_flip_flipping_message">Kaster…</string>
+    <string name="coin_flip_result_heads">Kron!</string>
+    <string name="coin_flip_result_tails">Mynt!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Akselerometer er ikke tilgjengelig for å kaste mynten.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Bilde av kron</string>
+    <string name="coin_flip_tails_icon_description">Bilde av mynt</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Stein, saks, papir</string>
+    <string name="rps_initial_prompt_shake">Rist for å spille!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Rist (akselerometer ikke oppdaget).</string>
+    <string name="rps_processing_message">Stein, saks, papir…</string>
+    <string name="rps_result_rock">Stein!</string>
+    <string name="rps_result_paper">Papir!</string>
+    <string name="rps_result_scissors">Saks!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Akselerometer er ikke tilgjengelig for å spille.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Steinikon</string>
+    <string name="rps_icon_description_paper">Papirikon</string>
+    <string name="rps_icon_description_scissors">Saksikon</string>
+    <string name="general_content_description_empty">Resultatbilde</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Terningkast</string>
+    <string name="dice_initial_prompt_shake">Rist for å kaste terningen!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Bruk knappen nedenfor for å kaste terningen (akselerometer ikke tilgjengelig).</string>
+    <string name="dice_rolling_message">Kaster terning…</string>
+    <string name="dice_result_format">Resultat: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Akselerometer er ikke tilgjengelig på denne enheten. Risting vil ikke fungere.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Terningside som viser én</string>
+    <string name="dice_icon_description_2">Terningside som viser to</string>
+    <string name="dice_icon_description_3">Terningside som viser tre</string>
+    <string name="dice_icon_description_4">Terningside som viser fire</string>
+    <string name="dice_icon_description_5">Terningside som viser fem</string>
+    <string name="dice_icon_description_6">Terningside som viser seks</string>
+    <string name="dice_icon_description_empty">Ingen terningresultat vises</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Innstillinger</string>
+    <string name="settings_screen_soon_message">Snart…</string>
+    <string name="settings_interaction_mode_title">Interaksjonsmodus</string>
+    <string name="settings_interaction_mode_tap">Trykk for å starte</string>
+    <string name="settings_interaction_mode_shake">Rist for å starte</string>
+    <string name="settings_interaction_mode_shake_unavailable">Ristemodus er ikke tilgjengelig (ingen akselerometer).</string>
+    <string name="settings_data_management_title">Datahåndtering</string>
+    <string name="settings_clear_stats_button">Slett statistikk</string>
+    <string name="settings_clear_stats_dialog_title">Slette statistikk?</string>
+    <string name="settings_clear_stats_dialog_message">All spillstatistikkdata vil bli slettet permanent. Denne handlingen kan ikke angres.</string>
+    <string name="settings_clear_stats_dialog_confirm">Bekreft</string>
+    <string name="settings_clear_stats_dialog_cancel">Avbryt</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Interager for å få et svar.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Ingen interaksjonsmetode er aktiv. Sjekk innstillingene.</string>
+    <string name="magic_ball_content_description">Bilde av magisk ball</string>
+    <string name="coin_flip_initial_prompt_generic">Interager for å kaste mynten.</string>
+    <string name="coin_flip_no_interaction_method_active">Ingen interaksjonsmetode er aktiv. Sjekk innstillingene.</string>
+    <string name="coin_flip_result_heads_image_description">Bilde av mynt som viser kron</string>
+    <string name="coin_flip_result_tails_image_description">Bilde av mynt som viser mynt</string>
+    <string name="rps_initial_prompt_generic">Interager for å spille!</string>
+    <string name="rps_no_interaction_method_active">Ingen interaksjonsmetode er aktiv. Sjekk innstillingene.</string>
+    <string name="dice_initial_prompt_generic">Interager for å kaste terningen!</string>
+    <string name="dice_no_interaction_method_active">Ingen interaksjonsmetode er aktiv. Sjekk innstillingene.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Informasjon</string>
+    <string name="mes_informations_personnelles">Min personlige informasjon</string>
+    <string name="d_veloppeur">Utvikler</string>
+    <string name="site_web">Nettsted</string>
+    <string name="email">E-post</string>
+    <string name="donate">Doner</string>
+    <string name="retrouvez_moi_sur">Finn meg på:</string>
+    <string name="linkedin_profile">LinkedIn-profil</string>
+    <string name="behance_profile">Behance-profil</string>
+    <string name="instagram_profile">Instagram-profil</string>
+    <string name="facebook_profile">Facebook-profil</string>
+    <string name="spotify_profile">Spotify-profil</string>
+    <string name="steam_profile">Steam-profil</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Global statistikk</string>
+    <string name="stats_screen_title_specific">Statistikk: %1$s</string>
+    <string name="stats_fallback_answer_display">Standard svar</string>
+    <string name="stats_no_data_available">Ingen statistikk tilgjengelig for øyeblikket.</string>
+    <string name="stats_total_plays">Totalt antall spill: %d</string>
+    <string name="stats_count_format">Antall: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistikk</string>
+    <string name="game_stats_icon_description">Vis spillstatistikk</string>
+</resources>

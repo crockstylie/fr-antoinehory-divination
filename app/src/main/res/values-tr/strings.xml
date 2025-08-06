@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Sihirli 8 Topu</string>
+    <string name="menu_button_coin_flip">Yazı Tura</string>
+    <string name="menu_button_rps">Taş Kağıt Makas</string>
+    <string name="menu_button_dice_roll">Zar Atma</string>
+    <string name="menu_settings_description">Ayarlar</string>
+    <string name="menu_info_description">Bilgi</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Bir cevap almak için cihazı sallayın.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Cihazı sallayın (ivmeölçer algılanmadı).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Kesinlikle öyle.</item>
+        <item>Karar verildi.</item>
+        <item>Şüphesiz.</item>
+        <item>Evet, kesinlikle.</item>
+        <item>Ona güvenebilirsiniz.</item>
+        <item>Gördüğüm kadarıyla, evet.</item>
+        <item>Büyük olasılıkla.</item>
+        <item>Görünüşe göre iyi.</item>
+        <item>Evet.</item>
+        <item>İşaretler evet diyor.</item>
+        <item>Bulanık yanıt, tekrar deneyin.</item>
+        <item>Daha sonra tekrar sorun.</item>
+        <item>Şimdi söylemesem daha iyi.</item>
+        <item>Şimdi tahmin edilemiyor.</item>
+        <item>Konsantre olun ve tekrar sorun.</item>
+        <item>Ona güvenmeyin.</item>
+        <item>Cevabım hayır.</item>
+        <item>Kaynaklarım hayır diyor.</item>
+        <item>Görünüşe göre pek iyi değil.</item>
+        <item>Çok şüpheli.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Sihirli Top</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Bu cihazda ivmeölçer mevcut değil.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Yazı Tura</string>
+    <string name="coin_flip_initial_prompt_shake">Parayı çevirmek için sallayın!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Sallayın (ivmeölçer algılanmadı).</string>
+    <string name="coin_flip_flipping_message">Çevriliyor…</string>
+    <string name="coin_flip_result_heads">Yazı!</string>
+    <string name="coin_flip_result_tails">Tura!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Parayı çevirmek için ivmeölçer mevcut değil.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Yazı resmi</string>
+    <string name="coin_flip_tails_icon_description">Tura resmi</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Taş Kağıt Makas</string>
+    <string name="rps_initial_prompt_shake">Oynamak için sallayın!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Sallayın (ivmeölçer algılanmadı).</string>
+    <string name="rps_processing_message">Taş, Kağıt, Makas…</string>
+    <string name="rps_result_rock">Taş!</string>
+    <string name="rps_result_paper">Kağıt!</string>
+    <string name="rps_result_scissors">Makas!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Oynamak için ivmeölçer mevcut değil.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Taş simgesi</string>
+    <string name="rps_icon_description_paper">Kağıt simgesi</string>
+    <string name="rps_icon_description_scissors">Makas simgesi</string>
+    <string name="general_content_description_empty">Sonuç resmi</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Zar Atma</string>
+    <string name="dice_initial_prompt_shake">Zarları atmak için sallayın!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Zarları atmak için aşağıdaki düğmeyi kullanın (ivmeölçer mevcut değil).</string>
+    <string name="dice_rolling_message">Zarlar atılıyor…</string>
+    <string name="dice_result_format">Sonuç: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Bu cihazda ivmeölçer mevcut değil. Sallama çalışmayacaktır.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Bir gösteren zar yüzü</string>
+    <string name="dice_icon_description_2">İki gösteren zar yüzü</string>
+    <string name="dice_icon_description_3">Üç gösteren zar yüzü</string>
+    <string name="dice_icon_description_4">Dört gösteren zar yüzü</string>
+    <string name="dice_icon_description_5">Beş gösteren zar yüzü</string>
+    <string name="dice_icon_description_6">Altı gösteren zar yüzü</string>
+    <string name="dice_icon_description_empty">Zar sonucu görüntülenmiyor</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Ayarlar</string>
+    <string name="settings_screen_soon_message">Yakında…</string>
+    <string name="settings_interaction_mode_title">Etkileşim Modu</string>
+    <string name="settings_interaction_mode_tap">Başlatmak için dokunun</string>
+    <string name="settings_interaction_mode_shake">Başlatmak için sallayın</string>
+    <string name="settings_interaction_mode_shake_unavailable">Sallama modu kullanılamıyor (ivmeölçer yok).</string>
+    <string name="settings_data_management_title">Veri Yönetimi</string>
+    <string name="settings_clear_stats_button">İstatistikleri Temizle</string>
+    <string name="settings_clear_stats_dialog_title">İstatistikler Temizlensin mi?</string>
+    <string name="settings_clear_stats_dialog_message">Tüm oyun istatistik verileri kalıcı olarak silinecektir. Bu işlem geri alınamaz.</string>
+    <string name="settings_clear_stats_dialog_confirm">Onayla</string>
+    <string name="settings_clear_stats_dialog_cancel">İptal</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Bir cevap almak için etkileşimde bulunun.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Etkin bir etkileşim yöntemi yok. Ayarları kontrol edin.</string>
+    <string name="magic_ball_content_description">Sihirli Top resmi</string>
+    <string name="coin_flip_initial_prompt_generic">Parayı çevirmek için etkileşimde bulunun.</string>
+    <string name="coin_flip_no_interaction_method_active">Etkin bir etkileşim yöntemi yok. Ayarları kontrol edin.</string>
+    <string name="coin_flip_result_heads_image_description">Yazı gösteren para resmi</string>
+    <string name="coin_flip_result_tails_image_description">Tura gösteren para resmi</string>
+    <string name="rps_initial_prompt_generic">Oynamak için etkileşimde bulunun!</string>
+    <string name="rps_no_interaction_method_active">Etkin bir etkileşim yöntemi yok. Ayarları kontrol edin.</string>
+    <string name="dice_initial_prompt_generic">Zarları atmak için etkileşimde bulunun!</string>
+    <string name="dice_no_interaction_method_active">Etkin bir etkileşim yöntemi yok. Ayarları kontrol edin.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Bilgi</string>
+    <string name="mes_informations_personnelles">Kişisel Bilgilerim</string>
+    <string name="d_veloppeur">Geliştirici</string>
+    <string name="site_web">Web sitesi</string>
+    <string name="email">E-posta</string>
+    <string name="donate">Bağış Yap</string>
+    <string name="retrouvez_moi_sur">Beni şurada bulun:</string>
+    <string name="linkedin_profile">LinkedIn Profili</string>
+    <string name="behance_profile">Behance Profili</string>
+    <string name="instagram_profile">Instagram Profili</string>
+    <string name="facebook_profile">Facebook Profili</string>
+    <string name="spotify_profile">Spotify Profili</string>
+    <string name="steam_profile">Steam Profili</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Genel İstatistikler</string>
+    <string name="stats_screen_title_specific">İstatistikler: %1$s</string>
+    <string name="stats_fallback_answer_display">Varsayılan Cevap</string>
+    <string name="stats_no_data_available">Şu anda istatistik mevcut değil.</string>
+    <string name="stats_total_plays">Toplam oynama: %d</string>
+    <string name="stats_count_format">Miktar: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">İstatistikler</string>
+    <string name="game_stats_icon_description">Oyun istatistiklerini görüntüle</string>
+</resources>

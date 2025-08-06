@@ -88,9 +88,6 @@
     <string name="dice_icon_description_6">Würfelseite zeigt eine Sechs</string>
     <string name="dice_icon_description_empty">Kein Würfelergebnis angezeigt</string>
 
-    <!-- Leer oder Platzhalter -->
-    <string name="settings_screen_title">Einstellungen</string>
-    <string name="settings_screen_soon_message">Bald…</string>
     <string name="magic_ball_initial_prompt_generic">Interagiere, um eine Antwort zu erhalten.</string>
     <string name="magic_ball_no_interaction_method_active">Keine Interaktionsmethode aktiv. Überprüfe die Einstellungen.</string>
     <string name="magic_ball_content_description">Bild der Magischen Kugel</string>
@@ -116,5 +113,29 @@
     <string name="spotify_profile">Spotify Profil</string>
     <string name="steam_profile">Steam Profil</string>
 
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Einstellungen</string>
+    <string name="settings_screen_soon_message">Bald…</string>
+    <string name="settings_interaction_mode_title">Interaktionsmodus</string>
+    <string name="settings_interaction_mode_tap">Zum Starten tippen</string>
+    <string name="settings_interaction_mode_shake">Zum Starten schütteln</string>
+    <string name="settings_interaction_mode_shake_unavailable">Schüttelmodus nicht verfügbar (kein Beschleunigungssensor).</string>
+    <string name="settings_data_management_title">Datenverwaltung</string>
+    <string name="settings_clear_stats_button">Statistiken löschen</string>
+    <string name="settings_clear_stats_dialog_title">Statistiken löschen?</string>
+    <string name="settings_clear_stats_dialog_message">Alle Spielstatistiken werden dauerhaft gelöscht. Diese Aktion ist unwiderruflich.</string>
+    <string name="settings_clear_stats_dialog_confirm">Bestätigen</string>
+    <string name="settings_clear_stats_dialog_cancel">Abbrechen</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Globale Statistiken</string>
+    <string name="stats_screen_title_specific">Statistiken: %1$s</string>
+    <string name="stats_fallback_answer_display">Standardantwort</string>
+    <string name="stats_no_data_available">Im Moment keine Statistiken verfügbar.</string>
+    <string name="stats_total_plays">Gespielte Spiele insgesamt: %d</string>
+    <string name="stats_count_format">Menge: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistiken</string>
+    <string name="game_stats_icon_description">Spielstatistiken anzeigen</string>
 </resources>
 

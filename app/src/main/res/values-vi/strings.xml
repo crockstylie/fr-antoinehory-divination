@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Quả cầu ma thuật 8</string>
+    <string name="menu_button_coin_flip">Tung đồng xu</string>
+    <string name="menu_button_rps">Oẳn tù tì</string>
+    <string name="menu_button_dice_roll">Gieo xúc xắc</string>
+    <string name="menu_settings_description">Cài đặt</string>
+    <string name="menu_info_description">Thông tin</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Lắc thiết bị để nhận câu trả lời.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Lắc thiết bị (không phát hiện gia tốc kế).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Chắc chắn là vậy.</item>
+        <item>Quyết định là vậy.</item>
+        <item>Không còn nghi ngờ gì nữa.</item>
+        <item>Vâng, chắc chắn.</item>
+        <item>Bạn có thể tin vào điều đó.</item>
+        <item>Theo tôi thấy, vâng.</item>
+        <item>Rất có thể.</item>
+        <item>Triển vọng tốt.</item>
+        <item>Vâng.</item>
+        <item>Các dấu hiệu đều chỉ về có.</item>
+        <item>Trả lời mơ hồ, thử lại.</item>
+        <item>Hỏi lại sau.</item>
+        <item>Tốt hơn là không nói cho bạn bây giờ.</item>
+        <item>Không thể đoán trước bây giờ.</item>
+        <item>Tập trung và hỏi lại.</item>
+        <item>Đừng tin vào điều đó.</item>
+        <item>Câu trả lời của tôi là không.</item>
+        <item>Nguồn tin của tôi nói không.</item>
+        <item>Triển vọng không tốt lắm.</item>
+        <item>Rất đáng nghi.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Quả cầu ma thuật</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Gia tốc kế không có sẵn trên thiết bị này.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Tung đồng xu</string>
+    <string name="coin_flip_initial_prompt_shake">Lắc để tung đồng xu!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Lắc (không phát hiện gia tốc kế).</string>
+    <string name="coin_flip_flipping_message">Đang tung…</string>
+    <string name="coin_flip_result_heads">Ngửa!</string>
+    <string name="coin_flip_result_tails">Sấp!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Gia tốc kế không có sẵn để tung đồng xu.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Hình ảnh mặt ngửa</string>
+    <string name="coin_flip_tails_icon_description">Hình ảnh mặt sấp</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Oẳn tù tì</string>
+    <string name="rps_initial_prompt_shake">Lắc để chơi!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Lắc (không phát hiện gia tốc kế).</string>
+    <string name="rps_processing_message">Kéo, Búa, Bao…</string>
+    <string name="rps_result_rock">Búa!</string>
+    <string name="rps_result_paper">Bao!</string>
+    <string name="rps_result_scissors">Kéo!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Gia tốc kế không có sẵn để chơi.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Biểu tượng búa</string>
+    <string name="rps_icon_description_paper">Biểu tượng bao</string>
+    <string name="rps_icon_description_scissors">Biểu tượng kéo</string>
+    <string name="general_content_description_empty">Hình ảnh kết quả</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Gieo xúc xắc</string>
+    <string name="dice_initial_prompt_shake">Lắc để gieo xúc xắc!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Sử dụng nút bên dưới để gieo xúc xắc (gia tốc kế không có sẵn).</string>
+    <string name="dice_rolling_message">Đang gieo xúc xắc…</string>
+    <string name="dice_result_format">Kết quả: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Gia tốc kế không có sẵn trên thiết bị này. Lắc sẽ không hoạt động.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Mặt xúc xắc hiển thị một</string>
+    <string name="dice_icon_description_2">Mặt xúc xắc hiển thị hai</string>
+    <string name="dice_icon_description_3">Mặt xúc xắc hiển thị ba</string>
+    <string name="dice_icon_description_4">Mặt xúc xắc hiển thị bốn</string>
+    <string name="dice_icon_description_5">Mặt xúc xắc hiển thị năm</string>
+    <string name="dice_icon_description_6">Mặt xúc xắc hiển thị sáu</string>
+    <string name="dice_icon_description_empty">Không hiển thị kết quả xúc xắc</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Cài đặt</string>
+    <string name="settings_screen_soon_message">Sắp có…</string>
+    <string name="settings_interaction_mode_title">Chế độ tương tác</string>
+    <string name="settings_interaction_mode_tap">Chạm để khởi chạy</string>
+    <string name="settings_interaction_mode_shake">Lắc để khởi chạy</string>
+    <string name="settings_interaction_mode_shake_unavailable">Chế độ lắc không khả dụng (không có gia tốc kế).</string>
+    <string name="settings_data_management_title">Quản lý dữ liệu</string>
+    <string name="settings_clear_stats_button">Xóa thống kê</string>
+    <string name="settings_clear_stats_dialog_title">Xóa thống kê?</string>
+    <string name="settings_clear_stats_dialog_message">Tất cả dữ liệu thống kê trò chơi sẽ bị xóa vĩnh viễn. Hành động này không thể hoàn tác.</string>
+    <string name="settings_clear_stats_dialog_confirm">Xác nhận</string>
+    <string name="settings_clear_stats_dialog_cancel">Hủy</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Tương tác để nhận câu trả lời.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Không có phương thức tương tác nào đang hoạt động. Kiểm tra cài đặt.</string>
+    <string name="magic_ball_content_description">Hình ảnh quả cầu ma thuật</string>
+    <string name="coin_flip_initial_prompt_generic">Tương tác để tung đồng xu.</string>
+    <string name="coin_flip_no_interaction_method_active">Không có phương thức tương tác nào đang hoạt động. Kiểm tra cài đặt.</string>
+    <string name="coin_flip_result_heads_image_description">Hình ảnh đồng xu hiển thị mặt ngửa</string>
+    <string name="coin_flip_result_tails_image_description">Hình ảnh đồng xu hiển thị mặt sấp</string>
+    <string name="rps_initial_prompt_generic">Tương tác để chơi!</string>
+    <string name="rps_no_interaction_method_active">Không có phương thức tương tác nào đang hoạt động. Kiểm tra cài đặt.</string>
+    <string name="dice_initial_prompt_generic">Tương tác để gieo xúc xắc!</string>
+    <string name="dice_no_interaction_method_active">Không có phương thức tương tác nào đang hoạt động. Kiểm tra cài đặt.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Thông tin</string>
+    <string name="mes_informations_personnelles">Thông tin cá nhân của tôi</string>
+    <string name="d_veloppeur">Nhà phát triển</string>
+    <string name="site_web">Trang web</string>
+    <string name="email">Email</string>
+    <string name="donate">Quyên góp</string>
+    <string name="retrouvez_moi_sur">Tìm tôi trên:</string>
+    <string name="linkedin_profile">Hồ sơ LinkedIn</string>
+    <string name="behance_profile">Hồ sơ Behance</string>
+    <string name="instagram_profile">Hồ sơ Instagram</string>
+    <string name="facebook_profile">Hồ sơ Facebook</string>
+    <string name="spotify_profile">Hồ sơ Spotify</string>
+    <string name="steam_profile">Hồ sơ Steam</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Thống kê toàn cầu</string>
+    <string name="stats_screen_title_specific">Thống kê: %1$s</string>
+    <string name="stats_fallback_answer_display">Câu trả lời mặc định</string>
+    <string name="stats_no_data_available">Hiện không có thống kê nào.</string>
+    <string name="stats_total_plays">Tổng số lượt chơi: %d</string>
+    <string name="stats_count_format">Số lượng: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Thống kê</string>
+    <string name="game_stats_icon_description">Xem thống kê trò chơi</string>
+</resources>

@@ -75,9 +75,6 @@
     <string name="dice_icon_description_6">骰子面显示六点</string>
     <string name="dice_icon_description_empty">未显示骰子结果</string>
 
-    <!-- Settings Screen -->
-    <string name="settings_screen_title">设置</string>
-    <string name="settings_screen_soon_message">敬请期待…</string>
     <string name="magic_ball_initial_prompt_generic">互动以获取答案。</string>
     <string name="magic_ball_no_interaction_method_active">没有活动的互动方式。请检查设置。</string>
     <string name="magic_ball_content_description">魔法球图片</string>
@@ -102,4 +99,29 @@
     <string name="facebook_profile">Facebook 个人资料</string>
     <string name="spotify_profile">Spotify 个人资料</string>
     <string name="steam_profile">Steam 个人资料</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">设置</string>
+    <string name="settings_screen_soon_message">即将推出…</string>
+    <string name="settings_interaction_mode_title">互动模式</string>
+    <string name="settings_interaction_mode_tap">点击启动</string>
+    <string name="settings_interaction_mode_shake">摇晃启动</string>
+    <string name="settings_interaction_mode_shake_unavailable">摇晃模式不可用（无加速计）。</string>
+    <string name="settings_data_management_title">数据管理</string>
+    <string name="settings_clear_stats_button">清除统计数据</string>
+    <string name="settings_clear_stats_dialog_title">清除统计数据？</string>
+    <string name="settings_clear_stats_dialog_message">所有游戏统计数据将被永久删除。此操作不可逆。</string>
+    <string name="settings_clear_stats_dialog_confirm">确认</string>
+    <string name="settings_clear_stats_dialog_cancel">取消</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">全局统计</string>
+    <string name="stats_screen_title_specific">统计：%1$s</string>
+    <string name="stats_fallback_answer_display">默认答案</string>
+    <string name="stats_no_data_available">目前没有可用的统计数据。</string>
+    <string name="stats_total_plays">总游戏次数：%d</string>
+    <string name="stats_count_format">数量：%d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">统计</string>
+    <string name="game_stats_icon_description">查看游戏统计</string>
 </resources>

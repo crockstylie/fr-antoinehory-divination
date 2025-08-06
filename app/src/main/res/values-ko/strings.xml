@@ -88,9 +88,6 @@
     <string name="dice_icon_description_6">주사위 면 6</string>
     <string name="dice_icon_description_empty">주사위 결과가 표시되지 않음</string>
 
-    <!-- Settings Screen -->
-    <string name="settings_screen_title">설정</string>
-    <string name="settings_screen_soon_message">곧…</string>
     <string name="magic_ball_initial_prompt_generic">상호작용하여 답변을 받으세요.</string>
     <string name="magic_ball_no_interaction_method_active">활성화된 상호작용 방법이 없습니다. 설정을 확인하세요.</string>
     <string name="magic_ball_content_description">마법의 공 이미지</string>
@@ -116,4 +113,28 @@
     <string name="spotify_profile">Spotify 프로필</string>
     <string name="steam_profile">Steam 프로필</string>
 
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">설정</string>
+    <string name="settings_screen_soon_message">곧…</string>
+    <string name="settings_interaction_mode_title">상호작용 모드</string>
+    <string name="settings_interaction_mode_tap">탭하여 실행</string>
+    <string name="settings_interaction_mode_shake">흔들어서 실행</string>
+    <string name="settings_interaction_mode_shake_unavailable">흔들기 모드를 사용할 수 없습니다 (가속도계 없음).</string>
+    <string name="settings_data_management_title">데이터 관리</string>
+    <string name="settings_clear_stats_button">통계 지우기</string>
+    <string name="settings_clear_stats_dialog_title">통계를 지우시겠습니까?</string>
+    <string name="settings_clear_stats_dialog_message">모든 게임 통계 데이터가 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다.</string>
+    <string name="settings_clear_stats_dialog_confirm">확인</string>
+    <string name="settings_clear_stats_dialog_cancel">취소</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">전체 통계</string>
+    <string name="stats_screen_title_specific">통계: %1$s</string>
+    <string name="stats_fallback_answer_display">기본 답변</string>
+    <string name="stats_no_data_available">현재 통계가 없습니다.</string>
+    <string name="stats_total_plays">총 플레이 횟수: %d</string>
+    <string name="stats_count_format">수량: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">통계</string>
+    <string name="game_stats_icon_description">게임 통계 보기</string>
 </resources>

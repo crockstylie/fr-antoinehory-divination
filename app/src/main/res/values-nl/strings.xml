@@ -88,9 +88,6 @@
     <string name="dice_icon_description_6">Dobbelsteenzijde met zes</string>
     <string name="dice_icon_description_empty">Geen dobbelsteenresultaat weergegeven</string>
 
-    <!-- Settings Screen -->
-    <string name="settings_screen_title">Instellingen</string>
-    <string name="settings_screen_soon_message">Binnenkort…</string>
     <string name="magic_ball_initial_prompt_generic">Interacteer om een antwoord te krijgen.</string>
     <string name="magic_ball_no_interaction_method_active">Geen interactiemethode actief. Controleer de instellingen.</string>
     <string name="magic_ball_content_description">Afbeelding van Magische Bal</string>
@@ -116,5 +113,29 @@
     <string name="spotify_profile">Spotify Profiel</string>
     <string name="steam_profile">Steam Profiel</string>
 
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Instellingen</string>
+    <string name="settings_screen_soon_message">Binnenkort…</string>
+    <string name="settings_interaction_mode_title">Interactiemodus</string>
+    <string name="settings_interaction_mode_tap">Tik om te starten</string>
+    <string name="settings_interaction_mode_shake">Schud om te starten</string>
+    <string name="settings_interaction_mode_shake_unavailable">Schudmodus niet beschikbaar (geen accelerometer).</string>
+    <string name="settings_data_management_title">Gegevensbeheer</string>
+    <string name="settings_clear_stats_button">Statistieken wissen</string>
+    <string name="settings_clear_stats_dialog_title">Statistieken wissen?</string>
+    <string name="settings_clear_stats_dialog_message">Alle spelstatistieken worden permanent verwijderd. Deze actie kan niet ongedaan worden gemaakt.</string>
+    <string name="settings_clear_stats_dialog_confirm">Bevestigen</string>
+    <string name="settings_clear_stats_dialog_cancel">Annuleren</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Globale statistieken</string>
+    <string name="stats_screen_title_specific">Statistieken: %1$s</string>
+    <string name="stats_fallback_answer_display">Standaard antwoord</string>
+    <string name="stats_no_data_available">Momenteel geen statistieken beschikbaar.</string>
+    <string name="stats_total_plays">Totaal aantal spellen: %d</string>
+    <string name="stats_count_format">Aantal: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistieken</string>
+    <string name="game_stats_icon_description">Spelstatistieken bekijken</string>
 </resources>
 

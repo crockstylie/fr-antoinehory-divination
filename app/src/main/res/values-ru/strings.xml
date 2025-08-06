@@ -75,9 +75,6 @@
     <string name="dice_icon_description_6">Сторона кости с шестью очками</string>
     <string name="dice_icon_description_empty">Результат броска костей не отображается</string>
 
-    <!-- Settings Screen -->
-    <string name="settings_screen_title">Настройки</string>
-    <string name="settings_screen_soon_message">Скоро…</string>
     <string name="magic_ball_initial_prompt_generic">Взаимодействуйте, чтобы получить ответ.</string>
     <string name="magic_ball_no_interaction_method_active">Метод взаимодействия не активен. Проверьте настройки.</string>
     <string name="magic_ball_content_description">Изображение Магического Шара</string>
@@ -102,4 +99,29 @@
     <string name="facebook_profile">Профиль Facebook</string>
     <string name="spotify_profile">Профиль Spotify</string>
     <string name="steam_profile">Профиль Steam</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Настройки</string>
+    <string name="settings_screen_soon_message">Скоро…</string>
+    <string name="settings_interaction_mode_title">Режим взаимодействия</string>
+    <string name="settings_interaction_mode_tap">Нажмите для запуска</string>
+    <string name="settings_interaction_mode_shake">Встряхните для запуска</string>
+    <string name="settings_interaction_mode_shake_unavailable">Режим встряхивания недоступен (нет акселерометра).</string>
+    <string name="settings_data_management_title">Управление данными</string>
+    <string name="settings_clear_stats_button">Очистить статистику</string>
+    <string name="settings_clear_stats_dialog_title">Очистить статистику?</string>
+    <string name="settings_clear_stats_dialog_message">Все данные игровой статистики будут удалены без возможности восстановления. Это действие необратимо.</string>
+    <string name="settings_clear_stats_dialog_confirm">Подтвердить</string>
+    <string name="settings_clear_stats_dialog_cancel">Отмена</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Общая статистика</string>
+    <string name="stats_screen_title_specific">Статистика: %1$s</string>
+    <string name="stats_fallback_answer_display">Ответ по умолчанию</string>
+    <string name="stats_no_data_available">Статистика в данный момент недоступна.</string>
+    <string name="stats_total_plays">Всего сыграно игр: %d</string>
+    <string name="stats_count_format">Кол-во: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Статистика</string>
+    <string name="game_stats_icon_description">Посмотреть игровую статистику</string>
 </resources>

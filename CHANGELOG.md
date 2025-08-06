@@ -9,15 +9,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Launches statistics:** 
-  - Added a new functionality which logs the launches of each minigames and displays stats.
+    - Added a new functionality which logs the launches of each minigames and displays stats.
+- **Localization:** Added more translations for key UI strings in multiple languages:
+    - Turkish - tr
+    - Hebrew - he
+    - Vietnamese - vi
+    - Thai - th
+    - Polish - pl
+    - Czech - cs
+    - Croatian - hr
+    - Slovak - sk
+    - Slovenian - sl
+    - Finnish - fi
+    - Hungarian - hu
+    - Swedish - sv
+    - Norwegian - no
+    - Bulgarian - bg
+    - Danish - da
+    - Chinese (Traditional) - zh-TW
+    - Chinese (Traditional) - zh-HK)
 
 ### Changed
 - **Localization:**
-  - extraction of hardcoded text from the info page for internationalization.
+    - extraction of hardcoded text from the info page for internationalization.
 
 ### Fixed
 - **Gradle dependencies:**
-  - Changing many versions of libraries for using the stables ones instead of the last ones. It worked until I wanted to use ksp 
+    - Changing many versions of libraries for using the stables ones instead of the last ones. It worked until I wanted to use ksp 
 
 ## [2.2] - 2025-07-28
 

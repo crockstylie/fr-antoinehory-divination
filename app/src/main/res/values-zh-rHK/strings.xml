@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">奧拉尼姆</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">神奇8號球</string>
+    <string name="menu_button_coin_flip">擲硬幣</string>
+    <string name="menu_button_rps">石頭、剪刀、布</string>
+    <string name="menu_button_dice_roll">擲骰</string>
+    <string name="menu_settings_description">設定</string>
+    <string name="menu_info_description">資訊</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">搖晃裝置以獲取答案。</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">搖晃裝置（未偵測到加速計）。</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>肯定是的。</item>
+        <item>絕對如此。</item>
+        <item>毫無疑問。</item>
+        <item>是的，絕對是。</item>
+        <item>你可以信賴它。</item>
+        <item>在我看來，是的。</item>
+        <item>很有可能。</item>
+        <item>前景看好。</item>
+        <item>是的。</item>
+        <item>跡象顯示是的。</item>
+        <item>答覆模糊，再試一次。</item>
+        <item>稍後再問。</item>
+        <item>現在最好不要告訴你。</item>
+        <item>現在無法預測。</item>
+        <item>專心再問一次。</item>
+        <item>不要指望它。</item>
+        <item>我的答覆是否定的。</item>
+        <item>我的消息來源說不。</item>
+        <item>前景不太好。</item>
+        <item>非常可疑。</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">神奇魔球</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">此裝置無法使用加速計。</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">擲硬幣</string>
+    <string name="coin_flip_initial_prompt_shake">搖晃以擲硬幣！</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">搖晃（未偵測到加速計）。</string>
+    <string name="coin_flip_flipping_message">正在投擲…</string>
+    <string name="coin_flip_result_heads">公！</string>
+    <string name="coin_flip_result_tails">字！</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">無法使用加速計擲硬幣。</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">公仔圖片</string>
+    <string name="coin_flip_tails_icon_description">字樣圖片</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">石頭、剪刀、布</string>
+    <string name="rps_initial_prompt_shake">搖晃以開始遊戲！</string>
+    <string name="rps_initial_prompt_no_accelerometer">搖晃（未偵測到加速計）。</string>
+    <string name="rps_processing_message">石頭、剪刀、布…</string>
+    <string name="rps_result_rock">石頭！</string>
+    <string name="rps_result_paper">布！</string>
+    <string name="rps_result_scissors">剪刀！</string>
+    <string name="rps_accelerometer_not_available_ui_message">無法使用加速計進行遊戲。</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">石頭圖示</string>
+    <string name="rps_icon_description_paper">布圖示</string>
+    <string name="rps_icon_description_scissors">剪刀圖示</string>
+    <string name="general_content_description_empty">結果圖片</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">擲骰</string>
+    <string name="dice_initial_prompt_shake">搖晃以擲骰！</string>
+    <string name="dice_initial_prompt_no_accelerometer">使用下方按鈕擲骰（無法使用加速計）。</string>
+    <string name="dice_rolling_message">正在擲骰…</string>
+    <string name="dice_result_format">結果：%1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">此裝置無法使用加速計。搖晃功能將無法運作。</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">骰子面顯示一點</string>
+    <string name="dice_icon_description_2">骰子面顯示二點</string>
+    <string name="dice_icon_description_3">骰子面顯示三點</string>
+    <string name="dice_icon_description_4">骰子面顯示四點</string>
+    <string name="dice_icon_description_5">骰子面顯示五點</string>
+    <string name="dice_icon_description_6">骰子面顯示六點</string>
+    <string name="dice_icon_description_empty">未顯示擲骰結果</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">設定</string>
+    <string name="settings_screen_soon_message">即將推出…</string>
+    <string name="settings_interaction_mode_title">互動模式</string>
+    <string name="settings_interaction_mode_tap">輕觸以啟動</string>
+    <string name="settings_interaction_mode_shake">搖晃以啟動</string>
+    <string name="settings_interaction_mode_shake_unavailable">搖晃模式不可用（無加速計）。</string>
+    <string name="settings_data_management_title">資料管理</string>
+    <string name="settings_clear_stats_button">清除統計資料</string>
+    <string name="settings_clear_stats_dialog_title">清除統計資料？</string>
+    <string name="settings_clear_stats_dialog_message">所有遊戲統計資料將被永久刪除。此操作無法復原。</string>
+    <string name="settings_clear_stats_dialog_confirm">確認</string>
+    <string name="settings_clear_stats_dialog_cancel">取消</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">互動以獲取答案。</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">沒有啟用的互動方法。請檢查設定。</string>
+    <string name="magic_ball_content_description">神奇魔球圖片</string>
+    <string name="coin_flip_initial_prompt_generic">互動以擲硬幣。</string>
+    <string name="coin_flip_no_interaction_method_active">沒有啟用的互動方法。請檢查設定。</string>
+    <string name="coin_flip_result_heads_image_description">顯示公仔的硬幣圖片</string>
+    <string name="coin_flip_result_tails_image_description">顯示字樣的硬幣圖片</string>
+    <string name="rps_initial_prompt_generic">互動以開始遊戲！</string>
+    <string name="rps_no_interaction_method_active">沒有啟用的互動方法。請檢查設定。</string>
+    <string name="dice_initial_prompt_generic">互動以擲骰！</string>
+    <string name="dice_no_interaction_method_active">沒有啟用的互動方法。請檢查設定。</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">資訊</string>
+    <string name="mes_informations_personnelles">我的個人資訊</string>
+    <string name="d_veloppeur">開發者</string>
+    <string name="site_web">網站</string>
+    <string name="email">電郵</string>
+    <string name="donate">贊助</string>
+    <string name="retrouvez_moi_sur">在以下平台找到我：</string>
+    <string name="linkedin_profile">LinkedIn 個人檔案</string>
+    <string name="behance_profile">Behance 個人檔案</string>
+    <string name="instagram_profile">Instagram 個人檔案</string>
+    <string name="facebook_profile">Facebook 個人檔案</string>
+    <string name="spotify_profile">Spotify 個人檔案</string>
+    <string name="steam_profile">Steam 個人檔案</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">全域統計</string>
+    <string name="stats_screen_title_specific">統計：%1$s</string>
+    <string name="stats_fallback_answer_display">預設答案</string>
+    <string name="stats_no_data_available">目前沒有可用的統計資料。</string>
+    <string name="stats_total_plays">總遊戲次數：%d</string>
+    <string name="stats_count_format">數量：%d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">統計</string>
+    <string name="game_stats_icon_description">檢視遊戲統計</string>
+</resources>

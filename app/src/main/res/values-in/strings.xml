@@ -75,9 +75,6 @@
     <string name="dice_icon_description_6">Sisi dadu menunjukkan enam</string>
     <string name="dice_icon_description_empty">Tidak ada hasil dadu yang ditampilkan</string>
 
-    <!-- Settings Screen -->
-    <string name="settings_screen_title">Pengaturan</string>
-    <string name="settings_screen_soon_message">Segera…</string>
     <string name="magic_ball_initial_prompt_generic">Berinteraksi untuk mendapatkan jawaban.</string>
     <string name="magic_ball_no_interaction_method_active">Tidak ada metode interaksi yang aktif. Periksa pengaturan.</string>
     <string name="magic_ball_content_description">Gambar Bola Ajaib</string>
@@ -102,4 +99,30 @@
     <string name="facebook_profile">Profil Facebook</string>
     <string name="spotify_profile">Profil Spotify</string>
     <string name="steam_profile">Profil Steam</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Pengaturan</string>
+    <string name="settings_screen_soon_message">Segera…</string>
+    <string name="settings_interaction_mode_title">Mode Interaksi</string>
+    <string name="settings_interaction_mode_tap">Ketuk untuk meluncurkan</string>
+    <string name="settings_interaction_mode_shake">Goyangkan untuk meluncurkan</string>
+    <string name="settings_interaction_mode_shake_unavailable">Mode goyang tidak tersedia (tidak ada akselerometer).</string>
+    <string name="settings_data_management_title">Manajemen Data</string>
+    <string name="settings_clear_stats_button">Hapus Statistik</string>
+    <string name="settings_clear_stats_dialog_title">Hapus Statistik?</string>
+    <string name="settings_clear_stats_dialog_message">Semua data statistik game akan dihapus secara permanen. Tindakan ini tidak dapat diurungkan.</string>
+    <string name="settings_clear_stats_dialog_confirm">Konfirmasi</string>
+    <string name="settings_clear_stats_dialog_cancel">Batal</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Statistik Global</string>
+    <string name="stats_screen_title_specific">Statistik: %1$s</string>
+    <string name="stats_fallback_answer_display">Jawaban Default</string>
+    <string name="stats_no_data_available">Tidak ada statistik yang tersedia saat ini.</string>
+    <string name="stats_total_plays">Total permainan: %d</string>
+    <string name="stats_count_format">Jml: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistik</string>
+    <string name="game_stats_icon_description">Lihat statistik game</string>
+
 </resources>

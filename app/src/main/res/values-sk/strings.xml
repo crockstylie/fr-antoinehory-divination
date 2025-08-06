@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Magická guľa 8</string>
+    <string name="menu_button_coin_flip">Hod mincou</string>
+    <string name="menu_button_rps">Kameň, papier, nožnice</string>
+    <string name="menu_button_dice_roll">Hod kockou</string>
+    <string name="menu_settings_description">Nastavenia</string>
+    <string name="menu_info_description">Informácie</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Zatrasením zariadenia získate odpoveď.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Zatraste zariadením (akcelerometer nebol detekovaný).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Je to isté.</item>
+        <item>Je to rozhodne tak.</item>
+        <item>Nepochybne.</item>
+        <item>Áno, rozhodne.</item>
+        <item>Môžete sa na to spoľahnúť.</item>
+        <item>Ako to vidím ja, áno.</item>
+        <item>Veľmi pravdepodobne.</item>
+        <item>Výhľad dobrý.</item>
+        <item>Áno.</item>
+        <item>Znamenia ukazujú na áno.</item>
+        <item>Odpoveď nejasná, skúste znova.</item>
+        <item>Opýtajte sa neskôr.</item>
+        <item>Radšej vám to teraz nepoviem.</item>
+        <item>Teraz sa nedá predpovedať.</item>
+        <item>Sústreďte sa a opýtajte sa znova.</item>
+        <item>Nepočítajte s tým.</item>
+        <item>Moja odpoveď je nie.</item>
+        <item>Moje zdroje hovoria nie.</item>
+        <item>Výhľad nie je veľmi dobrý.</item>
+        <item>Veľmi pochybné.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Magická guľa</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Akcelerometer nie je na tomto zariadení k dispozícii.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Hod mincou</string>
+    <string name="coin_flip_initial_prompt_shake">Zatrasením hodíte mincou!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Zatraste (akcelerometer nebol detekovaný).</string>
+    <string name="coin_flip_flipping_message">Hádžem…</string>
+    <string name="coin_flip_result_heads">Hlava!</string>
+    <string name="coin_flip_result_tails">Znak!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Akcelerometer nie je k dispozícii na hodenie mincou.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Obrázok hlavy</string>
+    <string name="coin_flip_tails_icon_description">Obrázok znaku</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Kameň, papier, nožnice</string>
+    <string name="rps_initial_prompt_shake">Zatrasením hrajte!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Zatraste (akcelerometer nebol detekovaný).</string>
+    <string name="rps_processing_message">Kameň, papier, nožnice…</string>
+    <string name="rps_result_rock">Kameň!</string>
+    <string name="rps_result_paper">Papier!</string>
+    <string name="rps_result_scissors">Nožnice!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Akcelerometer nie je k dispozícii na hranie.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Ikona kameňa</string>
+    <string name="rps_icon_description_paper">Ikona papiera</string>
+    <string name="rps_icon_description_scissors">Ikona nožníc</string>
+    <string name="general_content_description_empty">Obrázok výsledku</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Hod kockou</string>
+    <string name="dice_initial_prompt_shake">Zatrasením hodíte kockou!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Použite tlačidlo nižšie na hodenie kockou (akcelerometer nie je k dispozícii).</string>
+    <string name="dice_rolling_message">Hádžem kockou…</string>
+    <string name="dice_result_format">Výsledok: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Akcelerometer nie je na tomto zariadení k dispozícii. Trasenie nebude fungovať.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Strana kocky zobrazujúca jedno</string>
+    <string name="dice_icon_description_2">Strana kocky zobrazujúca dve</string>
+    <string name="dice_icon_description_3">Strana kocky zobrazujúca tri</string>
+    <string name="dice_icon_description_4">Strana kocky zobrazujúca štyri</string>
+    <string name="dice_icon_description_5">Strana kocky zobrazujúca päť</string>
+    <string name="dice_icon_description_6">Strana kocky zobrazujúca šesť</string>
+    <string name="dice_icon_description_empty">Nezobrazený výsledok hodu kockou</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Nastavenia</string>
+    <string name="settings_screen_soon_message">Čoskoro…</string>
+    <string name="settings_interaction_mode_title">Režim interakcie</string>
+    <string name="settings_interaction_mode_tap">Ťuknutím spustíte</string>
+    <string name="settings_interaction_mode_shake">Zatrasením spustíte</string>
+    <string name="settings_interaction_mode_shake_unavailable">Režim trasenia nie je k dispozícii (žiadny akcelerometer).</string>
+    <string name="settings_data_management_title">Správa údajov</string>
+    <string name="settings_clear_stats_button">Vymazať štatistiky</string>
+    <string name="settings_clear_stats_dialog_title">Vymazať štatistiky?</string>
+    <string name="settings_clear_stats_dialog_message">Všetky údaje herných štatistík budú natrvalo odstránené. Táto akcia je nezvratná.</string>
+    <string name="settings_clear_stats_dialog_confirm">Potvrdiť</string>
+    <string name="settings_clear_stats_dialog_cancel">Zrušiť</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Interagujte, aby ste získali odpoveď.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Nie je aktívna žiadna metóda interakcie. Skontrolujte nastavenia.</string>
+    <string name="magic_ball_content_description">Obrázok magickej gule</string>
+    <string name="coin_flip_initial_prompt_generic">Interagujte, aby ste hodili mincou.</string>
+    <string name="coin_flip_no_interaction_method_active">Nie je aktívna žiadna metóda interakcie. Skontrolujte nastavenia.</string>
+    <string name="coin_flip_result_heads_image_description">Obrázok mince zobrazujúci hlavu</string>
+    <string name="coin_flip_result_tails_image_description">Obrázok mince zobrazujúci znak</string>
+    <string name="rps_initial_prompt_generic">Interagujte, aby ste hrali!</string>
+    <string name="rps_no_interaction_method_active">Nie je aktívna žiadna metóda interakcie. Skontrolujte nastavenia.</string>
+    <string name="dice_initial_prompt_generic">Interagujte, aby ste hodili kockou!</string>
+    <string name="dice_no_interaction_method_active">Nie je aktívna žiadna metóda interakcie. Skontrolujte nastavenia.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Informácie</string>
+    <string name="mes_informations_personnelles">Moje osobné údaje</string>
+    <string name="d_veloppeur">Vývojár</string>
+    <string name="site_web">Webová stránka</string>
+    <string name="email">E-mail</string>
+    <string name="donate">Prispieť</string>
+    <string name="retrouvez_moi_sur">Nájdete ma na:</string>
+    <string name="linkedin_profile">Profil LinkedIn</string>
+    <string name="behance_profile">Profil Behance</string>
+    <string name="instagram_profile">Profil Instagram</string>
+    <string name="facebook_profile">Profil Facebook</string>
+    <string name="spotify_profile">Profil Spotify</string>
+    <string name="steam_profile">Profil Steam</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Globálne štatistiky</string>
+    <string name="stats_screen_title_specific">Štatistiky: %1$s</string>
+    <string name="stats_fallback_answer_display">Predvolená odpoveď</string>
+    <string name="stats_no_data_available">Momentálne nie sú k dispozícii žiadne štatistiky.</string>
+    <string name="stats_total_plays">Celkový počet hier: %d</string>
+    <string name="stats_count_format">Množstvo: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Štatistiky</string>
+    <string name="game_stats_icon_description">Zobraziť herné štatistiky</string>
+</resources>

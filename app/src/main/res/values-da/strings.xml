@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Magisk 8-bold</string>
+    <string name="menu_button_coin_flip">Plat eller krone</string>
+    <string name="menu_button_rps">Sten, saks, papir</string>
+    <string name="menu_button_dice_roll">Terningkast</string>
+    <string name="menu_settings_description">Indstillinger</string>
+    <string name="menu_info_description">Information</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Ryst enheden for at få et svar.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Ryst enheden (accelerometer ikke registreret).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Det er sikkert.</item>
+        <item>Det er afgjort sådan.</item>
+        <item>Uden tvivl.</item>
+        <item>Ja, helt sikkert.</item>
+        <item>Du kan stole på det.</item>
+        <item>Som jeg ser det, ja.</item>
+        <item>Meget sandsynligt.</item>
+        <item>Udsigterne er gode.</item>
+        <item>Ja.</item>
+        <item>Tegnene peger på ja.</item>
+        <item>Uklart svar, prøv igen.</item>
+        <item>Spørg igen senere.</item>
+        <item>Bedre ikke at fortælle dig det nu.</item>
+        <item>Kan ikke forudsige nu.</item>
+        <item>Koncentrer dig og spørg igen.</item>
+        <item>Regn ikke med det.</item>
+        <item>Mit svar er nej.</item>
+        <item>Mine kilder siger nej.</item>
+        <item>Udsigterne er ikke så gode.</item>
+        <item>Meget tvivlsomt.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Magisk bold</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Accelerometer er ikke tilgængeligt på denne enhed.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Plat eller krone</string>
+    <string name="coin_flip_initial_prompt_shake">Ryst for at kaste mønten!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Ryst (accelerometer ikke registreret).</string>
+    <string name="coin_flip_flipping_message">Kaster…</string>
+    <string name="coin_flip_result_heads">Krone!</string>
+    <string name="coin_flip_result_tails">Plat!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Accelerometer er ikke tilgængeligt for at kaste mønten.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Billede af krone</string>
+    <string name="coin_flip_tails_icon_description">Billede af plat</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Sten, saks, papir</string>
+    <string name="rps_initial_prompt_shake">Ryst for at spille!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Ryst (accelerometer ikke registreret).</string>
+    <string name="rps_processing_message">Sten, saks, papir…</string>
+    <string name="rps_result_rock">Sten!</string>
+    <string name="rps_result_paper">Papir!</string>
+    <string name="rps_result_scissors">Saks!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Accelerometer er ikke tilgængeligt for at spille.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Stenikon</string>
+    <string name="rps_icon_description_paper">Papirikon</string>
+    <string name="rps_icon_description_scissors">Sakseikon</string>
+    <string name="general_content_description_empty">Resultatbillede</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Terningkast</string>
+    <string name="dice_initial_prompt_shake">Ryst for at kaste terningen!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Brug knappen nedenfor til at kaste terningen (accelerometer ikke tilgængeligt).</string>
+    <string name="dice_rolling_message">Kaster terning…</string>
+    <string name="dice_result_format">Resultat: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Accelerometer er ikke tilgængeligt på denne enhed. Rystning virker ikke.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Terningside der viser en</string>
+    <string name="dice_icon_description_2">Terningside der viser to</string>
+    <string name="dice_icon_description_3">Terningside der viser tre</string>
+    <string name="dice_icon_description_4">Terningside der viser fire</string>
+    <string name="dice_icon_description_5">Terningside der viser fem</string>
+    <string name="dice_icon_description_6">Terningside der viser seks</string>
+    <string name="dice_icon_description_empty">Intet terningresultat vist</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Indstillinger</string>
+    <string name="settings_screen_soon_message">Snart…</string>
+    <string name="settings_interaction_mode_title">Interaktionstilstand</string>
+    <string name="settings_interaction_mode_tap">Tryk for at starte</string>
+    <string name="settings_interaction_mode_shake">Ryst for at starte</string>
+    <string name="settings_interaction_mode_shake_unavailable">Rystetilstand er ikke tilgængelig (ingen accelerometer).</string>
+    <string name="settings_data_management_title">Datahåndtering</string>
+    <string name="settings_clear_stats_button">Ryd statistik</string>
+    <string name="settings_clear_stats_dialog_title">Rydde statistik?</string>
+    <string name="settings_clear_stats_dialog_message">Alle spilstatistikdata vil blive slettet permanent. Denne handling kan ikke fortrydes.</string>
+    <string name="settings_clear_stats_dialog_confirm">Bekræft</string>
+    <string name="settings_clear_stats_dialog_cancel">Annuller</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Interager for at få et svar.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Ingen interaktionsmetode er aktiv. Tjek indstillinger.</string>
+    <string name="magic_ball_content_description">Billede af magisk bold</string>
+    <string name="coin_flip_initial_prompt_generic">Interager for at kaste mønten.</string>
+    <string name="coin_flip_no_interaction_method_active">Ingen interaktionsmetode er aktiv. Tjek indstillinger.</string>
+    <string name="coin_flip_result_heads_image_description">Billede af mønt der viser krone</string>
+    <string name="coin_flip_result_tails_image_description">Billede af mønt der viser plat</string>
+    <string name="rps_initial_prompt_generic">Interager for at spille!</string>
+    <string name="rps_no_interaction_method_active">Ingen interaktionsmetode er aktiv. Tjek indstillinger.</string>
+    <string name="dice_initial_prompt_generic">Interager for at kaste terningen!</string>
+    <string name="dice_no_interaction_method_active">Ingen interaktionsmetode er aktiv. Tjek indstillinger.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Information</string>
+    <string name="mes_informations_personnelles">Mine personlige oplysninger</string>
+    <string name="d_veloppeur">Udvikler</string>
+    <string name="site_web">Hjemmeside</string>
+    <string name="email">E-mail</string>
+    <string name="donate">Doner</string>
+    <string name="retrouvez_moi_sur">Find mig på:</string>
+    <string name="linkedin_profile">LinkedIn-profil</string>
+    <string name="behance_profile">Behance-profil</string>
+    <string name="instagram_profile">Instagram-profil</string>
+    <string name="facebook_profile">Facebook-profil</string>
+    <string name="spotify_profile">Spotify-profil</string>
+    <string name="steam_profile">Steam-profil</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Global statistik</string>
+    <string name="stats_screen_title_specific">Statistik: %1$s</string>
+    <string name="stats_fallback_answer_display">Standard svar</string>
+    <string name="stats_no_data_available">Ingen statistik tilgængelig i øjeblikket.</string>
+    <string name="stats_total_plays">Samlet antal spil: %d</string>
+    <string name="stats_count_format">Antal: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistik</string>
+    <string name="game_stats_icon_description">Se spilstatistik</string>
+</resources>

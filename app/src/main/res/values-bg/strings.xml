@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Оракниум</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Магическа топка 8</string>
+    <string name="menu_button_coin_flip">Хвърляне на монета</string>
+    <string name="menu_button_rps">Камък, ножица, хартия</string>
+    <string name="menu_button_dice_roll">Хвърляне на зар</string>
+    <string name="menu_settings_description">Настройки</string>
+    <string name="menu_info_description">Информация</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Разклатете устройството, за да получите отговор.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Разклатете устройството (акселерометърът не е открит).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Със сигурност.</item>
+        <item>Определено е така.</item>
+        <item>Без съмнение.</item>
+        <item>Да, определено.</item>
+        <item>Можете да разчитате на това.</item>
+        <item>Както аз го виждам, да.</item>
+        <item>Най-вероятно.</item>
+        <item>Добри изгледи.</item>
+        <item>Да.</item>
+        <item>Знаците сочат към да.</item>
+        <item>Неясен отговор, опитайте отново.</item>
+        <item>Попитайте отново по-късно.</item>
+        <item>По-добре да не ви казвам сега.</item>
+        <item>Сега не може да се предвиди.</item>
+        <item>Концентрирайте се и попитайте отново.</item>
+        <item>Не разчитайте на това.</item>
+        <item>Моят отговор е не.</item>
+        <item>Моите източници казват не.</item>
+        <item>Изгледите не са толкова добри.</item>
+        <item>Много съмнително.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Магическа топка</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Акселерометърът не е наличен на това устройство.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Хвърляне на монета</string>
+    <string name="coin_flip_initial_prompt_shake">Разклатете, за да хвърлите монетата!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Разклатете (акселерометърът не е открит).</string>
+    <string name="coin_flip_flipping_message">Хвърляне…</string>
+    <string name="coin_flip_result_heads">Ези!</string>
+    <string name="coin_flip_result_tails">Тура!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Акселерометърът не е наличен за хвърляне на монетата.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Изображение на ези</string>
+    <string name="coin_flip_tails_icon_description">Изображение на тура</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Камък, ножица, хартия</string>
+    <string name="rps_initial_prompt_shake">Разклатете, за да играете!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Разклатете (акселерометърът не е открит).</string>
+    <string name="rps_processing_message">Камък, ножица, хартия…</string>
+    <string name="rps_result_rock">Камък!</string>
+    <string name="rps_result_paper">Хартия!</string>
+    <string name="rps_result_scissors">Ножица!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Акселерометърът не е наличен за игра.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Икона на камък</string>
+    <string name="rps_icon_description_paper">Икона на хартия</string>
+    <string name="rps_icon_description_scissors">Икона на ножица</string>
+    <string name="general_content_description_empty">Изображение на резултат</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Хвърляне на зар</string>
+    <string name="dice_initial_prompt_shake">Разклатете, за да хвърлите зара!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Използвайте бутона по-долу, за да хвърлите зара (акселерометърът не е наличен).</string>
+    <string name="dice_rolling_message">Хвърляне на зар…</string>
+    <string name="dice_result_format">Резултат: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Акселерометърът не е наличен на това устройство. Разклащането няма да работи.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Страна на зар, показваща едно</string>
+    <string name="dice_icon_description_2">Страна на зар, показваща две</string>
+    <string name="dice_icon_description_3">Страна на зар, показваща три</string>
+    <string name="dice_icon_description_4">Страна на зар, показваща четири</string>
+    <string name="dice_icon_description_5">Страна на зар, показваща пет</string>
+    <string name="dice_icon_description_6">Страна на зар, показваща шест</string>
+    <string name="dice_icon_description_empty">Не е показан резултат от хвърляне на зар</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Настройки</string>
+    <string name="settings_screen_soon_message">Скоро…</string>
+    <string name="settings_interaction_mode_title">Режим на взаимодействие</string>
+    <string name="settings_interaction_mode_tap">Докоснете за стартиране</string>
+    <string name="settings_interaction_mode_shake">Разклатете за стартиране</string>
+    <string name="settings_interaction_mode_shake_unavailable">Режимът на разклащане не е наличен (няма акселерометър).</string>
+    <string name="settings_data_management_title">Управление на данни</string>
+    <string name="settings_clear_stats_button">Изчистване на статистиката</string>
+    <string name="settings_clear_stats_dialog_title">Изчистване на статистиката?</string>
+    <string name="settings_clear_stats_dialog_message">Всички данни от статистиката на играта ще бъдат изтрити за постоянно. Това действие е необратимо.</string>
+    <string name="settings_clear_stats_dialog_confirm">Потвърди</string>
+    <string name="settings_clear_stats_dialog_cancel">Отказ</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Взаимодействайте, за да получите отговор.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Няма активен метод на взаимодействие. Проверете настройките.</string>
+    <string name="magic_ball_content_description">Изображение на магическа топка</string>
+    <string name="coin_flip_initial_prompt_generic">Взаимодействайте, за да хвърлите монетата.</string>
+    <string name="coin_flip_no_interaction_method_active">Няма активен метод на взаимодействие. Проверете настройките.</string>
+    <string name="coin_flip_result_heads_image_description">Изображение на монета, показващо ези</string>
+    <string name="coin_flip_result_tails_image_description">Изображение на монета, показващо тура</string>
+    <string name="rps_initial_prompt_generic">Взаимодействайте, за да играете!</string>
+    <string name="rps_no_interaction_method_active">Няма активен метод на взаимодействие. Проверете настройките.</string>
+    <string name="dice_initial_prompt_generic">Взаимодействайте, за да хвърлите зара!</string>
+    <string name="dice_no_interaction_method_active">Няма активен метод на взаимодействие. Проверете настройките.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Информация</string>
+    <string name="mes_informations_personnelles">Моята лична информация</string>
+    <string name="d_veloppeur">Разработчик</string>
+    <string name="site_web">Уебсайт</string>
+    <string name="email">Имейл</string>
+    <string name="donate">Дарение</string>
+    <string name="retrouvez_moi_sur">Намерете ме на:</string>
+    <string name="linkedin_profile">Профил в LinkedIn</string>
+    <string name="behance_profile">Профил в Behance</string>
+    <string name="instagram_profile">Профил в Instagram</string>
+    <string name="facebook_profile">Профил във Facebook</string>
+    <string name="spotify_profile">Профил в Spotify</string>
+    <string name="steam_profile">Профил в Steam</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Глобална статистика</string>
+    <string name="stats_screen_title_specific">Статистика: %1$s</string>
+    <string name="stats_fallback_answer_display">Отговор по подразбиране</string>
+    <string name="stats_no_data_available">В момента няма налична статистика.</string>
+    <string name="stats_total_plays">Общо изиграни игри: %d</string>
+    <string name="stats_count_format">Количество: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Статистика</string>
+    <string name="game_stats_icon_description">Преглед на статистиката на играта</string>
+</resources>

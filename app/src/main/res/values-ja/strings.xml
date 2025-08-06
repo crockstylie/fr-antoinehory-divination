@@ -88,9 +88,6 @@
     <string name="dice_icon_description_6">サイコロの目6</string>
     <string name="dice_icon_description_empty">サイコロの結果は表示されていません</string>
 
-    <!-- Settings Screen -->
-    <string name="settings_screen_title">設定</string>
-    <string name="settings_screen_soon_message">近日公開…</string>
     <string name="magic_ball_initial_prompt_generic">操作して答えを得る</string>
     <string name="magic_ball_no_interaction_method_active">有効な操作方法がありません。設定を確認してください。</string>
     <string name="magic_ball_content_description">マジックボールの画像</string>
@@ -116,4 +113,28 @@
     <string name="spotify_profile">Spotify プロフィール</string>
     <string name="steam_profile">Steam プロフィール</string>
 
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">設定</string>
+    <string name="settings_screen_soon_message">近日公開…</string>
+    <string name="settings_interaction_mode_title">インタラクションモード</string>
+    <string name="settings_interaction_mode_tap">タップして起動</string>
+    <string name="settings_interaction_mode_shake">シェイクして起動</string>
+    <string name="settings_interaction_mode_shake_unavailable">シェイクモードは利用できません（加速度センサーなし）。</string>
+    <string name="settings_data_management_title">データ管理</string>
+    <string name="settings_clear_stats_button">統計情報をクリア</string>
+    <string name="settings_clear_stats_dialog_title">統計情報をクリアしますか？</string>
+    <string name="settings_clear_stats_dialog_message">すべてのゲーム統計データが完全に削除されます。この操作は元に戻せません。</string>
+    <string name="settings_clear_stats_dialog_confirm">確認</string>
+    <string name="settings_clear_stats_dialog_cancel">キャンセル</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">グローバル統計</string>
+    <string name="stats_screen_title_specific">統計: %1$s</string>
+    <string name="stats_fallback_answer_display">デフォルトの回答</string>
+    <string name="stats_no_data_available">現在、統計情報はありません。</string>
+    <string name="stats_total_plays">総プレイ回数: %d</string>
+    <string name="stats_count_format">数量: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">統計</string>
+    <string name="game_stats_icon_description">ゲーム統計を表示</string>
 </resources>

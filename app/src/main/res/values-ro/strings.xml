@@ -75,9 +75,6 @@
     <string name="dice_icon_description_6">Fața zarului arătând șase</string>
     <string name="dice_icon_description_empty">Niciun rezultat al zarului afișat</string>
 
-    <!-- Settings Screen -->
-    <string name="settings_screen_title">Setări</string>
-    <string name="settings_screen_soon_message">În curând…</string>
     <string name="magic_ball_initial_prompt_generic">Interacționează pentru a primi un răspuns.</string>
     <string name="magic_ball_no_interaction_method_active">Nicio metodă de interacțiune nu este activă. Verifică setările.</string>
     <string name="magic_ball_content_description">Imagine Glob Magic</string>
@@ -102,5 +99,30 @@
     <string name="facebook_profile">Profil Facebook</string>
     <string name="spotify_profile">Profil Spotify</string>
     <string name="steam_profile">Profil Steam</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Setări</string>
+    <string name="settings_screen_soon_message">În curând…</string>
+    <string name="settings_interaction_mode_title">Mod de interacțiune</string>
+    <string name="settings_interaction_mode_tap">Atingeți pentru a lansa</string>
+    <string name="settings_interaction_mode_shake">Scuturați pentru a lansa</string>
+    <string name="settings_interaction_mode_shake_unavailable">Modul Scuturare nu este disponibil (fără accelerometru).</string>
+    <string name="settings_data_management_title">Gestionarea datelor</string>
+    <string name="settings_clear_stats_button">Șterge statisticile</string>
+    <string name="settings_clear_stats_dialog_title">Șterge statisticile?</string>
+    <string name="settings_clear_stats_dialog_message">Toate datele statistice ale jocului vor fi șterse definitiv. Această acțiune este ireversibilă.</string>
+    <string name="settings_clear_stats_dialog_confirm">Confirmă</string>
+    <string name="settings_clear_stats_dialog_cancel">Anulează</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Statistici globale</string>
+    <string name="stats_screen_title_specific">Statistici: %1$s</string>
+    <string name="stats_fallback_answer_display">Răspuns implicit</string>
+    <string name="stats_no_data_available">Nicio statistică disponibilă momentan.</string>
+    <string name="stats_total_plays">Total jocuri jucate: %d</string>
+    <string name="stats_count_format">Cant: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistici</string>
+    <string name="game_stats_icon_description">Vezi statisticile jocului</string>
 </resources>
 

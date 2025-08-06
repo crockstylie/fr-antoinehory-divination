@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Magiczna Kula 8</string>
+    <string name="menu_button_coin_flip">Rzut monetą</string>
+    <string name="menu_button_rps">Papier, Kamień, Nożyce</string>
+    <string name="menu_button_dice_roll">Rzut kostką</string>
+    <string name="menu_settings_description">Ustawienia</string>
+    <string name="menu_info_description">Informacje</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Potrząśnij urządzeniem, aby uzyskać odpowiedź.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Potrząśnij urządzeniem (nie wykryto akcelerometru).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>To pewne.</item>
+        <item>Zdecydowanie tak.</item>
+        <item>Bez wątpienia.</item>
+        <item>Tak, zdecydowanie.</item>
+        <item>Możesz na tym polegać.</item>
+        <item>Jak ja to widzę, tak.</item>
+        <item>Najprawdopodobniej.</item>
+        <item>Perspektywy dobre.</item>
+        <item>Tak.</item>
+        <item>Znaki wskazują na tak.</item>
+        <item>Odpowiedź mglista, spróbuj ponownie.</item>
+        <item>Zapytaj ponownie później.</item>
+        <item>Lepiej ci teraz nie mówić.</item>
+        <item>Nie można teraz przewidzieć.</item>
+        <item>Skup się i zapytaj ponownie.</item>
+        <item>Nie licz na to.</item>
+        <item>Moja odpowiedź brzmi nie.</item>
+        <item>Moje źródła mówią nie.</item>
+        <item>Perspektywy niezbyt dobre.</item>
+        <item>Bardzo wątpliwe.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Magiczna Kula</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Akcelerometr nie jest dostępny na tym urządzeniu.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Rzut monetą</string>
+    <string name="coin_flip_initial_prompt_shake">Potrząśnij, aby rzucić monetą!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Potrząśnij (nie wykryto akcelerometru).</string>
+    <string name="coin_flip_flipping_message">Rzucanie…</string>
+    <string name="coin_flip_result_heads">Orzeł!</string>
+    <string name="coin_flip_result_tails">Reszka!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Akcelerometr nie jest dostępny do rzutu monetą.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Obrazek orła</string>
+    <string name="coin_flip_tails_icon_description">Obrazek reszki</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Papier, Kamień, Nożyce</string>
+    <string name="rps_initial_prompt_shake">Potrząśnij, aby zagrać!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Potrząśnij (nie wykryto akcelerometru).</string>
+    <string name="rps_processing_message">Papier, Kamień, Nożyce…</string>
+    <string name="rps_result_rock">Kamień!</string>
+    <string name="rps_result_paper">Papier!</string>
+    <string name="rps_result_scissors">Nożyce!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Akcelerometr nie jest dostępny do gry.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Ikona kamienia</string>
+    <string name="rps_icon_description_paper">Ikona papieru</string>
+    <string name="rps_icon_description_scissors">Ikona nożyc</string>
+    <string name="general_content_description_empty">Obrazek wyniku</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Rzut kostką</string>
+    <string name="dice_initial_prompt_shake">Potrząśnij, aby rzucić kostką!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Użyj przycisku poniżej, aby rzucić kostką (akcelerometr niedostępny).</string>
+    <string name="dice_rolling_message">Rzucanie kostką…</string>
+    <string name="dice_result_format">Wynik: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Akcelerometr nie jest dostępny na tym urządzeniu. Potrząsanie nie zadziała.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Ścianka kostki pokazująca jeden</string>
+    <string name="dice_icon_description_2">Ścianka kostki pokazująca dwa</string>
+    <string name="dice_icon_description_3">Ścianka kostki pokazująca trzy</string>
+    <string name="dice_icon_description_4">Ścianka kostki pokazująca cztery</string>
+    <string name="dice_icon_description_5">Ścianka kostki pokazująca pięć</string>
+    <string name="dice_icon_description_6">Ścianka kostki pokazująca sześć</string>
+    <string name="dice_icon_description_empty">Nie wyświetlono wyniku rzutu kostką</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Ustawienia</string>
+    <string name="settings_screen_soon_message">Wkrótce…</string>
+    <string name="settings_interaction_mode_title">Tryb interakcji</string>
+    <string name="settings_interaction_mode_tap">Dotknij, aby uruchomić</string>
+    <string name="settings_interaction_mode_shake">Potrząśnij, aby uruchomić</string>
+    <string name="settings_interaction_mode_shake_unavailable">Tryb potrząsania niedostępny (brak akcelerometru).</string>
+    <string name="settings_data_management_title">Zarządzanie danymi</string>
+    <string name="settings_clear_stats_button">Wyczyść statystyki</string>
+    <string name="settings_clear_stats_dialog_title">Wyczyścić statystyki?</string>
+    <string name="settings_clear_stats_dialog_message">Wszystkie dane statystyczne gry zostaną trwale usunięte. Ta operacja jest nieodwracalna.</string>
+    <string name="settings_clear_stats_dialog_confirm">Potwierdź</string>
+    <string name="settings_clear_stats_dialog_cancel">Anuluj</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Wejdź w interakcję, aby uzyskać odpowiedź.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Brak aktywnej metody interakcji. Sprawdź ustawienia.</string>
+    <string name="magic_ball_content_description">Obrazek magicznej kuli</string>
+    <string name="coin_flip_initial_prompt_generic">Wejdź w interakcję, aby rzucić monetą.</string>
+    <string name="coin_flip_no_interaction_method_active">Brak aktywnej metody interakcji. Sprawdź ustawienia.</string>
+    <string name="coin_flip_result_heads_image_description">Obrazek monety pokazujący orła</string>
+    <string name="coin_flip_result_tails_image_description">Obrazek monety pokazujący reszkę</string>
+    <string name="rps_initial_prompt_generic">Wejdź w interakcję, aby zagrać!</string>
+    <string name="rps_no_interaction_method_active">Brak aktywnej metody interakcji. Sprawdź ustawienia.</string>
+    <string name="dice_initial_prompt_generic">Wejdź w interakcję, aby rzucić kostką!</string>
+    <string name="dice_no_interaction_method_active">Brak aktywnej metody interakcji. Sprawdź ustawienia.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Informacje</string>
+    <string name="mes_informations_personnelles">Moje dane osobowe</string>
+    <string name="d_veloppeur">Deweloper</string>
+    <string name="site_web">Strona internetowa</string>
+    <string name="email">E-mail</string>
+    <string name="donate">Przekaż darowiznę</string>
+    <string name="retrouvez_moi_sur">Znajdź mnie na:</string>
+    <string name="linkedin_profile">Profil LinkedIn</string>
+    <string name="behance_profile">Profil Behance</string>
+    <string name="instagram_profile">Profil Instagram</string>
+    <string name="facebook_profile">Profil Facebook</string>
+    <string name="spotify_profile">Profil Spotify</string>
+    <string name="steam_profile">Profil Steam</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Statystyki globalne</string>
+    <string name="stats_screen_title_specific">Statystyki: %1$s</string>
+    <string name="stats_fallback_answer_display">Odpowiedź domyślna</string>
+    <string name="stats_no_data_available">Obecnie brak dostępnych statystyk.</string>
+    <string name="stats_total_plays">Łączna liczba rozegranych gier: %d</string>
+    <string name="stats_count_format">Ilość: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statystyki</string>
+    <string name="game_stats_icon_description">Wyświetl statystyki gry</string>
+</resources>

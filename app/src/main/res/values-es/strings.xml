@@ -88,9 +88,6 @@
     <string name="dice_icon_description_6">Cara del dado mostrando seis</string>
     <string name="dice_icon_description_empty">No se muestra ningún resultado del dado</string>
 
-    <!-- Leer oder Platzhalter -->
-    <string name="settings_screen_title">Ajustes</string>
-    <string name="settings_screen_soon_message">Próximamente…</string>
     <string name="magic_ball_initial_prompt_generic">Interactúa para obtener una respuesta.</string>
     <string name="magic_ball_no_interaction_method_active">No hay ningún método de interacción activo. Revisa la configuración.</string>
     <string name="magic_ball_content_description">Imagen de la Bola Mágica</string>
@@ -115,5 +112,30 @@
     <string name="facebook_profile">Perfil de Facebook</string>
     <string name="spotify_profile">Perfil de Spotify</string>
     <string name="steam_profile">Perfil de Steam</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Ajustes</string>
+    <string name="settings_screen_soon_message">Próximamente…</string>
+    <string name="settings_interaction_mode_title">Modo de interacción</string>
+    <string name="settings_interaction_mode_tap">Tocar para iniciar</string>
+    <string name="settings_interaction_mode_shake">Agitar para iniciar</string>
+    <string name="settings_interaction_mode_shake_unavailable">El modo de agitar no está disponible (sin acelerómetro).</string>
+    <string name="settings_data_management_title">Gestión de datos</string>
+    <string name="settings_clear_stats_button">Borrar estadísticas</string>
+    <string name="settings_clear_stats_dialog_title">¿Borrar estadísticas?</string>
+    <string name="settings_clear_stats_dialog_message">Todos los datos de estadísticas del juego se eliminarán permanentemente. Esta acción es irreversible.</string>
+    <string name="settings_clear_stats_dialog_confirm">Confirmar</string>
+    <string name="settings_clear_stats_dialog_cancel">Cancelar</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Estadísticas globales</string>
+    <string name="stats_screen_title_specific">Estadísticas: %1$s</string>
+    <string name="stats_fallback_answer_display">Respuesta predeterminada</string>
+    <string name="stats_no_data_available">No hay estadísticas disponibles en este momento.</string>
+    <string name="stats_total_plays">Total de partidas jugadas: %d</string>
+    <string name="stats_count_format">Cantidad: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Estadísticas</string>
+    <string name="game_stats_icon_description">Ver estadísticas del juego</string>
 
 </resources>

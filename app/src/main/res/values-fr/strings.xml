@@ -68,9 +68,6 @@
     <string name="dice_icon_description_empty">Aucun résultat de dé affiché</string>
     <string name="app_name">Oraknium</string>
 
-    <!-- Settings Screen -->
-    <string name="settings_screen_title">Paramètres</string>
-    <string name="settings_screen_soon_message">Bientôt…</string>
     <string name="magic_ball_initial_prompt_generic">Interagissez pour obtenir une réponse.</string>
     <string name="magic_ball_no_interaction_method_active">Aucune méthode d\'interaction n\'est active. Vérifiez les paramètres.</string>
     <string name="magic_ball_content_description">Image de la Boule Magique</string>
@@ -95,4 +92,29 @@
     <string name="facebook_profile">Profil Facebook</string>
     <string name="spotify_profile">Profil Spotify</string>
     <string name="steam_profile">Profil Steam</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Paramètres</string>
+    <string name="settings_screen_soon_message">Bientôt…</string>
+    <string name="settings_interaction_mode_title">Mode d\'interaction</string>
+    <string name="settings_interaction_mode_tap">Appuyer pour lancer</string>
+    <string name="settings_interaction_mode_shake">Secouer pour lancer</string>
+    <string name="settings_interaction_mode_shake_unavailable">Le mode Secouer n\'est pas disponible (pas d\'accéléromètre).</string>
+    <string name="settings_data_management_title">Gestion des données</string>
+    <string name="settings_clear_stats_button">Effacer les statistiques</string>
+    <string name="settings_clear_stats_dialog_title">Effacer les statistiques ?</string>
+    <string name="settings_clear_stats_dialog_message">Toutes les données statistiques du jeu seront supprimées définitivement. Cette action est irréversible.</string>
+    <string name="settings_clear_stats_dialog_confirm">Confirmer</string>
+    <string name="settings_clear_stats_dialog_cancel">Annuler</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Statistiques globales</string>
+    <string name="stats_screen_title_specific">Statistiques : %1$s</string>
+    <string name="stats_fallback_answer_display">Réponse par défaut</string>
+    <string name="stats_no_data_available">Aucune statistique disponible pour le moment.</string>
+    <string name="stats_total_plays">Nombre total de parties : %d</string>
+    <string name="stats_count_format">Qté : %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistiques</string>
+    <string name="game_stats_icon_description">Voir les statistiques du jeu</string>
 </resources>

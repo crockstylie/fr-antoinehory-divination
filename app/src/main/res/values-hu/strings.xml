@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
+    <string name="menu_button_magic_ball">Mágikus 8-as gömb</string>
+    <string name="menu_button_coin_flip">Érmefeldobás</string>
+    <string name="menu_button_rps">Kő, papír, olló</string>
+    <string name="menu_button_dice_roll">Kockadobás</string>
+    <string name="menu_settings_description">Beállítások</string>
+    <string name="menu_info_description">Információ</string>
+
+    <!-- MagicBallViewModel specific strings -->
+    <string name="magic_ball_initial_prompt_shake">Rázza meg az eszközt a válaszért.</string>
+    <string name="magic_ball_initial_prompt_no_accelerometer">Rázza meg az eszközt (gyorsulásmérő nem észlelhető).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
+    <string-array name="magic_ball_possible_answers">
+        <item>Biztosan.</item>
+        <item>Határozottan igen.</item>
+        <item>Kétségtelenül.</item>
+        <item>Igen, határozottan.</item>
+        <item>Bízhatsz benne.</item>
+        <item>Ahogy én látom, igen.</item>
+        <item>Nagyon valószínű.</item>
+        <item>Jók a kilátások.</item>
+        <item>Igen.</item>
+        <item>A jelek igenre mutatnak.</item>
+        <item>Homályos válasz, próbáld újra.</item>
+        <item>Kérdezd meg később.</item>
+        <item>Jobb, ha most nem mondom el.</item>
+        <item>Most nem lehet megjósolni.</item>
+        <item>Koncentrálj és kérdezd meg újra.</item>
+        <item>Ne számíts rá.</item>
+        <item>A válaszom nem.</item>
+        <item>A forrásaim nemet mondanak.</item>
+        <item>A kilátások nem túl jók.</item>
+        <item>Nagyon kétséges.</item>
+    </string-array>
+
+    <string name="magic_ball_screen_title">Mágikus gömb</string>
+    <string name="magic_ball_accelerometer_not_available_ui_message">Gyorsulásmérő nem érhető el ezen az eszközön.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
+    <string name="coin_flip_screen_title">Érmefeldobás</string>
+    <string name="coin_flip_initial_prompt_shake">Rázza meg az érmefeldobáshoz!</string>
+    <string name="coin_flip_initial_prompt_no_accelerometer">Rázza meg (gyorsulásmérő nem észlelhető).</string>
+    <string name="coin_flip_flipping_message">Feldobás…</string>
+    <string name="coin_flip_result_heads">Fej!</string>
+    <string name="coin_flip_result_tails">Írás!</string>
+    <string name="coin_flip_accelerometer_not_available_ui_message">Gyorsulásmérő nem érhető el az érmefeldobáshoz.</string>
+    <!-- Content descriptions for Coin Flip -->
+    <string name="coin_flip_heads_icon_description">Fej képe</string>
+    <string name="coin_flip_tails_icon_description">Írás képe</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
+    <string name="rps_screen_title">Kő, papír, olló</string>
+    <string name="rps_initial_prompt_shake">Rázza meg a játékhoz!</string>
+    <string name="rps_initial_prompt_no_accelerometer">Rázza meg (gyorsulásmérő nem észlelhető).</string>
+    <string name="rps_processing_message">Kő, papír, olló…</string>
+    <string name="rps_result_rock">Kő!</string>
+    <string name="rps_result_paper">Papír!</string>
+    <string name="rps_result_scissors">Olló!</string>
+    <string name="rps_accelerometer_not_available_ui_message">Gyorsulásmérő nem érhető el a játékhoz.</string>
+
+    <!-- Content descriptions for RPS icons -->
+    <string name="rps_icon_description_rock">Kő ikon</string>
+    <string name="rps_icon_description_paper">Papír ikon</string>
+    <string name="rps_icon_description_scissors">Olló ikon</string>
+    <string name="general_content_description_empty">Eredmény képe</string>
+
+    <!-- Dice Roll Screen -->
+    <string name="dice_roll_screen_title">Kockadobás</string>
+    <string name="dice_initial_prompt_shake">Rázza meg a kockadobáshoz!</string>
+    <string name="dice_initial_prompt_no_accelerometer">Használja az alábbi gombot a kockadobáshoz (gyorsulásmérő nem érhető el).</string>
+    <string name="dice_rolling_message">Kockadobás…</string>
+    <string name="dice_result_format">Eredmény: %1$d</string>
+    <string name="dice_accelerometer_not_available_ui_message">Gyorsulásmérő nem érhető el ezen az eszközön. A rázás nem fog működni.</string>
+
+    <!-- Content Descriptions for Dice Images -->
+    <string name="dice_icon_description_1">Egyest mutató kockaoldal</string>
+    <string name="dice_icon_description_2">Kettest mutató kockaoldal</string>
+    <string name="dice_icon_description_3">Hármast mutató kockaoldal</string>
+    <string name="dice_icon_description_4">Négyest mutató kockaoldal</string>
+    <string name="dice_icon_description_5">Ötöst mutató kockaoldal</string>
+    <string name="dice_icon_description_6">Hatost mutató kockaoldal</string>
+    <string name="dice_icon_description_empty">Nem jelenik meg kockadobás eredménye</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_screen_title">Beállítások</string>
+    <string name="settings_screen_soon_message">Hamarosan…</string>
+    <string name="settings_interaction_mode_title">Interakciós mód</string>
+    <string name="settings_interaction_mode_tap">Koppintson az indításhoz</string>
+    <string name="settings_interaction_mode_shake">Rázza meg az indításhoz</string>
+    <string name="settings_interaction_mode_shake_unavailable">A rázási mód nem érhető el (nincs gyorsulásmérő).</string>
+    <string name="settings_data_management_title">Adatkezelés</string>
+    <string name="settings_clear_stats_button">Statisztikák törlése</string>
+    <string name="settings_clear_stats_dialog_title">Statisztikák törlése?</string>
+    <string name="settings_clear_stats_dialog_message">Minden játékstatisztikai adat véglegesen törlődik. Ez a művelet visszavonhatatlan.</string>
+    <string name="settings_clear_stats_dialog_confirm">Megerősítés</string>
+    <string name="settings_clear_stats_dialog_cancel">Mégse</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
+    <string name="magic_ball_initial_prompt_generic">Lépjen kapcsolatba a válasszal.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
+    <string name="magic_ball_no_interaction_method_active">Nincs aktív interakciós módszer. Ellenőrizze a beállításokat.</string>
+    <string name="magic_ball_content_description">Mágikus gömb képe</string>
+    <string name="coin_flip_initial_prompt_generic">Lépjen kapcsolatba az érmefeldobással.</string>
+    <string name="coin_flip_no_interaction_method_active">Nincs aktív interakciós módszer. Ellenőrizze a beállításokat.</string>
+    <string name="coin_flip_result_heads_image_description">Fejet mutató érme képe</string>
+    <string name="coin_flip_result_tails_image_description">Írást mutató érme képe</string>
+    <string name="rps_initial_prompt_generic">Lépjen kapcsolatba a játékkal!</string>
+    <string name="rps_no_interaction_method_active">Nincs aktív interakciós módszer. Ellenőrizze a beállításokat.</string>
+    <string name="dice_initial_prompt_generic">Lépjen kapcsolatba a kockadobással!</string>
+    <string name="dice_no_interaction_method_active">Nincs aktív interakciós módszer. Ellenőrizze a beállításokat.</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Információ</string>
+    <string name="mes_informations_personnelles">Személyes adataim</string>
+    <string name="d_veloppeur">Fejlesztő</string>
+    <string name="site_web">Weboldal</string>
+    <string name="email">E-mail</string>
+    <string name="donate">Adományozás</string>
+    <string name="retrouvez_moi_sur">Keressen meg itt:</string>
+    <string name="linkedin_profile">LinkedIn profil</string>
+    <string name="behance_profile">Behance profil</string>
+    <string name="instagram_profile">Instagram profil</string>
+    <string name="facebook_profile">Facebook profil</string>
+    <string name="spotify_profile">Spotify profil</string>
+    <string name="steam_profile">Steam profil</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Globális statisztikák</string>
+    <string name="stats_screen_title_specific">Statisztikák: %1$s</string>
+    <string name="stats_fallback_answer_display">Alapértelmezett válasz</string>
+    <string name="stats_no_data_available">Jelenleg nincsenek elérhető statisztikák.</string>
+    <string name="stats_total_plays">Összes lejátszás: %d</string>
+    <string name="stats_count_format">Mennyiség: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statisztikák</string>
+    <string name="game_stats_icon_description">Játékstatisztikák megtekintése</string>
+</resources>

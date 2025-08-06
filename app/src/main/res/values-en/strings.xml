@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Oraknium</string>
+
+    <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">Magic 8 Ball</string>
     <string name="menu_button_coin_flip">Coin Flip</string>
     <string name="menu_button_rps">Rock Paper Scissors</string>
     <string name="menu_button_dice_roll">Dice Roll</string>
     <string name="menu_settings_description">Settings</string>
     <string name="menu_info_description">Information</string>
+
+    <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">Shake the device to get an answer.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">Shake the device (accelerometer not detected).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
+
+    <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
         <item>It is certain.</item>
         <item>It is decidedly so.</item>
@@ -31,8 +39,11 @@
         <item>Outlook not so good.</item>
         <item>Very doubtful.</item>
     </string-array>
+
     <string name="magic_ball_screen_title">Magic Ball</string>
     <string name="magic_ball_accelerometer_not_available_ui_message">Accelerometer not available on this device.</string>
+
+    <!-- CoinFlipViewModel & CoinFlipScreen specific strings -->
     <string name="coin_flip_screen_title">Coin Flip</string>
     <string name="coin_flip_initial_prompt_shake">Shake to flip the coin!</string>
     <string name="coin_flip_initial_prompt_no_accelerometer">Shake (accelerometer not detected).</string>
@@ -40,8 +51,11 @@
     <string name="coin_flip_result_heads">Heads!</string>
     <string name="coin_flip_result_tails">Tails!</string>
     <string name="coin_flip_accelerometer_not_available_ui_message">Accelerometer not available to flip the coin.</string>
+    <!-- Content descriptions for Coin Flip -->
     <string name="coin_flip_heads_icon_description">Heads image</string>
     <string name="coin_flip_tails_icon_description">Tails image</string>
+
+    <!-- RockPaperScissorsViewModel & RockPaperScissorsScreen specific strings -->
     <string name="rps_screen_title">Rock Paper Scissors</string>
     <string name="rps_initial_prompt_shake">Shake to play!</string>
     <string name="rps_initial_prompt_no_accelerometer">Shake (accelerometer not detected).</string>
@@ -50,16 +64,22 @@
     <string name="rps_result_paper">Paper!</string>
     <string name="rps_result_scissors">Scissors!</string>
     <string name="rps_accelerometer_not_available_ui_message">Accelerometer not available to play.</string>
+
+    <!-- Content descriptions for RPS icons -->
     <string name="rps_icon_description_rock">Rock icon</string>
     <string name="rps_icon_description_paper">Paper icon</string>
     <string name="rps_icon_description_scissors">Scissors icon</string>
     <string name="general_content_description_empty">Result image</string>
+
+    <!-- Dice Roll Screen -->
     <string name="dice_roll_screen_title">Dice Roll</string>
     <string name="dice_initial_prompt_shake">Shake to roll the dice!</string>
     <string name="dice_initial_prompt_no_accelerometer">Use the button below to roll the dice (accelerometer not available).</string>
     <string name="dice_rolling_message">Rolling the dice…</string>
-    <string name="dice_result_format">Result: %1$d</string> <!-- %1$d will be replaced by the dice number -->
+    <string name="dice_result_format">Result: %1$d</string>
     <string name="dice_accelerometer_not_available_ui_message">Accelerometer is not available on this device. Shaking will not work.</string>
+
+    <!-- Content Descriptions for Dice Images -->
     <string name="dice_icon_description_1">Dice face showing one</string>
     <string name="dice_icon_description_2">Dice face showing two</string>
     <string name="dice_icon_description_3">Dice face showing three</string>
@@ -71,7 +91,20 @@
     <!-- Settings Screen -->
     <string name="settings_screen_title">Settings</string>
     <string name="settings_screen_soon_message">Soon…</string>
+    <string name="settings_interaction_mode_title">Interaction Mode</string>
+    <string name="settings_interaction_mode_tap">Tap to launch</string>
+    <string name="settings_interaction_mode_shake">Shake to launch</string>
+    <string name="settings_interaction_mode_shake_unavailable">Shake mode is unavailable (no accelerometer).</string>
+    <string name="settings_data_management_title">Data Management</string>
+    <string name="settings_clear_stats_button">Clear Statistics</string>
+    <string name="settings_clear_stats_dialog_title">Clear Statistics?</string>
+    <string name="settings_clear_stats_dialog_message">All game statistics data will be permanently deleted. This action is irreversible.</string>
+    <string name="settings_clear_stats_dialog_confirm">Confirm</string>
+    <string name="settings_clear_stats_dialog_cancel">Cancel</string>
+
+    <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interact to get an answer.</string>
+    <string name="magic_ball_default_answer_if_empty" translatable="false" />
     <string name="magic_ball_no_interaction_method_active">No interaction method is active. Check settings.</string>
     <string name="magic_ball_content_description">Magic Ball image</string>
     <string name="coin_flip_initial_prompt_generic">Interact to flip the coin.</string>
@@ -82,10 +115,12 @@
     <string name="rps_no_interaction_method_active">No interaction method is active. Check settings.</string>
     <string name="dice_initial_prompt_generic">Interact to roll the dice!</string>
     <string name="dice_no_interaction_method_active">No interaction method is active. Check settings.</string>
-    <string name="informations">Informations</string>
+
+    <!-- InfoScreen (Corrected to English) -->
+    <string name="informations">Information</string>
     <string name="mes_informations_personnelles">My Personal Information</string>
     <string name="d_veloppeur">Developer</string>
-    <string name="site_web">Web Site</string>
+    <string name="site_web">Website</string>
     <string name="email">Email</string>
     <string name="donate">Donate</string>
     <string name="retrouvez_moi_sur">Find me on:</string>
@@ -95,4 +130,16 @@
     <string name="facebook_profile">Facebook Profile</string>
     <string name="spotify_profile">Spotify Profile</string>
     <string name="steam_profile">Steam Profile</string>
+
+    <!-- GameStatsViewModel -->
+    <string name="stats_screen_title_global">Global Statistics</string>
+    <string name="stats_screen_title_specific">Statistics: %1$s</string>
+    <string name="stats_fallback_answer_display">Default Answer</string>
+    <string name="stats_no_data_available">No statistics available at the moment.</string>
+    <string name="stats_total_plays">Total plays: %d</string>
+    <string name="stats_count_format">Qty: %d</string>
+    <string name="stats_percentage_format">%.1f%%</string>
+    <string name="menu_stats_description">Statistics</string>
+    <string name="game_stats_icon_description">View game statistics</string>
+
 </resources>

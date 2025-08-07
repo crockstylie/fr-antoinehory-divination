@@ -141,4 +141,8 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistiky</string>
     <string name="game_stats_icon_description">Zobrazit herní statistiky</string>
+    <string name="stats_screen_title_global_loading">Načítání…</string>
+    <string name="stats_global_distribution_chart_title">Globální distribuce her</string>
+    <string name="stats_total_plays_for_game">Celkový počet her pro tuto hru: %d</string>
+
 </resources>

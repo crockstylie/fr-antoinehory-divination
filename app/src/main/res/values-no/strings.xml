@@ -141,4 +141,8 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistikk</string>
     <string name="game_stats_icon_description">Vis spillstatistikk</string>
+    <string name="stats_screen_title_global_loading">Laster…</string>
+    <string name="stats_global_distribution_chart_title">Global spilldistribusjon</string>
+    <string name="stats_total_plays_for_game">Totalt antall spill for dette spillet: %d</string>
+
 </resources>

@@ -137,4 +137,8 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">統計</string>
     <string name="game_stats_icon_description">ゲーム統計を表示</string>
+    <string name="stats_screen_title_global_loading">読み込み中…</string>
+    <string name="stats_global_distribution_chart_title">グローバルゲーム分布</string>
+    <string name="stats_total_plays_for_game">このゲームの総プレイ数: %d</string>
+
 </resources>

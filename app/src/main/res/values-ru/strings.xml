@@ -124,4 +124,8 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Статистика</string>
     <string name="game_stats_icon_description">Посмотреть игровую статистику</string>
+    <string name="stats_screen_title_global_loading">Загрузка…</string>
+    <string name="stats_global_distribution_chart_title">Глобальное распределение игр</string>
+    <string name="stats_total_plays_for_game">Всего сыграно в эту игру: %d</string>
+
 </resources>

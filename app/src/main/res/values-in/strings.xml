@@ -124,5 +124,8 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistik</string>
     <string name="game_stats_icon_description">Lihat statistik game</string>
+    <string name="stats_screen_title_global_loading">Memuat…</string>
+    <string name="stats_global_distribution_chart_title">Distribusi Game Global</string>
+    <string name="stats_total_plays_for_game">Total permainan untuk game ini: %d</string>
 
 </resources>

@@ -137,5 +137,9 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Estadísticas</string>
     <string name="game_stats_icon_description">Ver estadísticas del juego</string>
+    <string name="stats_screen_title_global_loading">Cargando…</string>
+    <string name="stats_global_distribution_chart_title">Distribución global de partidas</string>
+    <string name="stats_total_plays_for_game">Partidas totales de este juego: %d</string>
+
 
 </resources>

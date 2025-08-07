@@ -141,4 +141,8 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistik</string>
     <string name="game_stats_icon_description">Se spilstatistik</string>
+    <string name="stats_screen_title_global_loading">Indlæser…</string>
+    <string name="stats_global_distribution_chart_title">Global spilfordeling</string>
+    <string name="stats_total_plays_for_game">Samlet antal spil for dette spil: %d</string>
+
 </resources>

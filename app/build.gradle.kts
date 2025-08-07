@@ -13,7 +13,7 @@ android {
         applicationId = "fr.antoinehory.divination"
         minSdk = 29
         targetSdk = 34
-        versionCode = 4
+        versionCode = 5
         versionName = "2.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

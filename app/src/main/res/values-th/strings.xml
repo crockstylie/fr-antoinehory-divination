@@ -141,4 +141,8 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">สถิติ</string>
     <string name="game_stats_icon_description">ดูสถิติเกม</string>
+    <string name="stats_screen_title_global_loading">กำลังโหลด…</string>
+    <string name="stats_global_distribution_chart_title">การกระจายเกมทั่วโลก</string>
+    <string name="stats_total_plays_for_game">จำนวนการเล่นทั้งหมดสำหรับเกมนี้: %d</string>
+
 </resources>

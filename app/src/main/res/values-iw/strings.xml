@@ -141,4 +141,8 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">סטטיסטיקה</string>
     <string name="game_stats_icon_description">הצג סטטיסטיקת משחק</string>
+    <string name="stats_screen_title_global_loading">טוען…</string>
+    <string name="stats_global_distribution_chart_title">התפלגות משחקים גלובלית</string>
+    <string name="stats_total_plays_for_game">סך כל המשחקים למשחק זה: %d</string>
+
 </resources>

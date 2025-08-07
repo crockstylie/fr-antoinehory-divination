@@ -124,5 +124,9 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistici</string>
     <string name="game_stats_icon_description">Vezi statisticile jocului</string>
+    <string name="stats_screen_title_global_loading">Se încarcă…</string>
+    <string name="stats_global_distribution_chart_title">Distribuția globală a jocurilor</string>
+    <string name="stats_total_plays_for_game">Total jocuri pentru acest joc: %d</string>
+
 </resources>
 

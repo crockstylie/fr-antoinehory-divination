@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.model.GameType
-// import fr.antoinehory.divination.data.model.LaunchLog // Non utilisé directement ici après refactor
 import fr.antoinehory.divination.data.repository.LaunchLogRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -32,14 +31,25 @@ data class GameStatsData(
     val isEmpty: Boolean = statItems.isEmpty() && totalPlays == 0
 )
 
+// Data class pour représenter la part de chaque jeu dans les statistiques globales
+data class GameGlobalShareEntry(
+    val gameType: GameType,
+    val gameDisplayName: String,
+    val totalPlaysForGame: Int,
+    val sharePercentage: Float // Pourcentage par rapport au total de tous les jeux
+)
+
 class GameStatsViewModel(
     private val application: Application,
     private val launchLogRepository: LaunchLogRepository,
     private val specificGameType: GameType? // Null pour les stats globales
 ) : AndroidViewModel(application) {
 
-    private val _statsData = MutableStateFlow<GameStatsData?>(null) // Initialise à null pour indiquer le chargement
+    private val _statsData = MutableStateFlow<GameStatsData?>(null)
     val statsData: StateFlow<GameStatsData?> = _statsData.asStateFlow()
+
+    private val _globalGameSharesData = MutableStateFlow<List<GameGlobalShareEntry>>(emptyList())
+    val globalGameSharesData: StateFlow<List<GameGlobalShareEntry>> = _globalGameSharesData.asStateFlow()
 
     init {
         loadStats()
@@ -47,7 +57,6 @@ class GameStatsViewModel(
 
     private fun loadStats() {
         viewModelScope.launch {
-            // Ces chaînes devront être ajoutées à strings.xml
             val screenTitle = if (specificGameType != null) {
                 application.getString(R.string.stats_screen_title_specific, getGameDisplayName(specificGameType))
             } else {
@@ -55,32 +64,23 @@ class GameStatsViewModel(
             }
 
             launchLogRepository.getAllLogs().collectLatest { allLogs ->
+                // Calcul pour _statsData
                 val relevantLogs = if (specificGameType != null) {
                     allLogs.filter { it.gameType == specificGameType }
                 } else {
                     allLogs
                 }
-
-                val totalPlays = relevantLogs.size
+                val totalPlaysForCurrentScreen = relevantLogs.size
                 val groupedResults = relevantLogs.groupBy { it.gameType to it.result }
-
                 val statItemList = mutableListOf<StatItem>()
 
                 groupedResults.forEach { (gameTypeAndResultKey, logs) ->
                     val gameType = gameTypeAndResultKey.first
                     val resultKey = gameTypeAndResultKey.second
                     val count = logs.size
-                    // Pour le filtrage par jeu spécifique, le pourcentage est par rapport au total de ce jeu.
-                    // Pour les stats globales, le pourcentage est par rapport au total de tous les jeux.
-                    val percentageBase = if (specificGameType != null) {
-                         relevantLogs.filter { it.gameType == gameType }.size // Total pour ce type de jeu dans le filtre actuel
-                    } else {
-                        relevantLogs.filter { it.gameType == gameType }.size // Total pour ce type de jeu dans le global
-                    }
+                    val percentageBase = relevantLogs.filter { it.gameType == gameType }.size
                     val percentage = if (percentageBase > 0) (count.toFloat() / percentageBase.toFloat()) * 100 else 0f
-
                     val displayResult = getDisplayStringForResult(gameType, resultKey)
-
                     statItemList.add(
                         StatItem(
                             gameType = gameType,
@@ -91,15 +91,37 @@ class GameStatsViewModel(
                         )
                     )
                 }
-                 // Trie d'abord par type de jeu (pour les stats globales), puis par nombre de coups, puis par nom.
                 statItemList.sortWith(compareBy({ it.gameType.name }, { -it.count }, { it.displayResult }))
-
-
                 _statsData.value = GameStatsData(
                     title = screenTitle,
-                    totalPlays = totalPlays, // Total des jeux affichés (filtrés ou globaux)
+                    totalPlays = totalPlaysForCurrentScreen,
                     statItems = statItemList.toList()
                 )
+
+                // Calcul pour _globalGameSharesData (uniquement si stats globales)
+                if (specificGameType == null) {
+                    val grandTotalAllPlays = allLogs.size
+                    if (grandTotalAllPlays > 0) {
+                        val shares = allLogs
+                            .groupBy { it.gameType }
+                            .map { (gameType, logsForGame) ->
+                                val totalPlaysForThisGame = logsForGame.size
+                                val sharePercentage = (totalPlaysForThisGame.toFloat() / grandTotalAllPlays.toFloat()) * 100
+                                GameGlobalShareEntry(
+                                    gameType = gameType,
+                                    gameDisplayName = getGameDisplayName(gameType),
+                                    totalPlaysForGame = totalPlaysForThisGame,
+                                    sharePercentage = sharePercentage
+                                )
+                            }
+                            .sortedByDescending { it.sharePercentage }
+                        _globalGameSharesData.value = shares
+                    } else {
+                        _globalGameSharesData.value = emptyList()
+                    }
+                } else {
+                    _globalGameSharesData.value = emptyList()
+                }
             }
         }
     }
@@ -129,7 +151,7 @@ class GameStatsViewModel(
                     possibleAnswers.getOrNull(index) ?: resultKey
                 } else if (resultKey == "FALLBACK") {
                     val fallbackDisplay = resources.getString(R.string.magic_ball_default_answer_if_empty)
-                    if (fallbackDisplay.isNotBlank()) fallbackDisplay else application.getString(R.string.stats_fallback_answer_display) // Utilise une nouvelle chaîne pour "Réponse par défaut"
+                    if (fallbackDisplay.isNotBlank()) fallbackDisplay else application.getString(R.string.stats_fallback_answer_display)
                 } else {
                     resultKey
                 }

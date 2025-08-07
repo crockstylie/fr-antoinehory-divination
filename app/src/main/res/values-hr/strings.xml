@@ -141,4 +141,8 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistika</string>
     <string name="game_stats_icon_description">Prikaži statistiku igre</string>
+    <string name="stats_screen_title_global_loading">Učitavanje…</string>
+    <string name="stats_global_distribution_chart_title">Globalna distribucija igara</string>
+    <string name="stats_total_plays_for_game">Ukupno igara za ovu igru: %d</string>
+
 </resources>

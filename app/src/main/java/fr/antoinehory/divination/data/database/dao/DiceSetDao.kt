@@ -27,19 +27,16 @@ interface DiceSetDao {
     @Query("SELECT * FROM dice_sets WHERE id = :setId")
     fun getDiceSetById(setId: Long): Flow<DiceSet?> // Flow pour observer les changements
 
+    // AJOUT: Fonction pour récupérer un DiceSet par son ID de manière bloquante (dans une coroutine)
+    @Query("SELECT * FROM dice_sets WHERE id = :id")
+    suspend fun getDiceSetByIdBlocking(id: Long): DiceSet?
+
     @Query("SELECT * FROM dice_sets ORDER BY name ASC")
     fun getAllDiceSets(): Flow<List<DiceSet>> // Flow pour observer la liste complète
 
     @Query("SELECT * FROM dice_sets WHERE is_favorite = 1 ORDER BY name ASC")
     fun getFavoriteDiceSets(): Flow<List<DiceSet>> // Flow pour observer les favoris
 
-    // Peut-être une requête pour mettre à jour rapidement le statut de favori
     @Query("UPDATE dice_sets SET is_favorite = :isFavorite WHERE id = :setId")
     suspend fun updateFavoriteStatus(setId: Long, isFavorite: Boolean)
-
-    // Vous pourriez aussi vouloir une fonction pour récupérer un set par son nom,
-    // mais attention aux noms dupliqués si vous ne les interdisez pas.
-    // @Query("SELECT * FROM dice_sets WHERE name = :name LIMIT 1")
-    // fun getDiceSetByName(name: String): Flow<DiceSet?>
 }
-

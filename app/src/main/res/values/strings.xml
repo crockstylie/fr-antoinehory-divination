@@ -165,12 +165,16 @@
     <string name="navigation_back_description">Back</string>
 
     <!-- For DiceSetManagementScreen -->
+    <string name="create_dice_set_screen_title">Create Dice Set</string>
+    <string name="edit_dice_set_screen_title">Edit Dice Set</string>
     <string name="dice_set_management_screen_title">Manage Dice Sets</string>
     <string name="dice_set_create_new_set_desc">Create new dice set</string>
     <string name="dice_set_no_sets_available">No dice sets available.</string>
-    <string name="dice_set_add_to_favorites">Add to favorites</string>
     <string name="dice_set_remove_from_favorites">Remove from favorites</string>
-    <string name="dice_set_edit_set_desc">Edit set</string>
-    <string name="dice_set_delete_set_desc">Delete set</string>
-    <string name="dice_set_launch_set_desc">Launch set</string>
+    <string name="dice_set_add_to_favorites">Add to favorites</string>
+    <string name="dice_set_edit_set_desc">Edit dice set</string>
+    <string name="dice_set_delete_set_desc">Delete dice set</string>
+    <string name="dice_set_launch_set_desc">Launch dice set</string>
+    <string name="save_dice_set_desc">Save Dice Set</string>
+    <string name="dice_set_name_label">Set Name</string>
 </resources>

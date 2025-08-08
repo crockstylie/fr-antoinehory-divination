@@ -11,10 +11,9 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource // AJOUT : Pour la description de l'icône de retour
+import fr.antoinehory.divination.R // AJOUT : Pour R.string.navigation_back_description
 import fr.antoinehory.divination.ui.theme.OrakniumGold
-// Importer R si vous décidez de remplacer "Retour" par une ressource string
-// import fr.antoinehory.divination.R
-// import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -23,7 +22,8 @@ fun AppScaffold(
     canNavigateBack: Boolean,
     onNavigateBack: () -> Unit,
     actions: @Composable RowScope.() -> Unit = {},
-    bottomBar: @Composable () -> Unit = {}, // AJOUTÉ
+    bottomBar: @Composable () -> Unit = {},
+    floatingActionButton: @Composable () -> Unit = {}, // AJOUT : Paramètre pour le FAB
     content: @Composable (PaddingValues) -> Unit
 ) {
     Scaffold(
@@ -38,7 +38,8 @@ fun AppScaffold(
                         IconButton(onClick = onNavigateBack) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "Retour", // Pensez à stringResource(R.string.navigation_back_description)
+                                // MODIFIÉ : Utilisation d'une ressource string pour l'accessibilité
+                                contentDescription = stringResource(id = R.string.navigation_back_description),
                                 tint = OrakniumGold
                             )
                         }
@@ -52,7 +53,8 @@ fun AppScaffold(
                 )
             )
         },
-        bottomBar = bottomBar, // AJOUTÉ
+        bottomBar = bottomBar,
+        floatingActionButton = floatingActionButton, // AJOUT : Passage du FAB au Scaffold interne
         containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->
         content(innerPadding)

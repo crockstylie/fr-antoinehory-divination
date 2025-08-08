@@ -1,4 +1,3 @@
-// Dans un nouveau fichier data/database/AppDatabase.kt
 package fr.antoinehory.divination.data.database
 
 import android.content.Context
@@ -7,19 +6,26 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import fr.antoinehory.divination.data.database.dao.LaunchLogDao
+import fr.antoinehory.divination.data.database.dao.DiceSetDao
 import fr.antoinehory.divination.data.database.entity.LaunchLog
+import fr.antoinehory.divination.data.model.DiceSet
 import fr.antoinehory.divination.data.database.util.DateConverter
 import fr.antoinehory.divination.data.database.util.GameTypeConverter
+// DiceConfigListConverter est déjà géré par l'annotation sur l'entité DiceSet
 
 @Database(
-    entities = [LaunchLog::class], // Uniquement notre nouvelle entité pour l'instant
-    version = 1,                   // Première version de la base de données
-    exportSchema = true            // Bon à garder pour les futures migrations
+    entities = [
+        LaunchLog::class,
+        DiceSet::class
+    ],
+    version = 2,
+    exportSchema = true
 )
 @TypeConverters(DateConverter::class, GameTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun launchLogDao(): LaunchLogDao
+    abstract fun diceSetDao(): DiceSetDao
 
     companion object {
         @Volatile
@@ -30,9 +36,10 @@ abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "divination_database" // Nom de votre fichier de base de données
+                    "divination_database"
                 )
-                    // Pas besoin de .addMigrations() ou .fallbackToDestructiveMigration() pour la version 1
+                    // MODIFIÉ : Utilisation de la version surchargée de fallbackToDestructiveMigration
+                    .fallbackToDestructiveMigration(dropAllTables = true)
                     .build()
                 INSTANCE = instance
                 instance

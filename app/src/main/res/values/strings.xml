@@ -186,4 +186,14 @@
     <string name="dice_type_label">Dice Type</string>
     <string name="quantity_label">Quantity</string>
     <string name="confirm_add_to_set_button">Add to Set</string>
+    <string name="error_set_name_empty">Set name cannot be empty.</string>
+    <string name="error_no_dice_configs">Please add at least one dice configuration.</string>
+    <string name="error_invalid_dice_count">Please enter a valid dice count (greater than 0).</string>
+    <string name="error_no_dice_configs_suffix">(Error: Please add at least one.)</string>
+    <string name="navigate_back_desc">Navigate back</string>
+    <string name="increment_dice_count_desc">Increment dice count</string>
+    <string name="decrement_dice_count_desc">Decrement dice count</string>
+    <string name="update_button">Update</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="default_new_dice_set_name">My Dice Set</string>
 </resources>

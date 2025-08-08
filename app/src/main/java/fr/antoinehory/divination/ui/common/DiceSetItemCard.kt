@@ -1,7 +1,7 @@
 package fr.antoinehory.divination.ui.common
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Arrangement // Non utilisé directement, mais peut l'être par Column/Row
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -27,17 +27,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview // Ajout pour la preview indépendante
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import fr.antoinehory.divination.R
-import fr.antoinehory.divination.data.model.DiceConfig // Pour la preview
+import fr.antoinehory.divination.data.model.DiceConfig // Assurez-vous que cette classe a un champ 'id'
 import fr.antoinehory.divination.data.model.DiceSet
-import fr.antoinehory.divination.data.model.DiceType // Pour la preview
-import fr.antoinehory.divination.ui.theme.DivinationAppTheme // Pour la preview
+import fr.antoinehory.divination.data.model.DiceType
+import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 import fr.antoinehory.divination.ui.theme.OrakniumGold
 
 @Composable
-fun DiceSetItemCard( // Renommé pour clarté, et conforme au nom de fichier
+fun DiceSetItemCard(
     diceSet: DiceSet,
     onLaunch: () -> Unit,
     onToggleFavorite: () -> Unit,
@@ -101,8 +101,17 @@ fun DiceSetItemCard( // Renommé pour clarté, et conforme au nom de fichier
 @Preview(showBackground = true, name = "DiceSetItemCard Preview")
 @Composable
 fun DiceSetItemCardPreview() {
-    val previewSet = DiceSet(id = 1, name = "Carte de Test", diceConfigs = listOf(DiceConfig(DiceType.D20, 1), DiceConfig(DiceType.D6, 2)), isFavorite = true)
-    DivinationAppTheme { // MODIFIÉ: darkTheme = true retiré
+    val previewSet = DiceSet(
+        id = 1,
+        name = "Carte de Test",
+        // MODIFIÉ ICI: Utilisation d'arguments nommés
+        diceConfigs = listOf(
+            DiceConfig(diceType = DiceType.D20, count = 1),
+            DiceConfig(diceType = DiceType.D6, count = 2)
+        ),
+        isFavorite = true
+    )
+    DivinationAppTheme {
         DiceSetItemCard(
             diceSet = previewSet,
             onLaunch = { },
@@ -116,8 +125,14 @@ fun DiceSetItemCardPreview() {
 @Preview(showBackground = true, name = "DiceSetItemCard Not Favorite Preview")
 @Composable
 fun DiceSetItemCardNotFavoritePreview() {
-    val previewSet = DiceSet(id = 2, name = "Autre Carte", diceConfigs = listOf(DiceConfig(DiceType.D10, 3)), isFavorite = false)
-    DivinationAppTheme { // MODIFIÉ: darkTheme = true retiré
+    val previewSet = DiceSet(
+        id = 2,
+        name = "Autre Carte",
+        // MODIFIÉ ICI: Utilisation d'arguments nommés
+        diceConfigs = listOf(DiceConfig(diceType = DiceType.D10, count = 3)),
+        isFavorite = false
+    )
+    DivinationAppTheme {
         DiceSetItemCard(
             diceSet = previewSet,
             onLaunch = { },

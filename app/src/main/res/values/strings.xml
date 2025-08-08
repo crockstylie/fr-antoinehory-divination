@@ -177,4 +177,13 @@
     <string name="dice_set_launch_set_desc">Launch dice set</string>
     <string name="save_dice_set_desc">Save Dice Set</string>
     <string name="dice_set_name_label">Set Name</string>
+    <string name="dice_configurations_label">Dice Configurations</string>
+    <string name="add_dice_button">Add Die</string>
+    <string name="add_dice_config_desc">Add new dice configuration</string>
+    <string name="no_dice_configs_yet">No dice configured yet. Click "Add Die" to get started.</string>
+    <string name="remove_dice_config_desc">Remove this dice configuration</string>
+    <string name="cancel_add_dice_button">Cancel</string>
+    <string name="dice_type_label">Dice Type</string>
+    <string name="quantity_label">Quantity</string>
+    <string name="confirm_add_to_set_button">Add to Set</string>
 </resources>

@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **Target SDK:**
   - Following Play Console warning, I had to change target SDK from 34 to 35.
+- **Screen:**
+  - Improved UI for landscape orientation.
 
 ## [2.3] - 2025-08-07
 

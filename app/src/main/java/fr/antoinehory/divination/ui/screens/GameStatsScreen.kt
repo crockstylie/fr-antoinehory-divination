@@ -251,7 +251,7 @@ fun GameStatsContent(
                             ) {
                                 GameResultPieChart(
                                     statItems = itemsInGroup,
-                                    modifier = Modifier.size(140.dp)
+                                    modifier = Modifier.size(170.dp)
                                 )
                             }
                         }
@@ -281,7 +281,7 @@ fun GameStatsContent(
                         ) {
                             GameResultPieChart(
                                 statItems = displayItems,
-                                modifier = Modifier.size(140.dp)
+                                modifier = Modifier.size(170.dp)
                             )
                         }
                     }

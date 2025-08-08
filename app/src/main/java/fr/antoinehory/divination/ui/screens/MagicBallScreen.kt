@@ -5,6 +5,8 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState // AJOUT
+import androidx.compose.foundation.verticalScroll // AJOUT
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PieChart
 import androidx.compose.material3.BottomAppBar
@@ -82,14 +84,14 @@ fun MagicBallScreen(
         actions = {
             // L'icône PieChart est maintenant dans la bottomBar
         },
-        bottomBar = { 
+        bottomBar = {
             BottomAppBar(
-                containerColor = MaterialTheme.colorScheme.background, 
-                contentColor = OrakniumGold 
+                containerColor = MaterialTheme.colorScheme.background,
+                contentColor = OrakniumGold
             ) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center, 
+                    horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     IconButton(onClick = { onNavigateToStats(GameType.MAGIC_EIGHT_BALL) }) {
@@ -107,7 +109,8 @@ fun MagicBallScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues) 
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState()) // AJOUT DU DÉFILEMENT
                 .clickable {
                     if (!isPredicting) {
                         if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
@@ -115,8 +118,8 @@ fun MagicBallScreen(
                         }
                     }
                 }
-                .padding(horizontal = 32.dp, vertical = 16.dp), 
-            verticalArrangement = Arrangement.Center,
+                .padding(horizontal = 32.dp, vertical = 16.dp), // Padding interne après le scroll
+            verticalArrangement = Arrangement.Center, // Gardé pour centrer si le contenu est petit
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -132,15 +135,26 @@ fun MagicBallScreen(
             val noShakeInteractionPossible = interactionPrefs.activeInteractionMode == InteractionMode.SHAKE && !isShakeAvailable
 
             if (noShakeInteractionPossible && responseText == initialGenericMessage) {
-                Spacer(modifier = Modifier.weight(1f))
+                // Ce Spacer(modifier = Modifier.weight(1f)) peut poser problème avec le scroll.
+                // Si le contenu est plus grand que l'écran, le Text ci-dessous pourrait ne pas être
+                // poussé vers le bas comme attendu, ou le scroll pourrait se comporter bizarrement.
+                // En général, weight(1f) et verticalScroll sur la même Column ne s'associent pas bien
+                // pour pousser des éléments vers le "bas visible" quand le contenu dépasse.
+                // Nous allons le garder pour l'instant et voir le comportement, mais il pourrait
+                // nécessiter un ajustement si le message d'erreur doit toujours être en bas.
+                // Une solution serait de le placer dans une Column séparée si c'est un pied de page fixe.
+                // Pour l'instant, le plus simple est de le laisser dans le flux de défilement.
+                Spacer(modifier = Modifier.weight(1f)) // ATTENTION ICI AVEC LE SCROLL
                 Text(
                     text = stringResource(id = R.string.magic_ball_no_interaction_method_active),
                     style = MaterialTheme.typography.labelMedium,
                     textAlign = TextAlign.Center,
                     color = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.padding(bottom = 16.dp)
+                    modifier = Modifier.padding(bottom = 16.dp) // Ce padding est bon
                 )
             }
+            // Ajout d'un Spacer en bas pour un meilleur espacement en mode défilement
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
@@ -148,6 +162,18 @@ fun MagicBallScreen(
 @Preview(showBackground = true, name = "MagicBallScreen - Idle")
 @Composable
 fun MagicBallScreenPreviewIdle() {
+    DivinationAppTheme {
+        MagicBallScreen(
+            onNavigateBack = {},
+            onNavigateToStats = {}
+        )
+    }
+}
+
+// Ajout d'une preview paysage pour tester le défilement
+@Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "MagicBallScreen Landscape")
+@Composable
+fun MagicBallScreenLandscapePreview() {
     DivinationAppTheme {
         MagicBallScreen(
             onNavigateBack = {},

@@ -57,8 +57,6 @@ fun defaultLogResultFormatter(): LogResultFormatter { // Correction: camelCase i
                     else -> logResult
                 }
             }
-            // Ajoutez d'autres GameType ici si nécessaire
-            else -> logResult // Fallback
         }
     }
 }

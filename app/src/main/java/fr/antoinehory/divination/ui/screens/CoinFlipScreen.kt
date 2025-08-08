@@ -4,8 +4,8 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState // AJOUT
-import androidx.compose.foundation.verticalScroll // AJOUT
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PieChart
 import androidx.compose.material3.BottomAppBar
@@ -23,19 +23,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+// import androidx.compose.ui.unit.sp // Plus nécessaire ici si GameHistoryDisplay le gère
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
 import fr.antoinehory.divination.data.model.GameType
+// AJOUT: Import du nouveau composant d'historique
+import fr.antoinehory.divination.ui.common.GameHistoryDisplay
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 import fr.antoinehory.divination.ui.theme.OrakniumGold
 import fr.antoinehory.divination.viewmodels.CoinFace
 import fr.antoinehory.divination.viewmodels.CoinFlipViewModel
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
-// Imports ajoutés :
 import fr.antoinehory.divination.DivinationApplication
 import fr.antoinehory.divination.viewmodels.CoinFlipViewModelFactory
 
@@ -56,6 +58,7 @@ fun CoinFlipScreen(
     val currentMessage by coinFlipViewModel.currentMessage.collectAsState()
     val coinFace by coinFlipViewModel.coinFace.collectAsState()
     val isFlipping by coinFlipViewModel.isFlipping.collectAsState()
+    val recentLogs by coinFlipViewModel.recentLogs.collectAsState()
 
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
@@ -116,9 +119,9 @@ fun CoinFlipScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues) // Appliquer le padding fourni par AppScaffold
-                .verticalScroll(rememberScrollState()) // AJOUT DU DÉFILEMENT
-                .padding(16.dp) // Padding interne spécifique à cet écran (gardé après le scroll)
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp)
                 .clickable {
                     if (!isFlipping) {
                         if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
@@ -127,7 +130,7 @@ fun CoinFlipScreen(
                     }
                 },
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center // Gardé pour centrer si le contenu est petit
+            verticalArrangement = Arrangement.Center
         ) {
             val initialGenericMessage = stringResource(id = R.string.coin_flip_initial_prompt_generic)
             val noShakeInteractionPossible = interactionPrefs.activeInteractionMode == InteractionMode.SHAKE && !isShakeAvailable
@@ -177,8 +180,21 @@ fun CoinFlipScreen(
                 modifier = Modifier.alpha(textAlpha)
             )
 
-            // Ajout d'un Spacer en bas pour un meilleur espacement en mode défilement si le contenu est grand
-             Spacer(modifier = Modifier.height(16.dp))
+            // MODIFICATION: Utilisation du composant GameHistoryDisplay
+            // L'ancien Spacer avant la liste et la boucle forEachIndexed sont supprimés
+            // et remplacés par cet appel. GameHistoryDisplay gère son propre Spacer.
+            GameHistoryDisplay(
+                recentLogs = recentLogs,
+                gameType = GameType.COIN_FLIP
+                // Vous pouvez omettre logResultFormatter si DefaultLogResultFormatter
+                // gère correctement CoinFace.HEADS.name et CoinFace.TAILS.name
+                // dans sa section GameType.COIN_FLIP.
+                // (Assurez-vous que les R.string.coin_flip_result_heads/tails sont bien définies
+                // et utilisées par defaultLogResultFormatter).
+            )
+            // FIN SECTION HISTORIQUE MODIFIÉE
+
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
@@ -194,7 +210,6 @@ fun CoinFlipScreenPreview() {
     }
 }
 
-// Ajout d'une preview paysage pour tester le défilement
 @Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "CoinFlipScreen Landscape")
 @Composable
 fun CoinFlipScreenLandscapePreview() {
@@ -205,3 +220,4 @@ fun CoinFlipScreenLandscapePreview() {
         )
     }
 }
+

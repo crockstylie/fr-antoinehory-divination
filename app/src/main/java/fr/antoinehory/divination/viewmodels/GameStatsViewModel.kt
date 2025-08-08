@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import fr.antoinehory.divination.R
+import fr.antoinehory.divination.data.database.entity.LaunchLog // AJOUT NÉCESSAIRE
 import fr.antoinehory.divination.data.model.GameType
 import fr.antoinehory.divination.data.repository.LaunchLogRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,29 +15,29 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-// Data class pour représenter une ligne de statistique
+// Data class pour représenter une ligne de statistique (inchangée)
 data class StatItem(
-    val gameType: GameType, // Pour savoir à quel jeu appartient ce résultat
-    val resultKey: String, // La clé brute stockée (ex: "HEADS", "0", "ROCK")
-    val displayResult: String, // La chaîne à afficher à l'utilisateur (ex: "Pile!", "It is certain.", "Rock!")
+    val gameType: GameType,
+    val resultKey: String,
+    val displayResult: String,
     val count: Int,
     val percentage: Float
 )
 
-// Data class pour encapsuler toutes les statistiques d'un écran
+// Data class pour encapsuler toutes les statistiques d'un écran (inchangée)
 data class GameStatsData(
-    val title: String, // Titre de l'écran (ex: "Statistiques : Pile ou Face" ou "Statistiques Globales")
+    val title: String,
     val totalPlays: Int,
     val statItems: List<StatItem>,
     val isEmpty: Boolean = statItems.isEmpty() && totalPlays == 0
 )
 
-// Data class pour représenter la part de chaque jeu dans les statistiques globales
+// Data class pour représenter la part de chaque jeu dans les statistiques globales (inchangée)
 data class GameGlobalShareEntry(
     val gameType: GameType,
     val gameDisplayName: String,
     val totalPlaysForGame: Int,
-    val sharePercentage: Float // Pourcentage par rapport au total de tous les jeux
+    val sharePercentage: Float
 )
 
 class GameStatsViewModel(
@@ -51,6 +52,10 @@ class GameStatsViewModel(
     private val _globalGameSharesData = MutableStateFlow<List<GameGlobalShareEntry>>(emptyList())
     val globalGameSharesData: StateFlow<List<GameGlobalShareEntry>> = _globalGameSharesData.asStateFlow()
 
+    // AJOUT : StateFlow pour l'historique complet des lancements du jeu spécifique
+    private val _fullHistoryLogs = MutableStateFlow<List<LaunchLog>>(emptyList())
+    val fullHistoryLogs: StateFlow<List<LaunchLog>> = _fullHistoryLogs.asStateFlow()
+
     init {
         loadStats()
     }
@@ -63,22 +68,25 @@ class GameStatsViewModel(
                 application.getString(R.string.stats_screen_title_global)
             }
 
+            // Nous avons besoin de tous les logs pour les deux calculs (_statsData et _globalGameSharesData)
+            // et potentiellement pour _fullHistoryLogs si specificGameType n'est pas null.
             launchLogRepository.getAllLogs().collectLatest { allLogs ->
-                // Calcul pour _statsData
-                val relevantLogs = if (specificGameType != null) {
+                // Calcul pour _statsData (logique existante)
+                val relevantLogsForStatsData = if (specificGameType != null) {
                     allLogs.filter { it.gameType == specificGameType }
                 } else {
                     allLogs
                 }
-                val totalPlaysForCurrentScreen = relevantLogs.size
-                val groupedResults = relevantLogs.groupBy { it.gameType to it.result }
+                val totalPlaysForCurrentScreen = relevantLogsForStatsData.size
+                val groupedResults = relevantLogsForStatsData.groupBy { it.gameType to it.result }
                 val statItemList = mutableListOf<StatItem>()
 
                 groupedResults.forEach { (gameTypeAndResultKey, logs) ->
                     val gameType = gameTypeAndResultKey.first
                     val resultKey = gameTypeAndResultKey.second
                     val count = logs.size
-                    val percentageBase = relevantLogs.filter { it.gameType == gameType }.size
+                    // Pour le pourcentage dans StatItem, on se base sur les logs pertinents pour ce type de jeu sur l'écran actuel
+                    val percentageBase = relevantLogsForStatsData.filter { it.gameType == gameType }.size
                     val percentage = if (percentageBase > 0) (count.toFloat() / percentageBase.toFloat()) * 100 else 0f
                     val displayResult = getDisplayStringForResult(gameType, resultKey)
                     statItemList.add(
@@ -98,7 +106,7 @@ class GameStatsViewModel(
                     statItems = statItemList.toList()
                 )
 
-                // Calcul pour _globalGameSharesData (uniquement si stats globales)
+                // Calcul pour _globalGameSharesData (uniquement si stats globales - logique existante)
                 if (specificGameType == null) {
                     val grandTotalAllPlays = allLogs.size
                     if (grandTotalAllPlays > 0) {
@@ -119,14 +127,20 @@ class GameStatsViewModel(
                     } else {
                         _globalGameSharesData.value = emptyList()
                     }
+                    _fullHistoryLogs.value = emptyList() // Pas d'historique spécifique si stats globales
                 } else {
-                    _globalGameSharesData.value = emptyList()
+                    // C'est ici qu'on met à jour _fullHistoryLogs pour le jeu spécifique
+                    // On peut réutiliser relevantLogsForStatsData qui sont déjà filtrés pour le specificGameType
+                    // Et on les trie par timestamp descendant pour l'affichage de l'historique
+                    _fullHistoryLogs.value = relevantLogsForStatsData.sortedByDescending { it.timestamp }
+                    _globalGameSharesData.value = emptyList() // Pas de parts globales si stats spécifiques
                 }
             }
         }
     }
 
     private fun getGameDisplayName(gameType: GameType): String {
+        // ... (inchangé) ...
         val resources = application.resources
         return when (gameType) {
             GameType.COIN_FLIP -> resources.getString(R.string.coin_flip_screen_title)
@@ -137,6 +151,7 @@ class GameStatsViewModel(
     }
 
     private fun getDisplayStringForResult(gameType: GameType, resultKey: String): String {
+        // ... (inchangé) ...
         val resources = application.resources
         return when (gameType) {
             GameType.COIN_FLIP -> when (resultKey) {
@@ -183,3 +198,4 @@ class GameStatsViewModelFactory(
         throw IllegalArgumentException("Unknown ViewModel class for GameStatsViewModelFactory")
     }
 }
+

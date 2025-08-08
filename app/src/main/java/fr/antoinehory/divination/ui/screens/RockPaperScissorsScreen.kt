@@ -7,11 +7,11 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PieChart
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+// import androidx.compose.material.icons.Icons // Potentially unused now
+// import androidx.compose.material.icons.filled.PieChart // Unused now
+// import androidx.compose.material3.BottomAppBar // Unused now
+// import androidx.compose.material3.Icon // Potentially unused if only for old bottom bar
+// import androidx.compose.material3.IconButton // Potentially unused if only for old bottom bar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -24,16 +24,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-// import androidx.compose.ui.unit.sp // Plus nécessaire ici directement si GameHistoryDisplay le gère
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
 import fr.antoinehory.divination.data.model.GameType
 import fr.antoinehory.divination.ui.common.AppScaffold
-// AJOUT: Import du nouveau composant d'historique
+import fr.antoinehory.divination.ui.common.BottomAppNavigationBar // AJOUT: Import de la barre de navigation commune
 import fr.antoinehory.divination.ui.common.GameHistoryDisplay
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold
+// import fr.antoinehory.divination.ui.theme.OrakniumGold // Potentially unused if only for old bottom bar
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
 import fr.antoinehory.divination.viewmodels.RPSOutcome
 import fr.antoinehory.divination.viewmodels.RockPaperScissorsViewModel
@@ -44,7 +43,8 @@ import fr.antoinehory.divination.viewmodels.RockPaperScissorsViewModelFactory
 fun RockPaperScissorsScreen(
     onNavigateBack: () -> Unit,
     interactionViewModel: InteractionDetectViewModel = viewModel(),
-    onNavigateToStats: (GameType) -> Unit
+    onNavigateToStats: (GameType) -> Unit,
+    onNavigateToInfo: () -> Unit // AJOUT: Paramètre pour la navigation vers l'écran d'info
 ) {
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
@@ -55,7 +55,7 @@ fun RockPaperScissorsScreen(
     )
 
     val currentMessage by rpsViewModel.currentMessage.collectAsState()
-    val rpsOutcome by rpsViewModel.rpsOutcome.collectAsState() // Type: RPSOutcome?
+    val rpsOutcome by rpsViewModel.rpsOutcome.collectAsState()
     val isProcessing by rpsViewModel.isProcessing.collectAsState()
     val recentLogs by rpsViewModel.recentLogs.collectAsState()
 
@@ -86,25 +86,13 @@ fun RockPaperScissorsScreen(
         canNavigateBack = true,
         onNavigateBack = onNavigateBack,
         bottomBar = {
-            BottomAppBar(
-                containerColor = MaterialTheme.colorScheme.background,
-                contentColor = OrakniumGold
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = { onNavigateToStats(GameType.ROCK_PAPER_SCISSORS) }) {
-                        Icon(
-                            imageVector = Icons.Filled.PieChart,
-                            contentDescription = stringResource(id = R.string.game_stats_icon_description),
-                            tint = OrakniumGold,
-                            modifier = Modifier.size(36.dp)
-                        )
-                    }
-                }
-            }
+            // MODIFIÉ: Utilisation de la barre de navigation commune
+            BottomAppNavigationBar(
+                onSettingsClick = { /* Action pour Settings, masquée pour l'instant */ },
+                onStatsClick = { onNavigateToStats(GameType.ROCK_PAPER_SCISSORS) },
+                onInfoClick = onNavigateToInfo,
+                showSettingsButton = false // Cache le bouton Settings pour cet écran
+            )
         }
     ) { paddingValues ->
         Column(
@@ -145,20 +133,17 @@ fun RockPaperScissorsScreen(
                 val shouldShowImage = rpsOutcome != null && !isProcessing
 
                 if (shouldShowImage) {
-                    // Créer une variable locale non-nullable pour clarifier pour le compilateur
-                    val currentOutcome: RPSOutcome = rpsOutcome!! // Garanti non-null par la condition shouldShowImage
+                    val currentOutcome: RPSOutcome = rpsOutcome!!
 
-                    val painterId = when (currentOutcome) { // when sur une variable non-nullable
+                    val painterId = when (currentOutcome) {
                         RPSOutcome.ROCK -> R.drawable.ic_rps_rock
                         RPSOutcome.PAPER -> R.drawable.ic_rps_paper
                         RPSOutcome.SCISSORS -> R.drawable.ic_rps_scissors
-                        // Plus besoin de branche null ou else car currentOutcome est non-nullable et RPSOutcome est un enum
                     }
-                    val contentDescId = when (currentOutcome) { // when sur une variable non-nullable
+                    val contentDescId = when (currentOutcome) {
                         RPSOutcome.ROCK -> R.string.rps_icon_description_rock
                         RPSOutcome.PAPER -> R.string.rps_icon_description_paper
                         RPSOutcome.SCISSORS -> R.string.rps_icon_description_scissors
-                        // Plus besoin de branche null ou else
                     }
                     Image(
                         painter = painterResource(id = painterId),
@@ -195,7 +180,8 @@ fun RockPaperScissorsScreenPreview() {
     DivinationAppTheme {
         RockPaperScissorsScreen(
             onNavigateBack = {},
-            onNavigateToStats = {}
+            onNavigateToStats = {},
+            onNavigateToInfo = {} // AJOUT pour la preview
         )
     }
 }
@@ -206,7 +192,9 @@ fun RockPaperScissorsScreenLandscapePreview() {
     DivinationAppTheme {
         RockPaperScissorsScreen(
             onNavigateBack = {},
-            onNavigateToStats = {}
+            onNavigateToStats = {},
+            onNavigateToInfo = {} // AJOUT pour la preview
         )
     }
 }
+

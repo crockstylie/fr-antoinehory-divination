@@ -2,15 +2,16 @@ package fr.antoinehory.divination.ui.screens
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.clickable // Keep if main column click is desired
+import androidx.compose.foundation.interaction.MutableInteractionSource // Keep for clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PieChart
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+// import androidx.compose.material.icons.Icons // Potentially unused now
+// import androidx.compose.material.icons.filled.PieChart // Unused now
+// import androidx.compose.material3.BottomAppBar // Unused now
+// import androidx.compose.material3.Icon // Potentially unused if only for old bottom bar
+// import androidx.compose.material3.IconButton // Potentially unused if only for old bottom bar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -23,18 +24,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-// import androidx.compose.ui.unit.sp // Plus nécessaire ici si GameHistoryDisplay le gère
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
 import fr.antoinehory.divination.data.model.GameType
-// AJOUT: Import du nouveau composant d'historique
 import fr.antoinehory.divination.ui.common.GameHistoryDisplay
 import fr.antoinehory.divination.ui.common.AppScaffold
-import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold
+import fr.antoinehory.divination.ui.common.BottomAppNavigationBar // AJOUT: Import de la barre de navigation commune
+import fr.antoinehory.divination.ui.theme.DivinationAppTheme // RESTAURÉ: Import nécessaire pour les Previews
+// import fr.antoinehory.divination.ui.theme.OrakniumGold // Potentially unused now if only for old bottom bar
 import fr.antoinehory.divination.viewmodels.CoinFace
 import fr.antoinehory.divination.viewmodels.CoinFlipViewModel
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
@@ -45,7 +45,8 @@ import fr.antoinehory.divination.viewmodels.CoinFlipViewModelFactory
 fun CoinFlipScreen(
     onNavigateBack: () -> Unit,
     interactionViewModel: InteractionDetectViewModel = viewModel(),
-    onNavigateToStats: (GameType) -> Unit
+    onNavigateToStats: (GameType) -> Unit,
+    onNavigateToInfo: () -> Unit // AJOUT: Paramètre pour la navigation vers l'écran d'info
 ) {
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
@@ -95,25 +96,12 @@ fun CoinFlipScreen(
         canNavigateBack = true,
         onNavigateBack = onNavigateBack,
         bottomBar = {
-            BottomAppBar(
-                containerColor = MaterialTheme.colorScheme.background,
-                contentColor = OrakniumGold
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = { onNavigateToStats(GameType.COIN_FLIP) }) {
-                        Icon(
-                            imageVector = Icons.Filled.PieChart,
-                            contentDescription = stringResource(id = R.string.game_stats_icon_description),
-                            tint = OrakniumGold,
-                            modifier = Modifier.size(36.dp)
-                        )
-                    }
-                }
-            }
+            BottomAppNavigationBar(
+                onSettingsClick = { /* Action pour Settings, masquée pour l'instant */ },
+                onStatsClick = { onNavigateToStats(GameType.COIN_FLIP) },
+                onInfoClick = onNavigateToInfo,
+                showSettingsButton = false
+            )
         }
     ) { paddingValues ->
         Column(
@@ -122,13 +110,17 @@ fun CoinFlipScreen(
                 .padding(paddingValues)
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp)
-                .clickable {
-                    if (!isFlipping) {
-                        if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
-                            interactionViewModel.userTappedScreen()
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = null,
+                    onClick = {
+                        if (!isFlipping) {
+                            if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
+                                interactionViewModel.userTappedScreen()
+                            }
                         }
                     }
-                },
+                ),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -180,19 +172,10 @@ fun CoinFlipScreen(
                 modifier = Modifier.alpha(textAlpha)
             )
 
-            // MODIFICATION: Utilisation du composant GameHistoryDisplay
-            // L'ancien Spacer avant la liste et la boucle forEachIndexed sont supprimés
-            // et remplacés par cet appel. GameHistoryDisplay gère son propre Spacer.
             GameHistoryDisplay(
                 recentLogs = recentLogs,
                 gameType = GameType.COIN_FLIP
-                // Vous pouvez omettre logResultFormatter si DefaultLogResultFormatter
-                // gère correctement CoinFace.HEADS.name et CoinFace.TAILS.name
-                // dans sa section GameType.COIN_FLIP.
-                // (Assurez-vous que les R.string.coin_flip_result_heads/tails sont bien définies
-                // et utilisées par defaultLogResultFormatter).
             )
-            // FIN SECTION HISTORIQUE MODIFIÉE
 
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -205,7 +188,8 @@ fun CoinFlipScreenPreview() {
     DivinationAppTheme {
         CoinFlipScreen(
             onNavigateBack = {},
-            onNavigateToStats = {}
+            onNavigateToStats = {},
+            onNavigateToInfo = {}
         )
     }
 }
@@ -216,7 +200,8 @@ fun CoinFlipScreenLandscapePreview() {
     DivinationAppTheme {
         CoinFlipScreen(
             onNavigateBack = {},
-            onNavigateToStats = {}
+            onNavigateToStats = {},
+            onNavigateToInfo = {}
         )
     }
 }

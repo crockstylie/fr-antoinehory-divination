@@ -7,32 +7,30 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PieChart
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+// import androidx.compose.material.icons.Icons // Potentially unused now
+// import androidx.compose.material.icons.filled.PieChart // Unused now
+// import androidx.compose.material3.BottomAppBar // Unused now
+// import androidx.compose.material3.Icon // Potentially unused if only for old bottom bar
+// import androidx.compose.material3.IconButton // Potentially unused if only for old bottom bar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-// import androidx.compose.ui.graphics.Color // Non utilisé directement ici
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-// import androidx.compose.ui.unit.sp // Plus nécessaire ici si GameHistoryDisplay le gère
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
-// AJOUT: Import du nouveau composant d'historique
 import fr.antoinehory.divination.ui.common.GameHistoryDisplay
 import fr.antoinehory.divination.ui.common.AppScaffold
+import fr.antoinehory.divination.ui.common.BottomAppNavigationBar // AJOUT: Import de la barre de navigation commune
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold
+// import fr.antoinehory.divination.ui.theme.OrakniumGold // Potentially unused if only for old bottom bar
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
 import fr.antoinehory.divination.viewmodels.MagicBallViewModel
 import fr.antoinehory.divination.DivinationApplication
@@ -44,7 +42,8 @@ import fr.antoinehory.divination.viewmodels.MagicBallViewModelFactory
 fun MagicBallScreen(
     onNavigateBack: () -> Unit,
     interactionViewModel: InteractionDetectViewModel = viewModel(),
-    onNavigateToStats: (GameType) -> Unit
+    onNavigateToStats: (GameType) -> Unit,
+    onNavigateToInfo: () -> Unit // AJOUT: Paramètre pour la navigation vers l'écran d'info
 ) {
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
@@ -86,28 +85,16 @@ fun MagicBallScreen(
         canNavigateBack = true,
         onNavigateBack = onNavigateBack,
         actions = {
-            // L'icône PieChart est maintenant dans la bottomBar
+            // L'icône PieChart est maintenant gérée par BottomAppNavigationBar
         },
         bottomBar = {
-            BottomAppBar(
-                containerColor = MaterialTheme.colorScheme.background,
-                contentColor = OrakniumGold
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = { onNavigateToStats(GameType.MAGIC_EIGHT_BALL) }) {
-                        Icon(
-                            imageVector = Icons.Filled.PieChart,
-                            contentDescription = stringResource(id = R.string.game_stats_icon_description),
-                            tint = OrakniumGold,
-                            modifier = Modifier.size(36.dp)
-                        )
-                    }
-                }
-            }
+            // MODIFIÉ: Utilisation de la barre de navigation commune
+            BottomAppNavigationBar(
+                onSettingsClick = { /* Action pour Settings, masquée pour l'instant */ },
+                onStatsClick = { onNavigateToStats(GameType.MAGIC_EIGHT_BALL) },
+                onInfoClick = onNavigateToInfo,
+                showSettingsButton = false // Cache le bouton Settings pour cet écran
+            )
         }
     ) { paddingValues ->
         Column(
@@ -135,36 +122,16 @@ fun MagicBallScreen(
                     .alpha(textAlpha)
             )
 
-            // MODIFICATION: Utilisation du composant GameHistoryDisplay
-            // La logique `if (recentLogs.isNotEmpty()) { Spacer ... recentLogs.forEachIndexed ... }` est remplacée.
             GameHistoryDisplay(
                 recentLogs = recentLogs,
                 gameType = GameType.MAGIC_EIGHT_BALL
-                // Pour MagicBall, il est crucial que defaultLogResultFormatter dans GameHistoryDisplay
-                // gère correctement les log.result. Si log.result est déjà la chaîne de réponse complète,
-                // le formateur actuel (qui retourne logResult tel quel pour MAGIC_EIGHT_BALL) est correct.
-                // Si log.result est un index ou une clé, le formateur devra être ajusté.
-                // Basé sur le code original de MagicBallScreen, il semble que log.result soit
-                // soit MagicBallViewModel.FALLBACK_LOG_IDENTIFIER, soit un index.
-                // Le formateur actuel n'est PAS adapté à ce cas. Nous devons le revoir.
             )
-            // FIN SECTION HISTORIQUE MODIFIÉE
-
 
             val initialGenericMessage = stringResource(id = R.string.magic_ball_initial_prompt_generic)
             val noShakeInteractionPossible = interactionPrefs.activeInteractionMode == InteractionMode.SHAKE && !isShakeAvailable
 
-            // Ce bloc if/else gère le message d'erreur si aucune méthode d'interaction n'est active.
-            // Il est placé après l'historique. Si l'historique est court ou vide,
-            // et que ce message d'erreur s'affiche, le layout sera un peu différent
-            // par rapport à avant où l'historique pouvait occuper plus d'espace vertical.
-            // Ceci est à vérifier visuellement. Le Spacer(modifier = Modifier.weight(1f))
-            // pourrait avoir besoin d'être ajusté ou déplacé en fonction du résultat souhaité.
             if (noShakeInteractionPossible && responseText == initialGenericMessage) {
-                // Si le but est que ce message d'erreur soit toujours en bas s'il est affiché,
-                // il faudrait peut-être une structure avec un Spacer(Modifier.weight(1f))
-                // au-dessus de ce Text.
-                Spacer(modifier = Modifier.weight(1f)) // Pousse le texte d'erreur vers le bas
+                Spacer(modifier = Modifier.weight(1f))
                 Text(
                     text = stringResource(id = R.string.magic_ball_no_interaction_method_active),
                     style = MaterialTheme.typography.labelMedium,
@@ -173,9 +140,6 @@ fun MagicBallScreen(
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
             } else {
-                // Un spacer pour s'assurer qu'il y a de l'espace en bas si le message d'erreur n'est pas affiché.
-                // Si l'historique est vide, ce spacer sera juste après le texte principal.
-                // Si l'historique est présent, il sera après l'historique.
                 Spacer(modifier = Modifier.height(16.dp))
             }
         }
@@ -188,7 +152,8 @@ fun MagicBallScreenPreviewIdle() {
     DivinationAppTheme {
         MagicBallScreen(
             onNavigateBack = {},
-            onNavigateToStats = {}
+            onNavigateToStats = {},
+            onNavigateToInfo = {} // AJOUT pour la preview
         )
     }
 }
@@ -199,7 +164,9 @@ fun MagicBallScreenLandscapePreview() {
     DivinationAppTheme {
         MagicBallScreen(
             onNavigateBack = {},
-            onNavigateToStats = {}
+            onNavigateToStats = {},
+            onNavigateToInfo = {} // AJOUT pour la preview
         )
     }
 }
+

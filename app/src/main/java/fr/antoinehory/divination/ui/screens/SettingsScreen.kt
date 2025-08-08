@@ -2,24 +2,24 @@ package fr.antoinehory.divination.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.* // Maintenu pour les composants existants
+import androidx.compose.foundation.rememberScrollState // AJOUT
+import androidx.compose.foundation.verticalScroll // AJOUT
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color // AJOUTÉ
-import androidx.compose.ui.platform.LocalContext // AJOUTÉ
-import androidx.compose.ui.res.stringResource // AJOUTÉ
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import fr.antoinehory.divination.R // AJOUTÉ
+import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
-import fr.antoinehory.divination.data.InteractionPreferences
-
 // AJOUTS pour le nouveau ViewModel et le dialogue :
 import fr.antoinehory.divination.DivinationApplication
 import fr.antoinehory.divination.viewmodels.SettingsViewModel
@@ -30,7 +30,6 @@ import fr.antoinehory.divination.viewmodels.SettingsViewModelFactory
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
     interactionViewModel: InteractionDetectViewModel = viewModel(),
-    // AJOUT: Initialisation du SettingsViewModel
     settingsViewModel: SettingsViewModel = viewModel(
         factory = SettingsViewModelFactory(
             (LocalContext.current.applicationContext as DivinationApplication).launchLogRepository
@@ -39,11 +38,8 @@ fun SettingsScreen(
 ) {
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
-
-    // AJOUT: État pour le dialogue de confirmation
     val showClearStatsDialog by settingsViewModel.showClearStatsConfirmationDialog.collectAsState()
 
-    // AJOUT: Dialogue de confirmation
     if (showClearStatsDialog) {
         AlertDialog(
             onDismissRequest = { settingsViewModel.onDismissClearStatsDialog() },
@@ -63,15 +59,16 @@ fun SettingsScreen(
     }
 
     AppScaffold(
-        title = stringResource(id = R.string.settings_screen_title), // MODIFIÉ: Titre générique
+        title = stringResource(id = R.string.settings_screen_title),
         canNavigateBack = true,
         onNavigateBack = onNavigateBack
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
-                .padding(horizontal = 16.dp, vertical = 8.dp)
+                .padding(paddingValues) // Padding du Scaffold
+                .verticalScroll(rememberScrollState()) // Rend la colonne défilable
+                .padding(horizontal = 16.dp, vertical = 8.dp) // Padding interne pour le contenu
         ) {
             Text(
                 stringResource(id = R.string.settings_interaction_mode_title),
@@ -106,12 +103,11 @@ fun SettingsScreen(
                     stringResource(id = R.string.settings_interaction_mode_shake_unavailable),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(start = 16.dp, top = 8.dp)
+                    modifier = Modifier.padding(start = 16.dp, top = 8.dp, bottom = 8.dp) // Ajout d'un padding bottom
                 )
             }
 
-            // AJOUT: Section pour vider les statistiques
-            Divider(modifier = Modifier.padding(vertical = 16.dp)) // Séparateur visuel
+            Divider(modifier = Modifier.padding(vertical = 16.dp))
 
             Text(
                 stringResource(id = R.string.settings_data_management_title),
@@ -119,16 +115,20 @@ fun SettingsScreen(
                 modifier = Modifier.padding(bottom = 16.dp)
             )
 
-            SettingTextItem( // Remplacé par un TextItem simple pour l'action
+            SettingTextItem(
                 title = stringResource(id = R.string.settings_clear_stats_button),
                 onClick = { settingsViewModel.onClearStatsClicked() },
-                textColor = MaterialTheme.colorScheme.error // Couleur pour indiquer une action potentiellement destructive
+                textColor = MaterialTheme.colorScheme.error
             )
+
+            // Ajout d'un Spacer en bas pour s'assurer que le dernier élément est bien visible
+            // lors du défilement, surtout si un clavier virtuel apparaîtrait (peu probable ici mais bonne pratique)
+            // ou si le contenu était plus long.
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
 
-// MODIFIÉ: SettingRadioItem pour cohérence (pas de changement majeur ici, juste pour revue)
 @Composable
 fun SettingRadioItem(
     title: String,
@@ -164,13 +164,12 @@ fun SettingRadioItem(
     }
 }
 
-// AJOUT: Un composable simple pour les options cliquables qui ne sont pas des RadioButton
 @Composable
 fun SettingTextItem(
     title: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    textColor: Color = Color.Unspecified // Permet de spécifier une couleur pour le texte
+    textColor: Color = Color.Unspecified
 ) {
     Row(
         modifier = modifier
@@ -188,15 +187,18 @@ fun SettingTextItem(
     }
 }
 
-
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Settings Screen Portrait")
 @Composable
 fun SettingsScreenPreview() {
     DivinationAppTheme {
-        // Le preview ne pourra pas instancier le ViewModel sans une fausse implémentation
-        // ou des ajustements plus complexes.
-        // On peut prévisualiser la structure de base.
         SettingsScreen(onNavigateBack = {})
     }
 }
 
+@Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "Settings Screen Landscape")
+@Composable
+fun SettingsScreenPreviewLandscape() {
+    DivinationAppTheme {
+        SettingsScreen(onNavigateBack = {})
+    }
+}

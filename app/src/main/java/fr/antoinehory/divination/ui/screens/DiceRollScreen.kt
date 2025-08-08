@@ -5,11 +5,13 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons // AJOUTÉ
-import androidx.compose.material.icons.filled.PieChart // AJOUTÉ
-import androidx.compose.material3.BottomAppBar // AJOUTÉ
-import androidx.compose.material3.Icon // AJOUTÉ
-import androidx.compose.material3.IconButton // AJOUTÉ
+import androidx.compose.foundation.rememberScrollState // AJOUT
+import androidx.compose.foundation.verticalScroll // AJOUT
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PieChart
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -25,13 +27,12 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
-import fr.antoinehory.divination.data.model.GameType // AJOUTÉ
+import fr.antoinehory.divination.data.model.GameType
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold // AJOUTÉ
+import fr.antoinehory.divination.ui.theme.OrakniumGold
 import fr.antoinehory.divination.viewmodels.DiceRollViewModel
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
-// AJOUTS :
 import fr.antoinehory.divination.DivinationApplication
 import fr.antoinehory.divination.viewmodels.DiceRollViewModelFactory
 
@@ -39,7 +40,7 @@ import fr.antoinehory.divination.viewmodels.DiceRollViewModelFactory
 fun DiceRollScreen(
     onNavigateBack: () -> Unit,
     interactionViewModel: InteractionDetectViewModel = viewModel(),
-    onNavigateToStats: (GameType) -> Unit // AJOUTÉ
+    onNavigateToStats: (GameType) -> Unit
 ) {
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
@@ -79,7 +80,7 @@ fun DiceRollScreen(
         title = stringResource(id = R.string.dice_roll_screen_title),
         canNavigateBack = true,
         onNavigateBack = onNavigateBack,
-        bottomBar = { // AJOUTÉ
+        bottomBar = {
             BottomAppBar(
                 containerColor = MaterialTheme.colorScheme.background,
                 contentColor = OrakniumGold
@@ -89,12 +90,12 @@ fun DiceRollScreen(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    IconButton(onClick = { onNavigateToStats(GameType.DICE_ROLL) }) { // MODIFIÉ GameType
+                    IconButton(onClick = { onNavigateToStats(GameType.DICE_ROLL) }) {
                         Icon(
                             imageVector = Icons.Filled.PieChart,
                             contentDescription = stringResource(id = R.string.game_stats_icon_description),
                             tint = OrakniumGold,
-                            modifier = Modifier.size(36.dp) // Taille harmonisée
+                            modifier = Modifier.size(36.dp)
                         )
                     }
                 }
@@ -104,8 +105,9 @@ fun DiceRollScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues) // Appliquer le padding fourni par AppScaffold
-                .padding(16.dp) // Padding interne spécifique à cet écran
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState()) // AJOUT DU DÉFILEMENT
+                .padding(16.dp)
                 .clickable {
                     if (!isRolling) {
                         if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
@@ -114,7 +116,7 @@ fun DiceRollScreen(
                     }
                 },
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center // Gardé pour centrer si le contenu est petit
         ) {
             val initialGenericMessage = stringResource(id = R.string.dice_initial_prompt_generic)
             val noShakeInteractionPossible = interactionPrefs.activeInteractionMode == InteractionMode.SHAKE && !isShakeAvailable
@@ -173,10 +175,13 @@ fun DiceRollScreen(
 
             Text(
                 text = currentMessage,
-                style = MaterialTheme.typography.headlineMedium, // Retiré <caret> si présent
+                style = MaterialTheme.typography.headlineMedium,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.alpha(textAlpha)
             )
+
+            // Ajout d'un Spacer en bas pour un meilleur espacement en mode défilement
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
@@ -185,13 +190,21 @@ fun DiceRollScreen(
 @Composable
 fun DiceRollScreenPreview() {
     DivinationAppTheme {
-        // DiceRollScreen(onNavigateBack = {}) // Commenté pour l'instant
-        // Text("Preview for DiceRollScreen needs adjustment for ViewModel with repository.")
-        // MODIFIÉ pour inclure le nouveau paramètre et simplifier
         DiceRollScreen(
             onNavigateBack = {},
-            onNavigateToStats = {} // AJOUTÉ
+            onNavigateToStats = {}
         )
     }
 }
 
+// Ajout d'une preview paysage pour tester le défilement
+@Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "DiceRollScreen Landscape")
+@Composable
+fun DiceRollScreenLandscapePreview() {
+    DivinationAppTheme {
+        DiceRollScreen(
+            onNavigateBack = {},
+            onNavigateToStats = {}
+        )
+    }
+}

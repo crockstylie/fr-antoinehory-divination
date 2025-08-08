@@ -2,6 +2,8 @@ package fr.antoinehory.divination.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState // AJOUT
+import androidx.compose.foundation.verticalScroll // AJOUT
 import androidx.compose.material.icons.Icons // Potentiellement pour d'autres icônes
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -30,9 +32,10 @@ fun InfoScreen(onNavigateBack: () -> Unit) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
-                .padding(horizontal = 16.dp)
-                .padding(vertical = 8.dp),
+                .padding(paddingValues) // Padding du Scaffold
+                .verticalScroll(rememberScrollState()) // Rend la colonne défilable
+                .padding(horizontal = 16.dp) // Padding horizontal pour le contenu
+                .padding(bottom = 16.dp), // Padding en bas pour le dernier élément
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -64,7 +67,7 @@ fun InfoScreen(onNavigateBack: () -> Unit) {
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
+                horizontalArrangement = Arrangement.SpaceEvenly, // Conserver SpaceEvenly pour le paysage si assez de place
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 SocialMediaIcon(
@@ -83,21 +86,24 @@ fun InfoScreen(onNavigateBack: () -> Unit) {
                     url = "https://www.instagram.com/antoine.hory.web/"
                 )
                 SocialMediaIcon(
-                    iconResId = R.drawable.ic_facebook_logo, 
+                    iconResId = R.drawable.ic_facebook_logo,
                     contentDescription = stringResource(R.string.facebook_profile),
                     url = "https://www.facebook.com/antoinehory/"
                 )
                 SocialMediaIcon(
-                    iconResId = R.drawable.ic_spotify_logo,  
+                    iconResId = R.drawable.ic_spotify_logo,
                     contentDescription = stringResource(R.string.spotify_profile),
                     url = "https://open.spotify.com/user/crockstylie"
                 )
                 SocialMediaIcon(
-                    iconResId = R.drawable.ic_steam_logo, 
+                    iconResId = R.drawable.ic_steam_logo,
                     contentDescription = stringResource(R.string.steam_profile),
                     url = "https://steamcommunity.com/id/crockstylie/"
                 )
             }
+            // Le padding en bas de la Column défilable (16.dp) devrait suffire.
+            // Si la Row des icônes est très haute ou si plus d'espace est nécessaire en mode paysage,
+            // un Spacer(Modifier.height(16.dp)) pourrait être ajouté ici aussi.
         }
     }
 }
@@ -116,7 +122,7 @@ fun InfoItemColumn(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
             .fillMaxWidth()
-            .padding(vertical = 12.dp)
+            .padding(vertical = 12.dp) // Changé de 8.dp à 12.dp pour un peu plus d'espace vertical
     ) {
         Text(
             text = "$label :",
@@ -155,31 +161,35 @@ fun SocialMediaIcon(
     iconResId: Int,
     contentDescription: String,
     url: String,
-    modifier: Modifier = Modifier // Permet de passer des modificateurs pour la taille etc.
+    modifier: Modifier = Modifier
 ) {
     val uriHandler = LocalUriHandler.current
     IconButton(
         onClick = { uriHandler.openUri(url) },
-        modifier = modifier // Appliquer le modificateur ici
+        modifier = modifier
     ) {
         Icon(
             painter = painterResource(id = iconResId),
             contentDescription = contentDescription,
-            tint = Color.Unspecified, // Ou MaterialTheme.colorScheme.primary si vous voulez les teinter
-            modifier = Modifier.size(40.dp) // Ajustez la taille selon vos besoins
+            tint = Color.Unspecified,
+            modifier = Modifier.size(40.dp)
         )
     }
 }
 
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Info Screen Portrait")
 @Composable
 fun InfoScreenPreview() {
     DivinationAppTheme {
-        // Pour la preview, vous devrez peut-être créer des drawables factices
-        // ou commenter la section SocialMediaIcon si les R.drawable ne sont pas résolus en mode preview
-        // sans une build complète.
         InfoScreen {}
     }
 }
 
+@Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "Info Screen Landscape")
+@Composable
+fun InfoScreenPreviewLandscape() {
+    DivinationAppTheme {
+        InfoScreen {}
+    }
+}

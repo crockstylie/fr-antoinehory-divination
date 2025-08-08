@@ -4,11 +4,13 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons // AJOUTÉ
-import androidx.compose.material.icons.filled.PieChart // AJOUTÉ
-import androidx.compose.material3.BottomAppBar // AJOUTÉ
-import androidx.compose.material3.Icon // AJOUTÉ
-import androidx.compose.material3.IconButton // AJOUTÉ
+import androidx.compose.foundation.rememberScrollState // AJOUT
+import androidx.compose.foundation.verticalScroll // AJOUT
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PieChart
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -26,10 +28,10 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
-import fr.antoinehory.divination.data.model.GameType // AJOUTÉ
+import fr.antoinehory.divination.data.model.GameType
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold // AJOUTÉ
+import fr.antoinehory.divination.ui.theme.OrakniumGold
 import fr.antoinehory.divination.viewmodels.CoinFace
 import fr.antoinehory.divination.viewmodels.CoinFlipViewModel
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
@@ -41,7 +43,7 @@ import fr.antoinehory.divination.viewmodels.CoinFlipViewModelFactory
 fun CoinFlipScreen(
     onNavigateBack: () -> Unit,
     interactionViewModel: InteractionDetectViewModel = viewModel(),
-    onNavigateToStats: (GameType) -> Unit // AJOUTÉ
+    onNavigateToStats: (GameType) -> Unit
 ) {
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
@@ -89,7 +91,7 @@ fun CoinFlipScreen(
         title = stringResource(id = R.string.coin_flip_screen_title),
         canNavigateBack = true,
         onNavigateBack = onNavigateBack,
-        bottomBar = { // AJOUTÉ
+        bottomBar = {
             BottomAppBar(
                 containerColor = MaterialTheme.colorScheme.background,
                 contentColor = OrakniumGold
@@ -99,12 +101,12 @@ fun CoinFlipScreen(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    IconButton(onClick = { onNavigateToStats(GameType.COIN_FLIP) }) { // MODIFIÉ GameType
+                    IconButton(onClick = { onNavigateToStats(GameType.COIN_FLIP) }) {
                         Icon(
                             imageVector = Icons.Filled.PieChart,
                             contentDescription = stringResource(id = R.string.game_stats_icon_description),
                             tint = OrakniumGold,
-                            modifier = Modifier.size(36.dp) // Taille harmonisée
+                            modifier = Modifier.size(36.dp)
                         )
                     }
                 }
@@ -115,7 +117,8 @@ fun CoinFlipScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues) // Appliquer le padding fourni par AppScaffold
-                .padding(16.dp) // Padding interne spécifique à cet écran
+                .verticalScroll(rememberScrollState()) // AJOUT DU DÉFILEMENT
+                .padding(16.dp) // Padding interne spécifique à cet écran (gardé après le scroll)
                 .clickable {
                     if (!isFlipping) {
                         if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
@@ -124,7 +127,7 @@ fun CoinFlipScreen(
                     }
                 },
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center // Gardé pour centrer si le contenu est petit
         ) {
             val initialGenericMessage = stringResource(id = R.string.coin_flip_initial_prompt_generic)
             val noShakeInteractionPossible = interactionPrefs.activeInteractionMode == InteractionMode.SHAKE && !isShakeAvailable
@@ -173,6 +176,9 @@ fun CoinFlipScreen(
                 textAlign = TextAlign.Center,
                 modifier = Modifier.alpha(textAlpha)
             )
+
+            // Ajout d'un Spacer en bas pour un meilleur espacement en mode défilement si le contenu est grand
+             Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
@@ -181,9 +187,21 @@ fun CoinFlipScreen(
 @Composable
 fun CoinFlipScreenPreview() {
     DivinationAppTheme {
-        CoinFlipScreen( // MODIFIÉ
+        CoinFlipScreen(
             onNavigateBack = {},
-            onNavigateToStats = {} // AJOUTÉ
+            onNavigateToStats = {}
+        )
+    }
+}
+
+// Ajout d'une preview paysage pour tester le défilement
+@Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "CoinFlipScreen Landscape")
+@Composable
+fun CoinFlipScreenLandscapePreview() {
+    DivinationAppTheme {
+        CoinFlipScreen(
+            onNavigateBack = {},
+            onNavigateToStats = {}
         )
     }
 }

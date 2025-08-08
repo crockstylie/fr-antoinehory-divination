@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">所有遊戲統計資料將被永久刪除。此操作無法復原。</string>
     <string name="settings_clear_stats_dialog_confirm">確認</string>
     <string name="settings_clear_stats_dialog_cancel">取消</string>
+    <string name="settings_clear_stats_for_game_dialog_title">清除 %1$s 的統計資料？</string>
+    <string name="settings_clear_stats_for_game_dialog_message">您確定要刪除遊戲 %1$s 的所有統計資料嗎？此動作無法復原。</string>
+    <string name="settings_clear_stats_for_game_title">清除遊戲統計資料</string>
+    <string name="settings_select_game_placeholder">選取一個遊戲</string>
+    <string name="settings_game_to_clear_label">要清除的遊戲</string>
+    <string name="settings_clear_stats_for_selected_game_button">清除所選遊戲的統計資料</string>
+    <string name="settings_all_games_option">所有遊戲</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">清除所有遊戲統計資料？</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">您確定要刪除所有遊戲統計資料嗎？此動作無法復原。</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">互動以獲取答案。</string>

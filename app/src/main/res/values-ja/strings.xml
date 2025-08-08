@@ -126,6 +126,15 @@
     <string name="settings_clear_stats_dialog_message">すべてのゲーム統計データが完全に削除されます。この操作は元に戻せません。</string>
     <string name="settings_clear_stats_dialog_confirm">確認</string>
     <string name="settings_clear_stats_dialog_cancel">キャンセル</string>
+    <string name="settings_clear_stats_for_game_dialog_title">%1$s の統計を消去しますか？</string>
+    <string name="settings_clear_stats_for_game_dialog_message">ゲーム %1$s のすべての統計を削除してもよろしいですか？この操作は元に戻せません。</string>
+    <string name="settings_clear_stats_for_game_title">ゲームの統計を消去</string>
+    <string name="settings_select_game_placeholder">ゲームを選択</string>
+    <string name="settings_game_to_clear_label">消去するゲーム</string>
+    <string name="settings_clear_stats_for_selected_game_button">選択したゲームを消去</string>
+    <string name="settings_all_games_option">すべてのゲーム</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">すべてのゲーム統計を消去しますか？</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">すべてのゲーム統計を削除してもよろしいですか？この操作は元に戻せません。</string>
 
     <!-- GameStatsViewModel -->
     <string name="stats_screen_title_global">グローバル統計</string>

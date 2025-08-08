@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">Wszystkie dane statystyczne gry zostaną trwale usunięte. Ta operacja jest nieodwracalna.</string>
     <string name="settings_clear_stats_dialog_confirm">Potwierdź</string>
     <string name="settings_clear_stats_dialog_cancel">Anuluj</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Wyczyścić statystyki dla %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Czy na pewno chcesz usunąć wszystkie statystyki dla gry %1$s? Tej operacji nie można cofnąć.</string>
+    <string name="settings_clear_stats_for_game_title">Wyczyść statystyki dla gry</string>
+    <string name="settings_select_game_placeholder">Wybierz grę</string>
+    <string name="settings_game_to_clear_label">Gra do wyczyszczenia</string>
+    <string name="settings_clear_stats_for_selected_game_button">Wyczyść dla wybranej gry</string>
+    <string name="settings_all_games_option">Wszystkie gry</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Wyczyścić wszystkie statystyki gier?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Czy na pewno chcesz usunąć wszystkie statystyki gier? Tej operacji nie można cofnąć.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Wejdź w interakcję, aby uzyskać odpowiedź.</string>

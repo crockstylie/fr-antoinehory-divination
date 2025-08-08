@@ -101,6 +101,16 @@
     <string name="settings_clear_stats_dialog_message">Všechna data herních statistik budou trvale smazána. Tato akce je nevratná.</string>
     <string name="settings_clear_stats_dialog_confirm">Potvrdit</string>
     <string name="settings_clear_stats_dialog_cancel">Zrušit</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Vymazat statistiky pro %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Opravdu chcete smazat všechny statistiky pro hru %1$s? Tuto akci nelze vrátit zpět.</string>
+    <string name="settings_clear_stats_for_game_title">Vymazat statistiky pro hru</string>
+    <string name="settings_select_game_placeholder">Vyberte hru</string>
+    <string name="settings_game_to_clear_label">Hra k vymazání</string>
+    <string name="settings_clear_stats_for_selected_game_button">Vymazat pro vybranou hru</string>
+    <string name="settings_all_games_option">Všechny hry</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Vymazat všechny herní statistiky?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Opravdu chcete smazat všechny herní statistiky? Tuto akci nelze vrátit zpět.</string>
+
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interagujte pro získání odpovědi.</string>

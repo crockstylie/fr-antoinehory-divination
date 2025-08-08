@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">כל נתוני סטטיסטיקת המשחק יימחקו לצמיתות. פעולה זו אינה הפיכה.</string>
     <string name="settings_clear_stats_dialog_confirm">אשר</string>
     <string name="settings_clear_stats_dialog_cancel">בטל</string>
+    <string name="settings_clear_stats_for_game_dialog_title">לנקות נתונים סטטיסטיים עבור %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">האם אתה בטוח שברצונך למחוק את כל הנתונים הסטטיסטיים של המשחק %1$s? לא ניתן לבטל פעולה זו.</string>
+    <string name="settings_clear_stats_for_game_title">נקה נתונים סטטיסטיים למשחק</string>
+    <string name="settings_select_game_placeholder">בחר משחק</string>
+    <string name="settings_game_to_clear_label">משחק לניקוי</string>
+    <string name="settings_clear_stats_for_selected_game_button">נקה למשחק שנבחר</string>
+    <string name="settings_all_games_option">כל המשחקים</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">לנקות את כל הנתונים הסטטיסטיים של המשחקים?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">האם אתה בטוח שברצונך למחוק את כל הנתונים הסטטיסטיים של המשחקים? לא ניתן לבטל פעולה זו.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">קיים אינטראקציה כדי לקבל תשובה.</string>

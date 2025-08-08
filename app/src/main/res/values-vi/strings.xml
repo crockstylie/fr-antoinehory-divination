@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">Tất cả dữ liệu thống kê trò chơi sẽ bị xóa vĩnh viễn. Hành động này không thể hoàn tác.</string>
     <string name="settings_clear_stats_dialog_confirm">Xác nhận</string>
     <string name="settings_clear_stats_dialog_cancel">Hủy</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Xóa thống kê cho %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Bạn có chắc chắn muốn xóa tất cả thống kê cho trò chơi %1$s không? Hành động này không thể hoàn tác.</string>
+    <string name="settings_clear_stats_for_game_title">Xóa thống kê cho một trò chơi</string>
+    <string name="settings_select_game_placeholder">Chọn một trò chơi</string>
+    <string name="settings_game_to_clear_label">Trò chơi cần xóa</string>
+    <string name="settings_clear_stats_for_selected_game_button">Xóa cho trò chơi đã chọn</string>
+    <string name="settings_all_games_option">Tất cả trò chơi</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Xóa tất cả thống kê trò chơi?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Bạn có chắc chắn muốn xóa tất cả thống kê trò chơi không? Hành động này không thể hoàn tác.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Tương tác để nhận câu trả lời.</string>

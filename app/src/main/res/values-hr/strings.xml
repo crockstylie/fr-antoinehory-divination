@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">Svi podaci statistike igre bit će trajno izbrisani. Ova radnja je nepovratna.</string>
     <string name="settings_clear_stats_dialog_confirm">Potvrdi</string>
     <string name="settings_clear_stats_dialog_cancel">Odustani</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Očistiti statistiku za %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Jeste li sigurni da želite izbrisati svu statistiku za igru %1$s? Ova se radnja ne može poništiti.</string>
+    <string name="settings_clear_stats_for_game_title">Očisti statistiku za igru</string>
+    <string name="settings_select_game_placeholder">Odaberite igru</string>
+    <string name="settings_game_to_clear_label">Igra za brisanje</string>
+    <string name="settings_clear_stats_for_selected_game_button">Očisti za odabranu igru</string>
+    <string name="settings_all_games_option">Sve igre</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Očistiti statistiku svih igara?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Jeste li sigurni da želite izbrisati statistiku svih igara? Ova se radnja ne može poništiti.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interagirajte da biste dobili odgovor.</string>

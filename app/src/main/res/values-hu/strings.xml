@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">Minden játékstatisztikai adat véglegesen törlődik. Ez a művelet visszavonhatatlan.</string>
     <string name="settings_clear_stats_dialog_confirm">Megerősítés</string>
     <string name="settings_clear_stats_dialog_cancel">Mégse</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Statisztikák törlése ehhez: %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Biztosan törli az összes statisztikát a(z) %1$s játékhoz? Ez a művelet nem vonható vissza.</string>
+    <string name="settings_clear_stats_for_game_title">Statisztikák törlése egy játékhoz</string>
+    <string name="settings_select_game_placeholder">Válasszon egy játékot</string>
+    <string name="settings_game_to_clear_label">Törlendő játék</string>
+    <string name="settings_clear_stats_for_selected_game_button">Törlés a kiválasztott játékhoz</string>
+    <string name="settings_all_games_option">Minden játék</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Minden játékstatisztika törlése?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Biztosan törli az összes játékstatisztikát? Ez a művelet nem vonható vissza.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Lépjen kapcsolatba a válasszal.</string>

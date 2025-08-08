@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">Všetky údaje herných štatistík budú natrvalo odstránené. Táto akcia je nezvratná.</string>
     <string name="settings_clear_stats_dialog_confirm">Potvrdiť</string>
     <string name="settings_clear_stats_dialog_cancel">Zrušiť</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Vymazať štatistiky pre %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Naozaj chcete odstrániť všetky štatistiky pre hru %1$s? Táto akcia sa nedá vrátiť späť.</string>
+    <string name="settings_clear_stats_for_game_title">Vymazať štatistiky pre hru</string>
+    <string name="settings_select_game_placeholder">Vyberte hru</string>
+    <string name="settings_game_to_clear_label">Hra na vymazanie</string>
+    <string name="settings_clear_stats_for_selected_game_button">Vymazať pre vybratú hru</string>
+    <string name="settings_all_games_option">Všetky hry</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Vymazať všetky herné štatistiky?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Naozaj chcete odstrániť všetky herné štatistiky? Táto akcia sa nedá vrátiť späť.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interagujte, aby ste získali odpoveď.</string>

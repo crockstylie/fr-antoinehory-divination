@@ -113,6 +113,15 @@
     <string name="settings_clear_stats_dialog_message">Все данные игровой статистики будут удалены без возможности восстановления. Это действие необратимо.</string>
     <string name="settings_clear_stats_dialog_confirm">Подтвердить</string>
     <string name="settings_clear_stats_dialog_cancel">Отмена</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Очистить статистику для %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Вы уверены, что хотите удалить всю статистику для игры %1$s? Это действие нельзя отменить.</string>
+    <string name="settings_clear_stats_for_game_title">Очистить статистику для игры</string>
+    <string name="settings_select_game_placeholder">Выберите игру</string>
+    <string name="settings_game_to_clear_label">Игра для очистки</string>
+    <string name="settings_clear_stats_for_selected_game_button">Очистить для выбранной игры</string>
+    <string name="settings_all_games_option">Все игры</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Очистить всю игровую статистику?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Вы уверены, что хотите удалить всю игровую статистику? Это действие нельзя отменить.</string>
 
     <!-- GameStatsViewModel -->
     <string name="stats_screen_title_global">Общая статистика</string>

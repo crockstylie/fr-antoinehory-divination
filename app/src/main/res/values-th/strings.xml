@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">ข้อมูลสถิติเกมทั้งหมดจะถูกลบอย่างถาวร การกระทำนี้ไม่สามารถย้อนกลับได้</string>
     <string name="settings_clear_stats_dialog_confirm">ยืนยัน</string>
     <string name="settings_clear_stats_dialog_cancel">ยกเลิก</string>
+    <string name="settings_clear_stats_for_game_dialog_title">ล้างสถิติสำหรับ %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">คุณแน่ใจหรือไม่ว่าต้องการลบสถิติทั้งหมดสำหรับเกม %1$s? การกระทำนี้ไม่สามารถยกเลิกได้</string>
+    <string name="settings_clear_stats_for_game_title">ล้างสถิติสำหรับเกม</string>
+    <string name="settings_select_game_placeholder">เลือกเกม</string>
+    <string name="settings_game_to_clear_label">เกมที่จะล้าง</string>
+    <string name="settings_clear_stats_for_selected_game_button">ล้างสำหรับเกมที่เลือก</string>
+    <string name="settings_all_games_option">ทุกเกม</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">ล้างสถิติเกมทั้งหมด?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">คุณแน่ใจหรือไม่ว่าต้องการลบสถิติเกมทั้งหมด? การกระทำนี้ไม่สามารถยกเลิกได้</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">โต้ตอบเพื่อรับคำตอบ</string>

@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">Tüm oyun istatistik verileri kalıcı olarak silinecektir. Bu işlem geri alınamaz.</string>
     <string name="settings_clear_stats_dialog_confirm">Onayla</string>
     <string name="settings_clear_stats_dialog_cancel">İptal</string>
+    <string name="settings_clear_stats_for_game_dialog_title">%1$s için istatistikler silinsin mi?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">%1$s oyunu için tüm istatistikleri silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</string>
+    <string name="settings_clear_stats_for_game_title">Bir oyun için istatistikleri sil</string>
+    <string name="settings_select_game_placeholder">Bir oyun seçin</string>
+    <string name="settings_game_to_clear_label">Silinecek oyun</string>
+    <string name="settings_clear_stats_for_selected_game_button">Seçili oyun için sil</string>
+    <string name="settings_all_games_option">Tüm oyunlar</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Tüm oyun istatistikleri silinsin mi?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Tüm oyun istatistiklerini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Bir cevap almak için etkileşimde bulunun.</string>

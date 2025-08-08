@@ -31,7 +31,7 @@ interface DiceSetDao {
     @Query("SELECT * FROM dice_sets WHERE id = :id")
     suspend fun getDiceSetByIdBlocking(id: Long): DiceSet?
 
-    @Query("SELECT * FROM dice_sets ORDER BY name ASC")
+    @Query("SELECT * FROM dice_sets ORDER BY is_favorite DESC, name ASC") // MODIFIED LINE
     fun getAllDiceSets(): Flow<List<DiceSet>> // Flow pour observer la liste complète
 
     @Query("SELECT * FROM dice_sets WHERE is_favorite = 1 ORDER BY name ASC")

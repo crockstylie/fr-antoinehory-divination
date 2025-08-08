@@ -76,7 +76,8 @@ fun GameResultPieChart(
     if (statItems.isEmpty()) return
 
     val sortedItems = statItems.sortedByDescending { it.percentage }
-    val totalSumOfPercentages = sortedItems.sumOf { it.percentage.toDouble() }.toFloat().coerceAtLeast(0.001f)
+    // Utiliser la somme des comptes pour la proportion, car les pourcentages peuvent être déjà normalisés par jeu
+    val totalCount = sortedItems.sumOf { it.count }.toFloat().coerceAtLeast(0.001f)
     val density = LocalDensity.current
     val borderWidthPx = with(density) { borderWidthDp.toPx() }
 
@@ -88,8 +89,9 @@ fun GameResultPieChart(
             var currentStartAngle = -90f
 
             sortedItems.forEachIndexed { index, item ->
-                val sweepAngle = if (totalSumOfPercentages > 0) {
-                    (item.percentage / totalSumOfPercentages) * 360f
+                // Calculer le sweepAngle basé sur le compte de l'item par rapport au totalCount du groupe
+                val sweepAngle = if (totalCount > 0f) {
+                    (item.count.toFloat() / totalCount) * 360f
                 } else {
                     0f
                 }
@@ -174,9 +176,14 @@ fun GameStatsContent(
             .fillMaxSize()
             .padding(horizontal = 16.dp)
     ) {
-        if (!statsData.isEmpty) {
+        // Affichage du total des lancers pour l'écran actuel (global ou spécifique)
+        // Ce total est celui de statsData.totalPlays, qui est déjà correct
+        // pour les stats globales et pour les stats spécifiques.
+        if (statsData.totalPlays > 0) { // Changé de !statsData.isEmpty à statsData.totalPlays > 0
             item {
                 Text(
+                    // Pour les stats spécifiques, statsData.title contient déjà le nom du jeu.
+                    // Pour les stats globales, ceci affiche le total de tous les jeux.
                     text = stringResource(R.string.stats_total_plays, statsData.totalPlays),
                     style = MaterialTheme.typography.titleLarge,
                     modifier = Modifier.padding(top = 16.dp, bottom = 8.dp)
@@ -184,13 +191,15 @@ fun GameStatsContent(
             }
         }
 
+        // Graphique de distribution globale (barres)
         val chartShown = specificGameType == null && globalGameShares.isNotEmpty()
         if (chartShown) {
             item {
                 Text(
                     text = stringResource(R.string.stats_global_distribution_chart_title),
                     style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier.padding(top = if (!statsData.isEmpty) 8.dp else 16.dp, bottom = 8.dp)
+                    // Ajustement du padding top si le total général est déjà affiché
+                    modifier = Modifier.padding(top = if (statsData.totalPlays > 0) 8.dp else 16.dp, bottom = 8.dp)
                 )
                 GlobalDistributionChart(chartEntries = globalGameShares)
                 Spacer(modifier = Modifier.height(16.dp))
@@ -198,13 +207,16 @@ fun GameStatsContent(
             }
         }
 
-        if (statsData.statItems.isEmpty() && (specificGameType != null || globalGameShares.isEmpty())) {
+        // Message "Pas de données disponibles"
+        if (statsData.statItems.isEmpty()) { // Simplifié : si pas d'items, alors pas de données à détailler
+            // Si le total des jeux était aussi 0, le message est plus proéminent
             if (statsData.totalPlays == 0) {
                 item {
                     Box(
                         modifier = Modifier
                             .fillParentMaxSize()
-                            .padding(top = if (statsData.totalPlays == 0 && !chartShown) 0.dp else 16.dp),
+                            // S'assurer que le padding est correct par rapport au graphique global possible
+                            .padding(top = if (chartShown) 16.dp else 0.dp),
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
@@ -214,35 +226,44 @@ fun GameStatsContent(
                         )
                     }
                 }
-                return@LazyColumn
             }
+            // Si statItems est vide, il n'y a rien d'autre à faire dans cette LazyColumn pour les détails.
+            return@LazyColumn
         }
 
+
+        // Détail des statistiques
         if (statsData.statItems.isNotEmpty()) {
             val displayItems = statsData.statItems
-            val shouldGroupByGame = specificGameType == null && displayItems.any { it.gameType != displayItems.firstOrNull()?.gameType }
+            // CORRECTION PRINCIPALE ICI:
+            // Pour les stats globales, on groupe toujours.
+            // Pour les stats spécifiques, on n'a pas besoin de grouper car displayItems ne contient que ce jeu.
+            val shouldGroupByGame = specificGameType == null
 
-            if (shouldGroupByGame) {
+            if (shouldGroupByGame) { // Cas Global: on itère sur les jeux groupés
                 val groupedByGame = displayItems.groupBy { it.gameType }
                 groupedByGame.entries.forEachIndexed { groupIndex, (gameType, itemsInGroup) ->
-                    val itemColors = getStatItemColors(itemsInGroup, OrakniumGold, OrakniumBackground)
-                    item {
-                        Text(
-                            text = LocalContext.current.getString(gameType.displayNameResourceId),
-                            style = MaterialTheme.typography.headlineSmall,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.padding(
-                                top = if (chartShown || groupIndex > 0) 16.dp else if (!statsData.isEmpty) 8.dp else 16.dp,
-                                bottom = 4.dp
-                            )
-                        )
+                    // S'assurer qu'il y a des items pour ce groupe (devrait toujours être vrai si displayItems n'est pas vide)
+                    if (itemsInGroup.isNotEmpty()) {
+                        val itemColors = getStatItemColors(itemsInGroup, OrakniumGold, OrakniumBackground)
                         val totalPlaysForThisGame = itemsInGroup.sumOf { it.count }
-                        Text(
-                            text = stringResource(R.string.stats_total_plays_for_game, totalPlaysForThisGame),
-                            style = MaterialTheme.typography.titleLarge,
-                            modifier = Modifier.padding(bottom = 8.dp)
-                        )
-                        if (itemsInGroup.isNotEmpty()) {
+                        item {
+                            Text(
+                                text = LocalContext.current.getString(gameType.displayNameResourceId),
+                                style = MaterialTheme.typography.headlineSmall, // Titre du jeu
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(
+                                    // Ajuster le padding top en fonction de si le graphique de barres a été montré
+                                    top = if (chartShown || groupIndex > 0) 16.dp else 8.dp,
+                                    bottom = 4.dp
+                                )
+                            )
+                            Text(
+                                text = stringResource(R.string.stats_total_plays_for_game, totalPlaysForThisGame), // Total pour ce jeu
+                                style = MaterialTheme.typography.titleLarge, // Style comme le total général
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+                            // Camembert pour ce jeu
                             Box(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -255,23 +276,26 @@ fun GameStatsContent(
                                 )
                             }
                         }
-                    }
-                    items(itemsInGroup, key = { it.gameType.name + it.resultKey }) { statItem ->
-                        StatRow(
-                            statItem = statItem,
-                            legendColor = itemColors[statItem.resultKey]
-                        )
-                    }
+                        // Liste des résultats pour ce jeu
+                        items(itemsInGroup, key = { it.gameType.name + it.resultKey }) { statItem ->
+                            StatRow(
+                                statItem = statItem,
+                                legendColor = itemColors[statItem.resultKey]
+                            )
+                        }
 
-                    if (groupIndex < groupedByGame.size - 1) {
-                        item {
-                            Spacer(Modifier.height(24.dp))
+                        if (groupIndex < groupedByGame.size - 1) {
+                            item {
+                                Spacer(Modifier.height(24.dp))
+                            }
                         }
                     }
                 }
-            } else { // Affichage pour un jeu spécifique (non groupé)
+            } else { // Cas Spécifique: displayItems contient les stats du jeu unique
                 val itemColors = getStatItemColors(displayItems, OrakniumGold, OrakniumBackground)
-                if (specificGameType != null && displayItems.isNotEmpty()) {
+                // Le titre de l'écran et le total des jeux sont déjà gérés en haut
+                // Camembert pour le jeu spécifique
+                if (displayItems.isNotEmpty()) { // S'assurer qu'il y a des items avant de montrer le PieChart
                     item {
                         Box(
                             modifier = Modifier
@@ -286,12 +310,14 @@ fun GameStatsContent(
                         }
                     }
                 }
+                // Liste des résultats pour le jeu spécifique
                 items(displayItems, key = { it.gameType.name + it.resultKey }) { statItem ->
-                    val isFirstItem = displayItems.firstOrNull() == statItem
+                    // Pas besoin de la logique isFirstItem et du padding conditionnel compliqué ici,
+                    // car la structure est plus simple pour l'écran spécifique.
                     StatRow(
                         statItem = statItem,
-                        legendColor = itemColors[statItem.resultKey],
-                        modifier = if (isFirstItem && !chartShown && (specificGameType == null || !displayItems.isNotEmpty()) ) Modifier.padding(top = 8.dp) else Modifier
+                        legendColor = itemColors[statItem.resultKey]
+                        // modifier = Modifier (si un padding spécifique est nécessaire pour la première row)
                     )
                 }
             }
@@ -348,9 +374,8 @@ fun GlobalDistributionChart(chartEntries: List<GameGlobalShareEntry>, modifier: 
     if (chartEntries.isEmpty()) {
         return
     }
-    // ... (contenu inchangé, déjà correct)
     val density = LocalDensity.current
-    val barColor = MaterialTheme.colorScheme.primary
+    val barColor = MaterialTheme.colorScheme.primary // Couleur des barres du graphique de distribution
 
     val gameNameTextColor = MaterialTheme.colorScheme.onSurface
     val gameNameTextPaint = remember(gameNameTextColor, density) {
@@ -362,7 +387,7 @@ fun GlobalDistributionChart(chartEntries: List<GameGlobalShareEntry>, modifier: 
         }
     }
 
-    val valueTextColorInBar = OrakniumBackground
+    val valueTextColorInBar = OrakniumBackground // Couleur du texte à l'intérieur des barres
     val valueTextPaint = remember(valueTextColorInBar, density) {
         AndroidPaint().apply {
             color = valueTextColorInBar.toArgb()
@@ -374,13 +399,13 @@ fun GlobalDistributionChart(chartEntries: List<GameGlobalShareEntry>, modifier: 
     }
 
     val bottomPaddingForGameName = with(density) { 25.dp.toPx() }
-    val topPadding = with(density) { 8.dp.toPx() }
+    val topPadding = with(density) { 8.dp.toPx() } // Espace au-dessus des barres
     val spacingBetweenBars = with(density) { 8.dp.toPx() }
-    val valueTextMarginFromBarBottomPx = with(density) { 4.dp.toPx() }
+    val valueTextMarginFromBarBottomPx = with(density) { 4.dp.toPx() } // Marge du texte de valeur par rapport au bas de la barre
 
     Canvas(modifier = modifier
         .fillMaxWidth()
-        .height(220.dp)
+        .height(220.dp) // Hauteur fixe pour le graphique de distribution
     ) {
         val canvasWidth = size.width
         val canvasHeight = size.height
@@ -389,47 +414,53 @@ fun GlobalDistributionChart(chartEntries: List<GameGlobalShareEntry>, modifier: 
         val totalSpacing = spacingBetweenBars * (numBars - 1).coerceAtLeast(0)
         val barWidth = if (numBars > 0) (canvasWidth - totalSpacing) / numBars else 0f
 
-        if (barWidth <= 0f && numBars > 0) return@Canvas
+        if (barWidth <= 0f && numBars > 0) return@Canvas // Ne rien dessiner si la largeur de barre est invalide
 
-        val maxPercentage = chartEntries.maxOfOrNull { it.sharePercentage }?.takeIf { it > 0f } ?: 100f
+        // S'assurer que maxPercentage est au moins 1f pour éviter la division par zéro si tous les pourcentages sont à 0
+        val maxPercentage = chartEntries.maxOfOrNull { it.sharePercentage }?.takeIf { it > 0f } ?: 1f
         val chartAreaHeight = canvasHeight - topPadding - bottomPaddingForGameName
 
-        if (chartAreaHeight <= 0f) return@Canvas
+        if (chartAreaHeight <= 0f) return@Canvas // Ne rien dessiner si la zone de graphique est invalide
 
-        val textBounds = android.graphics.Rect()
+        val textBounds = android.graphics.Rect() // Pour mesurer le texte
 
         chartEntries.forEachIndexed { index, entry ->
             val barHeight = (entry.sharePercentage / maxPercentage) * chartAreaHeight
             val barLeft = index * (barWidth + spacingBetweenBars)
-            val barTopY = canvasHeight - bottomPaddingForGameName - barHeight
-            val barBottomY = canvasHeight - bottomPaddingForGameName
+            val barTopY = canvasHeight - bottomPaddingForGameName - barHeight // Coordonnée Y du haut de la barre
+            val barBottomY = canvasHeight - bottomPaddingForGameName // Coordonnée Y du bas de la barre
 
+            // Dessiner la barre
             drawRect(
                 color = barColor,
                 topLeft = Offset(x = barLeft, y = barTopY),
                 size = Size(barWidth.coerceAtLeast(0f), barHeight.coerceAtLeast(0f))
             )
 
+            // Afficher le nombre total de jeux dans la barre si elle est assez haute
             val valueText = entry.totalPlaysForGame.toString()
             valueTextPaint.getTextBounds(valueText, 0, valueText.length, textBounds)
             val valueTextHeight = textBounds.height()
 
+            // Condition pour afficher le texte dans la barre (si la barre est assez haute)
             if (barHeight > valueTextHeight + (2 * valueTextMarginFromBarBottomPx)) {
                 val valueTextBaselineY = barBottomY - valueTextMarginFromBarBottomPx - textBounds.bottom
                 drawContext.canvas.nativeCanvas.drawText(
                     valueText,
-                    barLeft + barWidth / 2,
-                    valueTextBaselineY,
+                    barLeft + barWidth / 2, // Centrer le texte horizontalement dans la barre
+                    valueTextBaselineY,     // Positionner la baseline du texte
                     valueTextPaint
                 )
             }
 
+            // Afficher le nom du jeu sous la barre
             val gameNameText = entry.gameDisplayName
-            val gameNameBaselineY = canvasHeight - bottomPaddingForGameName + with(density) { 15.dp.toPx() }
+            // Positionner la baseline du nom du jeu
+            val gameNameBaselineY = canvasHeight - bottomPaddingForGameName + with(density) { 15.dp.toPx() } // Ajuster pour l'alignement vertical
 
             drawContext.canvas.nativeCanvas.drawText(
                 gameNameText,
-                barLeft + barWidth / 2,
+                barLeft + barWidth / 2, // Centrer le nom du jeu horizontalement sous la barre
                 gameNameBaselineY,
                 gameNameTextPaint
             )
@@ -499,7 +530,7 @@ fun GameStatsScreenPreview_NoData() {
         title = "Statistiques : Lancer de Dés",
         totalPlays = 0,
         statItems = emptyList(),
-        isEmpty = true
+        isEmpty = true // Assurez-vous que isEmpty est correctement défini si vous l'utilisez
     )
     DivinationAppTheme {
         AppScaffold(title = "Aperçu Stats (Aucune Donnée)", canNavigateBack = true, onNavigateBack = {}) { paddingValues ->

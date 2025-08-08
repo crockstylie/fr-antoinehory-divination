@@ -13,13 +13,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+// Import nécessaire pour LaunchLog
+import fr.antoinehory.divination.data.database.entity.LaunchLog
 
 class MagicBallViewModel(
     private val application: Application,
     private val launchLogRepository: LaunchLogRepository
 ) : AndroidViewModel(application) {
 
-    private val possibleAnswers: List<String> by lazy {
+    val possibleAnswers: List<String> by lazy {
         application.resources.getStringArray(R.array.magic_ball_possible_answers).toList()
     }
 
@@ -29,18 +31,36 @@ class MagicBallViewModel(
     private val _isPredicting = MutableStateFlow(false)
     val isPredicting: StateFlow<Boolean> = _isPredicting.asStateFlow()
 
+    private val _recentLogs = MutableStateFlow<List<LaunchLog>>(emptyList())
+    val recentLogs: StateFlow<List<LaunchLog>> = _recentLogs.asStateFlow()
+
     companion object {
         private const val PREDICTION_DELAY_MS = 1000L
-        private const val FALLBACK_LOG_IDENTIFIER = "FALLBACK" // Identifiant pour les réponses par défaut
+        // MODIFICATION: FALLBACK_LOG_IDENTIFIER n'est plus utilisé pour le logging de la réponse.
+        // Il peut être conservé s'il a d'autres usages, sinon il pourrait être supprimé.
+        // Pour l'instant, je le laisse commenté au cas où.
+        // const val FALLBACK_LOG_IDENTIFIER = "FALLBACK"
     }
 
     init {
         _currentResponse.value = application.getString(R.string.magic_ball_initial_prompt_generic)
+        viewModelScope.launch {
+            launchLogRepository.getRecentLogsByGameType(GameType.MAGIC_EIGHT_BALL, 10)
+                .collect { logs ->
+                    _recentLogs.value = logs
+                }
+        }
     }
 
     private fun pickNewResponse(): String {
         val shufflingMessage = application.getString(R.string.magic_ball_shuffling_message)
         val initialGenericMessage = application.getString(R.string.magic_ball_initial_prompt_generic)
+        val defaultAnswerIfEmpty = application.getString(R.string.magic_ball_default_answer_if_empty)
+
+        // Si possibleAnswers est vide, retourner directement la réponse par défaut.
+        if (possibleAnswers.isEmpty()) {
+            return defaultAnswerIfEmpty
+        }
 
         val availableResponses = if (possibleAnswers.size > 1 &&
             _currentResponse.value != shufflingMessage &&
@@ -49,10 +69,13 @@ class MagicBallViewModel(
         } else {
             possibleAnswers
         }
-        
+
+        // S'assurer que availableResponses n'est pas vide après le filtrage.
+        // Si elle devient vide (par exemple, si possibleAnswers n'avait qu'un seul élément qui était le _currentResponse),
+        // on retourne la première réponse de la liste originale, ou la réponse par défaut si la liste originale était vide.
         return availableResponses.randomOrNull()
-            ?: possibleAnswers.firstOrNull()
-            ?: application.getString(R.string.magic_ball_default_answer_if_empty)
+            ?: possibleAnswers.firstOrNull() // Pour le cas où availableResponses serait vide après filtrage
+            ?: defaultAnswerIfEmpty
     }
 
     fun getNewPrediction() {
@@ -62,21 +85,15 @@ class MagicBallViewModel(
             _isPredicting.value = true
             _currentResponse.value = application.getString(R.string.magic_ball_shuffling_message)
             delay(PREDICTION_DELAY_MS)
-            
+
             val newResponse = pickNewResponse()
             _currentResponse.value = newResponse
-            
-            // MODIFIÉ: Enregistre l'index ou un identifiant de fallback pour le log
-            val answerIndex = possibleAnswers.indexOf(newResponse)
-            val loggableResult = if (answerIndex != -1) {
-                answerIndex.toString() // Log l'index sous forme de chaîne
-            } else {
-                // Ce cas se produirait si newResponse est la réponse par défaut
-                // qui n'est pas dans la liste `possibleAnswers`
-                FALLBACK_LOG_IDENTIFIER 
-            }
-            launchLogRepository.insertLog(GameType.MAGIC_EIGHT_BALL, loggableResult)
-            
+
+            // MODIFICATION: Enregistrer la chaîne de réponse complète directement.
+            // La variable 'newResponse' contient déjà la chaîne de caractères à enregistrer,
+            // que ce soit une réponse de 'possibleAnswers' ou la réponse par défaut.
+            launchLogRepository.insertLog(GameType.MAGIC_EIGHT_BALL, newResponse)
+
             _isPredicting.value = false
         }
     }

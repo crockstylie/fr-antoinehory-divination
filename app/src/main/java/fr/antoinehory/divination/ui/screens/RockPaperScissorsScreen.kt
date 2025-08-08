@@ -5,8 +5,8 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState // AJOUT
-import androidx.compose.foundation.verticalScroll // AJOUT
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PieChart
 import androidx.compose.material3.BottomAppBar
@@ -24,11 +24,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+// import androidx.compose.ui.unit.sp // Plus nécessaire ici directement si GameHistoryDisplay le gère
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
 import fr.antoinehory.divination.data.model.GameType
 import fr.antoinehory.divination.ui.common.AppScaffold
+// AJOUT: Import du nouveau composant d'historique
+import fr.antoinehory.divination.ui.common.GameHistoryDisplay
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 import fr.antoinehory.divination.ui.theme.OrakniumGold
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
@@ -54,6 +57,7 @@ fun RockPaperScissorsScreen(
     val currentMessage by rpsViewModel.currentMessage.collectAsState()
     val rpsOutcome by rpsViewModel.rpsOutcome.collectAsState()
     val isProcessing by rpsViewModel.isProcessing.collectAsState()
+    val recentLogs by rpsViewModel.recentLogs.collectAsState()
 
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
@@ -107,8 +111,8 @@ fun RockPaperScissorsScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .verticalScroll(rememberScrollState()) // AJOUT DU DÉFILEMENT
-                .padding(16.dp) // Padding interne après le scroll
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp)
                 .clickable {
                     if (!isProcessing) {
                         if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
@@ -117,7 +121,7 @@ fun RockPaperScissorsScreen(
                     }
                 },
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center // Gardé pour centrer si le contenu est petit
+            verticalArrangement = Arrangement.Center
         ) {
             val initialGenericMessage = stringResource(id = R.string.rps_initial_prompt_generic)
             val noShakeInteractionPossible = interactionPrefs.activeInteractionMode == InteractionMode.SHAKE && !isShakeAvailable
@@ -175,7 +179,14 @@ fun RockPaperScissorsScreen(
                 modifier = Modifier.alpha(textAlpha)
             )
 
-            // Ajout d'un Spacer en bas pour un meilleur espacement en mode défilement
+            // MODIFICATION: Utilisation du composant GameHistoryDisplay
+            GameHistoryDisplay(
+                recentLogs = recentLogs,
+                gameType = GameType.ROCK_PAPER_SCISSORS
+                // Vous pouvez omettre logResultFormatter si DefaultLogResultFormatter vous convient
+            )
+            // FIN SECTION HISTORIQUE MODIFIÉE
+
             Spacer(modifier = Modifier.height(16.dp))
         }
     }
@@ -192,7 +203,6 @@ fun RockPaperScissorsScreenPreview() {
     }
 }
 
-// Ajout d'une preview paysage pour tester le défilement
 @Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "RockPaperScissorsScreen Landscape")
 @Composable
 fun RockPaperScissorsScreenLandscapePreview() {
@@ -203,3 +213,4 @@ fun RockPaperScissorsScreenLandscapePreview() {
         )
     }
 }
+

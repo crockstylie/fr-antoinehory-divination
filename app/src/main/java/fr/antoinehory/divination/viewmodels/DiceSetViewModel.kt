@@ -8,8 +8,10 @@ import fr.antoinehory.divination.data.database.AppDatabase
 import fr.antoinehory.divination.data.database.dao.DiceSetDao
 import fr.antoinehory.divination.data.model.DiceConfig
 import fr.antoinehory.divination.data.model.DiceSet
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -17,11 +19,19 @@ class DiceSetViewModel(application: Application) : ViewModel() {
 
     private val diceSetDao: DiceSetDao = AppDatabase.getDatabase(application).diceSetDao()
 
+    // State pour la confirmation de suppression
+    private val _diceSetToDeleteConfirm = MutableStateFlow<DiceSet?>(null)
+    val diceSetToDeleteConfirm: StateFlow<DiceSet?> = _diceSetToDeleteConfirm.asStateFlow()
+
+    // State pour la confirmation de copie
+    private val _diceSetToCopyConfirm = MutableStateFlow<DiceSet?>(null)
+    val diceSetToCopyConfirm: StateFlow<DiceSet?> = _diceSetToCopyConfirm.asStateFlow()
+
     // Exposer la liste de tous les sets de dés
     val allDiceSets: StateFlow<List<DiceSet>> = diceSetDao.getAllDiceSets()
         .stateIn(
             scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000), // Reste actif 5s après le dernier collecteur
+            started = SharingStarted.WhileSubscribed(5000),
             initialValue = emptyList()
         )
 
@@ -32,6 +42,52 @@ class DiceSetViewModel(application: Application) : ViewModel() {
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = emptyList()
         )
+
+    /**
+     * Demande la confirmation avant de supprimer un set de dés.
+     */
+    fun requestDeleteConfirmation(diceSet: DiceSet) {
+        _diceSetToDeleteConfirm.value = diceSet
+    }
+
+    /**
+     * Annule la demande de confirmation de suppression.
+     */
+    fun cancelDeleteConfirmation() {
+        _diceSetToDeleteConfirm.value = null
+    }
+
+    /**
+     * Demande la confirmation avant de copier un set de dés.
+     */
+    fun requestCopyConfirmation(diceSet: DiceSet) {
+        _diceSetToCopyConfirm.value = diceSet
+    }
+
+    /**
+     * Annule la demande de confirmation de copie.
+     */
+    fun cancelCopyConfirmation() {
+        _diceSetToCopyConfirm.value = null
+    }
+
+    /**
+     * Copie le set de dés après confirmation.
+     */
+    fun confirmAndCopyDiceSet(diceSetToCopy: DiceSet) {
+        viewModelScope.launch {
+            // Le nom sera par exemple "NomDuSet (Copy)"
+            val newName = "${diceSetToCopy.name} (Copy)"
+
+            val newSet = diceSetToCopy.copy(
+                id = 0, // Important pour que Room génère un nouvel ID
+                name = newName,
+                isFavorite = false // Une copie n'est pas favorite par défaut (modifiable selon besoin)
+            )
+            diceSetDao.insert(newSet)
+            _diceSetToCopyConfirm.value = null // Réinitialiser l'état du dialogue
+        }
+    }
 
     /**
      * Ajoute un nouveau set de dés à la base de données.
@@ -53,11 +109,14 @@ class DiceSetViewModel(application: Application) : ViewModel() {
     }
 
     /**
-     * Supprime un set de dés.
+     * Supprime un set de dés après confirmation.
      */
     fun deleteDiceSet(diceSet: DiceSet) {
         viewModelScope.launch {
             diceSetDao.delete(diceSet)
+            if (_diceSetToDeleteConfirm.value?.id == diceSet.id) {
+                _diceSetToDeleteConfirm.value = null
+            }
         }
     }
 
@@ -66,23 +125,10 @@ class DiceSetViewModel(application: Application) : ViewModel() {
      */
     fun toggleFavoriteStatus(diceSet: DiceSet) {
         viewModelScope.launch {
-            // Crée une nouvelle instance avec le statut de favori inversé
             val updatedSet = diceSet.copy(isFavorite = !diceSet.isFavorite)
             diceSetDao.update(updatedSet)
-            // Alternativement, si on utilise la fonction spécifique du DAO :
-            // diceSetDao.updateFavoriteStatus(diceSet.id, !diceSet.isFavorite)
-            // L'avantage de .update(updatedSet) est que le Flow sera notifié par Room.
-            // Si updateFavoriteStatus ne notifie pas le Flow correctement (ce qui peut arriver
-            // si Room ne détecte pas le changement comme affectant la query du Flow),
-            // alors la première méthode est plus sûre pour la réactivité de l'UI.
-            // Généralement, une mise à jour d'une ligne notifie les queries qui sélectionnent cette ligne.
         }
     }
-
-    // Si nous avons besoin de récupérer un DiceSet spécifique par son ID pour l'édition,
-    // nous pourrions ajouter une fonction comme celle-ci, bien que souvent l'UI
-    // récupère le set depuis la liste 'allDiceSets' par son ID.
-    // fun getDiceSetById(id: Long): Flow<DiceSet?> = diceSetDao.getDiceSetById(id)
 }
 
 /**

@@ -211,7 +211,7 @@ fun CreateEditDiceSetScreen(
                     Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_dice_config_desc))
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        if (showAddDiceSection) stringResource(R.string.cancel_button)
+                        if (showAddDiceSection) stringResource(R.string.cancel) // MODIFIED HERE
                         else stringResource(R.string.add_dice_button)
                     )
                 }

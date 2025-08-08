@@ -45,7 +45,6 @@ fun AppNavigation(navController: NavHostController) {
                     navController.navigate(AppDestinations.INFO_ROUTE)
                 },
                 onNavigateToSettings = {
-                    // MODIFIÉ : Navigue vers l'écran des paramètres généraux
                     navController.navigate(AppDestinations.SETTINGS_ROUTE)
                 },
                 onNavigateToStats = {
@@ -58,8 +57,9 @@ fun AppNavigation(navController: NavHostController) {
                 onNavigateBack = { navController.popBackStack() },
                 onNavigateToStats = { gameType ->
                     navController.navigate("${AppDestinations.STATS_BASE_ROUTE}?${AppDestinations.STATS_GAME_TYPE_ARG}=${gameType.name}")
-                }
-                // TODO: Ajouter onNavigateToInfo et onNavigateToSettings pour la BottomAppBar
+                },
+                // MODIFIÉ: Connecte onNavigateToInfo
+                onNavigateToInfo = { navController.navigate(AppDestinations.INFO_ROUTE) }
             )
         }
         composable(AppDestinations.COIN_FLIP_ROUTE) {
@@ -67,8 +67,9 @@ fun AppNavigation(navController: NavHostController) {
                 onNavigateBack = { navController.popBackStack() },
                 onNavigateToStats = { gameType ->
                     navController.navigate("${AppDestinations.STATS_BASE_ROUTE}?${AppDestinations.STATS_GAME_TYPE_ARG}=${gameType.name}")
-                }
-                // TODO: Ajouter onNavigateToInfo et onNavigateToSettings
+                },
+                // MODIFIÉ: Connecte onNavigateToInfo
+                onNavigateToInfo = { navController.navigate(AppDestinations.INFO_ROUTE) }
             )
         }
         composable(AppDestinations.ROCK_PAPER_SCISSORS_ROUTE) {
@@ -76,8 +77,9 @@ fun AppNavigation(navController: NavHostController) {
                 onNavigateBack = { navController.popBackStack() },
                 onNavigateToStats = { gameType ->
                     navController.navigate("${AppDestinations.STATS_BASE_ROUTE}?${AppDestinations.STATS_GAME_TYPE_ARG}=${gameType.name}")
-                }
-                // TODO: Ajouter onNavigateToInfo et onNavigateToSettings
+                },
+                // MODIFIÉ: Connecte onNavigateToInfo
+                onNavigateToInfo = { navController.navigate(AppDestinations.INFO_ROUTE) }
             )
         }
         composable(AppDestinations.DICE_ROLL_ROUTE) {
@@ -131,15 +133,11 @@ fun AppNavigation(navController: NavHostController) {
                 onNavigateBack = { navController.popBackStack() }
             )
         }
-
-        // AJOUT : Composable pour l'écran des paramètres généraux
         composable(AppDestinations.SETTINGS_ROUTE) {
             SettingsScreen(
                 onNavigateBack = { navController.popBackStack() }
-                // Les ViewModels sont injectés avec leurs factories par défaut dans SettingsScreen
             )
         }
-
         // TODO: Ajouter composable pour AppDestinations.CREATE_EDIT_DICE_SET_ROUTE
     }
 }

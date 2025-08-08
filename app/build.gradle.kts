@@ -7,14 +7,14 @@ plugins {
 
 android {
     namespace = "fr.antoinehory.divination"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "fr.antoinehory.divination"
         minSdk = 29
-        targetSdk = 34
-        versionCode = 5
-        versionName = "2.3"
+        targetSdk = 35
+        versionCode = 6
+        versionName = "2.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

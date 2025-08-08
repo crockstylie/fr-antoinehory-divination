@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **Settings:**
   - Added the choice of game data to erase
+- **Bottom Menu:**
+  - A brand new menu bar at the bottom of the app
 
 ### Fixed
 - **Gradle:**

@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import fr.antoinehory.divination.R
-// import fr.antoinehory.divination.data.database.AppDatabase // Non directement utilisé
 import fr.antoinehory.divination.data.database.dao.DiceSetDao
 import fr.antoinehory.divination.data.model.DiceSet
 import fr.antoinehory.divination.data.model.DiceType
@@ -14,17 +13,15 @@ import fr.antoinehory.divination.data.repository.LaunchLogRepository
 import fr.antoinehory.divination.data.repository.UserPreferencesRepository
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-// import java.util.Date // Non directement utilisé ici, implicite dans LaunchLogRepository
 import kotlin.random.Random
-import kotlinx.coroutines.delay // Pour l'effet de "roulement"
+import kotlinx.coroutines.delay
 
-// MODIFIÉ: Ajout de isLocked
 data class IndividualDiceRollResult(
     val diceType: DiceType,
     val value: Int,
     val configIndex: Int,
     val rollIndex: Int,
-    val isLocked: Boolean = false // Nouveau champ pour l'état de verrouillage
+    val isLocked: Boolean = false
 )
 
 class DiceRollViewModel(
@@ -46,6 +43,10 @@ class DiceRollViewModel(
     private val _diceResults = MutableStateFlow<List<IndividualDiceRollResult>>(emptyList())
     val diceResults: StateFlow<List<IndividualDiceRollResult>> = _diceResults.asStateFlow()
 
+    val hasLockedDice: StateFlow<Boolean> = _diceResults.map { results ->
+        results.any { it.isLocked }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
+
     private val _totalRollValue = MutableStateFlow<Int?>(null)
     val totalRollValue: StateFlow<Int?> = _totalRollValue.asStateFlow()
 
@@ -59,7 +60,7 @@ class DiceRollViewModel(
                 if (setId != null) {
                     diceSetDao.getDiceSetById(setId).collectLatest { set ->
                         _activeDiceSet.value = set
-                        _diceResults.value = emptyList() // Réinitialise les dés (et donc les verrous)
+                        _diceResults.value = emptyList()
                         _totalRollValue.value = null
                         if (set == null) {
                             _currentMessage.value = application.getString(R.string.error_active_set_not_found)
@@ -69,7 +70,7 @@ class DiceRollViewModel(
                     }
                 } else {
                     _activeDiceSet.value = null
-                    _diceResults.value = emptyList() // Réinitialise
+                    _diceResults.value = emptyList()
                     _totalRollValue.value = null
                     _currentMessage.value = application.getString(R.string.error_no_active_set)
                 }
@@ -85,9 +86,8 @@ class DiceRollViewModel(
         }
     }
 
-    // NOUVELLE FONCTION: Pour basculer l'état de verrouillage d'un dé
     fun toggleLockState(indexInResults: Int) {
-        if (indexInResults < 0 || indexInResults >= _diceResults.value.size) return // Sécurité
+        if (indexInResults < 0 || indexInResults >= _diceResults.value.size) return
 
         val currentResults = _diceResults.value
         val resultToToggle = currentResults[indexInResults]
@@ -96,10 +96,14 @@ class DiceRollViewModel(
         val newResultsList = currentResults.toMutableList()
         newResultsList[indexInResults] = updatedResult
         _diceResults.value = newResultsList
-        // Le total ne change pas ici, car les valeurs des dés sont les mêmes.
     }
 
-    // MODIFIÉ: performRoll pour gérer les dés verrouillés
+    fun unlockAllDice() {
+        if (_diceResults.value.any { it.isLocked }) {
+            _diceResults.value = _diceResults.value.map { it.copy(isLocked = false) }
+        }
+    }
+
     fun performRoll() {
         if (_isRolling.value) return
 
@@ -108,35 +112,27 @@ class DiceRollViewModel(
             _currentMessage.value = application.getString(R.string.error_cannot_roll_no_set_or_config)
             return
         }
-        // Si le set actif n'a pas de configuration de dés, on ne peut pas lancer.
         if (activeSet.diceConfigs.isEmpty() && _diceResults.value.isEmpty()) {
             _currentMessage.value = application.getString(R.string.error_cannot_roll_no_set_or_config)
             return
         }
 
-
         viewModelScope.launch {
             _isRolling.value = true
-
             val previousResults = _diceResults.value
             val newGeneratedResults = mutableListOf<IndividualDiceRollResult>()
             var newTotalSum = 0
 
-            // Effet visuel de "roulement" pour les dés non verrouillés ou si c'est le premier lancer
-            // On crée une version temporaire des résultats où les dés non verrouillés sont "vides"
-            // ou on vide simplement la liste pour un court instant.
-            val resultsForAnimation = previousResults.map { if (it.isLocked) it else it.copy(value = 0) } // Mettre 0 ou un placeholder
+            val resultsForAnimation = previousResults.map { if (it.isLocked) it else it.copy(value = 0) }
             if (previousResults.isNotEmpty() && previousResults.any { !it.isLocked }) {
-                // Animation: on ne vide que si des dés sont relancés
-                _diceResults.value = resultsForAnimation // Affiche les dés verrouillés + "blancs" pour les autres
-                delay(200) // Court délai pour voir les dés "en attente"
+                _diceResults.value = resultsForAnimation
+                delay(200)
             } else if (previousResults.isEmpty()) {
-                _diceResults.value = emptyList() // Premier lancer, tout est vide au début de l'anim
+                _diceResults.value = emptyList()
                 delay(200)
             }
 
-
-            if (previousResults.isEmpty()) { // Premier lancer pour ce set actif
+            if (previousResults.isEmpty()) {
                 activeSet.diceConfigs.forEachIndexed { configIndex, diceConfig ->
                     repeat(diceConfig.count) { rollIndex ->
                         val rollValue = Random.nextInt(1, diceConfig.diceType.sides + 1)
@@ -146,36 +142,37 @@ class DiceRollViewModel(
                                 value = rollValue,
                                 configIndex = configIndex,
                                 rollIndex = rollIndex,
-                                isLocked = false // Initialement non verrouillé
+                                isLocked = false
                             )
                         )
                         newTotalSum += rollValue
                     }
                 }
-            } else { // C'est un re-lancer, on respecte les dés verrouillés
+            } else {
                 previousResults.forEach { result ->
                     if (result.isLocked) {
-                        newGeneratedResults.add(result) // Conserver le dé verrouillé tel quel
+                        newGeneratedResults.add(result)
                         newTotalSum += result.value
                     } else {
                         val rollValue = Random.nextInt(1, result.diceType.sides + 1)
                         newGeneratedResults.add(
-                            result.copy(value = rollValue, isLocked = false) // Relancer, s'assurer que isLocked est false (même si c'était déjà le cas)
+                            result.copy(value = rollValue, isLocked = false)
                         )
                         newTotalSum += rollValue
                     }
                 }
             }
 
-            // Appliquer les vrais résultats après le calcul (et l'animation potentielle)
             _diceResults.value = newGeneratedResults
             _totalRollValue.value = newTotalSum
             _currentMessage.value = application.getString(R.string.results_for_set, activeSet.name)
 
             val logSummaryDetails = newGeneratedResults.joinToString {
+                // Pourrait être juste "${it.value}" si /${it.diceType.sides} est trop verbeux ici
                 "${it.value}${if (it.isLocked) "(L)" else ""}/${it.diceType.sides}"
             }
-            val logSummary = "Rolled ${activeSet.name}. Total: $newTotalSum. Details: $logSummaryDetails"
+            // MODIFIÉ ICI pour ajouter le saut de ligne
+            val logSummary = "Rolled ${activeSet.name}. Total: $newTotalSum.\nDetails: $logSummaryDetails"
             launchLogRepository.insertLog(GameType.DICE_ROLL, logSummary)
             loadRecentLogs()
 
@@ -184,7 +181,7 @@ class DiceRollViewModel(
     }
 
     fun clearRoll() {
-        _diceResults.value = emptyList() // Réinitialise les dés et donc les verrous
+        _diceResults.value = emptyList()
         _totalRollValue.value = null
         _currentMessage.value = _activeDiceSet.value?.let { application.getString(R.string.dice_prompt_with_set, it.name) }
             ?: application.getString(R.string.error_no_active_set)

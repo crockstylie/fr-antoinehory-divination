@@ -155,5 +155,6 @@
     <string name="stats_screen_title_global_loading">Loading…</string>
     <string name="stats_global_distribution_chart_title">Global Game Distribution</string>
     <string name="stats_total_plays_for_game">Total plays for this game : %d</string>
-
+    <string name="stats_no_history_available">No history available for this game yet.</string>
+    <string name="stats_full_history_title">Full History</string>
 </resources>

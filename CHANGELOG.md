@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **Launches history display:**
   - Added a new functionality which displays the last 10 launches of each minigame.
+  - Added a new functionality which displays launches history of each minigame in their stats screen.
 
 ### Changed
 - **Settings:**

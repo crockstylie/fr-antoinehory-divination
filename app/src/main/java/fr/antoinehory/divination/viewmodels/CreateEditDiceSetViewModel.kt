@@ -16,16 +16,14 @@ import kotlinx.coroutines.launch
 
 class CreateEditDiceSetViewModel(
     application: Application,
-    private val diceSetId: Long? // L'ID est un Long, null pour la création
+    private val diceSetId: Long?
 ) : ViewModel() {
 
     private val diceSetDao: DiceSetDao = AppDatabase.getDatabase(application).diceSetDao()
 
-    // État pour le nom du set de dés
     private val _setName = MutableStateFlow("")
     val setName: StateFlow<String> = _setName.asStateFlow()
 
-    // État pour la liste des configurations de dés
     private val _diceConfigs = MutableStateFlow<List<DiceConfig>>(emptyList())
     val diceConfigs: StateFlow<List<DiceConfig>> = _diceConfigs.asStateFlow()
 
@@ -41,7 +39,7 @@ class CreateEditDiceSetViewModel(
 
     private fun loadDiceSet(id: Long) {
         viewModelScope.launch {
-            currentDiceSet = diceSetDao.getDiceSetByIdBlocking(id) // Note: Room retourne Flow, besoin d'une version bloquante ou collecter
+            currentDiceSet = diceSetDao.getDiceSetByIdBlocking(id)
             currentDiceSet?.let { set ->
                 _setName.value = set.name
                 _diceConfigs.value = set.diceConfigs
@@ -53,10 +51,27 @@ class CreateEditDiceSetViewModel(
         _setName.value = newName
     }
 
-    // TODO: Fonctions pour ajouter, modifier, supprimer DiceConfig
-    // fun addDiceConfig(diceConfig: DiceConfig) { ... }
-    // fun removeDiceConfig(index: Int) { ... }
-    // fun updateDiceConfig(index: Int, newConfig: DiceConfig) { ... }
+    // AJOUT: Fonction pour ajouter une configuration de dé
+    fun addDiceConfig(diceConfig: DiceConfig) {
+        _diceConfigs.update { currentList ->
+            // Pourrait ajouter une logique pour fusionner si le même type de dé est ajouté
+            // ou simplement ajouter à la liste.
+            currentList + diceConfig
+        }
+    }
+
+    // AJOUT: Fonction pour supprimer une configuration de dé par son index
+    fun removeDiceConfig(index: Int) {
+        _diceConfigs.update { currentList ->
+            if (index in currentList.indices) {
+                currentList.toMutableList().apply { removeAt(index) }
+            } else {
+                currentList // Retourne la liste inchangée si l'index est invalide
+            }
+        }
+    }
+
+    // TODO: updateDiceConfig(index: Int, newConfig: DiceConfig) si besoin de modifier en place
 
 
     fun saveDiceSet(onSuccess: () -> Unit) {
@@ -64,26 +79,26 @@ class CreateEditDiceSetViewModel(
         val configs = _diceConfigs.value
 
         if (name.isBlank()) {
-            // Gérer l'erreur : nom vide (par exemple, afficher un message à l'utilisateur)
-            // Pour l'instant, on ne fait rien pour ne pas crasher.
+            // TODO: Afficher une erreur à l'utilisateur (par exemple, via un StateFlow d'erreur)
             return
         }
-        // TODO: Ajouter une validation pour s'assurer qu'il y a au moins un dé.
+        if (configs.isEmpty()) {
+            // TODO: Afficher une erreur, un set doit avoir au moins un dé
+            return
+        }
 
         viewModelScope.launch {
             if (isNewSet || currentDiceSet == null) {
-                val newSet = DiceSet(name = name, diceConfigs = configs, isFavorite = false) // Par défaut non favori à la création
+                val newSet = DiceSet(name = name, diceConfigs = configs, isFavorite = false)
                 diceSetDao.insert(newSet)
             } else {
-                // Mise à jour d'un set existant
                 val updatedSet = currentDiceSet!!.copy(
                     name = name,
                     diceConfigs = configs
-                    // isFavorite n'est pas modifié ici, seulement nom et configs
                 )
                 diceSetDao.update(updatedSet)
             }
-            onSuccess() // Appeler le callback en cas de succès
+            onSuccess()
         }
     }
 }
@@ -100,3 +115,4 @@ class CreateEditDiceSetViewModelFactory(
         throw IllegalArgumentException("Unknown ViewModel class for CreateEditDiceSetViewModel")
     }
 }
+

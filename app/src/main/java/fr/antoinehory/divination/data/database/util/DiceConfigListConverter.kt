@@ -12,6 +12,7 @@ class DiceConfigListConverter {
             return null
         }
         // Convertit List<DiceConfig> en une chaîne. Exemple: "D6:2;D20:1"
+        // La sérialisation n'a pas besoin de changer car elle n'utilise pas le constructeur avec id
         return diceConfigs.joinToString(";") { "${it.diceType.name}:${it.count}" }
     }
 
@@ -31,7 +32,8 @@ class DiceConfigListConverter {
                     try {
                         val diceTypeName = parts[0]
                         val count = parts[1].toInt()
-                        DiceConfig(DiceType.valueOf(diceTypeName), count)
+                        // MODIFIÉ ICI: Utilisation d'arguments nommés
+                        DiceConfig(diceType = DiceType.valueOf(diceTypeName), count = count)
                     } catch (e: NumberFormatException) {
                         // Gérer l'erreur si le compte n'est pas un nombre valide
                         null // ou logger l'erreur et ignorer l'item

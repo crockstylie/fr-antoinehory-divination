@@ -1,5 +1,7 @@
 package fr.antoinehory.divination.data.model
 
+import java.util.UUID
+
 // DiceType sera importé implicitement car il est dans le même package
 
 /**
@@ -7,6 +9,7 @@ package fr.antoinehory.divination.data.model
  * Par exemple, "2 dés de type D6".
  */
 data class DiceConfig(
+    val id: String = UUID.randomUUID().toString(),
     val diceType: DiceType,
     val count: Int
 ) {

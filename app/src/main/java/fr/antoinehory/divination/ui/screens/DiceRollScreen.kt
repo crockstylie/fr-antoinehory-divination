@@ -28,7 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
-import fr.antoinehory.divination.data.InteractionMode
+import fr.antoinehory.divination.data.model.InteractionMode
 import fr.antoinehory.divination.data.model.GameType
 import fr.antoinehory.divination.ui.common.GameHistoryDisplay
 import fr.antoinehory.divination.ui.common.AppScaffold

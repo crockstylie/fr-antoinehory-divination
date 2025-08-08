@@ -8,18 +8,18 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons // Assurer cet import
-import androidx.compose.material.icons.filled.Lock // Assurer cet import
+import androidx.compose.material.icons.Icons 
+import androidx.compose.material.icons.filled.Lock 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton // Ajout pour le bouton "Unlock All"
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-// import androidx.compose.ui.res.painterResource // Non requis si on utilise Icons.Filled.Lock
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -75,6 +75,7 @@ fun DiceRollScreen(
     val isRolling by diceRollViewModel.isRolling.collectAsState()
     val recentLogs by diceRollViewModel.recentLogs.collectAsState()
     val totalRollValue by diceRollViewModel.totalRollValue.collectAsState()
+    val hasLockedDice by diceRollViewModel.hasLockedDice.collectAsState() // Pour le bouton "Unlock All"
 
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
@@ -121,7 +122,6 @@ fun DiceRollScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            // CORRECTION: Message accéléromètre avec le texte
             if (interactionPrefs.activeInteractionMode == InteractionMode.SHAKE && !isShakeAvailable) {
                 Text(
                     text = stringResource(id = R.string.dice_accelerometer_not_available_ui_message),
@@ -132,20 +132,35 @@ fun DiceRollScreen(
                 )
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(8.dp)) // Réduit pour faire de la place au bouton Unlock All
+
+            // Bouton pour tout déverrouiller
+            if (hasLockedDice && diceResults.isNotEmpty()) {
+                TextButton(
+                    onClick = { diceRollViewModel.unlockAllDice() },
+                    modifier = Modifier.padding(bottom = 8.dp) 
+                ) {
+                    Text(stringResource(id = R.string.unlock_all_dice_button))
+                }
+            } else {
+                // Pour maintenir l'espacement même si le bouton n'est pas là,
+                // on peut ajouter un Spacer avec la hauteur approximative du bouton + padding,
+                 Spacer(modifier = Modifier.height(8.dp + 36.dp)) // approx height of button + padding
+            }
+
 
             if (isRolling && diceResults.all { it.value == 0 && !it.isLocked } && diceResults.isNotEmpty()) {
                 Text(
                     stringResource(R.string.dice_rolling_message),
                     style = MaterialTheme.typography.headlineMedium,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.alpha(resultsAlpha)
+                    modifier = Modifier.alpha(resultsAlpha).fillMaxHeight(0.3f) // Placeholder height
                 )
             } else if (diceResults.isNotEmpty()) {
                 FlowRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp)
+                        .padding(vertical = 8.dp) // Réduit un peu
                         .alpha(resultsAlpha),
                     horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -169,8 +184,10 @@ fun DiceRollScreen(
                         modifier = Modifier.alpha(resultsAlpha)
                     )
                 }
-            } else {
-                Box(modifier = Modifier.size(120.dp), contentAlignment = Alignment.Center) { /* Placeholder */ }
+            } else { // État initial avant le premier lancer
+                Box(modifier = Modifier.size(120.dp).fillMaxHeight(0.3f), contentAlignment = Alignment.Center) {
+                     // Placeholder pour prendre de la hauteur
+                }
             }
             Spacer(modifier = Modifier.height(24.dp))
             Text(
@@ -224,7 +241,6 @@ fun DiceResultDisplay(
 
         if (result.isLocked) {
             Icon(
-                // CORRECTION: Utilisation de Icons.Filled.Lock
                 imageVector = Icons.Filled.Lock,
                 contentDescription = stringResource(R.string.locked_dice_icon_description),
                 modifier = Modifier
@@ -237,4 +253,14 @@ fun DiceResultDisplay(
     }
 }
 
-// ... Previews ...
+// Previews - Note: Might need adjustment for ViewModel dependencies if not already handled
+@Preview(showBackground = true)
+@Composable
+fun DiceRollScreenPreview() {
+    val context = LocalContext.current
+    // Simplified for preview, real previews might need mock ViewModels or dependency injection
+    DivinationAppTheme {
+         Text("DiceRollScreen Preview - ViewModel dependent")
+    }
+}
+

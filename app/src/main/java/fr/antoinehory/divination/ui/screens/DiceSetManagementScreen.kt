@@ -8,12 +8,18 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+// Ensure ContentCopy is imported if DiceSetItemCard uses it directly,
+// otherwise this screen doesn't need it directly if it's encapsulated in DiceSetItemCard.
+// For the AlertDialog text formatting, `remember` is needed.
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember // Required for diceConfigsString in copy dialog
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -23,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.DivinationApplication
 import fr.antoinehory.divination.R
-import fr.antoinehory.divination.data.model.DiceConfig // Assurez-vous que cette classe a un champ 'id'
+import fr.antoinehory.divination.data.model.DiceConfig
 import fr.antoinehory.divination.data.model.DiceSet
 import fr.antoinehory.divination.data.model.DiceType
 import fr.antoinehory.divination.ui.common.AppScaffold
@@ -47,6 +53,8 @@ fun DiceSetManagementScreen(
     )
 
     val diceSets by diceSetViewModel.allDiceSets.collectAsState()
+    val diceSetToDeleteConfirm by diceSetViewModel.diceSetToDeleteConfirm.collectAsState()
+    val diceSetToCopyConfirm by diceSetViewModel.diceSetToCopyConfirm.collectAsState() // For copy dialog
 
     AppScaffold(
         title = stringResource(id = R.string.dice_set_management_screen_title),
@@ -87,10 +95,75 @@ fun DiceSetManagementScreen(
                         onEdit = {
                             onNavigateToEditSet(diceSet.id.toString())
                         },
-                        onDelete = { diceSetViewModel.deleteDiceSet(diceSet) }
+                        onDelete = { diceSetViewModel.requestDeleteConfirmation(diceSet) },
+                        onCopy = { diceSetViewModel.requestCopyConfirmation(diceSet) } // CORRECTLY ADDED HERE
                     )
                 }
             }
+        }
+
+        // AlertDialog for delete confirmation
+        diceSetToDeleteConfirm?.let { setToBeDeleted ->
+            AlertDialog(
+                onDismissRequest = { diceSetViewModel.cancelDeleteConfirmation() },
+                title = { Text(stringResource(R.string.delete_dice_set_confirmation_title)) },
+                text = {
+                    Text(
+                        stringResource(
+                            R.string.delete_dice_set_confirmation_message,
+                            setToBeDeleted.name
+                        )
+                    )
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            diceSetViewModel.deleteDiceSet(setToBeDeleted)
+                        }
+                    ) {
+                        Text(stringResource(R.string.confirm_delete))
+                    }
+                },
+                dismissButton = {
+                    Button(onClick = { diceSetViewModel.cancelDeleteConfirmation() }) {
+                        Text(stringResource(R.string.cancel))
+                    }
+                }
+            )
+        }
+
+        // AlertDialog for copy confirmation
+        diceSetToCopyConfirm?.let { setToBeCopied ->
+            val diceConfigsString = remember(setToBeCopied.diceConfigs) {
+                setToBeCopied.diceConfigs.joinToString(", ") { "${it.count}x ${it.diceType.displayName}" }
+            }
+            AlertDialog(
+                onDismissRequest = { diceSetViewModel.cancelCopyConfirmation() },
+                title = { Text(stringResource(R.string.copy_dice_set_confirmation_title)) },
+                text = {
+                    Text(
+                        stringResource(
+                            R.string.copy_dice_set_confirmation_message,
+                            setToBeCopied.name,
+                            diceConfigsString
+                        )
+                    )
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            diceSetViewModel.confirmAndCopyDiceSet(setToBeCopied)
+                        }
+                    ) {
+                        Text(stringResource(R.string.confirm_copy))
+                    }
+                },
+                dismissButton = {
+                    Button(onClick = { diceSetViewModel.cancelCopyConfirmation() }) {
+                        Text(stringResource(R.string.cancel))
+                    }
+                }
+            )
         }
     }
 }
@@ -102,7 +175,6 @@ fun DiceSetManagementScreenPreview() {
         DiceSet(
             id = 1,
             name = "Aventure Quotidienne",
-            // MODIFIÉ ICI: Utilisation d'arguments nommés
             diceConfigs = listOf(
                 DiceConfig(diceType = DiceType.D20, count = 1),
                 DiceConfig(diceType = DiceType.D6, count = 2)
@@ -112,7 +184,6 @@ fun DiceSetManagementScreenPreview() {
         DiceSet(
             id = 2,
             name = "Dégâts Feu",
-            // MODIFIÉ ICI: Utilisation d'arguments nommés
             diceConfigs = listOf(
                 DiceConfig(diceType = DiceType.D8, count = 3),
                 DiceConfig(diceType = DiceType.D4, count = 1)
@@ -121,7 +192,6 @@ fun DiceSetManagementScreenPreview() {
         DiceSet(
             id = 3,
             name = "Initiative",
-            // MODIFIÉ ICI: Utilisation d'arguments nommés
             diceConfigs = listOf(DiceConfig(diceType = DiceType.D20, count = 1))
         )
     )
@@ -148,7 +218,8 @@ fun DiceSetManagementScreenPreview() {
                         onLaunch = { },
                         onToggleFavorite = { },
                         onEdit = { },
-                        onDelete = { }
+                        onDelete = { },
+                        onCopy = { } // Correctly added for preview
                     )
                 }
             }
@@ -178,7 +249,7 @@ fun DiceSetManagementScreen_NoSets_Preview() {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Text("Aucun set de dés disponible.", color = OrakniumGold)
+                Text("Aucun set de dés disponible.", color = OrakniumGold) // Consider stringResource
             }
         }
     }

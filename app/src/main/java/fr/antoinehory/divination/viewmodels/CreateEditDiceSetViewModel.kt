@@ -68,18 +68,22 @@ class CreateEditDiceSetViewModel(
         _diceConfigs.update { currentList ->
             val existingConfigIndex = currentList.indexOfFirst { it.diceType == newDiceConfig.diceType }
 
-            if (existingConfigIndex != -1 && !isNewSet) { // Si c'est un set existant, on fusionne
-                val existingConfig = currentList[existingConfigIndex]
-                val updatedConfig = existingConfig.copy(
-                    count = existingConfig.count + newDiceConfig.count
-                )
-                currentList.toMutableList().apply {
-                    this[existingConfigIndex] = updatedConfig
+            if (existingConfigIndex != -1) { // La condition "&& !isNewSet" a été retirée ici
+                // Le type de dé existe déjà, on met à jour sa quantité dans une nouvelle liste
+                // en s'assurant de créer une nouvelle liste pour que le StateFlow se mette à jour.
+                currentList.map { existingConfig ->
+                    if (existingConfig.diceType == newDiceConfig.diceType) {
+                        existingConfig.copy(count = existingConfig.count + newDiceConfig.count)
+                    } else {
+                        existingConfig
+                    }
                 }
-            } else { // Si nouveau set, ou type de dé différent, on ajoute
+            } else {
+                // Le type de dé n'existe pas encore, on l'ajoute à la liste
                 currentList + newDiceConfig
             }
         }
+        // Si une erreur indiquait qu'il n'y avait pas de dés, on la retire.
         if (_saveError.value == R.string.error_no_dice_configs) {
             clearSaveError()
         }

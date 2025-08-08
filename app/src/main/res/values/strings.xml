@@ -100,7 +100,7 @@
     <string name="settings_clear_stats_dialog_title">Clear Statistics?</string>
     <string name="settings_clear_stats_dialog_message">All game statistics data will be permanently deleted. This action is irreversible.</string>
     <string name="settings_clear_stats_dialog_confirm">Confirm</string>
-    <string name="settings_clear_stats_dialog_cancel">Cancel</string>
+    <!-- Removed: settings_clear_stats_dialog_cancel (use "cancel" below) -->
 
     <!-- game-specific stat clearing -->
     <string name="settings_clear_stats_for_game_dialog_title">Clear stats for %1$s?</string>
@@ -164,7 +164,7 @@
     <string name="bottom_nav_info">Info</string>
     <string name="navigation_back_description">Back</string>
 
-    <!-- For DiceSetManagementScreen -->
+    <!-- For CreateEditDiceSetScreen & DiceSetManagementScreen -->
     <string name="create_dice_set_screen_title">Create Dice Set</string>
     <string name="edit_dice_set_screen_title">Edit Dice Set</string>
     <string name="dice_set_management_screen_title">Manage Dice Sets</string>
@@ -182,7 +182,7 @@
     <string name="add_dice_config_desc">Add new dice configuration</string>
     <string name="no_dice_configs_yet">No dice configured yet. Click "Add Die" to get started.</string>
     <string name="remove_dice_config_desc">Remove this dice configuration</string>
-    <string name="cancel_add_dice_button">Cancel</string>
+    <!-- Removed: cancel_add_dice_button (use "cancel" below) -->
     <string name="dice_type_label">Dice Type</string>
     <string name="quantity_label">Quantity</string>
     <string name="confirm_add_to_set_button">Add to Set</string>
@@ -194,6 +194,21 @@
     <string name="increment_dice_count_desc">Increment dice count</string>
     <string name="decrement_dice_count_desc">Decrement dice count</string>
     <string name="update_button">Update</string>
-    <string name="cancel_button">Cancel</string>
+    <!-- Removed: cancel_button (use "cancel" below) -->
     <string name="default_new_dice_set_name">My Dice Set</string>
+
+    <!-- Standard Dialog/Button Strings -->
+    <string name="cancel">Cancel</string>
+
+    <!-- Dice Set Deletion Confirmation -->
+    <string name="delete_dice_set_confirmation_title">Confirm Deletion</string>
+    <string name="delete_dice_set_confirmation_message">Are you sure you want to delete the set "%1$s"?</string>
+    <string name="confirm_delete">Delete</string>
+
+    <!-- Dice Set Copy -->
+    <string name="copy_dice_set_desc">Copy dice set</string>
+    <string name="copy_dice_set_confirmation_title">Copy Set?</string>
+    <string name="copy_dice_set_confirmation_message">Do you want to copy the set \"%1$s\"?\n\nContents:\n%2$s</string>
+    <string name="confirm_copy">Copy</string>
+
 </resources>

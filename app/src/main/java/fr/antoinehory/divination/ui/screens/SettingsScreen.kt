@@ -104,7 +104,7 @@ fun SettingsScreen(
             },
             dismissButton = {
                 TextButton(onClick = { settingsViewModel.onDismissClearConfirmationDialog() }) {
-                    Text(stringResource(id = R.string.settings_clear_stats_dialog_cancel))
+                    Text(stringResource(id = R.string.cancel))
                 }
             }
         )

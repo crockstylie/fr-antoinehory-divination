@@ -91,13 +91,11 @@ fun AppNavigation(navController: NavHostController) {
             DiceSetManagementScreen(
                 onNavigateBack = { navController.popBackStack() },
                 onNavigateToCreateSet = {
-                    // MODIFIÉ: Navigue vers l'écran de création/édition sans ID (pour création)
                     navController.navigate(AppDestinations.CREATE_EDIT_DICE_SET_BASE_ROUTE)
                 },
                 onLaunchSet = { diceSet ->
                     Toast.makeText(context, "Launch set: ${diceSet.name} - TODO", Toast.LENGTH_LONG).show()
                 },
-                // AJOUT : Action pour éditer un set existant (sera utilisée par la liste plus tard)
                 onNavigateToEditSet = { diceSetId ->
                     navController.navigate("${AppDestinations.CREATE_EDIT_DICE_SET_BASE_ROUTE}?${AppDestinations.DICE_SET_ID_ARG}=${diceSetId}")
                 }
@@ -109,6 +107,7 @@ fun AppNavigation(navController: NavHostController) {
                 navArgument(AppDestinations.STATS_GAME_TYPE_ARG) {
                     type = NavType.StringType
                     nullable = true
+                    defaultValue = null // MODIFIÉ ICI
                 }
             )
         ) { navBackStackEntry ->
@@ -126,14 +125,13 @@ fun AppNavigation(navController: NavHostController) {
             SettingsScreen(onNavigateBack = { navController.popBackStack() })
         }
 
-        // AJOUT: Composable pour l'écran de création/édition de sets de dés
         composable(
             route = AppDestinations.CREATE_EDIT_DICE_SET_ROUTE,
             arguments = listOf(
                 navArgument(AppDestinations.DICE_SET_ID_ARG) {
                     type = NavType.StringType
                     nullable = true
-                    defaultValue = null // Explicitement null par défaut pour la création
+                    defaultValue = null
                 }
             )
         ) { navBackStackEntry ->
@@ -145,3 +143,4 @@ fun AppNavigation(navController: NavHostController) {
         }
     }
 }
+

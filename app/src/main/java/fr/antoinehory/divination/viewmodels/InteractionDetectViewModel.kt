@@ -4,9 +4,9 @@ package fr.antoinehory.divination.viewmodels
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import fr.antoinehory.divination.data.InteractionMode // <-- NOUVEL IMPORT
-import fr.antoinehory.divination.data.InteractionPreferences
-import fr.antoinehory.divination.data.UserPreferencesRepository
+import fr.antoinehory.divination.data.model.InteractionMode // <-- NOUVEL IMPORT
+import fr.antoinehory.divination.data.model.InteractionPreferences
+import fr.antoinehory.divination.data.repository.UserPreferencesRepository // MODIFIED IMPORT
 import fr.antoinehory.divination.viewmodels.InteractionEvent // Assurez-vous que cet import est correct
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.BufferOverflow

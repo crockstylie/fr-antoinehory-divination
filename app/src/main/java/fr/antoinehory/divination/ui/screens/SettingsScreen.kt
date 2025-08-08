@@ -157,7 +157,7 @@ fun SettingsScreen(
                 )
             }
 
-            Divider(modifier = Modifier.padding(vertical = 16.dp))
+            HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
 
             Text(
                 stringResource(id = R.string.settings_data_management_title),

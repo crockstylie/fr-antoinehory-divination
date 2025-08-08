@@ -55,7 +55,7 @@ fun RockPaperScissorsScreen(
     )
 
     val currentMessage by rpsViewModel.currentMessage.collectAsState()
-    val rpsOutcome by rpsViewModel.rpsOutcome.collectAsState()
+    val rpsOutcome by rpsViewModel.rpsOutcome.collectAsState() // Type: RPSOutcome?
     val isProcessing by rpsViewModel.isProcessing.collectAsState()
     val recentLogs by rpsViewModel.recentLogs.collectAsState()
 
@@ -145,28 +145,28 @@ fun RockPaperScissorsScreen(
                 val shouldShowImage = rpsOutcome != null && !isProcessing
 
                 if (shouldShowImage) {
-                    val painterId = when (rpsOutcome) {
+                    // Créer une variable locale non-nullable pour clarifier pour le compilateur
+                    val currentOutcome: RPSOutcome = rpsOutcome!! // Garanti non-null par la condition shouldShowImage
+
+                    val painterId = when (currentOutcome) { // when sur une variable non-nullable
                         RPSOutcome.ROCK -> R.drawable.ic_rps_rock
                         RPSOutcome.PAPER -> R.drawable.ic_rps_paper
                         RPSOutcome.SCISSORS -> R.drawable.ic_rps_scissors
-                        null -> null
+                        // Plus besoin de branche null ou else car currentOutcome est non-nullable et RPSOutcome est un enum
                     }
-                    val contentDescId = when (rpsOutcome) {
+                    val contentDescId = when (currentOutcome) { // when sur une variable non-nullable
                         RPSOutcome.ROCK -> R.string.rps_icon_description_rock
                         RPSOutcome.PAPER -> R.string.rps_icon_description_paper
                         RPSOutcome.SCISSORS -> R.string.rps_icon_description_scissors
-                        null -> R.string.general_content_description_empty
+                        // Plus besoin de branche null ou else
                     }
-
-                    if (painterId != null) {
-                        Image(
-                            painter = painterResource(id = painterId),
-                            contentDescription = stringResource(id = contentDescId),
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .alpha(imageAlpha)
-                        )
-                    }
+                    Image(
+                        painter = painterResource(id = painterId),
+                        contentDescription = stringResource(id = contentDescId),
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .alpha(imageAlpha)
+                    )
                 }
             }
 
@@ -179,13 +179,10 @@ fun RockPaperScissorsScreen(
                 modifier = Modifier.alpha(textAlpha)
             )
 
-            // MODIFICATION: Utilisation du composant GameHistoryDisplay
             GameHistoryDisplay(
                 recentLogs = recentLogs,
                 gameType = GameType.ROCK_PAPER_SCISSORS
-                // Vous pouvez omettre logResultFormatter si DefaultLogResultFormatter vous convient
             )
-            // FIN SECTION HISTORIQUE MODIFIÉE
 
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -213,4 +210,3 @@ fun RockPaperScissorsScreenLandscapePreview() {
         )
     }
 }
-

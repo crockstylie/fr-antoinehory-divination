@@ -203,7 +203,7 @@ fun GameStatsContent(
                 )
                 GlobalDistributionChart(chartEntries = globalGameShares)
                 Spacer(modifier = Modifier.height(16.dp))
-                Divider(modifier = Modifier.padding(vertical = 8.dp))
+                HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
             }
         }
 
@@ -357,7 +357,7 @@ fun StatRow(statItem: StatItem, modifier: Modifier = Modifier, legendColor: Colo
                 style = MaterialTheme.typography.bodyMedium
             )
         }
-        Divider()
+        HorizontalDivider()
     }
 }
 

@@ -15,6 +15,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Settings:**
   - Added the choice of game data to erase
 
+### Fixed
+- **Gradle:**
+  - Upgrade AGP version from 8.5.0 to 8.12.0
+  - Upgrade Kotlin version from 2.0.0 to 2.2.0
+  - Upgrade KSP version from 2.0.0-1.0.21 to 2.2.0-2.0.2
+  - Upgrade Room version from 2.6.1 to 2.7.2
+- **Build Warnings:**
+  - Changing deprecated functions
+
 ## [2.4] - 2025-08-08
 
 ### Changed

@@ -1,5 +1,6 @@
 package fr.antoinehory.divination.ui.screens
 
+import android.widget.Toast // Conservé pour le Toast de l'info dans les Previews
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
@@ -7,11 +8,12 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PieChart
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+// Les imports spécifiques pour l'ancienne bottom bar ne sont plus nécessaires ici
+// import androidx.compose.material.icons.Icons
+// import androidx.compose.material.icons.filled.PieChart
+// import androidx.compose.material3.BottomAppBar
+// import androidx.compose.material3.Icon
+// import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -24,16 +26,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-// import androidx.compose.ui.unit.sp // Plus nécessaire ici si GameHistoryDisplay le gère
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.InteractionMode
 import fr.antoinehory.divination.data.model.GameType
-// AJOUT: Import du nouveau composant d'historique
 import fr.antoinehory.divination.ui.common.GameHistoryDisplay
 import fr.antoinehory.divination.ui.common.AppScaffold
+import fr.antoinehory.divination.ui.common.BottomAppNavigationBar // AJOUT: Import de la nouvelle barre de navigation
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold
+// import fr.antoinehory.divination.ui.theme.OrakniumGold // Plus utilisé pour la bottom bar ici
 import fr.antoinehory.divination.viewmodels.DiceRollViewModel
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
 import fr.antoinehory.divination.DivinationApplication
@@ -43,7 +44,10 @@ import fr.antoinehory.divination.viewmodels.DiceRollViewModelFactory
 fun DiceRollScreen(
     onNavigateBack: () -> Unit,
     interactionViewModel: InteractionDetectViewModel = viewModel(),
-    onNavigateToStats: (GameType) -> Unit
+    // Paramètres pour la BottomAppNavigationBar
+    onNavigateToStats: (GameType) -> Unit, // Conservé, pour les stats spécifiques au jeu
+    onNavigateToDiceSetManagement: () -> Unit, // NOUVEAU: pour les "Settings" de ce jeu
+    onNavigateToInfo: () -> Unit // NOUVEAU: pour l'écran d'info général
 ) {
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
@@ -85,25 +89,12 @@ fun DiceRollScreen(
         canNavigateBack = true,
         onNavigateBack = onNavigateBack,
         bottomBar = {
-            BottomAppBar(
-                containerColor = MaterialTheme.colorScheme.background,
-                contentColor = OrakniumGold
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = { onNavigateToStats(GameType.DICE_ROLL) }) {
-                        Icon(
-                            imageVector = Icons.Filled.PieChart,
-                            contentDescription = stringResource(id = R.string.game_stats_icon_description),
-                            tint = OrakniumGold,
-                            modifier = Modifier.size(36.dp)
-                        )
-                    }
-                }
-            }
+            // MODIFICATION: Utilisation du nouveau composant de barre de navigation
+            BottomAppNavigationBar(
+                onSettingsClick = onNavigateToDiceSetManagement, // "Settings" mène à la gestion des sets de dés
+                onStatsClick = { onNavigateToStats(GameType.DICE_ROLL) }, // "Stats" mène aux stats de ce jeu
+                onInfoClick = onNavigateToInfo // "Info" mène à l'écran d'info général
+            )
         }
     ) { paddingValues ->
         Column(
@@ -193,15 +184,10 @@ fun DiceRollScreen(
                 modifier = Modifier.alpha(textAlpha)
             )
 
-            // MODIFICATION: Utilisation du composant GameHistoryDisplay
-            // L'ancienne section "Affichage des lancers récents" est remplacée.
             GameHistoryDisplay(
                 recentLogs = recentLogs,
                 gameType = GameType.DICE_ROLL
-                // DefaultLogResultFormatter gère déjà le formatage pour DICE_ROLL
-                // via stringResource(R.string.dice_result_format, logResult.toIntOrNull() ?: 0)
             )
-            // FIN SECTION HISTORIQUE MODIFIÉE
 
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -212,10 +198,13 @@ fun DiceRollScreen(
 @Preview(showBackground = true)
 @Composable
 fun DiceRollScreenPreview() {
+    val context = LocalContext.current // Pour le Toast
     DivinationAppTheme {
         DiceRollScreen(
             onNavigateBack = {},
-            onNavigateToStats = {}
+            onNavigateToStats = {},
+            onNavigateToDiceSetManagement = {}, // AJOUT
+            onNavigateToInfo = { Toast.makeText(context, "Info Clicked", Toast.LENGTH_SHORT).show()} // AJOUT
         )
     }
 }
@@ -223,10 +212,13 @@ fun DiceRollScreenPreview() {
 @Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "DiceRollScreen Landscape")
 @Composable
 fun DiceRollScreenLandscapePreview() {
+    val context = LocalContext.current // Pour le Toast
     DivinationAppTheme {
         DiceRollScreen(
             onNavigateBack = {},
-            onNavigateToStats = {}
+            onNavigateToStats = {},
+            onNavigateToDiceSetManagement = {}, // AJOUT
+            onNavigateToInfo = { Toast.makeText(context, "Info Clicked", Toast.LENGTH_SHORT).show()} // AJOUT
         )
     }
 }

@@ -157,4 +157,20 @@
     <string name="stats_total_plays_for_game">Total plays for this game : %d</string>
     <string name="stats_no_history_available">No history available for this game yet.</string>
     <string name="stats_full_history_title">Full History</string>
+
+    <!-- For BottomAppNavigationBar -->
+    <string name="bottom_nav_settings">Settings</string>
+    <string name="bottom_nav_stats">Stats</string>
+    <string name="bottom_nav_info">Info</string>
+    <string name="navigation_back_description">Back</string>
+
+    <!-- For DiceSetManagementScreen -->
+    <string name="dice_set_management_screen_title">Manage Dice Sets</string>
+    <string name="dice_set_create_new_set_desc">Create new dice set</string>
+    <string name="dice_set_no_sets_available">No dice sets available.</string>
+    <string name="dice_set_add_to_favorites">Add to favorites</string>
+    <string name="dice_set_remove_from_favorites">Remove from favorites</string>
+    <string name="dice_set_edit_set_desc">Edit set</string>
+    <string name="dice_set_delete_set_desc">Delete set</string>
+    <string name="dice_set_launch_set_desc">Launch set</string>
 </resources>

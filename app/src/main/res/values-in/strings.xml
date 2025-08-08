@@ -113,6 +113,15 @@
     <string name="settings_clear_stats_dialog_message">Semua data statistik game akan dihapus secara permanen. Tindakan ini tidak dapat diurungkan.</string>
     <string name="settings_clear_stats_dialog_confirm">Konfirmasi</string>
     <string name="settings_clear_stats_dialog_cancel">Batal</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Hapus statistik untuk %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Apakah Anda yakin ingin menghapus semua statistik untuk game %1$s? Tindakan ini tidak dapat dibatalkan.</string>
+    <string name="settings_clear_stats_for_game_title">Hapus statistik untuk game</string>
+    <string name="settings_select_game_placeholder">Pilih game</string>
+    <string name="settings_game_to_clear_label">Game yang akan dihapus</string>
+    <string name="settings_clear_stats_for_selected_game_button">Hapus untuk game yang dipilih</string>
+    <string name="settings_all_games_option">Semua game</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Hapus semua statistik game?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Apakah Anda yakin ingin menghapus semua statistik game? Tindakan ini tidak dapat dibatalkan.</string>
 
     <!-- GameStatsViewModel -->
     <string name="stats_screen_title_global">Statistik Global</string>

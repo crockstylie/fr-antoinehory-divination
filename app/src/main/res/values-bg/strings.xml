@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">Всички данни от статистиката на играта ще бъдат изтрити за постоянно. Това действие е необратимо.</string>
     <string name="settings_clear_stats_dialog_confirm">Потвърди</string>
     <string name="settings_clear_stats_dialog_cancel">Отказ</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Изчистване на статистиката за %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Сигурни ли сте, че искате да изтриете цялата статистика за играта %1$s? Това действие не може да бъде отменено.</string>
+    <string name="settings_clear_stats_for_game_title">Изчистване на статистика за игра</string>
+    <string name="settings_select_game_placeholder">Изберете игра</string>
+    <string name="settings_game_to_clear_label">Игра за изчистване</string>
+    <string name="settings_clear_stats_for_selected_game_button">Изчистване за избраната игра</string>
+    <string name="settings_all_games_option">Всички игри</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Изчистване на статистиката за всички игри?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Сигурни ли сте, че искате да изтриете цялата статистика за игрите? Това действие не може да бъде отменено.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Взаимодействайте, за да получите отговор.</string>

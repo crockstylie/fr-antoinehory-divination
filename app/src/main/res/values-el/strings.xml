@@ -113,6 +113,15 @@
     <string name="settings_clear_stats_dialog_message">Όλα τα δεδομένα στατιστικών του παιχνιδιού θα διαγραφούν οριστικά. Αυτή η ενέργεια είναι μη αναστρέψιμη.</string>
     <string name="settings_clear_stats_dialog_confirm">Επιβεβαίωση</string>
     <string name="settings_clear_stats_dialog_cancel">Άκυρο</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Εκκαθάριση στατιστικών για %1$s;</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Είστε βέβαιοι ότι θέλετε να διαγράψετε όλα τα στατιστικά για το παιχνίδι %1$s; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
+    <string name="settings_clear_stats_for_game_title">Εκκαθάριση στατιστικών για ένα παιχνίδi</string>
+    <string name="settings_select_game_placeholder">Επιλέξτε παιχνίδι</string>
+    <string name="settings_game_to_clear_label">Παιχνίδι προς εκκαθάριση</string>
+    <string name="settings_clear_stats_for_selected_game_button">Εκκαθάριση για επιλεγμένο παιχνίδι</string>
+    <string name="settings_all_games_option">Όλα τα παιχνίδια</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Εκκαθάριση όλων των στατιστικών παιχνιδιών;</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Είστε βέβαιοι ότι θέλετε να διαγράψετε όλα τα στατιστικά των παιχνιδιών; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
 
     <!-- GameStatsViewModel -->
     <string name="stats_screen_title_global">Καθολικά στατιστικά</string>

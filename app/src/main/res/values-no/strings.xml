@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">All spillstatistikkdata vil bli slettet permanent. Denne handlingen kan ikke angres.</string>
     <string name="settings_clear_stats_dialog_confirm">Bekreft</string>
     <string name="settings_clear_stats_dialog_cancel">Avbryt</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Slett statistikk for %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Er du sikker på at du vil slette all statistikk for spillet %1$s? Denne handlingen kan ikke angres.</string>
+    <string name="settings_clear_stats_for_game_title">Slett statistikk for et spill</string>
+    <string name="settings_select_game_placeholder">Velg et spill</string>
+    <string name="settings_game_to_clear_label">Spill som skal slettes</string>
+    <string name="settings_clear_stats_for_selected_game_button">Slett for valgt spill</string>
+    <string name="settings_all_games_option">Alle spill</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Slett all spillstatistikk?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Er du sikker på at du vil slette all spillstatistikk? Denne handlingen kan ikke angres.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interager for å få et svar.</string>

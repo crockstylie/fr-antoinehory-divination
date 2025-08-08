@@ -126,6 +126,15 @@
     <string name="settings_clear_stats_dialog_message">Alle spelstatistieken worden permanent verwijderd. Deze actie kan niet ongedaan worden gemaakt.</string>
     <string name="settings_clear_stats_dialog_confirm">Bevestigen</string>
     <string name="settings_clear_stats_dialog_cancel">Annuleren</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Statistieken voor %1$s wissen?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Weet je zeker dat je alle statistieken voor het spel %1$s wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.</string>
+    <string name="settings_clear_stats_for_game_title">Statistieken voor een spel wissen</string>
+    <string name="settings_select_game_placeholder">Selecteer een spel</string>
+    <string name="settings_game_to_clear_label">Te wissen spel</string>
+    <string name="settings_clear_stats_for_selected_game_button">Wissen voor geselecteerd spel</string>
+    <string name="settings_all_games_option">Alle spellen</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Alle spelstatistieken wissen?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Weet je zeker dat je alle spelstatistieken wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.</string>
 
     <!-- GameStatsViewModel -->
     <string name="stats_screen_title_global">Globale statistieken</string>

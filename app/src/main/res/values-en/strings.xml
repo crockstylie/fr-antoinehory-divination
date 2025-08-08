@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">All game statistics data will be permanently deleted. This action is irreversible.</string>
     <string name="settings_clear_stats_dialog_confirm">Confirm</string>
     <string name="settings_clear_stats_dialog_cancel">Cancel</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Clear stats for %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Are you sure you want to delete all stats for the game %1$s? This action cannot be undone.</string>
+    <string name="settings_clear_stats_for_game_title">Clear stats for a game</string>
+    <string name="settings_select_game_placeholder">Select a game</string>
+    <string name="settings_game_to_clear_label">Game to clear</string>
+    <string name="settings_clear_stats_for_selected_game_button">Clear for selected game</string>
+    <string name="settings_all_games_option">All games</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Clear all game stats?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Are you sure you want to delete all game statistics? This action cannot be undone.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interact to get an answer.</string>

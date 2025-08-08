@@ -113,6 +113,15 @@
     <string name="settings_clear_stats_dialog_message">Todos os dados de estatísticas do jogo serão excluídos permanentemente. Esta ação é irreversível.</string>
     <string name="settings_clear_stats_dialog_confirm">Confirmar</string>
     <string name="settings_clear_stats_dialog_cancel">Cancelar</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Limpar estatísticas de %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Tem certeza de que deseja excluir todas as estatísticas do jogo %1$s? Esta ação não pode ser desfeita.</string>
+    <string name="settings_clear_stats_for_game_title">Limpar estatísticas de um jogo</string>
+    <string name="settings_select_game_placeholder">Selecione um jogo</string>
+    <string name="settings_game_to_clear_label">Jogo a limpar</string>
+    <string name="settings_clear_stats_for_selected_game_button">Limpar para jogo selecionado</string>
+    <string name="settings_all_games_option">Todos os jogos</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Limpar todas as estatísticas de jogos?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Tem certeza de que deseja excluir todas as estatísticas de jogos? Esta ação não pode ser desfeita.</string>
 
     <!-- GameStatsViewModel -->
     <string name="stats_screen_title_global">Estatísticas Globais</string>

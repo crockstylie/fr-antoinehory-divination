@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">Kaikki pelitilastotiedot poistetaan pysyvästi. Tätä toimintoa ei voi kumota.</string>
     <string name="settings_clear_stats_dialog_confirm">Vahvista</string>
     <string name="settings_clear_stats_dialog_cancel">Peruuta</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Tyhjennäkö pelin %1$s tilastot?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Haluatko varmasti poistaa kaikki pelin %1$s tilastot? Tätä toimintoa ei voi kumota.</string>
+    <string name="settings_clear_stats_for_game_title">Tyhjennä pelin tilastot</string>
+    <string name="settings_select_game_placeholder">Valitse peli</string>
+    <string name="settings_game_to_clear_label">Tyhjennettävä peli</string>
+    <string name="settings_clear_stats_for_selected_game_button">Tyhjennä valitulle pelille</string>
+    <string name="settings_all_games_option">Kaikki pelit</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Tyhjennäkö kaikkien pelien tilastot?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Haluatko varmasti poistaa kaikkien pelien tilastot? Tätä toimintoa ei voi kumota.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Ole vuorovaikutuksessa saadaksesi vastauksen.</string>

@@ -113,6 +113,15 @@
     <string name="settings_clear_stats_dialog_message">所有游戏统计数据将被永久删除。此操作不可逆。</string>
     <string name="settings_clear_stats_dialog_confirm">确认</string>
     <string name="settings_clear_stats_dialog_cancel">取消</string>
+    <string name="settings_clear_stats_for_game_dialog_title">清除%1$s的统计数据？</string>
+    <string name="settings_clear_stats_for_game_dialog_message">您确定要删除游戏%1$s的所有统计数据吗？此操作无法撤销。</string>
+    <string name="settings_clear_stats_for_game_title">清除游戏统计数据</string>
+    <string name="settings_select_game_placeholder">选择一个游戏</string>
+    <string name="settings_game_to_clear_label">要清除的游戏</string>
+    <string name="settings_clear_stats_for_selected_game_button">清除所选游戏的统计数据</string>
+    <string name="settings_all_games_option">所有游戏</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">清除所有游戏统计数据？</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">您确定要删除所有游戏统计数据吗？此操作无法撤销。</string>
 
     <!-- GameStatsViewModel -->
     <string name="stats_screen_title_global">全局统计</string>

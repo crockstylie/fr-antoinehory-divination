@@ -113,6 +113,15 @@
     <string name="settings_clear_stats_dialog_message">Toate datele statistice ale jocului vor fi șterse definitiv. Această acțiune este ireversibilă.</string>
     <string name="settings_clear_stats_dialog_confirm">Confirmă</string>
     <string name="settings_clear_stats_dialog_cancel">Anulează</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Șterge statisticile pentru %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Sigur doriți să ștergeți toate statisticile pentru jocul %1$s? Această acțiune nu poate fi anulată.</string>
+    <string name="settings_clear_stats_for_game_title">Șterge statistici pentru un joc</string>
+    <string name="settings_select_game_placeholder">Selectați un joc</string>
+    <string name="settings_game_to_clear_label">Joc de șters</string>
+    <string name="settings_clear_stats_for_selected_game_button">Șterge pentru jocul selectat</string>
+    <string name="settings_all_games_option">Toate jocurile</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Șterge toate statisticile jocurilor?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Sigur doriți să ștergeți toate statisticile jocurilor? Această acțiune nu poate fi anulată.</string>
 
     <!-- GameStatsViewModel -->
     <string name="stats_screen_title_global">Statistici globale</string>

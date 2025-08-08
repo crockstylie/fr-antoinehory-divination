@@ -101,6 +101,15 @@
     <string name="settings_clear_stats_dialog_message">All spelstatistikdata kommer att raderas permanent. Denna åtgärd kan inte ångras.</string>
     <string name="settings_clear_stats_dialog_confirm">Bekräfta</string>
     <string name="settings_clear_stats_dialog_cancel">Avbryt</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Rensa statistik för %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Är du säker på att du vill radera all statistik för spelet %1$s? Åtgärden kan inte ångras.</string>
+    <string name="settings_clear_stats_for_game_title">Rensa statistik för ett spel</string>
+    <string name="settings_select_game_placeholder">Välj ett spel</string>
+    <string name="settings_game_to_clear_label">Spel att rensa</string>
+    <string name="settings_clear_stats_for_selected_game_button">Rensa för valt spel</string>
+    <string name="settings_all_games_option">Alla spel</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Rensa all spelstatistik?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Är du säker på att du vill radera all spelstatistik? Åtgärden kan inte ångras.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interagera för att få ett svar.</string>

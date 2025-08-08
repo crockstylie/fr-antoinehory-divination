@@ -1,5 +1,6 @@
 package fr.antoinehory.divination.ui.screens
 
+import android.app.Application // AJOUT DE L'IMPORT SI MANQUANT (normalement déjà là)
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,9 +9,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-// Ensure ContentCopy is imported if DiceSetItemCard uses it directly,
-// otherwise this screen doesn't need it directly if it's encapsulated in DiceSetItemCard.
-// For the AlertDialog text formatting, `remember` is needed.
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.FloatingActionButton
@@ -19,7 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember // Required for diceConfigsString in copy dialog
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -27,7 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import fr.antoinehory.divination.DivinationApplication
+// import fr.antoinehory.divination.DivinationApplication // Peut être retiré si 'application' est casté en android.app.Application
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.model.DiceConfig
 import fr.antoinehory.divination.data.model.DiceSet
@@ -36,6 +34,7 @@ import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.common.DiceSetItemCard
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 import fr.antoinehory.divination.ui.theme.OrakniumGold
+import fr.antoinehory.divination.data.repository.UserPreferencesRepository
 import fr.antoinehory.divination.viewmodels.DiceSetViewModel
 import fr.antoinehory.divination.viewmodels.DiceSetViewModelFactory
 
@@ -43,18 +42,23 @@ import fr.antoinehory.divination.viewmodels.DiceSetViewModelFactory
 fun DiceSetManagementScreen(
     onNavigateBack: () -> Unit,
     onNavigateToCreateSet: () -> Unit,
-    onLaunchSet: (DiceSet) -> Unit,
+    onLaunchSet: (DiceSet) -> Unit, // Gardé pour l'instant, voir note plus bas
     onNavigateToEditSet: (diceSetId: String) -> Unit
 ) {
     val context = LocalContext.current
-    val application = context.applicationContext as DivinationApplication
+    val application = context.applicationContext as Application // Cast en android.app.Application
+
+    val userPreferencesRepository = UserPreferencesRepository(context.applicationContext)
+
     val diceSetViewModel: DiceSetViewModel = viewModel(
-        factory = DiceSetViewModelFactory(application)
+        factory = DiceSetViewModelFactory(application, userPreferencesRepository)
     )
 
     val diceSets by diceSetViewModel.allDiceSets.collectAsState()
     val diceSetToDeleteConfirm by diceSetViewModel.diceSetToDeleteConfirm.collectAsState()
-    val diceSetToCopyConfirm by diceSetViewModel.diceSetToCopyConfirm.collectAsState() // For copy dialog
+    val diceSetToCopyConfirm by diceSetViewModel.diceSetToCopyConfirm.collectAsState()
+    // AJOUT: Observer l'état du dialogue pour définir le set actif
+    val diceSetToSetActiveConfirm by diceSetViewModel.diceSetToSetActiveConfirm.collectAsState()
 
     AppScaffold(
         title = stringResource(id = R.string.dice_set_management_screen_title),
@@ -90,13 +94,12 @@ fun DiceSetManagementScreen(
                 items(diceSets, key = { it.id }) { diceSet ->
                     DiceSetItemCard(
                         diceSet = diceSet,
-                        onLaunch = { onLaunchSet(diceSet) },
+                        // MODIFIÉ: L'action "Lancer" demande maintenant confirmation pour activer le set
+                        onLaunch = { diceSetViewModel.requestSetActiveConfirmation(diceSet) },
                         onToggleFavorite = { diceSetViewModel.toggleFavoriteStatus(diceSet) },
-                        onEdit = {
-                            onNavigateToEditSet(diceSet.id.toString())
-                        },
+                        onEdit = { onNavigateToEditSet(diceSet.id.toString()) },
                         onDelete = { diceSetViewModel.requestDeleteConfirmation(diceSet) },
-                        onCopy = { diceSetViewModel.requestCopyConfirmation(diceSet) } // CORRECTLY ADDED HERE
+                        onCopy = { diceSetViewModel.requestCopyConfirmation(diceSet) }
                     )
                 }
             }
@@ -107,20 +110,9 @@ fun DiceSetManagementScreen(
             AlertDialog(
                 onDismissRequest = { diceSetViewModel.cancelDeleteConfirmation() },
                 title = { Text(stringResource(R.string.delete_dice_set_confirmation_title)) },
-                text = {
-                    Text(
-                        stringResource(
-                            R.string.delete_dice_set_confirmation_message,
-                            setToBeDeleted.name
-                        )
-                    )
-                },
+                text = { Text(stringResource(R.string.delete_dice_set_confirmation_message, setToBeDeleted.name)) },
                 confirmButton = {
-                    Button(
-                        onClick = {
-                            diceSetViewModel.deleteDiceSet(setToBeDeleted)
-                        }
-                    ) {
+                    Button(onClick = { diceSetViewModel.deleteDiceSet(setToBeDeleted) }) {
                         Text(stringResource(R.string.confirm_delete))
                     }
                 },
@@ -140,21 +132,9 @@ fun DiceSetManagementScreen(
             AlertDialog(
                 onDismissRequest = { diceSetViewModel.cancelCopyConfirmation() },
                 title = { Text(stringResource(R.string.copy_dice_set_confirmation_title)) },
-                text = {
-                    Text(
-                        stringResource(
-                            R.string.copy_dice_set_confirmation_message,
-                            setToBeCopied.name,
-                            diceConfigsString
-                        )
-                    )
-                },
+                text = { Text(stringResource(R.string.copy_dice_set_confirmation_message, setToBeCopied.name, diceConfigsString)) },
                 confirmButton = {
-                    Button(
-                        onClick = {
-                            diceSetViewModel.confirmAndCopyDiceSet(setToBeCopied)
-                        }
-                    ) {
+                    Button(onClick = { diceSetViewModel.confirmAndCopyDiceSet(setToBeCopied) }) {
                         Text(stringResource(R.string.confirm_copy))
                     }
                 },
@@ -165,12 +145,46 @@ fun DiceSetManagementScreen(
                 }
             )
         }
+
+        // AJOUT: AlertDialog for "Set Active" confirmation
+        diceSetToSetActiveConfirm?.let { setToBeActivated ->
+            AlertDialog(
+                onDismissRequest = { diceSetViewModel.cancelSetActiveConfirmation() },
+                title = { Text(stringResource(R.string.set_active_dice_set_confirmation_title)) },
+                text = {
+                    Text(
+                        stringResource(
+                            R.string.set_active_dice_set_confirmation_message,
+                            setToBeActivated.name
+                        )
+                    )
+                },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            diceSetViewModel.confirmSetActiveDiceSet(setToBeActivated)
+                            // Optionnel: Si après avoir défini comme actif, vous voulez aussi naviguer
+                            // vers l'écran de lancer, vous pouvez appeler onLaunchSet ici.
+                            // onLaunchSet(setToBeActivated)
+                        }
+                    ) {
+                        Text(stringResource(R.string.confirm_set_active))
+                    }
+                },
+                dismissButton = {
+                    Button(onClick = { diceSetViewModel.cancelSetActiveConfirmation() }) {
+                        Text(stringResource(R.string.cancel))
+                    }
+                }
+            )
+        }
     }
 }
 
+// Preview functions remain unchanged for now
 @Preview(showBackground = true)
 @Composable
-fun DiceSetManagementScreenPreview() {
+fun DiceSetManagementScreenPreview() { 
     val previewSets = listOf(
         DiceSet(
             id = 1,
@@ -229,7 +243,7 @@ fun DiceSetManagementScreenPreview() {
 
 @Preview(showBackground = true, name = "DiceSetManagementScreen - No Sets")
 @Composable
-fun DiceSetManagementScreen_NoSets_Preview() {
+fun DiceSetManagementScreen_NoSets_Preview() { 
     DivinationAppTheme {
         AppScaffold(
             title = "Gérer les Sets (Vide)",

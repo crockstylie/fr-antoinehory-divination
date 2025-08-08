@@ -196,6 +196,10 @@
     <string name="update_button">Update</string>
     <!-- Removed: cancel_button (use "cancel" below) -->
     <string name="default_new_dice_set_name">My Dice Set</string>
+    <!-- New Strings for "Set Active" confirmation -->
+    <string name="set_active_dice_set_confirmation_title">Set as Active Dice Set?</string>
+    <string name="set_active_dice_set_confirmation_message">Do you want to set \"%1$s\" as the active dice set for rolling?</string>
+    <string name="confirm_set_active">Set Active</string>
 
     <!-- Standard Dialog/Button Strings -->
     <string name="cancel">Cancel</string>
@@ -210,5 +214,13 @@
     <string name="copy_dice_set_confirmation_title">Copy Set?</string>
     <string name="copy_dice_set_confirmation_message">Do you want to copy the set \"%1$s\"?\n\nContents:\n%2$s</string>
     <string name="confirm_copy">Copy</string>
+
+    <string name="error_active_set_not_found">Error: Active dice set not found. Please select or create one from management.</string>
+    <string name="error_no_active_set">No active dice set. Please select or create one from management.</string>
+    <string name="error_cannot_roll_no_set_or_config">Cannot roll: No active set or dice configuration empty.</string>
+    <string name="dice_prompt_with_set">Ready to roll %1$s!</string>
+    <string name="results_for_set">Results for %1$s:</string>
+    <string name="total_roll_value_format">Total: %1$d</string>
+    <string name="locked_dice_icon_description">Locked dice</string>
 
 </resources>

@@ -72,6 +72,8 @@ import fr.antoinehory.divination.ui.theme.OrakniumGold // AJOUTÉ si absent
 import fr.antoinehory.divination.viewmodels.CreateEditDiceSetViewModel
 import fr.antoinehory.divination.viewmodels.CreateEditDiceSetViewModelFactory
 
+const val MAX_DICE_COUNT = 1000
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CreateEditDiceSetScreen(
@@ -225,11 +227,23 @@ fun CreateEditDiceSetScreen(
                     isDropdownExpanded = dropdownExpanded,
                     onDropdownExpandedChange = { expanded -> dropdownExpanded = expanded },
                     selectedDiceCountString = selectedDiceCountString,
-                    onDiceCountChange = { if (it.isEmpty() || it.all { char -> char.isDigit() }) selectedDiceCountString = it },
+                    onDiceCountChange = { newValue ->
+                        if (newValue.isEmpty()) {
+                            selectedDiceCountString = ""
+                        } else if (newValue.all { char -> char.isDigit() }) {
+                            val count = newValue.toIntOrNull()
+                            if (count != null) {
+                                selectedDiceCountString = if (count > MAX_DICE_COUNT) MAX_DICE_COUNT.toString() else newValue
+                            } else {
+                                // Cas où toIntOrNull renvoie null (ex: nombre trop grand pour Int)
+                                selectedDiceCountString = MAX_DICE_COUNT.toString()
+                            }
+                        }
+                    },
                     isEditing = editingConfigIndex != null,
                     onConfirmClick = {
                         val count = selectedDiceCountString.toIntOrNull()
-                        if (count != null && count > 0) {
+                        if (count != null && count > 0 && count <= MAX_DICE_COUNT) {
                             if (editingConfigIndex != null) {
                                 viewModel.updateDiceConfig(editingConfigIndex!!, selectedDiceType, count)
                             } else {
@@ -240,6 +254,8 @@ fun CreateEditDiceSetScreen(
                             showAddDiceSection = false
                             editingConfigIndex = null
                             dropdownExpanded = false
+                        } else if (count != null && count > MAX_DICE_COUNT) {
+                            Toast.makeText(context, context.getString(R.string.error_max_dice_count_exceeded, MAX_DICE_COUNT), Toast.LENGTH_SHORT).show()
                         } else {
                             Toast.makeText(context, context.getString(R.string.error_invalid_dice_count), Toast.LENGTH_SHORT).show()
                         }
@@ -412,7 +428,7 @@ fun DiceConfigRow(
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(horizontal = 8.dp)
             )
-            IconButton(onClick = onIncrement) {
+            IconButton(onClick = onIncrement, enabled = diceConfig.count < MAX_DICE_COUNT) { // MODIFIED HERE
                 Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.increment_dice_count_desc))
             }
             Spacer(modifier = Modifier.width(8.dp))
@@ -536,11 +552,11 @@ fun CreateEditDiceSetScreenNewSetPreview() {
                             dropdownExpandedInPreview = expanded
                         },
                         selectedDiceCountString = selectedDiceCountInPreview,
-                        onDiceCountChange = { selectedDiceCountInPreview = it },
+                        onDiceCountChange = { selectedDiceCountInPreview = it }, // Simplified for preview
                         isEditing = editingConfigIndexInPreview != null,
                         onConfirmClick = {
                             val count = selectedDiceCountInPreview.toIntOrNull()
-                            if (count != null && count > 0) {
+                            if (count != null && count > 0 && count <= MAX_DICE_COUNT) { // Added MAX_DICE_COUNT check
                                 if (editingConfigIndexInPreview != null) {
                                     previewViewModel.updateDiceConfig(editingConfigIndexInPreview!!,selectedDiceTypeInPreview, count)
                                 } else {

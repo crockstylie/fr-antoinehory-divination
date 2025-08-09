@@ -155,6 +155,7 @@
     <string name="error_set_name_empty">Set name cannot be empty.</string>
     <string name="error_no_dice_configs">Please add at least one dice configuration.</string>
     <string name="error_invalid_dice_count">Please enter a valid dice count (greater than 0).</string>
+    <string name="error_max_dice_count_exceeded">Le nombre de dés ne peut pas dépasser %1$d.</string>
     <string name="error_no_dice_configs_suffix">(Error: Please add at least one.)</string>
     <string name="navigate_back_desc">Navigate back</string>
     <string name="increment_dice_count_desc">Increment dice count</string>
@@ -166,7 +167,7 @@
     <string name="confirm_set_active">Set Active</string>
     <string name="cancel">Cancel</string>
     <string name="delete_dice_set_confirmation_title">Confirm Deletion</string>
-    <string name="delete_dice_set_confirmation_message">Are you sure you want to delete the set "%1$s"?</string>
+    <string name="delete_dice_set_confirmation_message">Are you sure you want to delete the set \"%1$s\"?</string>
     <string name="confirm_delete">Delete</string>
     <string name="copy_dice_set_desc">Copy dice set</string>
     <string name="copy_dice_set_confirmation_title">Copy Set?</string>

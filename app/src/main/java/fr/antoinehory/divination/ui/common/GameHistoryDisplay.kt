@@ -118,7 +118,7 @@ fun GameHistoryDisplay(
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .alpha(itemAlpha)
-                        .padding(vertical = 1.dp)
+                        .padding(vertical = 10.dp) // MODIFIED HERE
                 )
             }
         }

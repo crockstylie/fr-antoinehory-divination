@@ -8,8 +8,9 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons 
-import androidx.compose.material.icons.filled.Lock 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material3.Divider // AJOUT DE L'IMPORT
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -42,6 +43,10 @@ import fr.antoinehory.divination.viewmodels.DiceRollViewModelFactory
 import fr.antoinehory.divination.viewmodels.IndividualDiceRollResult
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.font.FontWeight
 import fr.antoinehory.divination.ui.theme.OrakniumBackground
 import fr.antoinehory.divination.ui.theme.OrakniumGold
 
@@ -195,6 +200,10 @@ fun DiceRollScreen(
                 style = MaterialTheme.typography.headlineMedium,
                 textAlign = TextAlign.Center
             )
+            // AJOUT DU DIVIDER
+            if (recentLogs.isNotEmpty()) { // Afficher le Divider et l'historique seulement si non vide
+                Divider(modifier = Modifier.padding(vertical = 16.dp))
+            }
             GameHistoryDisplay(recentLogs = recentLogs, gameType = GameType.DICE_ROLL)
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -228,14 +237,25 @@ fun DiceResultDisplay(
             modifier = Modifier
                 .matchParentSize()
                 .background(backgroundColor, RoundedCornerShape(8.dp))
-                .padding(horizontal = 12.dp, vertical = 8.dp),
+                .padding(horizontal = 8.dp, vertical = 8.dp), // Padding horizontal réduit
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = if (result.value == 0 && !result.isLocked && result.diceType.sides > 0) "..." else "${result.value}/${result.diceType.sides}",
-                style = MaterialTheme.typography.titleMedium,
+                text = if (result.value == 0 && !result.isLocked && result.diceType.sides > 0) {
+                    buildAnnotatedString { append("...") }
+                } else {
+                    buildAnnotatedString {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, fontSize = MaterialTheme.typography.titleMedium.fontSize)) {
+                            append("${result.value}")
+                        }
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Normal, fontSize = MaterialTheme.typography.bodySmall.fontSize)) { // fontSize réduite pour le suffixe
+                            append("/${result.diceType.sides}")
+                        }
+                    }
+                },
                 color = textColor,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleMedium // Le style de base pour la cohérence, les styles SpanStyle priment
             )
         }
 
@@ -263,4 +283,3 @@ fun DiceRollScreenPreview() {
          Text("DiceRollScreen Preview - ViewModel dependent")
     }
 }
-

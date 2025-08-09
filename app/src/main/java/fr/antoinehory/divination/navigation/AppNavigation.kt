@@ -94,7 +94,7 @@ fun AppNavigation(navController: NavHostController) {
                     navController.navigate(AppDestinations.CREATE_EDIT_DICE_SET_BASE_ROUTE)
                 },
                 onLaunchSet = { diceSet ->
-                    Toast.makeText(context, "Launch set: ${diceSet.name} - TODO", Toast.LENGTH_LONG).show()
+                    navController.navigate(AppDestinations.DICE_ROLL_ROUTE)
                 },
                 onNavigateToEditSet = { diceSetId ->
                     navController.navigate("${AppDestinations.CREATE_EDIT_DICE_SET_BASE_ROUTE}?${AppDestinations.DICE_SET_ID_ARG}=${diceSetId}")

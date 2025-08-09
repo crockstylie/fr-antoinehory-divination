@@ -3,6 +3,7 @@ package fr.antoinehory.divination.ui.screens
 import android.app.Application // AJOUT DE L'IMPORT SI MANQUANT (normalement déjà là)
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -88,8 +89,9 @@ fun DiceSetManagementScreen(
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddingValues)
-                    .padding(horizontal = 8.dp, vertical = 8.dp)
+                    .padding(paddingValues) // Padding from Scaffold for system bars
+                    .padding(horizontal = 8.dp, vertical = 8.dp), // Existing padding for the list's viewport
+                contentPadding = PaddingValues(bottom = 80.dp) // Padding for the content *inside* the scrollable area
             ) {
                 items(diceSets, key = { it.id }) { diceSet ->
                     DiceSetItemCard(
@@ -165,7 +167,7 @@ fun DiceSetManagementScreen(
                             diceSetViewModel.confirmSetActiveDiceSet(setToBeActivated)
                             // Optionnel: Si après avoir défini comme actif, vous voulez aussi naviguer
                             // vers l'écran de lancer, vous pouvez appeler onLaunchSet ici.
-                            // onLaunchSet(setToBeActivated)
+                            onLaunchSet(setToBeActivated)
                         }
                     ) {
                         Text(stringResource(R.string.confirm_set_active))
@@ -224,7 +226,8 @@ fun DiceSetManagementScreenPreview() {
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
-                    .padding(horizontal = 8.dp, vertical = 8.dp)
+                    .padding(horizontal = 8.dp, vertical = 8.dp),
+                contentPadding = PaddingValues(bottom = 80.dp)
             ) {
                 items(previewSets, key = { it.id }) { diceSet ->
                     DiceSetItemCard(

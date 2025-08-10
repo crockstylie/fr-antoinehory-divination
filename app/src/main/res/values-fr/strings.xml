@@ -2,7 +2,7 @@
 <resources>
     <string name="menu_button_magic_ball">Boule Magique N°8</string>
     <string name="menu_button_coin_flip">Pile ou Face</string>
-    <string name="menu_button_rps">Shifoumi</string>
+    <string name="menu_button_rps">Chifoumi</string>
     <string name="menu_button_dice_roll">Lancer de Dés</string>
     <string name="menu_settings_description">Paramètres</string>
     <string name="menu_info_description">Informations</string>
@@ -41,7 +41,7 @@
     <string name="coin_flip_accelerometer_not_available_ui_message">Accéléromètre non disponible pour lancer la pièce.</string>
     <string name="coin_flip_heads_icon_description">Image de Pile</string>
     <string name="coin_flip_tails_icon_description">Image de Face</string>
-    <string name="rps_screen_title">Shifoumi</string>
+    <string name="rps_screen_title">Chifoumi</string>
     <string name="rps_initial_prompt_shake">Secouez pour jouer !</string>
     <string name="rps_initial_prompt_no_accelerometer">Secouez (accéléromètre non détecté).</string>
     <string name="rps_processing_message">Pierre, Feuille, Ciseaux…</string>

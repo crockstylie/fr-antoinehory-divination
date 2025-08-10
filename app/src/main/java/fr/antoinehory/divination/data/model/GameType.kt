@@ -1,17 +1,26 @@
-// In data/model/GameType.kt
-package fr.antoinehory.divination.data.model // Ou le package approprié
+package fr.antoinehory.divination.data.model
 
 import fr.antoinehory.divination.R
 
+/**
+ * Represents the different types of games available in the application.
+ * Each game type corresponds to a distinct mini-game or divination method.
+ */
 enum class GameType {
-    COIN_FLIP,       // Pile ou Face
-    DICE_ROLL,       // Lancer de Dé
-    ROCK_PAPER_SCISSORS, // Pierre Feuille Ciseaux
-    MAGIC_EIGHT_BALL // Magic 8 Ball
-    // Ajoutez d'autres types de jeux ici si nécessaire
+    /** Represents the Coin Flip game. */
+    COIN_FLIP,
+    /** Represents the Dice Roll game. */
+    DICE_ROLL,
+    /** Represents the Rock Paper Scissors game. */
+    ROCK_PAPER_SCISSORS,
+    /** Represents the Magic 8-Ball game. */
+    MAGIC_EIGHT_BALL
 }
 
-// Ajoutez ceci à la fin du fichier :
+/**
+ * Gets the string resource ID for the display name of this [GameType].
+ * This can be used to show a localized title for the game screen.
+ */
 val GameType.displayNameResourceId: Int
     get() = when (this) {
         GameType.COIN_FLIP -> R.string.coin_flip_screen_title

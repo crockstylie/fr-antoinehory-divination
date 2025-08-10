@@ -1,6 +1,6 @@
 package fr.antoinehory.divination.ui.screens
 
-import android.app.Application // AJOUT DE L'IMPORT SI MANQUANT (normalement déjà là)
+import android.app.Application
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -26,7 +26,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-// import fr.antoinehory.divination.DivinationApplication // Peut être retiré si 'application' est casté en android.app.Application
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.data.model.DiceConfig
 import fr.antoinehory.divination.data.model.DiceSet
@@ -39,27 +38,42 @@ import fr.antoinehory.divination.data.repository.UserPreferencesRepository
 import fr.antoinehory.divination.viewmodels.DiceSetViewModel
 import fr.antoinehory.divination.viewmodels.DiceSetViewModelFactory
 
+/**
+ * Composable screen for managing user-created dice sets.
+ * This screen displays a list of dice sets, allowing users to create, edit, delete,
+ * copy, favorite, and launch (set as active) dice sets.
+ * It uses [DiceSetViewModel] to handle the business logic and data operations.
+ *
+ * @param onNavigateBack Callback invoked when the user navigates back from this screen.
+ * @param onNavigateToCreateSet Callback invoked when the user taps the FloatingActionButton to create a new dice set.
+ * @param onLaunchSet Callback invoked when a dice set is confirmed to be launched (set as active).
+ *                    The [DiceSet] to be launched is passed as a parameter.
+ * @param onNavigateToEditSet Callback invoked when the user chooses to edit a dice set.
+ *                            The ID of the dice set to edit is passed as a [String].
+ */
 @Composable
 fun DiceSetManagementScreen(
     onNavigateBack: () -> Unit,
     onNavigateToCreateSet: () -> Unit,
-    onLaunchSet: (DiceSet) -> Unit, // Gardé pour l'instant, voir note plus bas
+    onLaunchSet: (DiceSet) -> Unit,
     onNavigateToEditSet: (diceSetId: String) -> Unit
 ) {
     val context = LocalContext.current
-    val application = context.applicationContext as Application // Cast en android.app.Application
+    val application = context.applicationContext as Application
 
+    // Repository for user preferences, used by the ViewModel.
     val userPreferencesRepository = UserPreferencesRepository(context.applicationContext)
 
+    // ViewModel for managing dice set data and operations.
     val diceSetViewModel: DiceSetViewModel = viewModel(
         factory = DiceSetViewModelFactory(application, userPreferencesRepository)
     )
 
+    // Collecting state from the DiceSetViewModel.
     val diceSets by diceSetViewModel.allDiceSets.collectAsState()
-    val diceSetToDeleteConfirm by diceSetViewModel.diceSetToDeleteConfirm.collectAsState()
-    val diceSetToCopyConfirm by diceSetViewModel.diceSetToCopyConfirm.collectAsState()
-    // AJOUT: Observer l'état du dialogue pour définir le set actif
-    val diceSetToSetActiveConfirm by diceSetViewModel.diceSetToSetActiveConfirm.collectAsState()
+    val diceSetToDeleteConfirm by diceSetViewModel.diceSetToDeleteConfirm.collectAsState() // DiceSet pending delete confirmation.
+    val diceSetToCopyConfirm by diceSetViewModel.diceSetToCopyConfirm.collectAsState()     // DiceSet pending copy confirmation.
+    val diceSetToSetActiveConfirm by diceSetViewModel.diceSetToSetActiveConfirm.collectAsState() // DiceSet pending activation confirmation.
 
     AppScaffold(
         title = stringResource(id = R.string.dice_set_management_screen_title),
@@ -71,32 +85,33 @@ fun DiceSetManagementScreen(
             }
         }
     ) { paddingValues ->
+        // Display a message if no dice sets are available.
         if (diceSets.isEmpty()) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
-                    .padding(16.dp),
+                    .padding(16.dp), // Additional padding for content.
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
                     stringResource(id = R.string.dice_set_no_sets_available),
-                    color = OrakniumGold
+                    color = OrakniumGold // Custom theme color.
                 )
             }
         } else {
+            // Display the list of dice sets.
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddingValues) // Padding from Scaffold for system bars
-                    .padding(horizontal = 8.dp, vertical = 8.dp), // Existing padding for the list's viewport
-                contentPadding = PaddingValues(bottom = 80.dp) // Padding for the content *inside* the scrollable area
+                    .padding(paddingValues)
+                    .padding(horizontal = 8.dp, vertical = 8.dp),
+                contentPadding = PaddingValues(bottom = 80.dp) // Padding at the bottom to avoid FAB overlap.
             ) {
                 items(diceSets, key = { it.id }) { diceSet ->
                     DiceSetItemCard(
                         diceSet = diceSet,
-                        // MODIFIÉ: L'action "Lancer" demande maintenant confirmation pour activer le set
                         onLaunch = { diceSetViewModel.requestSetActiveConfirmation(diceSet) },
                         onToggleFavorite = { diceSetViewModel.toggleFavoriteStatus(diceSet) },
                         onEdit = { onNavigateToEditSet(diceSet.id.toString()) },
@@ -107,7 +122,7 @@ fun DiceSetManagementScreen(
             }
         }
 
-        // AlertDialog for delete confirmation
+        // Confirmation dialog for deleting a dice set.
         diceSetToDeleteConfirm?.let { setToBeDeleted ->
             AlertDialog(
                 onDismissRequest = { diceSetViewModel.cancelDeleteConfirmation() },
@@ -126,8 +141,9 @@ fun DiceSetManagementScreen(
             )
         }
 
-        // AlertDialog for copy confirmation
+        // Confirmation dialog for copying a dice set.
         diceSetToCopyConfirm?.let { setToBeCopied ->
+            // Memoize the string representation of dice configurations for the dialog.
             val diceConfigsString = remember(setToBeCopied.diceConfigs) {
                 setToBeCopied.diceConfigs.joinToString(", ") { "${it.count}x ${it.diceType.displayName}" }
             }
@@ -148,7 +164,7 @@ fun DiceSetManagementScreen(
             )
         }
 
-        // AJOUT: AlertDialog for "Set Active" confirmation
+        // Confirmation dialog for setting a dice set as active (launching).
         diceSetToSetActiveConfirm?.let { setToBeActivated ->
             AlertDialog(
                 onDismissRequest = { diceSetViewModel.cancelSetActiveConfirmation() },
@@ -165,9 +181,7 @@ fun DiceSetManagementScreen(
                     Button(
                         onClick = {
                             diceSetViewModel.confirmSetActiveDiceSet(setToBeActivated)
-                            // Optionnel: Si après avoir défini comme actif, vous voulez aussi naviguer
-                            // vers l'écran de lancer, vous pouvez appeler onLaunchSet ici.
-                            onLaunchSet(setToBeActivated)
+                            onLaunchSet(setToBeActivated) // Propagate launch event.
                         }
                     ) {
                         Text(stringResource(R.string.confirm_set_active))
@@ -183,10 +197,14 @@ fun DiceSetManagementScreen(
     }
 }
 
-// Preview functions remain unchanged for now
+/**
+ * Preview composable for the [DiceSetManagementScreen].
+ * This preview displays the screen with a sample list of dice sets.
+ */
 @Preview(showBackground = true)
 @Composable
-fun DiceSetManagementScreenPreview() { 
+fun DiceSetManagementScreenPreview() {
+    // Sample data for the preview.
     val previewSets = listOf(
         DiceSet(
             id = 1,
@@ -212,12 +230,13 @@ fun DiceSetManagementScreenPreview() {
         )
     )
     DivinationAppTheme {
+        // AppScaffold is used directly here as the ViewModel interactions are mocked.
         AppScaffold(
-            title = "Gérer les Sets (Aperçu)",
+            title = "Gérer les Sets (Aperçu)", // Preview-specific title.
             canNavigateBack = true,
-            onNavigateBack = {},
+            onNavigateBack = {}, // No-op for preview.
             floatingActionButton = {
-                FloatingActionButton(onClick = {}) {
+                FloatingActionButton(onClick = {}) { // No-op FAB for preview.
                     Icon(Icons.Filled.Add, contentDescription = "Créer un set")
                 }
             }
@@ -232,11 +251,11 @@ fun DiceSetManagementScreenPreview() {
                 items(previewSets, key = { it.id }) { diceSet ->
                     DiceSetItemCard(
                         diceSet = diceSet,
-                        onLaunch = { },
+                        onLaunch = { }, // No-op actions for preview.
                         onToggleFavorite = { },
                         onEdit = { },
                         onDelete = { },
-                        onCopy = { } // Correctly added for preview
+                        onCopy = { }
                     )
                 }
             }
@@ -244,16 +263,20 @@ fun DiceSetManagementScreenPreview() {
     }
 }
 
+/**
+ * Preview composable for the [DiceSetManagementScreen] in its empty state.
+ * This preview displays the screen when no dice sets are available.
+ */
 @Preview(showBackground = true, name = "DiceSetManagementScreen - No Sets")
 @Composable
-fun DiceSetManagementScreen_NoSets_Preview() { 
+fun DiceSetManagementScreen_NoSets_Preview() {
     DivinationAppTheme {
         AppScaffold(
-            title = "Gérer les Sets (Vide)",
+            title = "Gérer les Sets (Vide)", // Preview-specific title.
             canNavigateBack = true,
-            onNavigateBack = {},
+            onNavigateBack = {}, // No-op for preview.
             floatingActionButton = {
-                FloatingActionButton(onClick = {}) {
+                FloatingActionButton(onClick = {}) { // No-op FAB for preview.
                     Icon(Icons.Filled.Add, contentDescription = "Créer un set")
                 }
             }
@@ -266,8 +289,9 @@ fun DiceSetManagementScreen_NoSets_Preview() {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Text("Aucun set de dés disponible.", color = OrakniumGold) // Consider stringResource
+                Text("Aucun set de dés disponible.", color = OrakniumGold) // Text matches the main composable.
             }
         }
     }
 }
+

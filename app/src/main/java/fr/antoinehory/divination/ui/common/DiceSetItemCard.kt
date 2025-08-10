@@ -1,7 +1,6 @@
 package fr.antoinehory.divination.ui.common
 
 import androidx.compose.foundation.BorderStroke
-// import androidx.compose.foundation.layout.Arrangement // Non utilisé, peut être retiré si pas utilisé ailleurs
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,7 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ContentCopy // NOUVEL IMPORT
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Favorite
@@ -37,6 +36,20 @@ import fr.antoinehory.divination.data.model.DiceType
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 import fr.antoinehory.divination.ui.theme.OrakniumGold
 
+/**
+ * A composable that displays a card item for a [DiceSet].
+ * It shows the dice set's name, a summary of its dice configuration,
+ * and provides icon buttons for various actions: toggling favorite status,
+ * copying, editing, deleting, and launching the dice set.
+ *
+ * @param diceSet The [DiceSet] data to display.
+ * @param onLaunch Lambda to be invoked when the launch (play) button is clicked.
+ * @param onToggleFavorite Lambda to be invoked when the favorite button is clicked.
+ * @param onEdit Lambda to be invoked when the edit button is clicked.
+ * @param onDelete Lambda to be invoked when the delete button is clicked.
+ * @param onCopy Lambda to be invoked when the copy button is clicked.
+ * @param modifier [Modifier] to be applied to the Card. Defaults to [Modifier].
+ */
 @Composable
 fun DiceSetItemCard(
     diceSet: DiceSet,
@@ -44,7 +57,7 @@ fun DiceSetItemCard(
     onToggleFavorite: () -> Unit,
     onEdit: () -> Unit,
     onDelete: () -> Unit,
-    onCopy: () -> Unit, // NOUVEAU PARAMÈTRE
+    onCopy: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -65,7 +78,7 @@ fun DiceSetItemCard(
                 color = OrakniumGold
             )
             Text(
-                text = diceSet.summaryDisplay, // Assurez-vous que ce champ existe et est bien rempli dans votre modèle DiceSet
+                text = diceSet.summaryDisplay, // Assumes summaryDisplay is a user-friendly string
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 6.dp, bottom = 12.dp),
                 color = OrakniumGold
@@ -81,17 +94,16 @@ fun DiceSetItemCard(
                         tint = OrakniumGold
                     )
                 }
-                Spacer(modifier = Modifier.weight(1f))
+                Spacer(modifier = Modifier.weight(1f)) // Pushes subsequent icons to the end
                 Row {
-                    // NOUVELLE IconButton pour COPIER
                     IconButton(onClick = onCopy, modifier = Modifier.size(44.dp)) {
                         Icon(
                             imageVector = Icons.Filled.ContentCopy,
                             contentDescription = stringResource(R.string.copy_dice_set_desc),
-                            tint = OrakniumGold // Ou MaterialTheme.colorScheme.primary si vous préférez
+                            tint = OrakniumGold
                         )
                     }
-                    Spacer(modifier = Modifier.width(6.dp)) // Espace entre Copier et Modifier
+                    Spacer(modifier = Modifier.width(6.dp))
                     IconButton(onClick = onEdit, modifier = Modifier.size(44.dp)) {
                         Icon(
                             Icons.Filled.Edit,
@@ -121,6 +133,10 @@ fun DiceSetItemCard(
     }
 }
 
+/**
+ * Preview composable for [DiceSetItemCard].
+ * Displays the card with a sample [DiceSet] marked as a favorite.
+ */
 @Preview(showBackground = true, name = "DiceSetItemCard Preview")
 @Composable
 fun DiceSetItemCardPreview() {
@@ -140,11 +156,15 @@ fun DiceSetItemCardPreview() {
             onToggleFavorite = { },
             onEdit = { },
             onDelete = { },
-            onCopy = { } // AJOUTÉ pour le Preview
+            onCopy = { }
         )
     }
 }
 
+/**
+ * Preview composable for [DiceSetItemCard].
+ * Displays the card with a sample [DiceSet] not marked as a favorite.
+ */
 @Preview(showBackground = true, name = "DiceSetItemCard Not Favorite Preview")
 @Composable
 fun DiceSetItemCardNotFavoritePreview() {
@@ -161,7 +181,8 @@ fun DiceSetItemCardNotFavoritePreview() {
             onToggleFavorite = { },
             onEdit = { },
             onDelete = { },
-            onCopy = { } // AJOUTÉ pour le Preview
+            onCopy = { }
         )
     }
 }
+

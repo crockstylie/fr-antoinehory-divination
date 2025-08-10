@@ -2,16 +2,11 @@ package fr.antoinehory.divination.ui.screens
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable // Keep if main column click is desired
-import androidx.compose.foundation.interaction.MutableInteractionSource // Keep for clickable
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-// import androidx.compose.material.icons.Icons // Potentially unused now
-// import androidx.compose.material.icons.filled.PieChart // Unused now
-// import androidx.compose.material3.BottomAppBar // Unused now
-// import androidx.compose.material3.Icon // Potentially unused if only for old bottom bar
-// import androidx.compose.material3.IconButton // Potentially unused if only for old bottom bar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -32,38 +27,53 @@ import fr.antoinehory.divination.data.model.InteractionMode
 import fr.antoinehory.divination.data.model.GameType
 import fr.antoinehory.divination.ui.common.GameHistoryDisplay
 import fr.antoinehory.divination.ui.common.AppScaffold
-import fr.antoinehory.divination.ui.common.BottomAppNavigationBar // AJOUT: Import de la barre de navigation commune
-import fr.antoinehory.divination.ui.theme.DivinationAppTheme // RESTAURÉ: Import nécessaire pour les Previews
-// import fr.antoinehory.divination.ui.theme.OrakniumGold // Potentially unused now if only for old bottom bar
+import fr.antoinehory.divination.ui.common.BottomAppNavigationBar
+import fr.antoinehory.divination.ui.theme.DivinationAppTheme
 import fr.antoinehory.divination.viewmodels.CoinFace
 import fr.antoinehory.divination.viewmodels.CoinFlipViewModel
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
 import fr.antoinehory.divination.DivinationApplication
 import fr.antoinehory.divination.viewmodels.CoinFlipViewModelFactory
 
+/**
+ * Composable function for the Coin Flip game screen.
+ *
+ * This screen allows the user to flip a virtual coin. It displays the coin's state (flipping, heads, or tails),
+ * a message to the user, and a history of recent flips. Interactions can be via tap or shake,
+ * depending on user preferences and device capabilities.
+ *
+ * @param onNavigateBack Lambda function to handle back navigation.
+ * @param interactionViewModel ViewModel for detecting user interactions (tap/shake). Defaults to a new instance.
+ * @param onNavigateToStats Lambda function to navigate to the statistics screen for the coin flip game.
+ * @param onNavigateToInfo Lambda function to navigate to the information screen.
+ */
 @Composable
 fun CoinFlipScreen(
     onNavigateBack: () -> Unit,
     interactionViewModel: InteractionDetectViewModel = viewModel(),
     onNavigateToStats: (GameType) -> Unit,
-    onNavigateToInfo: () -> Unit // AJOUT: Paramètre pour la navigation vers l'écran d'info
+    onNavigateToInfo: () -> Unit
 ) {
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
     val launchLogRepository = application.launchLogRepository
 
+    // ViewModel for managing the coin flip game logic and state.
     val coinFlipViewModel: CoinFlipViewModel = viewModel(
         factory = CoinFlipViewModelFactory(application, launchLogRepository)
     )
 
+    // Collecting state from the CoinFlipViewModel.
     val currentMessage by coinFlipViewModel.currentMessage.collectAsState()
     val coinFace by coinFlipViewModel.coinFace.collectAsState()
     val isFlipping by coinFlipViewModel.isFlipping.collectAsState()
     val recentLogs by coinFlipViewModel.recentLogs.collectAsState()
 
+    // Collecting state from the InteractionDetectViewModel.
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
 
+    // Triggers a coin flip when an interaction (e.g., shake) is detected and the coin is not already flipping.
     LaunchedEffect(interactionViewModel, coinFlipViewModel, isFlipping) {
         interactionViewModel.interactionTriggered.collect { _event ->
             if (!isFlipping) {
@@ -72,6 +82,7 @@ fun CoinFlipScreen(
         }
     }
 
+    // Loading coin face bitmaps.
     val currentLocalContext = LocalContext.current
     val headsBitmap = remember(currentLocalContext) {
         ContextCompat.getDrawable(currentLocalContext, R.drawable.ic_heads)?.toBitmap()?.asImageBitmap()
@@ -80,11 +91,13 @@ fun CoinFlipScreen(
         ContextCompat.getDrawable(currentLocalContext, R.drawable.ic_tails)?.toBitmap()?.asImageBitmap()
     }
 
+    // Animation for coin image alpha (fade in/out).
     val imageAlpha by animateFloatAsState(
         targetValue = if (isFlipping || coinFace == null) 0f else 1f,
         animationSpec = tween(durationMillis = 300, delayMillis = if (isFlipping) 0 else 100),
         label = "coinImageAlpha"
     )
+    // Animation for text alpha (fade in/out).
     val textAlpha by animateFloatAsState(
         targetValue = if (isFlipping && coinFace == null) 0.6f else 1f,
         animationSpec = tween(durationMillis = 300),
@@ -97,7 +110,7 @@ fun CoinFlipScreen(
         onNavigateBack = onNavigateBack,
         bottomBar = {
             BottomAppNavigationBar(
-                onSettingsClick = { /* Action pour Settings, masquée pour l'instant */ },
+                onSettingsClick = {}, // Settings currently not implemented on this screen
                 onStatsClick = { onNavigateToStats(GameType.COIN_FLIP) },
                 onInfoClick = onNavigateToInfo,
                 showSettingsButton = false
@@ -110,9 +123,9 @@ fun CoinFlipScreen(
                 .padding(paddingValues)
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp)
-                .clickable(
+                .clickable( // Allows tap interaction if enabled.
                     interactionSource = remember { MutableInteractionSource() },
-                    indication = null,
+                    indication = null, // No visual indication for the tap.
                     onClick = {
                         if (!isFlipping) {
                             if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
@@ -125,6 +138,7 @@ fun CoinFlipScreen(
             verticalArrangement = Arrangement.Center
         ) {
             val initialGenericMessage = stringResource(id = R.string.coin_flip_initial_prompt_generic)
+            // Condition to show a warning if shake is the active mode but not available.
             val noShakeInteractionPossible = interactionPrefs.activeInteractionMode == InteractionMode.SHAKE && !isShakeAvailable
 
             if (noShakeInteractionPossible && currentMessage == initialGenericMessage) {
@@ -139,6 +153,7 @@ fun CoinFlipScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
+            // Box for displaying the coin image.
             Box(
                 modifier = Modifier.size(150.dp),
                 contentAlignment = Alignment.Center
@@ -165,6 +180,7 @@ fun CoinFlipScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
+            // Text displaying the current message (e.g., "Flipping...", "Heads!", "Tails!").
             Text(
                 text = currentMessage,
                 style = MaterialTheme.typography.headlineMedium,
@@ -172,6 +188,7 @@ fun CoinFlipScreen(
                 modifier = Modifier.alpha(textAlpha)
             )
 
+            // Displays a history of recent coin flips.
             GameHistoryDisplay(
                 recentLogs = recentLogs,
                 gameType = GameType.COIN_FLIP
@@ -182,6 +199,9 @@ fun CoinFlipScreen(
     }
 }
 
+/**
+ * Preview composable for the [CoinFlipScreen] in portrait mode.
+ */
 @Preview(showBackground = true)
 @Composable
 fun CoinFlipScreenPreview() {
@@ -194,6 +214,9 @@ fun CoinFlipScreenPreview() {
     }
 }
 
+/**
+ * Preview composable for the [CoinFlipScreen] in landscape mode.
+ */
 @Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "CoinFlipScreen Landscape")
 @Composable
 fun CoinFlipScreenLandscapePreview() {

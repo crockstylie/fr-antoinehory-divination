@@ -1,4 +1,3 @@
-// Fichier : TapDetectViewModel.kt
 package fr.antoinehory.divination.viewmodels
 
 import android.app.Application
@@ -8,58 +7,90 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 
-// --- IMPORTS AJOUTÉS ---
-import fr.antoinehory.divination.viewmodels.InteractionEvent // Importer l'interface
-import fr.antoinehory.divination.viewmodels.TapEvent         // Importer l'objet TapEvent défini globalement
+// Consider creating a sealed interface or class for InteractionEvent if it's used elsewhere
+// and TapEvent is one specific type. For now, assuming TapEvent is defined elsewhere or is a simple object.
+// Example:
+// sealed interface InteractionEvent
+// object TapEvent : InteractionEvent
 
-// La définition locale de TapEvent est SUPPRIMÉE d'ici :
-// object TapEvent : InteractionEvent // <-- SUPPRIMER CETTE LIGNE
-
+/**
+ * ViewModel responsible for detecting and signaling tap interactions on the screen.
+ *
+ * It provides a [SharedFlow] ([interactionDetected]) that emits an [InteractionEvent]
+ * (currently [TapEvent]) when a tap is registered via [onScreenTapped].
+ *
+ * @param application The application context.
+ */
 class TapDetectViewModel(application: Application) : AndroidViewModel(application) {
 
-    // Flow pour émettre les événements de tapotement.
-    // Le type <InteractionEvent> est maintenant correctement résolu grâce à l'import.
+    /**
+     * Internal mutable shared flow to emit interaction events.
+     * Replays 0 items, has an extra buffer capacity of 1, and drops the oldest event on buffer overflow.
+     */
     private val _interactionDetected = MutableSharedFlow<InteractionEvent>(
-        replay = 0,
-        extraBufferCapacity = 1,
-        onBufferOverflow = BufferOverflow.DROP_OLDEST
+        replay = 0, // No replay needed for one-shot tap events
+        extraBufferCapacity = 1, // Buffer to hold one event if collector is not ready
+        onBufferOverflow = BufferOverflow.DROP_OLDEST // Drop if new event comes before old one is collected
     )
+
+    /**
+     * Publicly exposed [SharedFlow] that emits an [InteractionEvent] when a screen tap is detected.
+     * Observers can collect this flow to react to tap events.
+     */
     val interactionDetected: SharedFlow<InteractionEvent> = _interactionDetected.asSharedFlow()
 
-    // Flag local pour un cooldown si nécessaire (actuellement commenté, ce qui est bien si géré globalement)
-    // private var isProcessingTap = false
-    // private val tapCooldownMs = 200L
-
+    /**
+     * Called when a tap event occurs on the screen.
+     * This function attempts to emit a [TapEvent] to the [_interactionDetected] flow.
+     * Assumes [TapEvent] is an object or class instance representing a tap, defined elsewhere.
+     */
     fun onScreenTapped() {
-        // Optionnel : cooldown local
-        // if (!isProcessingTap) {
-        //     isProcessingTap = true
-
-        // Émet l'objet TapEvent importé de InteractionEvent.kt
+        // Assuming TapEvent is an object or class instance representing a tap
         _interactionDetected.tryEmit(TapEvent)
-
-        //     viewModelScope.launch { // viewModelScope n'est pas directement disponible sans import et coroutine builder
-        //         delay(tapCooldownMs)
-        //         isProcessingTap = false
-        //     }
-        // }
     }
 
+    /**
+     * Intended to be called by the observer after an [InteractionEvent] has been fully processed.
+     * This can be used to reset state or acknowledge event handling if needed.
+     *
+     * (Currently, this function body is empty and needs implementation based on specific requirements.)
+     */
     fun completeInteractionProcessing() {
-        // Réinitialiser tout état spécifique au tap si nécessaire
-        // isProcessingTap = false // Si vous avez un cooldown local
+        // TODO: Implement logic if needed, e.g., resetting a flag or state.
     }
 
+    /**
+     * Registers any necessary listeners for tap detection or related functionalities.
+     * This could be used for more complex gesture detection or sensor integration if required.
+     *
+     * (Currently, this function body is empty and needs implementation based on specific requirements.)
+     */
     fun registerListener() {
-        // Rien à faire pour le tap initié par l'UI.
+        // TODO: Implement listener registration logic if required.
     }
 
+    /**
+     * Unregisters any listeners that were previously set up by [registerListener].
+     * This is important to prevent memory leaks, especially when the ViewModel is cleared.
+     *
+     * (Currently, this function body is empty and needs implementation based on specific requirements.)
+     */
     fun unregisterListener() {
-        // Rien à faire.
+        // TODO: Implement listener unregistration logic if required.
     }
 
+    /**
+     * Called when the ViewModel is no longer used and will be destroyed.
+     * This is the place to clean up resources, such as unregistering listeners.
+     * It's good practice to call [unregisterListener] here if listeners are registered.
+     */
     override fun onCleared() {
         super.onCleared()
-        // Nettoyer les ressources si nécessaire.
+        // unregisterListener() // Example: Call unregisterListener if it's implemented and used.
     }
 }
+
+// Placeholder for InteractionEvent and TapEvent if not defined elsewhere
+// You should define these according to your application's needs.
+// interface InteractionEvent // Base interface for different types of interactions
+// object TapEvent : InteractionEvent // Specific event for a tap

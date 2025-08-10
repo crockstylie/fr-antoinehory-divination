@@ -1,15 +1,22 @@
 package fr.antoinehory.divination.data.model;
 
-// Ajout d'un enum pour représenter le mode d'interaction actif
+/**
+ * Defines the available modes for user interaction to trigger actions in some games.
+ */
 enum class InteractionMode {
+    /** Interaction is triggered by shaking the device. */
     SHAKE,
+    /** Interaction is triggered by tapping the screen. */
     TAP
 }
 
+/**
+ * Represents the user's preferred interaction settings.
+ *
+ * @property activeInteractionMode The currently active [InteractionMode] selected by the user.
+ *                                Defaults to [InteractionMode.TAP].
+ */
 data class InteractionPreferences(
-    // On pourrait garder isShakeDetectionEnabled et isTapDetectionEnabled
-    // et s'assurer qu'un seul est vrai dans le ViewModel,
-    // OU utiliser un seul champ pour le mode actif.
-    // Utilisons un seul champ pour plus de clarté dans ce cas.
-    val activeInteractionMode: InteractionMode = InteractionMode.TAP // TAP par défaut
+    val activeInteractionMode: InteractionMode = InteractionMode.TAP
 )
+

@@ -17,18 +17,18 @@ import androidx.core.view.WindowCompat
  */
 private val OrakniumDarkColorScheme = darkColorScheme(
     primary = OrakniumGold,
-    onPrimary = OrakniumBackground,
-    secondary = OrakniumGold,
-    onSecondary = OrakniumBackground,
-    tertiary = OrakniumGold,
-    onTertiary = OrakniumBackground,
+    onPrimary = Color.Black, // Changé pour un meilleur contraste
+    secondary = OrakniumGold, // Conservé, peut être affiné plus tard si un rôle distinct est nécessaire
+    onSecondary = Color.Black, // Changé pour un meilleur contraste
+    tertiary = OrakniumGold, // Conservé, peut être affiné plus tard si un rôle distinct est nécessaire
+    onTertiary = Color.Black, // Changé pour un meilleur contraste
     background = OrakniumBackground,
     onBackground = OrakniumGold,
     surface = OrakniumSurface,
     onSurface = OrakniumGold,
-    outline = OrakniumGold,
-    error = Color(0xFFCF6679),
-    onError = Color(0xFF000000)
+    outline = OrakniumGold, // OrakniumGold peut bien fonctionner pour les contours
+    error = Color(0xFFCF6679), // Erreur standard M3
+    onError = Color(0xFF000000)  // Sur Erreur standard M3
 )
 
 /**

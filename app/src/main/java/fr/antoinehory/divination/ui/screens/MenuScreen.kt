@@ -18,7 +18,6 @@ import androidx.compose.ui.unit.sp
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.ui.common.BottomAppNavigationBar
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold
 
 /**
  * Composable screen that serves as the main menu of the application.
@@ -66,7 +65,7 @@ fun MenuScreen(
             Text(
                 text = stringResource(id = R.string.menu_title_header),
                 style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.onBackground,
+                color = MaterialTheme.colorScheme.onBackground, // Déjà correct
                 modifier = Modifier.padding(bottom = 32.dp)
             )
 
@@ -98,9 +97,9 @@ fun OrakniumMenuButton(text: String, onClick: () -> Unit) {
             .fillMaxWidth(0.8f) // Button takes 80% of the available width.
             .height(60.dp),     // Fixed height for the button.
         shape = RoundedCornerShape(50), // Fully rounded corners.
-        border = BorderStroke(2.dp, OrakniumGold), // Custom border using theme color.
+        border = BorderStroke(2.dp, MaterialTheme.colorScheme.outline), // MODIFIÉ: Utilise outline du thème
         colors = ButtonDefaults.outlinedButtonColors(
-            contentColor = OrakniumGold, // Text color.
+            contentColor = MaterialTheme.colorScheme.primary, // MODIFIÉ: Utilise primary pour le texte du bouton
             containerColor = Color.Transparent // Transparent background for outlined style.
         )
     ) {

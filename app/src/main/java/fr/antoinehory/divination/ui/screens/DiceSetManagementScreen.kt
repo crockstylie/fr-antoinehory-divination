@@ -14,6 +14,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -33,7 +34,6 @@ import fr.antoinehory.divination.data.model.DiceType
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.common.DiceSetItemCard
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold
 import fr.antoinehory.divination.data.repository.UserPreferencesRepository
 import fr.antoinehory.divination.viewmodels.DiceSetViewModel
 import fr.antoinehory.divination.viewmodels.DiceSetViewModelFactory
@@ -97,7 +97,7 @@ fun DiceSetManagementScreen(
             ) {
                 Text(
                     stringResource(id = R.string.dice_set_no_sets_available),
-                    color = OrakniumGold // Custom theme color.
+                    color = MaterialTheme.colorScheme.primary // MODIFIÉ
                 )
             }
         } else {
@@ -267,16 +267,16 @@ fun DiceSetManagementScreenPreview() {
  * Preview composable for the [DiceSetManagementScreen] in its empty state.
  * This preview displays the screen when no dice sets are available.
  */
-@Preview(showBackground = true, name = "DiceSetManagementScreen - No Sets")
+@Preview(showBackground = true, name = "DiceSetManagementScreen - Empty")
 @Composable
-fun DiceSetManagementScreen_NoSets_Preview() {
+fun DiceSetManagementScreenEmptyPreview() {
     DivinationAppTheme {
         AppScaffold(
-            title = "Gérer les Sets (Vide)", // Preview-specific title.
+            title = "Gérer les Sets (Vide - Aperçu)",
             canNavigateBack = true,
-            onNavigateBack = {}, // No-op for preview.
+            onNavigateBack = {},
             floatingActionButton = {
-                FloatingActionButton(onClick = {}) { // No-op FAB for preview.
+                FloatingActionButton(onClick = {}) {
                     Icon(Icons.Filled.Add, contentDescription = "Créer un set")
                 }
             }
@@ -289,7 +289,10 @@ fun DiceSetManagementScreen_NoSets_Preview() {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Text("Aucun set de dés disponible.", color = OrakniumGold) // Text matches the main composable.
+                Text(
+                    stringResource(id = R.string.dice_set_no_sets_available),
+                    color = MaterialTheme.colorScheme.primary // MODIFIÉ (Aussi dans le preview pour cohérence)
+                )
             }
         }
     }

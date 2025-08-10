@@ -9,7 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material3.Divider // Corrected from HorizontalDivider if that was a typo in original context, assuming Material3 Divider
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -44,8 +44,8 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
-import fr.antoinehory.divination.ui.theme.OrakniumBackground
-import fr.antoinehory.divination.ui.theme.OrakniumGold
+// import fr.antoinehory.divination.ui.theme.OrakniumBackground // Potentially unused
+// import fr.antoinehory.divination.ui.theme.OrakniumGold // Potentially unused
 
 /**
  * Composable screen for the Dice Roll game.
@@ -148,7 +148,7 @@ fun DiceRollScreen(
                     text = stringResource(id = R.string.dice_accelerometer_not_available_ui_message),
                     style = MaterialTheme.typography.labelMedium,
                     textAlign = TextAlign.Center,
-                    color = MaterialTheme.colorScheme.error,
+                    color = MaterialTheme.colorScheme.error, // Correctly using theme color
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
             }
@@ -161,7 +161,7 @@ fun DiceRollScreen(
                     onClick = { diceRollViewModel.unlockAllDice() },
                     modifier = Modifier.padding(bottom = 8.dp)
                 ) {
-                    Text(stringResource(id = R.string.unlock_all_dice_button))
+                    Text(stringResource(id = R.string.unlock_all_dice_button)) // Text color will be primary by default
                 }
             } else {
                 // Spacer to maintain layout consistency when the unlock button is not visible.
@@ -252,12 +252,12 @@ fun DiceResultDisplay(
     val backgroundColor = if (result.isLocked) {
         MaterialTheme.colorScheme.surfaceVariant // Different background for locked dice.
     } else {
-        OrakniumGold // Primary color for unlocked dice.
+        MaterialTheme.colorScheme.primary // MODIFIÉ: Primary color for unlocked dice.
     }
     val textColor = if (result.isLocked) {
         MaterialTheme.colorScheme.onSurfaceVariant
     } else {
-        OrakniumBackground
+        MaterialTheme.colorScheme.onPrimary // MODIFIÉ: Contrast color for primary.
     }
 
     Box(
@@ -302,7 +302,7 @@ fun DiceResultDisplay(
                     .align(Alignment.TopEnd)
                     .size(18.dp)
                     .padding(2.dp), // Small padding around the lock icon.
-                tint = OrakniumGold // Ensure lock icon matches theme accent.
+                tint = MaterialTheme.colorScheme.primary // MODIFIÉ: Ensure lock icon matches theme accent.
             )
         }
     }
@@ -320,4 +320,3 @@ fun DiceRollScreenPreview() {
         Text("DiceRollScreen Preview - ViewModel dependent") // Placeholder for preview
     }
 }
-

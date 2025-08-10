@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import fr.antoinehory.divination.R
 import fr.antoinehory.divination.ui.common.AppScaffold
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold
 
 /**
  * Composable screen that displays information about the application and its developer.
@@ -155,7 +154,7 @@ fun InfoItemColumn(
             Text(
                 text = value,
                 style = MaterialTheme.typography.bodyMedium,
-                color = OrakniumGold, // Custom theme color for links.
+                color = MaterialTheme.colorScheme.primary, // MODIFIED: Use theme's primary color for links.
                 textDecoration = TextDecoration.Underline, // Underline for link text.
                 textAlign = TextAlign.Center,
                 modifier = Modifier

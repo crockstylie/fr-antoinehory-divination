@@ -155,7 +155,7 @@
     <string name="error_set_name_empty">Set name cannot be empty.</string>
     <string name="error_no_dice_configs">Please add at least one dice configuration.</string>
     <string name="error_invalid_dice_count">Please enter a valid dice count (greater than 0).</string>
-    <string name="error_max_dice_count_exceeded">Le nombre de dés ne peut pas dépasser %1$d.</string>
+    <string name="error_max_dice_count_exceeded">The total number of dice in the set cannot exceed %1$d.</string>
     <string name="error_no_dice_configs_suffix">(Error: Please add at least one.)</string>
     <string name="navigate_back_desc">Navigate back</string>
     <string name="increment_dice_count_desc">Increment dice count</string>

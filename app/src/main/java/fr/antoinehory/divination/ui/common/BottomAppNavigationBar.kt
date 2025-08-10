@@ -16,6 +16,9 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+// MaterialTheme import might not be strictly needed if all colors are direct,
+// but it's good practice if other theme aspects are used.
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,6 +26,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import fr.antoinehory.divination.R
+// Assuming these are your custom color definitions
 import fr.antoinehory.divination.ui.theme.OrakniumBackground
 import fr.antoinehory.divination.ui.theme.OrakniumGold
 
@@ -46,21 +50,23 @@ fun BottomAppNavigationBar(
     modifier: Modifier = Modifier,
     showSettingsButton: Boolean = true
 ) {
-    val bottomBarHeight = 50.dp
-    val iconSize = 30.dp
+    // Increased height for better touch targets and vertical spacing
+    val bottomBarHeight = 56.dp
+    val iconSize = 30.dp // Icon size remains the same
 
     BottomAppBar(
         modifier = modifier
             .fillMaxWidth()
             .height(bottomBarHeight),
+        // Restore your specific Oraknium colors
         containerColor = OrakniumBackground,
-        contentColor = OrakniumGold,
-        tonalElevation = 0.dp, // No shadow/elevation
-        contentPadding = PaddingValues(0.dp) // No internal padding for the BottomAppBar itself
+        contentColor = OrakniumGold, // For icons by default if not overridden
+        tonalElevation = 0.dp,
+        contentPadding = PaddingValues(0.dp)
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
-            // Visual separator at the top of the navigation bar
             Divider(
+                // Restore your specific Oraknium gold for the divider
                 color = OrakniumGold,
                 thickness = 1.dp,
                 modifier = Modifier.fillMaxWidth()
@@ -68,23 +74,24 @@ fun BottomAppNavigationBar(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(1f), // Takes up the remaining vertical space after the divider
-                horizontalArrangement = Arrangement.SpaceAround, // Distributes icons evenly
-                verticalAlignment = Alignment.CenterVertically // Centers icons vertically
+                    .weight(1f),
+                horizontalArrangement = Arrangement.SpaceAround,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                // Settings button is conditionally displayed based on showSettingsButton
                 val settingsAlpha = if (showSettingsButton) 1f else 0f
                 val settingsEnabled = showSettingsButton
 
                 IconButton(
                     onClick = onSettingsClick,
                     enabled = settingsEnabled,
-                    modifier = Modifier.alpha(settingsAlpha) // Controls visibility via transparency
+                    modifier = Modifier.alpha(settingsAlpha)
                 ) {
                     Icon(
                         imageVector = Icons.Filled.Settings,
                         contentDescription = stringResource(id = R.string.bottom_nav_settings),
-                        modifier = Modifier.size(iconSize)
+                        modifier = Modifier.size(iconSize),
+                        // Icons will use the contentColor from BottomAppBar (OrakniumGold)
+                        // unless explicitly tinted otherwise.
                     )
                 }
 
@@ -93,6 +100,7 @@ fun BottomAppNavigationBar(
                         imageVector = Icons.Filled.Insights,
                         contentDescription = stringResource(id = R.string.bottom_nav_stats),
                         modifier = Modifier.size(iconSize)
+                        // Tint will be OrakniumGold from contentColor
                     )
                 }
 
@@ -101,9 +109,11 @@ fun BottomAppNavigationBar(
                         imageVector = Icons.Filled.Info,
                         contentDescription = stringResource(id = R.string.bottom_nav_info),
                         modifier = Modifier.size(iconSize)
+                        // Tint will be OrakniumGold from contentColor
                     )
                 }
             }
         }
     }
 }
+

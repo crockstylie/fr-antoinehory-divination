@@ -32,11 +32,9 @@ import fr.antoinehory.divination.viewmodels.GameStatsData
 import fr.antoinehory.divination.viewmodels.GameStatsViewModel
 import fr.antoinehory.divination.viewmodels.GameStatsViewModelFactory
 import fr.antoinehory.divination.viewmodels.StatItem
-// Imports for the moved chart composables
 import fr.antoinehory.divination.ui.common.charts.GameResultPieChart
 import fr.antoinehory.divination.ui.common.charts.GlobalDistributionChart
 import fr.antoinehory.divination.ui.common.charts.getStatItemColors
-// java.util.Date is used in Preview
 import java.util.Date
 
 /**

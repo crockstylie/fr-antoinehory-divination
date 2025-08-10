@@ -44,8 +44,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
-// import fr.antoinehory.divination.ui.theme.OrakniumBackground // Potentially unused
-// import fr.antoinehory.divination.ui.theme.OrakniumGold // Potentially unused
 
 /**
  * Composable screen for the Dice Roll game.

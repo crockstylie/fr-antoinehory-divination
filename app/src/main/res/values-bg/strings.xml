@@ -3,7 +3,6 @@
     <string name="app_name">Оракниум</string>
 
     <!-- MenuScreen.kt -->
-    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">Магическа топка 8</string>
     <string name="menu_button_coin_flip">Хвърляне на монета</string>
     <string name="menu_button_rps">Камък, ножица, хартия</string>
@@ -14,7 +13,6 @@
     <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">Разклатете устройството, за да получите отговор.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">Разклатете устройството (акселерометърът не е открит).</string>
-    <string name="magic_ball_shuffling_message" translatable="false">…</string>
 
     <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
@@ -141,4 +139,5 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Статистика</string>
     <string name="game_stats_icon_description">Преглед на статистиката на играта</string>
+    <string name="stats_screen_title_loading">Loading…</string>
 </resources>

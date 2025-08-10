@@ -137,5 +137,6 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistiken</string>
     <string name="game_stats_icon_description">Spielstatistiken anzeigen</string>
+    <string name="stats_screen_title_loading">Loading…</string>
 </resources>
 

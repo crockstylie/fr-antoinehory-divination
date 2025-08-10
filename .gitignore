@@ -35,10 +35,6 @@
     *.ipr
     *.iws
     .gradle/
-    gradle/
-    gradlew
-    gradlew.bat
-    !gradle/wrapper/gradle-wrapper.jar # Keep the wrapper jar
 
     # Keystore files (IMPORTANT: NEVER commit your keystore or its passwords)
     *.jks

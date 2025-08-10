@@ -3,7 +3,6 @@
     <string name="app_name">Oraknium</string>
 
     <!-- MenuScreen.kt -->
-    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">Magická koule 8</string>
     <string name="menu_button_coin_flip">Hod mincí</string>
     <string name="menu_button_rps">Kámen, nůžky, papír</string>
@@ -14,7 +13,6 @@
     <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">Zatřeste zařízením pro získání odpovědi.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">Zatřeste zařízením (akcelerometr nebyl detekován).</string>
-    <string name="magic_ball_shuffling_message" translatable="false">…</string>
 
     <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
@@ -141,4 +139,5 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistiky</string>
     <string name="game_stats_icon_description">Zobrazit herní statistiky</string>
+    <string name="stats_screen_title_loading">Loading…</string>
 </resources>

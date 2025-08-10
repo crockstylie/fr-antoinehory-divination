@@ -137,4 +137,5 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">통계</string>
     <string name="game_stats_icon_description">게임 통계 보기</string>
+    <string name="stats_screen_title_loading">Loading…</string>
 </resources>

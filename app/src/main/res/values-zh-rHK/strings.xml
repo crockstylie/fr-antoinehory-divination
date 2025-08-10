@@ -3,7 +3,6 @@
     <string name="app_name">奧拉尼姆</string>
 
     <!-- MenuScreen.kt -->
-    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">神奇8號球</string>
     <string name="menu_button_coin_flip">擲硬幣</string>
     <string name="menu_button_rps">石頭、剪刀、布</string>
@@ -14,7 +13,6 @@
     <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">搖晃裝置以獲取答案。</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">搖晃裝置（未偵測到加速計）。</string>
-    <string name="magic_ball_shuffling_message" translatable="false">…</string>
 
     <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
@@ -141,4 +139,5 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">統計</string>
     <string name="game_stats_icon_description">檢視遊戲統計</string>
+    <string name="stats_screen_title_loading">Loading…</string>
 </resources>

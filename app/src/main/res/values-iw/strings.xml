@@ -3,7 +3,6 @@
     <string name="app_name">אורקניום</string>
 
     <!-- MenuScreen.kt -->
-    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">כדור 8 קסום</string>
     <string name="menu_button_coin_flip">הטלת מטבע</string>
     <string name="menu_button_rps">אבן נייר ומספריים</string>
@@ -14,7 +13,6 @@
     <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">נער את המכשיר כדי לקבל תשובה.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">נער את המכשיר (מד תאוצה לא זוהה).</string>
-    <string name="magic_ball_shuffling_message" translatable="false">…</string>
 
     <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
@@ -141,4 +139,5 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">סטטיסטיקה</string>
     <string name="game_stats_icon_description">הצג סטטיסטיקת משחק</string>
+    <string name="stats_screen_title_loading">Loading…</string>
 </resources>

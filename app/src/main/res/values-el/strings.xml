@@ -124,5 +124,6 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Στατιστικά</string>
     <string name="game_stats_icon_description">Προβολή στατιστικών παιχνιδιού</string>
+    <string name="stats_screen_title_loading">Loading…</string>
 
 </resources>

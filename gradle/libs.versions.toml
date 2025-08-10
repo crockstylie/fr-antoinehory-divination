@@ -29,6 +29,9 @@ datastorePreferences = "1.1.1"
 appcompat = "1.6.1"
 material = "1.12.0"
 
+# Bibliothèque Vico
+vico = "2.1.3"
+
 # Tests
 junit = "4.13.2"
 androidxJunit = "1.1.5"
@@ -71,6 +74,8 @@ androidx-datastore-preferences = { module = "androidx.datastore:datastore-prefer
 # Bibliothèques UI XML
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+vico-compose-m3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version.ref = "vico" }
 
 # Tests
 junit = { group = "junit", name = "junit", version.ref = "junit" }

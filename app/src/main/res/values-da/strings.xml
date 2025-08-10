@@ -3,6 +3,7 @@
     <string name="app_name">Oraknium</string>
 
     <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">Magisk 8-bold</string>
     <string name="menu_button_coin_flip">Plat eller krone</string>
     <string name="menu_button_rps">Sten, saks, papir</string>
@@ -13,6 +14,7 @@
     <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">Ryst enheden for at få et svar.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">Ryst enheden (accelerometer ikke registreret).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
 
     <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
@@ -98,7 +100,15 @@
     <string name="settings_clear_stats_dialog_title">Rydde statistik?</string>
     <string name="settings_clear_stats_dialog_message">Alle spilstatistikdata vil blive slettet permanent. Denne handling kan ikke fortrydes.</string>
     <string name="settings_clear_stats_dialog_confirm">Bekræft</string>
-    <string name="settings_clear_stats_dialog_cancel">Annuller</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Ryd statistikker for %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Er du sikker på, at du vil slette alle statistikker for spillet %1$s? Handlingen kan ikke fortrydes.</string>
+    <string name="settings_clear_stats_for_game_title">Ryd statistikker for et spil</string>
+    <string name="settings_select_game_placeholder">Vælg et spil</string>
+    <string name="settings_game_to_clear_label">Spil der skal ryddes</string>
+    <string name="settings_clear_stats_for_selected_game_button">Ryd for valgt spil</string>
+    <string name="settings_all_games_option">Alle spil</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Ryd alle spilstatistikker?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Er du sikker på, at du vil slette alle spilstatistikker? Handlingen kan ikke fortrydes.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interager for at få et svar.</string>
@@ -139,5 +149,65 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistik</string>
     <string name="game_stats_icon_description">Se spilstatistik</string>
-    <string name="stats_screen_title_loading">Loading…</string>
+    <string name="stats_screen_title_global_loading">Indlæser…</string>
+    <string name="stats_global_distribution_chart_title">Global spilfordeling</string>
+    <string name="stats_total_plays_for_game">Samlet antal spil for dette spil: %d</string>
+    <string name="stats_no_history_available">Ingen historik tilgængelig for dette spil endnu.</string>
+    <string name="stats_full_history_title">Fuld historik</string>
+    <string name="bottom_nav_settings">Indstillinger</string>
+    <string name="bottom_nav_stats">Statistik</string>
+    <string name="bottom_nav_info">Info</string>
+    <string name="navigation_back_description">Tilbage</string>
+    <string name="create_dice_set_screen_title">Opret terningsæt</string>
+    <string name="edit_dice_set_screen_title">Rediger terningsæt</string>
+    <string name="dice_set_management_screen_title">Administrer terningsæt</string>
+    <string name="dice_set_create_new_set_desc">Opret nyt terningsæt</string>
+    <string name="dice_set_no_sets_available">Ingen terningsæt tilgængelige.</string>
+    <string name="dice_set_remove_from_favorites">Fjern fra favoritter</string>
+    <string name="dice_set_add_to_favorites">Tilføj til favoritter</string>
+    <string name="dice_set_edit_set_desc">Rediger terningsæt</string>
+    <string name="dice_set_delete_set_desc">Slet terningsæt</string>
+    <string name="dice_set_launch_set_desc">Start terningsæt</string>
+    <string name="save_dice_set_desc">Gem terningsæt</string>
+    <string name="dice_set_name_label">Sætnavn</string>
+    <string name="dice_configurations_label">Terningkonfigurationer</string>
+    <string name="add_dice_button">Tilføj terning</string>
+    <string name="add_dice_config_desc">Tilføj ny terningkonfiguration</string>
+    <string name="no_dice_configs_yet">Ingen terninger konfigureret endnu. Klik på "Tilføj terning" for at starte.</string>
+    <string name="remove_dice_config_desc">Fjern denne terningkonfiguration</string>
+    <string name="dice_type_label">Terningtype</string>
+    <string name="quantity_label">Antal</string>
+    <string name="confirm_add_to_set_button">Føj til sæt</string>
+    <string name="error_set_name_empty">Sætnavn må ikke være tomt.</string>
+    <string name="error_no_dice_configs">Tilføj mindst én terningkonfiguration.</string>
+    <string name="error_invalid_dice_count">Indtast et gyldigt antal terninger (større end 0).</string>
+    <string name="error_no_dice_configs_suffix">(Fejl: Tilføj mindst én.)</string>
+    <string name="navigate_back_desc">Naviger tilbage</string>
+    <string name="increment_dice_count_desc">Forøg terningantal</string>
+    <string name="decrement_dice_count_desc">Formindsk terningantal</string>
+    <string name="update_button">Opdater</string>
+    <string name="default_new_dice_set_name">Mit terningsæt</string>
+    <string name="set_active_dice_set_confirmation_title">Indstil som aktivt terningsæt?</string>
+    <string name="set_active_dice_set_confirmation_message">Vil du indstille \"%1$s\" som det aktive terningsæt til kast?</string>
+    <string name="confirm_set_active">Indstil aktiv</string>
+    <string name="cancel">Annuller</string>
+    <string name="delete_dice_set_confirmation_title">Bekræft sletning</string>
+    <string name="delete_dice_set_confirmation_message">Er du sikker på, at du vil slette sættet \"%1$s\"?</string>
+    <string name="confirm_delete">Slet</string>
+    <string name="copy_dice_set_desc">Kopier terningsæt</string>
+    <string name="copy_dice_set_confirmation_title">Kopier sæt?</string>
+    <string name="copy_dice_set_confirmation_message">Vil du kopiere sættet \"%1$s\"?\n\nIndhold:\n%2$s</string>
+    <string name="confirm_copy">Kopier</string>
+    <string name="error_active_set_not_found">Fejl: Aktivt terningsæt ikke fundet. Vælg eller opret et fra administration.</string>
+    <string name="error_no_active_set">Intet aktivt terningsæt. Vælg eller opret et fra administration.</string>
+    <string name="error_cannot_roll_no_set_or_config">Kan ikke kaste: Intet aktivt sæt eller terningkonfigurationen er tom.</string>
+    <string name="dice_prompt_with_set">Klar til at kaste %1$s!</string>
+    <string name="results_for_set">Resultater for %1$s:</string>
+    <string name="total_roll_value_format">Total: %1$d</string>
+    <string name="unlock_all_dice_button">Lås alle op</string>
+    <string name="locked_dice_icon_description">Låste terninger</string>
+    <string name="recent_activity_title">Seneste aktivitet</string>
+    <string name="stats_dice_set_usage_title">Brug af terningsæt</string>
+    <string name="stats_results_distribution_title">Resultatfordeling</string>
+    <string name="stats_unknown_dice_set">Ukendt sæt</string>
 </resources>

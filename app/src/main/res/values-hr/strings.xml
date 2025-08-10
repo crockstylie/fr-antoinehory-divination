@@ -3,6 +3,7 @@
     <string name="app_name">Oraknium</string>
 
     <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">Magična kugla 8</string>
     <string name="menu_button_coin_flip">Bacanje novčića</string>
     <string name="menu_button_rps">Kamen, škare, papir</string>
@@ -13,6 +14,7 @@
     <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">Protresite uređaj da biste dobili odgovor.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">Protresite uređaj (akcelerometar nije otkriven).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
 
     <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
@@ -98,7 +100,15 @@
     <string name="settings_clear_stats_dialog_title">Obriši statistiku?</string>
     <string name="settings_clear_stats_dialog_message">Svi podaci statistike igre bit će trajno izbrisani. Ova radnja je nepovratna.</string>
     <string name="settings_clear_stats_dialog_confirm">Potvrdi</string>
-    <string name="settings_clear_stats_dialog_cancel">Odustani</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Očistiti statistiku za %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Jeste li sigurni da želite izbrisati svu statistiku za igru %1$s? Ova se radnja ne može poništiti.</string>
+    <string name="settings_clear_stats_for_game_title">Očisti statistiku za igru</string>
+    <string name="settings_select_game_placeholder">Odaberite igru</string>
+    <string name="settings_game_to_clear_label">Igra za brisanje</string>
+    <string name="settings_clear_stats_for_selected_game_button">Očisti za odabranu igru</string>
+    <string name="settings_all_games_option">Sve igre</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Očistiti statistiku svih igara?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Jeste li sigurni da želite izbrisati statistiku svih igara? Ova se radnja ne može poništiti.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interagirajte da biste dobili odgovor.</string>
@@ -139,5 +149,65 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistika</string>
     <string name="game_stats_icon_description">Prikaži statistiku igre</string>
-    <string name="stats_screen_title_loading">Loading…</string>
+    <string name="stats_screen_title_global_loading">Učitavanje…</string>
+    <string name="stats_global_distribution_chart_title">Globalna distribucija igara</string>
+    <string name="stats_total_plays_for_game">Ukupno igara za ovu igru: %d</string>
+    <string name="stats_no_history_available">Još nema povijesti za ovu igru.</string>
+    <string name="stats_full_history_title">Cijela povijest</string>
+    <string name="bottom_nav_settings">Postavke</string>
+    <string name="bottom_nav_stats">Statistika</string>
+    <string name="bottom_nav_info">Informacije</string>
+    <string name="navigation_back_description">Natrag</string>
+    <string name="create_dice_set_screen_title">Stvori set kockica</string>
+    <string name="edit_dice_set_screen_title">Uredi set kockica</string>
+    <string name="dice_set_management_screen_title">Upravljaj setovima kockica</string>
+    <string name="dice_set_create_new_set_desc">Stvori novi set kockica</string>
+    <string name="dice_set_no_sets_available">Nema dostupnih setova kockica.</string>
+    <string name="dice_set_remove_from_favorites">Ukloni iz favorita</string>
+    <string name="dice_set_add_to_favorites">Dodaj u favorite</string>
+    <string name="dice_set_edit_set_desc">Uredi set kockica</string>
+    <string name="dice_set_delete_set_desc">Izbriši set kockica</string>
+    <string name="dice_set_launch_set_desc">Pokreni set kockica</string>
+    <string name="save_dice_set_desc">Spremi set kockica</string>
+    <string name="dice_set_name_label">Naziv seta</string>
+    <string name="dice_configurations_label">Konfiguracije kockica</string>
+    <string name="add_dice_button">Dodaj kockicu</string>
+    <string name="add_dice_config_desc">Dodaj novu konfiguraciju kockice</string>
+    <string name="no_dice_configs_yet">Još nema konfiguriranih kockica. Kliknite "Dodaj kockicu" za početak.</string>
+    <string name="remove_dice_config_desc">Ukloni ovu konfiguraciju kockice</string>
+    <string name="dice_type_label">Vrsta kockice</string>
+    <string name="quantity_label">Količina</string>
+    <string name="confirm_add_to_set_button">Dodaj u set</string>
+    <string name="error_set_name_empty">Naziv seta ne može biti prazan.</string>
+    <string name="error_no_dice_configs">Molimo dodajte barem jednu konfiguraciju kockice.</string>
+    <string name="error_invalid_dice_count">Molimo unesite važeći broj kockica (veći od 0).</string>
+    <string name="error_no_dice_configs_suffix">(Greška: Molimo dodajte barem jednu.)</string>
+    <string name="navigate_back_desc">Idi natrag</string>
+    <string name="increment_dice_count_desc">Povećaj broj kockica</string>
+    <string name="decrement_dice_count_desc">Smanji broj kockica</string>
+    <string name="update_button">Ažuriraj</string>
+    <string name="default_new_dice_set_name">Moj set kockica</string>
+    <string name="set_active_dice_set_confirmation_title">Postaviti kao aktivni set kockica?</string>
+    <string name="set_active_dice_set_confirmation_message">Želite li postaviti \"%1$s\" kao aktivni set kockica za bacanje?</string>
+    <string name="confirm_set_active">Postavi aktivnim</string>
+    <string name="cancel">Odustani</string>
+    <string name="delete_dice_set_confirmation_title">Potvrdi brisanje</string>
+    <string name="delete_dice_set_confirmation_message">Jeste li sigurni da želite izbrisati set \"%1$s\"?</string>
+    <string name="confirm_delete">Izbriši</string>
+    <string name="copy_dice_set_desc">Kopiraj set kockica</string>
+    <string name="copy_dice_set_confirmation_title">Kopirati set?</string>
+    <string name="copy_dice_set_confirmation_message">Želite li kopirati set \"%1$s\"?\n\nSadržaj:\n%2$s</string>
+    <string name="confirm_copy">Kopiraj</string>
+    <string name="error_active_set_not_found">Greška: Aktivni set kockica nije pronađen. Molimo odaberite ili stvorite jedan u upravljanju.</string>
+    <string name="error_no_active_set">Nema aktivnog seta kockica. Molimo odaberite ili stvorite jedan u upravljanju.</string>
+    <string name="error_cannot_roll_no_set_or_config">Nije moguće baciti: Nema aktivnog seta ili je konfiguracija kockica prazna.</string>
+    <string name="dice_prompt_with_set">Spremni za bacanje %1$s!</string>
+    <string name="results_for_set">Rezultati za %1$s:</string>
+    <string name="total_roll_value_format">Ukupno: %1$d</string>
+    <string name="unlock_all_dice_button">Otključaj sve</string>
+    <string name="locked_dice_icon_description">Zaključane kockice</string>
+    <string name="recent_activity_title">Nedavna aktivnost</string>
+    <string name="stats_dice_set_usage_title">Korištenje setova kockica</string>
+    <string name="stats_results_distribution_title">Raspodjela rezultata</string>
+    <string name="stats_unknown_dice_set">Nepoznati set</string>
 </resources>

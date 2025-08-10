@@ -1,8 +1,8 @@
 [versions]
 # Gradle et Kotlin
-agp = "8.3.2"  # Version corrigée
-kotlin = "2.0.0"
-ksp = "2.0.0-1.0.21"
+agp = "8.12.0"  # Version corrigée
+kotlin = "2.2.0"
+ksp = "2.2.0-2.0.2"
 composeCompilerArtifactVersion = "1.5.14"
 
 # Jetpack Compose
@@ -20,7 +20,7 @@ lifecycleVersion = "2.8.0"
 navigationCompose = "2.7.7"
 
 # AndroidX Room
-room = "2.6.1"
+room = "2.7.2"
 
 # AndroidX DataStore
 datastorePreferences = "1.1.1"

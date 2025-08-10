@@ -27,8 +27,8 @@ Oraknium is a delightful Android application designed to bring a bit of fun and 
 
 ## Screenshots
 
-`![Oraknium Main Menu](screenshots/Capture d'écran 2025-07-25 143056.png)`
-`![Magic 8 Ball in Action](screenshots/Capture d'écran 2025-07-25 143352.png)`
+![Oraknium Main Menu](screenshots/Capture d'écran 2025-07-25 143056.png)
+![Magic 8 Ball in Action](screenshots/Capture d'écran 2025-07-25 143352.png)
 
 ## Technology Stack
 
@@ -75,13 +75,11 @@ Don't forget to give the project a star! Thanks again!
 2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request against the `main` (or `master`) branch of the original repository.
+5.  Open a Pull Request against the `main` branch of the original repository.
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` (or `LICENSE`) for more information.
-
-*(Create a file named `LICENSE` or `LICENSE.txt` in the root of your repository and paste the MIT License text into it. You can find the MIT License text easily online.)*
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
@@ -95,9 +93,10 @@ Project Link: [https://github.com/crockstylie/fr-antoinehory-divination](https:/
 
 ## Acknowledgements
 
+*   JetBrains.
+*   Gemini.
 *   Android Jetpack Team for Compose and other lifecycle-aware components.
 *   The Kotlin community.
-*   *(Any specific libraries, assets, or individuals you'd like to thank.)*
 
 ---
 

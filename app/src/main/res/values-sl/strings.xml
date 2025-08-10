@@ -3,6 +3,7 @@
     <string name="app_name">Oraknium</string>
 
     <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">Magična krogla 8</string>
     <string name="menu_button_coin_flip">Met kovanca</string>
     <string name="menu_button_rps">Kamen, škarje, papir</string>
@@ -13,6 +14,7 @@
     <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">Potresite napravo za odgovor.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">Potresite napravo (pospeškometer ni zaznan).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
 
     <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
@@ -98,7 +100,15 @@
     <string name="settings_clear_stats_dialog_title">Počisti statistiko?</string>
     <string name="settings_clear_stats_dialog_message">Vsi podatki statistike igre bodo trajno izbrisani. Tega dejanja ni mogoče razveljaviti.</string>
     <string name="settings_clear_stats_dialog_confirm">Potrdi</string>
-    <string name="settings_clear_stats_dialog_cancel">Prekliči</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Počisti statistiko za %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Ali ste prepričani, da želite izbrisati vso statistiko za igro %1$s? Tega dejanja ni mogoče razveljaviti.</string>
+    <string name="settings_clear_stats_for_game_title">Počisti statistiko za igro</string>
+    <string name="settings_select_game_placeholder">Izberite igro</string>
+    <string name="settings_game_to_clear_label">Igra za brisanje</string>
+    <string name="settings_clear_stats_for_selected_game_button">Počisti za izbrano igro</string>
+    <string name="settings_all_games_option">Vse igre</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Počisti vso statistiko iger?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Ali ste prepričani, da želite izbrisati vso statistiko iger? Tega dejanja ni mogoče razveljaviti.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interagirajte za odgovor.</string>
@@ -139,5 +149,65 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statistika</string>
     <string name="game_stats_icon_description">Ogled statistike igre</string>
-    <string name="stats_screen_title_loading">Loading…</string>
+    <string name="stats_screen_title_global_loading">Nalaganje…</string>
+    <string name="stats_global_distribution_chart_title">Globalna porazdelitev iger</string>
+    <string name="stats_total_plays_for_game">Skupno število iger za to igro: %d</string>
+    <string name="stats_no_history_available">Za to igro še ni na voljo zgodovine.</string>
+    <string name="stats_full_history_title">Celotna zgodovina</string>
+    <string name="bottom_nav_settings">Nastavitve</string>
+    <string name="bottom_nav_stats">Statistika</string>
+    <string name="bottom_nav_info">Informacije</string>
+    <string name="navigation_back_description">Nazaj</string>
+    <string name="create_dice_set_screen_title">Ustvari komplet kock</string>
+    <string name="edit_dice_set_screen_title">Uredi komplet kock</string>
+    <string name="dice_set_management_screen_title">Upravljaj komplete kock</string>
+    <string name="dice_set_create_new_set_desc">Ustvari nov komplet kock</string>
+    <string name="dice_set_no_sets_available">Na voljo ni kompletov kock.</string>
+    <string name="dice_set_remove_from_favorites">Odstrani iz priljubljenih</string>
+    <string name="dice_set_add_to_favorites">Dodaj med priljubljene</string>
+    <string name="dice_set_edit_set_desc">Uredi komplet kock</string>
+    <string name="dice_set_delete_set_desc">Izbriši komplet kock</string>
+    <string name="dice_set_launch_set_desc">Zaženi komplet kock</string>
+    <string name="save_dice_set_desc">Shrani komplet kock</string>
+    <string name="dice_set_name_label">Ime kompleta</string>
+    <string name="dice_configurations_label">Konfiguracije kock</string>
+    <string name="add_dice_button">Dodaj kocko</string>
+    <string name="add_dice_config_desc">Dodaj novo konfiguracijo kocke</string>
+    <string name="no_dice_configs_yet">Nobena kocka še ni konfigurirana. Za začetek kliknite "Dodaj kocko".</string>
+    <string name="remove_dice_config_desc">Odstrani to konfiguracijo kocke</string>
+    <string name="dice_type_label">Vrsta kocke</string>
+    <string name="quantity_label">Količina</string>
+    <string name="confirm_add_to_set_button">Dodaj v komplet</string>
+    <string name="error_set_name_empty">Ime kompleta ne sme biti prazno.</string>
+    <string name="error_no_dice_configs">Dodajte vsaj eno konfiguracijo kocke.</string>
+    <string name="error_invalid_dice_count">Vnesite veljavno število kock (večje od 0).</string>
+    <string name="error_no_dice_configs_suffix">(Napaka: Dodajte vsaj eno.)</string>
+    <string name="navigate_back_desc">Pojdi nazaj</string>
+    <string name="increment_dice_count_desc">Povečaj število kock</string>
+    <string name="decrement_dice_count_desc">Zmanjšaj število kock</string>
+    <string name="update_button">Posodobi</string>
+    <string name="default_new_dice_set_name">Moj komplet kock</string>
+    <string name="set_active_dice_set_confirmation_title">Nastavi kot aktivni komplet kock?</string>
+    <string name="set_active_dice_set_confirmation_message">Ali želite nastaviti \"%1$s\" kot aktivni komplet kock za metanje?</string>
+    <string name="confirm_set_active">Nastavi aktivno</string>
+    <string name="cancel">Prekliči</string>
+    <string name="delete_dice_set_confirmation_title">Potrdi brisanje</string>
+    <string name="delete_dice_set_confirmation_message">Ali ste prepričani, da želite izbrisati komplet \"%1$s\"?</string>
+    <string name="confirm_delete">Izbriši</string>
+    <string name="copy_dice_set_desc">Kopiraj komplet kock</string>
+    <string name="copy_dice_set_confirmation_title">Kopiraj komplet?</string>
+    <string name="copy_dice_set_confirmation_message">Ali želite kopirati komplet \"%1$s\"?\n\nVsebina:\n%2$s</string>
+    <string name="confirm_copy">Kopiraj</string>
+    <string name="error_active_set_not_found">Napaka: Aktivni komplet kock ni bil najden. Izberite ali ustvarite ga v upravljanju.</string>
+    <string name="error_no_active_set">Ni aktivnega kompleta kock. Izberite ali ustvarite ga v upravljanju.</string>
+    <string name="error_cannot_roll_no_set_or_config">Meta ni mogoče izvesti: Ni aktivnega kompleta ali pa je konfiguracija kock prazna.</string>
+    <string name="dice_prompt_with_set">Pripravljen za met %1$s!</string>
+    <string name="results_for_set">Rezultati za %1$s:</string>
+    <string name="total_roll_value_format">Skupaj: %1$d</string>
+    <string name="unlock_all_dice_button">Odkleni vse</string>
+    <string name="locked_dice_icon_description">Zaklenjene kocke</string>
+    <string name="recent_activity_title">Nedavna dejavnost</string>
+    <string name="stats_dice_set_usage_title">Uporaba kompletov kock</string>
+    <string name="stats_results_distribution_title">Porazdelitev rezultatov</string>
+    <string name="stats_unknown_dice_set">Neznan komplet</string>
 </resources>

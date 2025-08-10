@@ -3,6 +3,7 @@
     <string name="app_name">Oraknium</string>
 
     <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">Magická guľa 8</string>
     <string name="menu_button_coin_flip">Hod mincou</string>
     <string name="menu_button_rps">Kameň, papier, nožnice</string>
@@ -13,6 +14,7 @@
     <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">Zatrasením zariadenia získate odpoveď.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">Zatraste zariadením (akcelerometer nebol detekovaný).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
 
     <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
@@ -98,7 +100,15 @@
     <string name="settings_clear_stats_dialog_title">Vymazať štatistiky?</string>
     <string name="settings_clear_stats_dialog_message">Všetky údaje herných štatistík budú natrvalo odstránené. Táto akcia je nezvratná.</string>
     <string name="settings_clear_stats_dialog_confirm">Potvrdiť</string>
-    <string name="settings_clear_stats_dialog_cancel">Zrušiť</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Vymazať štatistiky pre %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Naozaj chcete odstrániť všetky štatistiky pre hru %1$s? Táto akcia sa nedá vrátiť späť.</string>
+    <string name="settings_clear_stats_for_game_title">Vymazať štatistiky pre hru</string>
+    <string name="settings_select_game_placeholder">Vyberte hru</string>
+    <string name="settings_game_to_clear_label">Hra na vymazanie</string>
+    <string name="settings_clear_stats_for_selected_game_button">Vymazať pre vybratú hru</string>
+    <string name="settings_all_games_option">Všetky hry</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Vymazať všetky herné štatistiky?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Naozaj chcete odstrániť všetky herné štatistiky? Táto akcia sa nedá vrátiť späť.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Interagujte, aby ste získali odpoveď.</string>
@@ -139,5 +149,65 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Štatistiky</string>
     <string name="game_stats_icon_description">Zobraziť herné štatistiky</string>
-    <string name="stats_screen_title_loading">Loading…</string>
+    <string name="stats_screen_title_global_loading">Načítava sa…</string>
+    <string name="stats_global_distribution_chart_title">Globálna distribúcia hier</string>
+    <string name="stats_total_plays_for_game">Celkový počet hier pre túto hru: %d</string>
+    <string name="stats_no_history_available">Pre túto hru zatiaľ nie je k dispozícii žiadna história.</string>
+    <string name="stats_full_history_title">Úplná história</string>
+    <string name="bottom_nav_settings">Nastavenia</string>
+    <string name="bottom_nav_stats">Štatistiky</string>
+    <string name="bottom_nav_info">Informácie</string>
+    <string name="navigation_back_description">Späť</string>
+    <string name="create_dice_set_screen_title">Vytvoriť sadu kociek</string>
+    <string name="edit_dice_set_screen_title">Upraviť sadu kociek</string>
+    <string name="dice_set_management_screen_title">Spravovať sady kociek</string>
+    <string name="dice_set_create_new_set_desc">Vytvoriť novú sadu kociek</string>
+    <string name="dice_set_no_sets_available">Nie sú k dispozícii žiadne sady kociek.</string>
+    <string name="dice_set_remove_from_favorites">Odstrániť z obľúbených</string>
+    <string name="dice_set_add_to_favorites">Pridať do obľúbených</string>
+    <string name="dice_set_edit_set_desc">Upraviť sadu kociek</string>
+    <string name="dice_set_delete_set_desc">Odstrániť sadu kociek</string>
+    <string name="dice_set_launch_set_desc">Spustiť sadu kociek</string>
+    <string name="save_dice_set_desc">Uložiť sadu kociek</string>
+    <string name="dice_set_name_label">Názov sady</string>
+    <string name="dice_configurations_label">Konfigurácie kociek</string>
+    <string name="add_dice_button">Pridať kocku</string>
+    <string name="add_dice_config_desc">Pridať novú konfiguráciu kocky</string>
+    <string name="no_dice_configs_yet">Zatiaľ nie sú nakonfigurované žiadne kocky. Kliknite na "Pridať kocku" pre začiatok.</string>
+    <string name="remove_dice_config_desc">Odstrániť túto konfiguráciu kocky</string>
+    <string name="dice_type_label">Typ kocky</string>
+    <string name="quantity_label">Množstvo</string>
+    <string name="confirm_add_to_set_button">Pridať do sady</string>
+    <string name="error_set_name_empty">Názov sady nemôže byť prázdny.</string>
+    <string name="error_no_dice_configs">Prosím, pridajte aspoň jednu konfiguráciu kocky.</string>
+    <string name="error_invalid_dice_count">Prosím, zadajte platný počet kociek (väčší ako 0).</string>
+    <string name="error_no_dice_configs_suffix">(Chyba: Prosím, pridajte aspoň jednu.)</string>
+    <string name="navigate_back_desc">Prejsť späť</string>
+    <string name="increment_dice_count_desc">Zvýšiť počet kociek</string>
+    <string name="decrement_dice_count_desc">Znížiť počet kociek</string>
+    <string name="update_button">Aktualizovať</string>
+    <string name="default_new_dice_set_name">Moja sada kociek</string>
+    <string name="set_active_dice_set_confirmation_title">Nastaviť ako aktívnu sadu kociek?</string>
+    <string name="set_active_dice_set_confirmation_message">Chcete nastaviť \"%1$s\" ako aktívnu sadu kociek na hádzanie?</string>
+    <string name="confirm_set_active">Nastaviť aktívnu</string>
+    <string name="cancel">Zrušiť</string>
+    <string name="delete_dice_set_confirmation_title">Potvrdiť odstránenie</string>
+    <string name="delete_dice_set_confirmation_message">Naozaj chcete odstrániť sadu \"%1$s\"?</string>
+    <string name="confirm_delete">Odstrániť</string>
+    <string name="copy_dice_set_desc">Kopírovať sadu kociek</string>
+    <string name="copy_dice_set_confirmation_title">Kopírovať sadu?</string>
+    <string name="copy_dice_set_confirmation_message">Chcete skopírovať sadu \"%1$s\"?\n\nObsah:\n%2$s</string>
+    <string name="confirm_copy">Kopírovať</string>
+    <string name="error_active_set_not_found">Chyba: Aktívna sada kociek nebola nájdená. Vyberte alebo vytvorte ju v správe.</string>
+    <string name="error_no_active_set">Žiadna aktívna sada kociek. Vyberte alebo vytvorte ju v správe.</string>
+    <string name="error_cannot_roll_no_set_or_config">Nie je možné hádzať: Žiadna aktívna sada alebo konfigurácia kociek je prázdna.</string>
+    <string name="dice_prompt_with_set">Pripravený hádzať %1$s!</string>
+    <string name="results_for_set">Výsledky pre %1$s:</string>
+    <string name="total_roll_value_format">Celkovo: %1$d</string>
+    <string name="unlock_all_dice_button">Odomknúť všetko</string>
+    <string name="locked_dice_icon_description">Zamknuté kocky</string>
+    <string name="recent_activity_title">Nedávna aktivita</string>
+    <string name="stats_dice_set_usage_title">Použitie sád kociek</string>
+    <string name="stats_results_distribution_title">Rozdelenie výsledkov</string>
+    <string name="stats_unknown_dice_set">Neznáma sada</string>
 </resources>

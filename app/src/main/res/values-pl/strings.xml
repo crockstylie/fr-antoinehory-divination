@@ -3,6 +3,7 @@
     <string name="app_name">Oraknium</string>
 
     <!-- MenuScreen.kt -->
+    <string name="menu_title_header" translatable="false">Oraknium</string>
     <string name="menu_button_magic_ball">Magiczna Kula 8</string>
     <string name="menu_button_coin_flip">Rzut monetą</string>
     <string name="menu_button_rps">Papier, Kamień, Nożyce</string>
@@ -13,6 +14,7 @@
     <!-- MagicBallViewModel specific strings -->
     <string name="magic_ball_initial_prompt_shake">Potrząśnij urządzeniem, aby uzyskać odpowiedź.</string>
     <string name="magic_ball_initial_prompt_no_accelerometer">Potrząśnij urządzeniem (nie wykryto akcelerometru).</string>
+    <string name="magic_ball_shuffling_message" translatable="false">…</string>
 
     <!-- Magic Ball Answers -->
     <string-array name="magic_ball_possible_answers">
@@ -98,7 +100,15 @@
     <string name="settings_clear_stats_dialog_title">Wyczyścić statystyki?</string>
     <string name="settings_clear_stats_dialog_message">Wszystkie dane statystyczne gry zostaną trwale usunięte. Ta operacja jest nieodwracalna.</string>
     <string name="settings_clear_stats_dialog_confirm">Potwierdź</string>
-    <string name="settings_clear_stats_dialog_cancel">Anuluj</string>
+    <string name="settings_clear_stats_for_game_dialog_title">Wyczyścić statystyki dla %1$s?</string>
+    <string name="settings_clear_stats_for_game_dialog_message">Czy na pewno chcesz usunąć wszystkie statystyki dla gry %1$s? Tej operacji nie można cofnąć.</string>
+    <string name="settings_clear_stats_for_game_title">Wyczyść statystyki dla gry</string>
+    <string name="settings_select_game_placeholder">Wybierz grę</string>
+    <string name="settings_game_to_clear_label">Gra do wyczyszczenia</string>
+    <string name="settings_clear_stats_for_selected_game_button">Wyczyść dla wybranej gry</string>
+    <string name="settings_all_games_option">Wszystkie gry</string>
+    <string name="settings_clear_stats_for_all_games_dialog_title">Wyczyścić wszystkie statystyki gier?</string>
+    <string name="settings_clear_stats_for_all_games_dialog_message">Czy na pewno chcesz usunąć wszystkie statystyki gier? Tej operacji nie można cofnąć.</string>
 
     <!-- Generic Interaction Prompts (can be used across screens if needed) -->
     <string name="magic_ball_initial_prompt_generic">Wejdź w interakcję, aby uzyskać odpowiedź.</string>
@@ -139,5 +149,65 @@
     <string name="stats_percentage_format">%.1f%%</string>
     <string name="menu_stats_description">Statystyki</string>
     <string name="game_stats_icon_description">Wyświetl statystyki gry</string>
-    <string name="stats_screen_title_loading">Loading…</string>
+    <string name="stats_screen_title_global_loading">Ładowanie…</string>
+    <string name="stats_global_distribution_chart_title">Globalny rozkład gier</string>
+    <string name="stats_total_plays_for_game">Łączna liczba gier dla tej gry: %d</string>
+    <string name="stats_no_history_available">Brak historii dla tej gry.</string>
+    <string name="stats_full_history_title">Pełna historia</string>
+    <string name="bottom_nav_settings">Ustawienia</string>
+    <string name="bottom_nav_stats">Statystyki</string>
+    <string name="bottom_nav_info">Informacje</string>
+    <string name="navigation_back_description">Wstecz</string>
+    <string name="create_dice_set_screen_title">Utwórz zestaw kości</string>
+    <string name="edit_dice_set_screen_title">Edytuj zestaw kości</string>
+    <string name="dice_set_management_screen_title">Zarządzaj zestawami kości</string>
+    <string name="dice_set_create_new_set_desc">Utwórz nowy zestaw kości</string>
+    <string name="dice_set_no_sets_available">Brak dostępnych zestawów kości.</string>
+    <string name="dice_set_remove_from_favorites">Usuń z ulubionych</string>
+    <string name="dice_set_add_to_favorites">Dodaj do ulubionych</string>
+    <string name="dice_set_edit_set_desc">Edytuj zestaw kości</string>
+    <string name="dice_set_delete_set_desc">Usuń zestaw kości</string>
+    <string name="dice_set_launch_set_desc">Uruchom zestaw kości</string>
+    <string name="save_dice_set_desc">Zapisz zestaw kości</string>
+    <string name="dice_set_name_label">Nazwa zestawu</string>
+    <string name="dice_configurations_label">Konfiguracje kości</string>
+    <string name="add_dice_button">Dodaj kość</string>
+    <string name="add_dice_config_desc">Dodaj nową konfigurację kości</string>
+    <string name="no_dice_configs_yet">Nie skonfigurowano jeszcze żadnych kości. Kliknij "Dodaj kość", aby rozpocząć.</string>
+    <string name="remove_dice_config_desc">Usuń tę konfigurację kości</string>
+    <string name="dice_type_label">Typ kości</string>
+    <string name="quantity_label">Ilość</string>
+    <string name="confirm_add_to_set_button">Dodaj do zestawu</string>
+    <string name="error_set_name_empty">Nazwa zestawu не может быть пустой.</string>
+    <string name="error_no_dice_configs">Dodaj przynajmniej jedną konfigurację kości.</string>
+    <string name="error_invalid_dice_count">Wprowadź prawidłową liczbę kości (większą niż 0).</string>
+    <string name="error_no_dice_configs_suffix">(Błąd: Dodaj przynajmniej jedną.)</string>
+    <string name="navigate_back_desc">Wróć</string>
+    <string name="increment_dice_count_desc">Zwiększ liczbę kości</string>
+    <string name="decrement_dice_count_desc">Zmniejsz liczbę kości</string>
+    <string name="update_button">Aktualizuj</string>
+    <string name="default_new_dice_set_name">Mój zestaw kości</string>
+    <string name="set_active_dice_set_confirmation_title">Ustawić jako aktywny zestaw kości?</string>
+    <string name="set_active_dice_set_confirmation_message">Czy chcesz ustawić \"%1$s\" jako aktywny zestaw kości do rzucania?</string>
+    <string name="confirm_set_active">Ustaw aktywny</string>
+    <string name="cancel">Anuluj</string>
+    <string name="delete_dice_set_confirmation_title">Potwierdź usunięcie</string>
+    <string name="delete_dice_set_confirmation_message">Czy na pewno chcesz usunąć zestaw \"%1$s\"?</string>
+    <string name="confirm_delete">Usuń</string>
+    <string name="copy_dice_set_desc">Kopiuj zestaw kości</string>
+    <string name="copy_dice_set_confirmation_title">Skopiować zestaw?</string>
+    <string name="copy_dice_set_confirmation_message">Czy chcesz skopiować zestaw \"%1$s\"?\n\nZawartość:\n%2$s</string>
+    <string name="confirm_copy">Kopiuj</string>
+    <string name="error_active_set_not_found">Błąd: Aktywny zestaw kości nie został znaleziony. Wybierz lub utwórz go w zarządzaniu.</string>
+    <string name="error_no_active_set">Brak aktywnego zestawu kości. Wybierz lub utwórz go w zarządzaniu.</string>
+    <string name="error_cannot_roll_no_set_or_config">Nie można rzucić: Brak aktywnego zestawu lub konfiguracja kości jest pusta.</string>
+    <string name="dice_prompt_with_set">Gotowy do rzutu %1$s!</string>
+    <string name="results_for_set">Wyniki dla %1$s:</string>
+    <string name="total_roll_value_format">Suma: %1$d</string>
+    <string name="unlock_all_dice_button">Odblokuj wszystko</string>
+    <string name="locked_dice_icon_description">Zablokowane kości</string>
+    <string name="recent_activity_title">Ostatnia aktywność</string>
+    <string name="stats_dice_set_usage_title">Użycie zestawów kości</string>
+    <string name="stats_results_distribution_title">Rozkład wyników</string>
+    <string name="stats_unknown_dice_set">Nieznany zestaw</string>
 </resources>

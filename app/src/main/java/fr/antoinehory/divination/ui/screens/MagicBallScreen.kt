@@ -5,18 +5,19 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.PieChart
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+// import androidx.compose.material.icons.Icons // Potentially unused now
+// import androidx.compose.material.icons.filled.PieChart // Unused now
+// import androidx.compose.material3.BottomAppBar // Unused now
+// import androidx.compose.material3.Icon // Potentially unused if only for old bottom bar
+// import androidx.compose.material3.IconButton // Potentially unused if only for old bottom bar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -24,10 +25,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
-import fr.antoinehory.divination.data.InteractionMode
+import fr.antoinehory.divination.data.model.InteractionMode
+import fr.antoinehory.divination.ui.common.GameHistoryDisplay
 import fr.antoinehory.divination.ui.common.AppScaffold
+import fr.antoinehory.divination.ui.common.BottomAppNavigationBar // AJOUT: Import de la barre de navigation commune
 import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold
+// import fr.antoinehory.divination.ui.theme.OrakniumGold // Potentially unused if only for old bottom bar
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
 import fr.antoinehory.divination.viewmodels.MagicBallViewModel
 import fr.antoinehory.divination.DivinationApplication
@@ -39,7 +42,8 @@ import fr.antoinehory.divination.viewmodels.MagicBallViewModelFactory
 fun MagicBallScreen(
     onNavigateBack: () -> Unit,
     interactionViewModel: InteractionDetectViewModel = viewModel(),
-    onNavigateToStats: (GameType) -> Unit
+    onNavigateToStats: (GameType) -> Unit,
+    onNavigateToInfo: () -> Unit // AJOUT: Paramètre pour la navigation vers l'écran d'info
 ) {
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
@@ -50,6 +54,7 @@ fun MagicBallScreen(
 
     val responseText by magicBallViewModel.currentResponse.collectAsState()
     val isPredicting by magicBallViewModel.isPredicting.collectAsState()
+    val recentLogs by magicBallViewModel.recentLogs.collectAsState()
 
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
@@ -80,34 +85,23 @@ fun MagicBallScreen(
         canNavigateBack = true,
         onNavigateBack = onNavigateBack,
         actions = {
-            // L'icône PieChart est maintenant dans la bottomBar
+            // L'icône PieChart est maintenant gérée par BottomAppNavigationBar
         },
-        bottomBar = { 
-            BottomAppBar(
-                containerColor = MaterialTheme.colorScheme.background, 
-                contentColor = OrakniumGold 
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center, 
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = { onNavigateToStats(GameType.MAGIC_EIGHT_BALL) }) {
-                        Icon(
-                            imageVector = Icons.Filled.PieChart,
-                            contentDescription = stringResource(id = R.string.game_stats_icon_description),
-                            tint = OrakniumGold,
-                            modifier = Modifier.size(36.dp) // MODIFIÉ
-                        )
-                    }
-                }
-            }
+        bottomBar = {
+            // MODIFIÉ: Utilisation de la barre de navigation commune
+            BottomAppNavigationBar(
+                onSettingsClick = { /* Action pour Settings, masquée pour l'instant */ },
+                onStatsClick = { onNavigateToStats(GameType.MAGIC_EIGHT_BALL) },
+                onInfoClick = onNavigateToInfo,
+                showSettingsButton = false // Cache le bouton Settings pour cet écran
+            )
         }
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues) 
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState())
                 .clickable {
                     if (!isPredicting) {
                         if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
@@ -115,7 +109,7 @@ fun MagicBallScreen(
                         }
                     }
                 }
-                .padding(horizontal = 32.dp, vertical = 16.dp), 
+                .padding(horizontal = 32.dp, vertical = 16.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -126,6 +120,11 @@ fun MagicBallScreen(
                 color = textColor,
                 modifier = Modifier
                     .alpha(textAlpha)
+            )
+
+            GameHistoryDisplay(
+                recentLogs = recentLogs,
+                gameType = GameType.MAGIC_EIGHT_BALL
             )
 
             val initialGenericMessage = stringResource(id = R.string.magic_ball_initial_prompt_generic)
@@ -140,6 +139,8 @@ fun MagicBallScreen(
                     color = MaterialTheme.colorScheme.error,
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
+            } else {
+                Spacer(modifier = Modifier.height(16.dp))
             }
         }
     }
@@ -151,7 +152,21 @@ fun MagicBallScreenPreviewIdle() {
     DivinationAppTheme {
         MagicBallScreen(
             onNavigateBack = {},
-            onNavigateToStats = {}
+            onNavigateToStats = {},
+            onNavigateToInfo = {} // AJOUT pour la preview
         )
     }
 }
+
+@Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "MagicBallScreen Landscape")
+@Composable
+fun MagicBallScreenLandscapePreview() {
+    DivinationAppTheme {
+        MagicBallScreen(
+            onNavigateBack = {},
+            onNavigateToStats = {},
+            onNavigateToInfo = {} // AJOUT pour la preview
+        )
+    }
+}
+

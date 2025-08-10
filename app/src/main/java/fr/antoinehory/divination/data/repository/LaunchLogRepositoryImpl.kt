@@ -30,6 +30,11 @@ class LaunchLogRepositoryImpl(
         return launchLogDao.getLogsByGameType(gameType)
     }
 
+    // Implémentation de la nouvelle fonction
+    override fun getRecentLogsByGameType(gameType: GameType, count: Int): Flow<List<LaunchLog>> {
+        return launchLogDao.getRecentLogsByGameType(gameType, count)
+    }
+
     override fun getLaunchCountsByGameType(gameType: GameType): Flow<List<GameLaunchCount>> {
         return launchLogDao.getLaunchCountsByGameType(gameType)
     }

@@ -11,6 +11,8 @@ interface LaunchLogRepository {
     suspend fun insertLog(gameType: GameType, result: String)
     fun getAllLogs(): Flow<List<LaunchLog>>
     fun getLogsByGameType(gameType: GameType): Flow<List<LaunchLog>>
+    // Nouvelle fonction pour récupérer les N derniers lancers via le repository
+    fun getRecentLogsByGameType(gameType: GameType, count: Int): Flow<List<LaunchLog>>
     fun getLaunchCountsByGameType(gameType: GameType): Flow<List<GameLaunchCount>>
     fun getAllGameLaunchCounts(): Flow<List<AllGameLaunchStats>>
     suspend fun deleteLogsByGameType(gameType: GameType)

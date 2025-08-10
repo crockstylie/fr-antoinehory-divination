@@ -5,7 +5,48 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.3] - 2025-XX-XX
+## [2.5.1] - 2025-08-09
+
+### Fixed
+- **UI:**
+  - Fix D10 and D20 display
+  - Fix overall ui 
+- **UX:**
+  - limit the max number of dices from each set to 1000
+
+## [2.5] - 2025-08-09
+
+### Added
+- **Dice sets management:**
+  - Create, modify, delete, copy and load dice sets.
+- **Launches history display:**
+  - Added a new functionality which displays the last 10 launches of each minigame.
+  - Added a new functionality which displays launches history of each minigame in their stats screen.
+
+### Changed
+- **Settings:**
+  - Added the choice of game data to erase
+- **Bottom Menu:**
+  - A brand new menu bar at the bottom of the app
+
+### Fixed
+- **Gradle:**
+  - Upgrade AGP version from 8.5.0 to 8.12.0
+  - Upgrade Kotlin version from 2.0.0 to 2.2.0
+  - Upgrade KSP version from 2.0.0-1.0.21 to 2.2.0-2.0.2
+  - Upgrade Room version from 2.6.1 to 2.7.2
+- **Build Warnings:**
+  - Changing deprecated functions
+
+## [2.4] - 2025-08-08
+
+### Changed
+- **Target SDK:**
+  - Following Play Console warning, I had to change target SDK from 34 to 35.
+- **Screen:**
+  - Improved UI for landscape orientation.
+
+## [2.3] - 2025-08-07
 
 ### Added
 - **Launches statistics:** 

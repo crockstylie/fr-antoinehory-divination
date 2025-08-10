@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import fr.antoinehory.divination.R
+import fr.antoinehory.divination.data.database.entity.LaunchLog
 import fr.antoinehory.divination.data.model.GameType
-// import fr.antoinehory.divination.data.model.LaunchLog // Non utilisé directement ici après refactor
 import fr.antoinehory.divination.data.repository.LaunchLogRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,29 +15,29 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-// Data class pour représenter une ligne de statistique (EXISTANTE)
+// Data class pour représenter une ligne de statistique (inchangée)
 data class StatItem(
-    val gameType: GameType, // Pour savoir à quel jeu appartient ce résultat
-    val resultKey: String, // La clé brute stockée (ex: "HEADS", "0", "ROCK")
-    val displayResult: String, // La chaîne à afficher à l'utilisateur (ex: "Pile!", "It is certain.", "Rock!")
+    val gameType: GameType,
+    val resultKey: String,
+    val displayResult: String,
     val count: Int,
     val percentage: Float
 )
 
-// Data class pour encapsuler toutes les statistiques d'un écran (EXISTANTE)
+// Data class pour encapsuler toutes les statistiques d'un écran (inchangée)
 data class GameStatsData(
-    val title: String, // Titre de l'écran (ex: "Statistiques : Pile ou Face" ou "Statistiques Globales")
+    val title: String,
     val totalPlays: Int,
     val statItems: List<StatItem>,
     val isEmpty: Boolean = statItems.isEmpty() && totalPlays == 0
 )
 
-// NOUVELLE Data class pour les données du graphique à barres global
+// Data class pour représenter la part de chaque jeu dans les statistiques globales (inchangée)
 data class GameGlobalShareEntry(
     val gameType: GameType,
     val gameDisplayName: String,
-    val sharePercentage: Float,
-    val launchCount: Int // Ajout du nombre de lancers pour information potentielle
+    val totalPlaysForGame: Int,
+    val sharePercentage: Float
 )
 
 class GameStatsViewModel(
@@ -49,9 +49,11 @@ class GameStatsViewModel(
     private val _statsData = MutableStateFlow<GameStatsData?>(null)
     val statsData: StateFlow<GameStatsData?> = _statsData.asStateFlow()
 
-    // NOUVELLE StateFlow pour les données du graphique à barres global
     private val _globalGameSharesData = MutableStateFlow<List<GameGlobalShareEntry>>(emptyList())
     val globalGameSharesData: StateFlow<List<GameGlobalShareEntry>> = _globalGameSharesData.asStateFlow()
+
+    private val _fullHistoryLogs = MutableStateFlow<List<LaunchLog>>(emptyList())
+    val fullHistoryLogs: StateFlow<List<LaunchLog>> = _fullHistoryLogs.asStateFlow()
 
     init {
         loadStats()
@@ -66,57 +68,89 @@ class GameStatsViewModel(
             }
 
             launchLogRepository.getAllLogs().collectLatest { allLogs ->
-                val relevantLogs = if (specificGameType != null) {
+                val statItemList = mutableListOf<StatItem>()
+
+                val logsToProcessForStatItems = if (specificGameType != null) {
                     allLogs.filter { it.gameType == specificGameType }
                 } else {
                     allLogs
                 }
 
-                val totalPlaysForCurrentView = relevantLogs.size // Renommé pour clarté
-                val groupedResults = relevantLogs.groupBy { it.gameType to it.result }
+                val groupedByActualGameType = logsToProcessForStatItems.groupBy { it.gameType }
 
-                val statItemList = mutableListOf<StatItem>()
-                groupedResults.forEach { (gameTypeAndResultKey, logs) ->
-                    val gameType = gameTypeAndResultKey.first
-                    val resultKey = gameTypeAndResultKey.second
-                    val count = logs.size
-                    val percentageBase = if (specificGameType != null) {
-                        relevantLogs.filter { it.gameType == gameType }.size
+                groupedByActualGameType.forEach { (actualGameType, logsForThisGameType) ->
+                    val totalPlaysForThisActualGameType = logsForThisGameType.size
+
+                    if (actualGameType == GameType.DICE_ROLL) {
+                        val diceSetCounts = mutableMapOf<String, Int>()
+                        logsForThisGameType.forEach { log ->
+                            val setNamePattern = "Rolled\\s(.*?)(?:\\.\\sTotal:|\\sTotal:)"
+                            val match = Regex(setNamePattern).find(log.result)
+                            val setName = match?.groups?.get(1)?.value?.trim() ?: application.getString(R.string.stats_unknown_dice_set)
+                            diceSetCounts[setName] = (diceSetCounts[setName] ?: 0) + 1
+                        }
+
+                        diceSetCounts.forEach { (setName, count) ->
+                            val percentage = if (totalPlaysForThisActualGameType > 0) (count.toFloat() / totalPlaysForThisActualGameType.toFloat()) * 100 else 0f
+                            statItemList.add(
+                                StatItem(
+                                    gameType = GameType.DICE_ROLL,
+                                    resultKey = setName,
+                                    displayResult = getDisplayStringForResult(GameType.DICE_ROLL, setName), // getDisplayStringForResult gérera l'affichage du nom du set
+                                    count = count,
+                                    percentage = percentage
+                                )
+                            )
+                        }
                     } else {
-                        relevantLogs.filter { it.gameType == gameType }.size
+                        val resultsInThisGameType = logsForThisGameType.groupBy { it.result }
+                        resultsInThisGameType.forEach { (resultKey, logsWithThisResult) ->
+                            val count = logsWithThisResult.size
+                            val percentage = if (totalPlaysForThisActualGameType > 0) (count.toFloat() / totalPlaysForThisActualGameType.toFloat()) * 100 else 0f
+                            statItemList.add(
+                                StatItem(
+                                    gameType = actualGameType,
+                                    resultKey = resultKey,
+                                    displayResult = getDisplayStringForResult(actualGameType, resultKey),
+                                    count = count,
+                                    percentage = percentage
+                                )
+                            )
+                        }
                     }
-                    val percentage = if (percentageBase > 0) (count.toFloat() / percentageBase.toFloat()) * 100 else 0f
-                    val displayResult = getDisplayStringForResult(gameType, resultKey)
-                    statItemList.add(
-                        StatItem(gameType, resultKey, displayResult, count, percentage)
-                    )
                 }
+
                 statItemList.sortWith(compareBy({ it.gameType.name }, { -it.count }, { it.displayResult }))
+
+                val totalPlaysForStatsData = if (specificGameType != null) logsToProcessForStatItems.size else allLogs.size
 
                 _statsData.value = GameStatsData(
                     title = screenTitle,
-                    totalPlays = totalPlaysForCurrentView,
+                    totalPlays = totalPlaysForStatsData,
                     statItems = statItemList.toList()
                 )
 
-                // CALCUL POUR LE GRAPHIQUE GLOBAL (seulement si pas de jeu spécifique)
-                if (specificGameType == null && allLogs.isNotEmpty()) {
-                    val totalGlobalPlays = allLogs.size.toFloat() // Base pour le pourcentage global
-                    val shares = allLogs
-                        .groupBy { it.gameType }
-                        .map { (gameType, logs) ->
-                            val gameLaunchCount = logs.size
-                            GameGlobalShareEntry(
-                                gameType = gameType,
-                                gameDisplayName = getGameDisplayName(gameType),
-                                sharePercentage = if (totalGlobalPlays > 0) (gameLaunchCount / totalGlobalPlays) * 100 else 0f,
-                                launchCount = gameLaunchCount
-                            )
-                        }
-                        .sortedByDescending { it.launchCount } // Optionnel: trier par nombre de lancers
-                    _globalGameSharesData.value = shares
+                if (specificGameType == null) {
+                    val grandTotalAllPlays = allLogs.size
+                    if (grandTotalAllPlays > 0) {
+                        _globalGameSharesData.value = allLogs
+                            .groupBy { it.gameType }
+                            .map { (gameType, logsForGame) ->
+                                GameGlobalShareEntry(
+                                    gameType = gameType,
+                                    gameDisplayName = getGameDisplayName(gameType),
+                                    totalPlaysForGame = logsForGame.size,
+                                    sharePercentage = (logsForGame.size.toFloat() / grandTotalAllPlays.toFloat()) * 100
+                                )
+                            }
+                            .sortedByDescending { it.sharePercentage }
+                    } else {
+                        _globalGameSharesData.value = emptyList()
+                    }
+                    _fullHistoryLogs.value = emptyList()
                 } else {
-                    _globalGameSharesData.value = emptyList() // Vider si jeu spécifique ou pas de logs
+                    _fullHistoryLogs.value = logsToProcessForStatItems.sortedByDescending { it.timestamp }
+                    _globalGameSharesData.value = emptyList()
                 }
             }
         }
@@ -153,15 +187,16 @@ class GameStatsViewModel(
                 }
             }
             GameType.DICE_ROLL -> {
-                val diceNumber = resultKey.toIntOrNull() ?: 0
-                resources.getString(R.string.dice_result_format, diceNumber)
+                resultKey // Pour DICE_ROLL, resultKey est le nom du set. On le retourne directement.
             }
             GameType.ROCK_PAPER_SCISSORS -> when (resultKey) {
-                "ROCK" -> resources.getString(R.string.rps_result_rock)
-                "PAPER" -> resources.getString(R.string.rps_result_paper)
-                "SCISSORS" -> resources.getString(R.string.rps_result_scissors)
+                // S'assurer que RPSOutcome est défini et que .name correspond à resultKey
+                RPSOutcome.ROCK.name -> resources.getString(R.string.rps_result_rock)
+                RPSOutcome.PAPER.name -> resources.getString(R.string.rps_result_paper)
+                RPSOutcome.SCISSORS.name -> resources.getString(R.string.rps_result_scissors)
                 else -> resultKey
             }
+            else -> resultKey // Branche else pour exhaustivité
         }
     }
 }
@@ -179,3 +214,7 @@ class GameStatsViewModelFactory(
         throw IllegalArgumentException("Unknown ViewModel class for GameStatsViewModelFactory")
     }
 }
+
+// Assurez-vous que RPSOutcome est défini ou importé correctement. Par exemple:
+// enum class RPSOutcome { ROCK, PAPER, SCISSORS }
+

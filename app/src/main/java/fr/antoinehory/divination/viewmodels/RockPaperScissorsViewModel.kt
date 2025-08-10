@@ -2,12 +2,13 @@ package fr.antoinehory.divination.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel // AJOUT: Pour ViewModelProvider.Factory
-import androidx.lifecycle.ViewModelProvider // AJOUT: Pour ViewModelProvider.Factory
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import fr.antoinehory.divination.R
-import fr.antoinehory.divination.data.model.GameType // AJOUT: Pour GameType
-import fr.antoinehory.divination.data.repository.LaunchLogRepository // AJOUT: Repository
+import fr.antoinehory.divination.data.model.GameType
+import fr.antoinehory.divination.data.repository.LaunchLogRepository
+import fr.antoinehory.divination.data.database.entity.LaunchLog
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,11 +19,9 @@ import kotlin.random.Random
 enum class RPSOutcome { ROCK, PAPER, SCISSORS }
 
 class RockPaperScissorsViewModel(
-    private val application: Application, // Gardé comme private val
-    private val launchLogRepository: LaunchLogRepository // AJOUT: Repository
+    private val application: Application,
+    private val launchLogRepository: LaunchLogRepository
 ) : AndroidViewModel(application) {
-
-    // private val app: Application = application // 'app' est redondant
 
     private val _currentMessage = MutableStateFlow("")
     val currentMessage: StateFlow<String> = _currentMessage.asStateFlow()
@@ -33,12 +32,24 @@ class RockPaperScissorsViewModel(
     private val _isProcessing = MutableStateFlow(false)
     val isProcessing: StateFlow<Boolean> = _isProcessing.asStateFlow()
 
+    private val _recentLogs = MutableStateFlow<List<LaunchLog>>(emptyList())
+    val recentLogs: StateFlow<List<LaunchLog>> = _recentLogs.asStateFlow()
+
     companion object {
         private const val PROCESSING_DELAY_MS = 700L
+        // S'assurer que c'est bien 10 ici, comme dans DiceRollViewModel si DiceRoll en affiche 10
+        private const val MAX_RECENT_LOGS = 10
     }
 
     init {
         initializeRPSState(application.getString(R.string.rps_initial_prompt_generic))
+        viewModelScope.launch {
+            // Doit bien utiliser MAX_RECENT_LOGS (qui est 10)
+            launchLogRepository.getRecentLogsByGameType(GameType.ROCK_PAPER_SCISSORS, MAX_RECENT_LOGS)
+                .collect { logs ->
+                    _recentLogs.value = logs
+                }
+        }
     }
 
     private fun initializeRPSState(initialMessage: String) {
@@ -68,8 +79,7 @@ class RockPaperScissorsViewModel(
             _rpsOutcome.value = null
             delay(PROCESSING_DELAY_MS)
             determineRPSOutcome()
-            // Enregistre le log après avoir déterminé le résultat
-            _rpsOutcome.value?.let { outcome -> // S'assurer que l'outcome n'est pas null
+            _rpsOutcome.value?.let { outcome -> // S'assurer que outcome n'est pas null
                 launchLogRepository.insertLog(GameType.ROCK_PAPER_SCISSORS, outcome.name)
             }
             _isProcessing.value = false
@@ -77,7 +87,6 @@ class RockPaperScissorsViewModel(
     }
 }
 
-// AJOUT: Factory pour RockPaperScissorsViewModel
 class RockPaperScissorsViewModelFactory(
     private val application: Application,
     private val launchLogRepository: LaunchLogRepository

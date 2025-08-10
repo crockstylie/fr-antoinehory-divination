@@ -2,13 +2,16 @@ package fr.antoinehory.divination.ui.screens
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.clickable // Keep if main column click is desired
+import androidx.compose.foundation.interaction.MutableInteractionSource // Keep for clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons // AJOUTÉ
-import androidx.compose.material.icons.filled.PieChart // AJOUTÉ
-import androidx.compose.material3.BottomAppBar // AJOUTÉ
-import androidx.compose.material3.Icon // AJOUTÉ
-import androidx.compose.material3.IconButton // AJOUTÉ
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+// import androidx.compose.material.icons.Icons // Potentially unused now
+// import androidx.compose.material.icons.filled.PieChart // Unused now
+// import androidx.compose.material3.BottomAppBar // Unused now
+// import androidx.compose.material3.Icon // Potentially unused if only for old bottom bar
+// import androidx.compose.material3.IconButton // Potentially unused if only for old bottom bar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -25,15 +28,16 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.viewmodel.compose.viewModel
 import fr.antoinehory.divination.R
-import fr.antoinehory.divination.data.InteractionMode
-import fr.antoinehory.divination.data.model.GameType // AJOUTÉ
+import fr.antoinehory.divination.data.model.InteractionMode
+import fr.antoinehory.divination.data.model.GameType
+import fr.antoinehory.divination.ui.common.GameHistoryDisplay
 import fr.antoinehory.divination.ui.common.AppScaffold
-import fr.antoinehory.divination.ui.theme.DivinationAppTheme
-import fr.antoinehory.divination.ui.theme.OrakniumGold // AJOUTÉ
+import fr.antoinehory.divination.ui.common.BottomAppNavigationBar // AJOUT: Import de la barre de navigation commune
+import fr.antoinehory.divination.ui.theme.DivinationAppTheme // RESTAURÉ: Import nécessaire pour les Previews
+// import fr.antoinehory.divination.ui.theme.OrakniumGold // Potentially unused now if only for old bottom bar
 import fr.antoinehory.divination.viewmodels.CoinFace
 import fr.antoinehory.divination.viewmodels.CoinFlipViewModel
 import fr.antoinehory.divination.viewmodels.InteractionDetectViewModel
-// Imports ajoutés :
 import fr.antoinehory.divination.DivinationApplication
 import fr.antoinehory.divination.viewmodels.CoinFlipViewModelFactory
 
@@ -41,7 +45,8 @@ import fr.antoinehory.divination.viewmodels.CoinFlipViewModelFactory
 fun CoinFlipScreen(
     onNavigateBack: () -> Unit,
     interactionViewModel: InteractionDetectViewModel = viewModel(),
-    onNavigateToStats: (GameType) -> Unit // AJOUTÉ
+    onNavigateToStats: (GameType) -> Unit,
+    onNavigateToInfo: () -> Unit // AJOUT: Paramètre pour la navigation vers l'écran d'info
 ) {
     val context = LocalContext.current
     val application = context.applicationContext as DivinationApplication
@@ -54,6 +59,7 @@ fun CoinFlipScreen(
     val currentMessage by coinFlipViewModel.currentMessage.collectAsState()
     val coinFace by coinFlipViewModel.coinFace.collectAsState()
     val isFlipping by coinFlipViewModel.isFlipping.collectAsState()
+    val recentLogs by coinFlipViewModel.recentLogs.collectAsState()
 
     val interactionPrefs by interactionViewModel.interactionPreferences.collectAsState()
     val isShakeAvailable by interactionViewModel.isShakeAvailable.collectAsState()
@@ -89,40 +95,32 @@ fun CoinFlipScreen(
         title = stringResource(id = R.string.coin_flip_screen_title),
         canNavigateBack = true,
         onNavigateBack = onNavigateBack,
-        bottomBar = { // AJOUTÉ
-            BottomAppBar(
-                containerColor = MaterialTheme.colorScheme.background,
-                contentColor = OrakniumGold
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = { onNavigateToStats(GameType.COIN_FLIP) }) { // MODIFIÉ GameType
-                        Icon(
-                            imageVector = Icons.Filled.PieChart,
-                            contentDescription = stringResource(id = R.string.game_stats_icon_description),
-                            tint = OrakniumGold,
-                            modifier = Modifier.size(36.dp) // Taille harmonisée
-                        )
-                    }
-                }
-            }
+        bottomBar = {
+            BottomAppNavigationBar(
+                onSettingsClick = { /* Action pour Settings, masquée pour l'instant */ },
+                onStatsClick = { onNavigateToStats(GameType.COIN_FLIP) },
+                onInfoClick = onNavigateToInfo,
+                showSettingsButton = false
+            )
         }
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues) // Appliquer le padding fourni par AppScaffold
-                .padding(16.dp) // Padding interne spécifique à cet écran
-                .clickable {
-                    if (!isFlipping) {
-                        if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
-                            interactionViewModel.userTappedScreen()
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp)
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = null,
+                    onClick = {
+                        if (!isFlipping) {
+                            if (interactionPrefs.activeInteractionMode == InteractionMode.TAP) {
+                                interactionViewModel.userTappedScreen()
+                            }
                         }
                     }
-                },
+                ),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -173,6 +171,13 @@ fun CoinFlipScreen(
                 textAlign = TextAlign.Center,
                 modifier = Modifier.alpha(textAlpha)
             )
+
+            GameHistoryDisplay(
+                recentLogs = recentLogs,
+                gameType = GameType.COIN_FLIP
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
@@ -181,9 +186,23 @@ fun CoinFlipScreen(
 @Composable
 fun CoinFlipScreenPreview() {
     DivinationAppTheme {
-        CoinFlipScreen( // MODIFIÉ
+        CoinFlipScreen(
             onNavigateBack = {},
-            onNavigateToStats = {} // AJOUTÉ
+            onNavigateToStats = {},
+            onNavigateToInfo = {}
         )
     }
 }
+
+@Preview(showBackground = true, widthDp = 720, heightDp = 360, name = "CoinFlipScreen Landscape")
+@Composable
+fun CoinFlipScreenLandscapePreview() {
+    DivinationAppTheme {
+        CoinFlipScreen(
+            onNavigateBack = {},
+            onNavigateToStats = {},
+            onNavigateToInfo = {}
+        )
+    }
+}
+

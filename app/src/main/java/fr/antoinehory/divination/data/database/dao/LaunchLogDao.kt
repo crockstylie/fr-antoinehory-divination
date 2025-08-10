@@ -21,6 +21,10 @@ interface LaunchLogDao {
     @Query("SELECT * FROM launch_logs WHERE gameType = :gameType ORDER BY timestamp DESC")
     fun getLogsByGameType(gameType: GameType): Flow<List<LaunchLog>>
 
+    // Nouvelle fonction pour récupérer les N derniers lancers
+    @Query("SELECT * FROM launch_logs WHERE gameType = :gameType ORDER BY timestamp DESC LIMIT :count")
+    fun getRecentLogsByGameType(gameType: GameType, count: Int): Flow<List<LaunchLog>>
+
     @Query("SELECT result, COUNT(result) as count FROM launch_logs WHERE gameType = :gameType GROUP BY result")
     fun getLaunchCountsByGameType(gameType: GameType): Flow<List<GameLaunchCount>>
 
@@ -47,3 +51,4 @@ data class AllGameLaunchStats(
     val result: String,
     val count: Int
 )
+

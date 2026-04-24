@@ -1,92 +1,89 @@
-    gitignore
-    # Built application files
-    *.apk
-    *.aab
-    *.ap_
+# Built application files
+*.apk
+*.aab
+*.ap_
 
-    # Files for the ART/Dalvik VM
-    *.dex
+# Files for the ART/Dalvik VM
+*.dex
 
-    # Java class files
-    *.class
+# Java class files
+*.class
 
-    # Build files
-    build/
-    */build/
+# Build files
+build/
+*/build/
 
-    # Local configuration files (sdk path, etc)
-    local.properties
+# Local configuration files (sdk path, etc)
+local.properties
 
-    # Log files
-    *.log
+# Log files
+*.log
 
-    # Android Studio Navigation editor files
-    .navigation/
+# Android Studio Navigation editor files
+.navigation/
 
-    # Android Studio captures folder
-    captures/
+# Android Studio captures folder
+captures/
 
-    # Android Studio Profiler data
-    *.hprof
+# Android Studio Profiler data
+*.hprof
 
-    # IntelliJ IDEA project files
-    .idea/
-    *.iml
-    *.ipr
-    *.iws
-    .gradle/
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.ipr
+*.iws
+.gradle/
 
-    # Keystore files (IMPORTANT: NEVER commit your keystore or its passwords)
-    *.jks
-    *.keystore
+# Keystore files (IMPORTANT: NEVER commit your keystore or its passwords)
+*.jks
+*.keystore
 
-    # Google Services (JSON file) - If you have a version for dev and another for prod,
-    # you might want to ignore the specific one and add it manually to your CI/CD.
-    # For a personal project, it's often fine to commit it if it doesn't contain super sensitive info.
-    # google-services.json
+# Google Services (JSON file) - If you have a version for dev and another for prod,
+# you might want to ignore the specific one and add it manually to your CI/CD.
+# For a personal project, it's often fine to commit it if it doesn't contain super sensitive info.
+# google-services.json
 
-    # Local Maven repository
-    .m2/
+# Local Maven repository
+.m2/
 
-    # Heap dump files
-    *.hprof
+# Lint results
+lint/reports/
+*/lint/reports/
 
-    # Lint results
-    lint/reports/
-    */lint/reports/
+# Signed archives
+*.jar
+*.zip
+*.war
+*.ear
 
-    # Signed archives
-    *.jar
-    *.zip
-    *.war
-    *.ear
+# Kapt stubs
+*/tmp/kapt3/stubs/
 
-    # Kapt stubs
-    */tmp/kapt3/stubs/
+# Android Studio specific cache files
+.DS_Store
+*/.DS_Store
 
-    # Android Studio specific cache files
-    .DS_Store
-    */.DS_Store
+# Caches
+.cache/
+*.lock
 
-    # Caches
-    .cache/
-    *.lock
+# Generated code (e.g., by data binding, Dagger)
+*/generated/
 
-    # Generated code (e.g., by data binding, Dagger)
-    */generated/
+# Test results
+test-results/
+*/test-results/
+*/build/reports/
+*/build/test-results/
+*/build/outputs/androidTest-results/
+*/build/outputs/code-coverage/
 
-    # Test results
-    test-results/
-    */test-results/
-    */build/reports/
-    */build/test-results/
-    */build/outputs/androidTest-results/
-    */build/outputs/code-coverage/
+# Sensitive or large files you don't want to track
+# secrets.properties
+# local_keys/
 
-    # Sensitive or large files you don't want to track
-    # secrets.properties
-    # local_keys/
-
-    # Specific to this project (add any custom ones here)
-    # .aiexclude (if you are using AI Assistant and want to exclude specific files from its context)
-    /local.properties
+# Specific to this project (add any custom ones here)
+# .aiexclude (if you are using AI Assistant and want to exclude specific files from its context)
+/local.properties
+/.gradle/
